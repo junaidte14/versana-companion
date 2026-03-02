@@ -382,55 +382,7 @@
         <wp:post_type>page</wp:post_type>
         <wp:status>publish</wp:status>
         <wp:post_name>contact</wp:post_name>
-        <content:encoded><![CDATA[<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|2xl","bottom":"var:preset|spacing|2xl"}}},"layout":{"type":"constrained","contentSize":"700px"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--2-xl);padding-bottom:var(--wp--preset--spacing--2-xl)">
-    <!-- wp:heading {"textAlign":"center","fontSize":"4-xl"} -->
-    <h1 class="wp-block-heading has-text-align-center has-4-xl-font-size">Let's Work Together</h1>
-    <!-- /wp:heading -->
-    
-    <!-- wp:paragraph {"align":"center","fontSize":"md"} -->
-    <p class="has-text-align-center has-md-font-size">Have a project in mind? I'd love to hear about it.</p>
-    <!-- /wp:paragraph -->
-    
-    <!-- wp:separator {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}}} -->
-    <hr class="wp-block-separator has-alpha-channel-opacity" style="margin-top:var(--wp--preset--spacing--xl);margin-bottom:var(--wp--preset--spacing--xl)"/>
-    <!-- /wp:separator -->
-    
-    <!-- wp:columns -->
-    <div class="wp-block-columns">
-        <!-- wp:column -->
-        <div class="wp-block-column">
-            <!-- wp:heading {"level":3} -->
-            <h3 class="wp-block-heading">Email</h3>
-            <!-- /wp:heading -->
-            <!-- wp:paragraph -->
-            <p>hello@creative.design</p>
-            <!-- /wp:paragraph -->
-        </div>
-        <!-- /wp:column -->
-        
-        <!-- wp:column -->
-        <div class="wp-block-column">
-            <!-- wp:heading {"level":3} -->
-            <h3 class="wp-block-heading">Social</h3>
-            <!-- /wp:heading -->
-            <!-- wp:paragraph -->
-            <p>Instagram | Behance | Dribbble</p>
-            <!-- /wp:paragraph -->
-        </div>
-        <!-- /wp:column -->
-    </div>
-    <!-- /wp:columns -->
-    
-    <!-- wp:separator {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|lg"}}}} -->
-    <hr class="wp-block-separator has-alpha-channel-opacity" style="margin-top:var(--wp--preset--spacing--xl);margin-bottom:var(--wp--preset--spacing--lg)"/>
-    <!-- /wp:separator -->
-    
-    <!-- wp:paragraph {"fontSize":"sm"} -->
-    <p class="has-sm-font-size"><strong>Note:</strong> This is a demo contact page. Add a contact form using a plugin.</p>
-    <!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->]]></content:encoded>
+        <content:encoded><![CDATA[<!-- wp:pattern {"slug":"versana/contact-1"} /-->]]></content:encoded>
         <excerpt:encoded><![CDATA[]]></excerpt:encoded>
     </item>
 

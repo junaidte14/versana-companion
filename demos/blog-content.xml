@@ -33,86 +33,12 @@
         <wp:post_date>2024-03-01 10:00:00</wp:post_date>
         <wp:post_type>page</wp:post_type>
         <wp:status>publish</wp:status>
-        <wp:page_template>front-page</wp:page_template>
+        <wp:page_template>full-width</wp:page_template>
         <wp:post_name>home</wp:post_name>
-        <content:encoded><![CDATA[<!-- wp:cover {"overlayColor":"secondary","gradient":"warm-gradient","minHeight":600,"contentPosition":"center center","align":"full"} -->
-<div class="wp-block-cover alignfull" style="min-height:600px"><span aria-hidden="true" class="wp-block-cover__background has-secondary-background-color has-background-dim-100 has-background-dim has-background-gradient has-warm-gradient-gradient-background"></span><div class="wp-block-cover__inner-container">
-    <!-- wp:heading {"textAlign":"center","level":1,"textColor":"neutral-100","fontSize":"4-xl"} -->
-    <h1 class="wp-block-heading has-text-align-center has-neutral-100-color has-text-color has-4-xl-font-size">Welcome to My Blog</h1>
-    <!-- /wp:heading -->
-    
-    <!-- wp:paragraph {"align":"center","textColor":"neutral-100","fontSize":"lg"} -->
-    <p class="has-text-align-center has-neutral-100-color has-text-color has-lg-font-size">Sharing stories, insights, and inspiration</p>
-    <!-- /wp:paragraph -->
-    
-    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-    <div class="wp-block-buttons">
-        <!-- wp:button {"backgroundColor":"neutral-100","textColor":"secondary","style":{"border":{"radius":"8px"}}} -->
-        <div class="wp-block-button"><a class="wp-block-button__link has-secondary-color has-neutral-100-background-color has-text-color has-background wp-element-button" style="border-radius:8px">Start Reading</a></div>
-        <!-- /wp:button -->
-    </div>
-    <!-- /wp:buttons -->
-</div></div>
-<!-- /wp:cover -->
-
-<!-- wp:pattern {"slug":"versana/latest-articles"} /-->
-
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|2xl","bottom":"var:preset|spacing|2xl"}}},"backgroundColor":"neutral-200","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-neutral-200-background-color has-background" style="padding-top:var(--wp--preset--spacing--2-xl);padding-bottom:var(--wp--preset--spacing--2-xl)">
-    <!-- wp:heading {"textAlign":"center","fontSize":"3-xl"} -->
-    <h2 class="wp-block-heading has-text-align-center has-3-xl-font-size">Popular Categories</h2>
-    <!-- /wp:heading -->
-    
-    <!-- wp:columns {"align":"wide"} -->
-    <div class="wp-block-columns alignwide">
-        <!-- wp:column -->
-        <div class="wp-block-column">
-            <!-- wp:group {"style":{"border":{"radius":"12px"},"spacing":{"padding":{"top":"var:preset|spacing|lg","right":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-100"} -->
-            <div class="wp-block-group has-neutral-100-background-color has-background" style="border-radius:12px;padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
-                <!-- wp:heading {"textAlign":"center","level":3} -->
-                <h3 class="wp-block-heading has-text-align-center">Lifestyle</h3>
-                <!-- /wp:heading -->
-                <!-- wp:paragraph {"align":"center"} -->
-                <p class="has-text-align-center">Daily inspiration and life tips</p>
-                <!-- /wp:paragraph -->
-            </div>
-            <!-- /wp:group -->
-        </div>
-        <!-- /wp:column -->
-        
-        <!-- wp:column -->
-        <div class="wp-block-column">
-            <!-- wp:group {"style":{"border":{"radius":"12px"},"spacing":{"padding":{"top":"var:preset|spacing|lg","right":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-100"} -->
-            <div class="wp-block-group has-neutral-100-background-color has-background" style="border-radius:12px;padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
-                <!-- wp:heading {"textAlign":"center","level":3} -->
-                <h3 class="wp-block-heading has-text-align-center">Travel</h3>
-                <!-- /wp:heading -->
-                <!-- wp:paragraph {"align":"center"} -->
-                <p class="has-text-align-center">Adventures around the world</p>
-                <!-- /wp:paragraph -->
-            </div>
-            <!-- /wp:group -->
-        </div>
-        <!-- /wp:column -->
-        
-        <!-- wp:column -->
-        <div class="wp-block-column">
-            <!-- wp:group {"style":{"border":{"radius":"12px"},"spacing":{"padding":{"top":"var:preset|spacing|lg","right":"var:preset|spacing|lg","bottom":"var:preset|spacing|lg","left":"var:preset|spacing|lg"}}},"backgroundColor":"neutral-100"} -->
-            <div class="wp-block-group has-neutral-100-background-color has-background" style="border-radius:12px;padding-top:var(--wp--preset--spacing--lg);padding-right:var(--wp--preset--spacing--lg);padding-bottom:var(--wp--preset--spacing--lg);padding-left:var(--wp--preset--spacing--lg)">
-                <!-- wp:heading {"textAlign":"center","level":3} -->
-                <h3 class="wp-block-heading has-text-align-center">Food</h3>
-                <!-- /wp:heading -->
-                <!-- wp:paragraph {"align":"center"} -->
-                <p class="has-text-align-center">Recipes and culinary discoveries</p>
-                <!-- /wp:paragraph -->
-            </div>
-            <!-- /wp:group -->
-        </div>
-        <!-- /wp:column -->
-    </div>
-    <!-- /wp:columns -->
-</div>
-<!-- /wp:group -->]]></content:encoded>
+        <content:encoded><![CDATA[<!-- wp:pattern {"slug":"versana/hero-banner"} /-->
+    <!-- wp:pattern {"slug":"versana/latest-articles"} /-->
+    <!-- wp:pattern {"slug":"versana/why-choose-us"} /-->
+    <!-- wp:pattern {"slug":"versana/call-to-action"} /-->]]></content:encoded>
         <excerpt:encoded><![CDATA[]]></excerpt:encoded>
     </item>
 
@@ -402,44 +328,51 @@
         <wp:status>publish</wp:status>
         <wp:post_name>about</wp:post_name>
         <content:encoded><![CDATA[<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|2xl","bottom":"var:preset|spacing|2xl"}}},"layout":{"type":"constrained","contentSize":"700px"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--2-xl);padding-bottom:var(--wp--preset--spacing--2-xl)">
-    <!-- wp:heading {"textAlign":"center","fontSize":"4-xl"} -->
-    <h1 class="wp-block-heading has-text-align-center has-4-xl-font-size">Hi, I'm Alex</h1>
-    <!-- /wp:heading -->
-    
-    <!-- wp:paragraph {"align":"center","fontSize":"lg"} -->
-    <p class="has-text-align-center has-lg-font-size">Writer, traveler, and coffee enthusiast</p>
-    <!-- /wp:paragraph -->
-    
-    <!-- wp:separator {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}}} -->
-    <hr class="wp-block-separator has-alpha-channel-opacity" style="margin-top:var(--wp--preset--spacing--xl);margin-bottom:var(--wp--preset--spacing--xl)"/>
-    <!-- /wp:separator -->
-    
-    <!-- wp:paragraph {"fontSize":"md"} -->
-    <p class="has-md-font-size">This blog is where I share my journey—the lessons learned, places explored, and simple joys discovered along the way.</p>
-    <!-- /wp:paragraph -->
-    
-    <!-- wp:paragraph -->
-    <p>I believe in living intentionally, staying curious, and finding beauty in everyday moments. Through this space, I hope to inspire you to do the same.</p>
-    <!-- /wp:paragraph -->
-    
-    <!-- wp:heading -->
-    <h2 class="wp-block-heading">What You'll Find Here</h2>
-    <!-- /wp:heading -->
-    
-    <!-- wp:list -->
-    <ul class="wp-block-list">
-    <li>Personal stories and reflections</li>
-    <li>Travel adventures and tips</li>
-    <li>Lifestyle and wellness insights</li>
-    <li>Food, books, and recommendations</li>
-    </ul>
-    <!-- /wp:list -->
-    
-    <!-- wp:paragraph -->
-    <p>Thanks for being here. Feel free to reach out—I'd love to hear from you!</p>
-    <!-- /wp:paragraph -->
-</div>
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--2-xl);padding-bottom:var(--wp--preset--spacing--2-xl)"><!-- wp:heading {"textAlign":"center","fontSize":"4-xl"} -->
+<h2 class="wp-block-heading has-text-align-center has-4-xl-font-size">Hi, I'm Alex</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"center","fontSize":"lg"} -->
+<p class="has-text-align-center has-lg-font-size">Writer, traveler, and coffee enthusiast</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:separator {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}}} -->
+<hr class="wp-block-separator has-alpha-channel-opacity" style="margin-top:var(--wp--preset--spacing--xl);margin-bottom:var(--wp--preset--spacing--xl)"/>
+<!-- /wp:separator -->
+
+<!-- wp:paragraph {"fontSize":"md"} -->
+<p class="has-md-font-size">This blog is where I share my journey—the lessons learned, places explored, and simple joys discovered along the way.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>I believe in living intentionally, staying curious, and finding beauty in everyday moments. Through this space, I hope to inspire you to do the same.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What You'll Find Here</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list {"className":"wp-block-list"} -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Personal stories and reflections</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Travel adventures and tips</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Lifestyle and wellness insights</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Food, books, and recommendations</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Thanks for being here. Feel free to reach out—I'd love to hear from you!</p>
+<!-- /wp:paragraph --></div>
 <!-- /wp:group -->]]></content:encoded>
         <excerpt:encoded><![CDATA[]]></excerpt:encoded>
     </item>
@@ -455,45 +388,7 @@
         <wp:post_type>page</wp:post_type>
         <wp:status>publish</wp:status>
         <wp:post_name>contact</wp:post_name>
-        <content:encoded><![CDATA[<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|2xl","bottom":"var:preset|spacing|2xl"}}},"layout":{"type":"constrained","contentSize":"700px"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--2-xl);padding-bottom:var(--wp--preset--spacing--2-xl)">
-    <!-- wp:heading {"textAlign":"center","fontSize":"4-xl"} -->
-    <h1 class="wp-block-heading has-text-align-center has-4-xl-font-size">Let's Connect</h1>
-    <!-- /wp:heading -->
-    
-    <!-- wp:paragraph {"align":"center","fontSize":"md"} -->
-    <p class="has-text-align-center has-md-font-size">I'd love to hear from you!</p>
-    <!-- /wp:paragraph -->
-    
-    <!-- wp:separator {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}}} -->
-    <hr class="wp-block-separator has-alpha-channel-opacity" style="margin-top:var(--wp--preset--spacing--xl);margin-bottom:var(--wp--preset--spacing--xl)"/>
-    <!-- /wp:separator -->
-    
-    <!-- wp:heading {"level":3} -->
-    <h3 class="wp-block-heading">Email Me</h3>
-    <!-- /wp:heading -->
-    
-    <!-- wp:paragraph -->
-    <p>hello@example.com</p>
-    <!-- /wp:paragraph -->
-    
-    <!-- wp:heading {"level":3} -->
-    <h3 class="wp-block-heading">Follow Along</h3>
-    <!-- /wp:heading -->
-    
-    <!-- wp:paragraph -->
-    <p>Instagram | Twitter | Pinterest</p>
-    <!-- /wp:paragraph -->
-    
-    <!-- wp:separator {"style":{"spacing":{"margin":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|lg"}}}} -->
-    <hr class="wp-block-separator has-alpha-channel-opacity" style="margin-top:var(--wp--preset--spacing--xl);margin-bottom:var(--wp--preset--spacing--lg)"/>
-    <!-- /wp:separator -->
-    
-    <!-- wp:paragraph {"fontSize":"sm"} -->
-    <p class="has-sm-font-size"><strong>Note:</strong> This is a demo contact page. Add your own contact form using a plugin like Contact Form 7.</p>
-    <!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->]]></content:encoded>
+        <content:encoded><![CDATA[<!-- wp:pattern {"slug":"versana/contact-1"} /-->]]></content:encoded>
         <excerpt:encoded><![CDATA[]]></excerpt:encoded>
     </item>
 

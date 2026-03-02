@@ -65,13 +65,11 @@ function versana_companion_init() {
     
     // Theme is correct - continue initialization
     if ( is_admin() ) {
-        add_action( 'admin_notices', 'versana_companion_success_notice' );
+        //add_action( 'admin_notices', 'versana_companion_success_notice' );
 
         require_once VERSANA_COMPANION_PATH . '/admin/demos.php';
     }
-    
-    require_once VERSANA_COMPANION_PATH . 'includes/class-image-importer.php';
-    
+
 }
 add_action( 'plugins_loaded', 'versana_companion_init' );
 
