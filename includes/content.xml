@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Versana Universal Demo Content
+    Works with all demos - content dynamically adjusted based on demo type
+-->
+<rss version="2.0"
+    xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:wp="http://wordpress.org/export/1.2/">
+
+<channel>
+    <title>Versana Demo</title>
+    <link>https://demos.codoplex.com/versana/</link>
+    <description>Universal demo content for Versana theme</description>
+    <pubDate>Mon, 01 Mar 2024 10:00:00 +0000</pubDate>
+    <language>en-US</language>
+    <wp:wxr_version>1.2</wp:wxr_version>
+
+    <!-- ============================================
+         PAGES - Same for all demos
+         ============================================ -->
+    
+    <!-- Home Page -->
+    <item>
+        <title>Home</title>
+        <link>https://demos.codoplex.com/versana/</link>
+        <pubDate>Mon, 01 Mar 2024 10:00:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <wp:post_id>1</wp:post_id>
+        <wp:post_date>2024-03-01 10:00:00</wp:post_date>
+        <wp:post_type>page</wp:post_type>
+        <wp:status>publish</wp:status>
+        <wp:page_template>full-width</wp:page_template>
+        <wp:post_name>home</wp:post_name>
+        <content:encoded><![CDATA[{HOME_CONTENT}]]></content:encoded>
+        <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+    </item>
+
+    <!-- Services Page -->
+    <item>
+        <title>Services</title>
+        <link>https://demos.codoplex.com/versana/services</link>
+        <pubDate>Mon, 01 Mar 2024 10:00:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <wp:post_id>2</wp:post_id>
+        <wp:post_date>2024-03-01 10:00:00</wp:post_date>
+        <wp:post_type>page</wp:post_type>
+        <wp:status>publish</wp:status>
+        <wp:post_name>services</wp:post_name>
+        <content:encoded><![CDATA[{SERVICES_CONTENT}]]></content:encoded>
+        <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+    </item>
+
+    <!-- About Page -->
+    <item>
+        <title>About</title>
+        <link>https://demos.codoplex.com/versana/about</link>
+        <pubDate>Mon, 01 Mar 2024 10:00:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <wp:post_id>3</wp:post_id>
+        <wp:post_date>2024-03-01 10:00:00</wp:post_date>
+        <wp:post_type>page</wp:post_type>
+        <wp:status>publish</wp:status>
+        <wp:post_name>about</wp:post_name>
+        <content:encoded><![CDATA[{ABOUT_CONTENT}]]></content:encoded>
+        <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+    </item>
+
+    <!-- Contact Page -->
+    <item>
+        <title>Contact</title>
+        <link>https://demos.codoplex.com/versana/contact</link>
+        <pubDate>Mon, 01 Mar 2024 10:00:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <wp:post_id>4</wp:post_id>
+        <wp:post_date>2024-03-01 10:00:00</wp:post_date>
+        <wp:post_type>page</wp:post_type>
+        <wp:status>publish</wp:status>
+        <wp:post_name>contact</wp:post_name>
+        <content:encoded><![CDATA[<!-- wp:pattern {"slug":"versana/contact-1"} /-->]]></content:encoded>
+        <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+    </item>
+
+    <!-- ============================================
+         BLOG POSTS - Generic, work for all demos
+         ============================================ -->
+    
+    <item>
+        <title>Getting Started with Web Development</title>
+        <link>https://demos.codoplex.com/versana/getting-started</link>
+        <pubDate>Thu, 15 Feb 2024 09:00:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <wp:post_id>10</wp:post_id>
+        <wp:post_date>2024-02-15 09:00:00</wp:post_date>
+        <wp:post_type>post</wp:post_type>
+        <wp:status>publish</wp:status>
+        <wp:post_name>getting-started</wp:post_name>
+        <category domain="category" nicename="technology"><![CDATA[Technology]]></category>
+        <category domain="post_tag" nicename="web-development"><![CDATA[Web Development]]></category>
+        <content:encoded><![CDATA[<!-- wp:paragraph {"dropCap":true} -->
+<p class="has-drop-cap">Starting your journey in web development can be both exciting and overwhelming. With the right approach and resources, you can build a strong foundation.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Essential Skills</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Focus on mastering HTML, CSS, and JavaScript first. These form the core of web development and are essential regardless of which frameworks you eventually choose.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<li>HTML for structure and content</li>
+<li>CSS for styling and layout</li>
+<li>JavaScript for interactivity</li>
+<li>Version control with Git</li>
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Practice regularly by building small projects. Start with simple landing pages and gradually increase complexity as you gain confidence.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+        <excerpt:encoded><![CDATA[Essential guide to starting your web development journey with the right foundation.]]></excerpt:encoded>
+    </item>
+
+    <item>
+        <title>Design Principles That Matter</title>
+        <link>https://demos.codoplex.com/versana/design-principles</link>
+        <pubDate>Mon, 19 Feb 2024 10:30:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <wp:post_id>11</wp:post_id>
+        <wp:post_date>2024-02-19 10:30:00</wp:post_date>
+        <wp:post_type>post</wp:post_type>
+        <wp:status>publish</wp:status>
+        <wp:post_name>design-principles</wp:post_name>
+        <category domain="category" nicename="design"><![CDATA[Design]]></category>
+        <category domain="post_tag" nicename="ui-ux"><![CDATA[UI/UX]]></category>
+        <content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Good design is more than aesthetics—it's about solving problems and creating intuitive experiences that users love.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Core Principles</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Understanding fundamental design principles helps create cohesive, professional work that stands the test of time.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Visual Hierarchy</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Guide users' attention through strategic use of size, color, contrast, and spacing. Important elements should stand out naturally.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<li>Use size and weight for emphasis</li>
+<li>Create clear focal points</li>
+<li>Establish reading patterns</li>
+<li>Balance white space effectively</li>
+</ul>
+<!-- /wp:list -->]]></content:encoded>
+        <excerpt:encoded><![CDATA[Understanding fundamental design principles for creating better user experiences.]]></excerpt:encoded>
+    </item>
+
+    <item>
+        <title>Building Better User Experiences</title>
+        <link>https://demos.codoplex.com/versana/user-experiences</link>
+        <pubDate>Fri, 23 Feb 2024 14:00:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <wp:post_id>12</wp:post_id>
+        <wp:post_date>2024-02-23 14:00:00</wp:post_date>
+        <wp:post_type>post</wp:post_type>
+        <wp:status>publish</wp:status>
+        <wp:post_name>user-experiences</wp:post_name>
+        <category domain="category" nicename="business"><![CDATA[Business]]></category>
+        <category domain="post_tag" nicename="strategy"><![CDATA[Strategy]]></category>
+        <content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>User experience design focuses on creating products that provide meaningful and relevant experiences to users.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Research First</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Understanding your users through research prevents assumptions and leads to better design decisions.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<li>Conduct user interviews</li>
+<li>Create user personas</li>
+<li>Map user journeys</li>
+<li>Test early and often</li>
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Great UX comes from empathy, iteration, and a deep understanding of user needs and behaviors.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+        <excerpt:encoded><![CDATA[How to create meaningful experiences through user-centered design.]]></excerpt:encoded>
+    </item>
+
+    <item>
+        <title>Content Strategy Essentials</title>
+        <link>https://demos.codoplex.com/versana/content-strategy</link>
+        <pubDate>Tue, 27 Feb 2024 11:15:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <wp:post_id>13</wp:post_id>
+        <wp:post_date>2024-02-27 11:15:00</wp:post_date>
+        <wp:post_type>post</wp:post_type>
+        <wp:status>publish</wp:status>
+        <wp:post_name>content-strategy</wp:post_name>
+        <category domain="category" nicename="business"><![CDATA[Business]]></category>
+        <category domain="post_tag" nicename="content"><![CDATA[Content]]></category>
+        <content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Effective content strategy aligns business goals with user needs through well-planned creation and distribution.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Planning Your Content</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Start with clear objectives and understand what success looks like for your content initiatives.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Key Components</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<li>Define your audience</li>
+<li>Set measurable goals</li>
+<li>Create content calendar</li>
+<li>Establish quality standards</li>
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Consistency and quality matter more than quantity. Focus on providing real value to your audience.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+        <excerpt:encoded><![CDATA[Building an effective content strategy that delivers results.]]></excerpt:encoded>
+    </item>
+
+    <item>
+        <title>Productivity Tips for Professionals</title>
+        <link>https://demos.codoplex.com/versana/productivity-tips</link>
+        <pubDate>Sat, 02 Mar 2024 15:45:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <wp:post_id>14</wp:post_id>
+        <wp:post_date>2024-03-02 15:45:00</wp:post_date>
+        <wp:post_type>post</wp:post_type>
+        <wp:status>publish</wp:status>
+        <wp:post_name>productivity-tips</wp:post_name>
+        <category domain="category" nicename="technology"><![CDATA[Technology]]></category>
+        <category domain="post_tag" nicename="productivity"><![CDATA[Productivity]]></category>
+        <content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Maximizing productivity isn't about working harder—it's about working smarter with the right systems and habits.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Essential Strategies</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Small changes in how you organize and approach work can lead to significant improvements in output and satisfaction.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<li>Use time-blocking techniques</li>
+<li>Minimize context switching</li>
+<li>Automate repetitive tasks</li>
+<li>Take regular breaks</li>
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Remember that sustainable productivity requires balance. Protect your energy and focus on what truly matters.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+        <excerpt:encoded><![CDATA[Practical productivity strategies for getting more done without burnout.]]></excerpt:encoded>
+    </item>
+
+    <item>
+        <title>Modern Web Technologies</title>
+        <link>https://demos.codoplex.com/versana/web-technologies</link>
+        <pubDate>Wed, 06 Mar 2024 13:00:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <wp:post_id>15</wp:post_id>
+        <wp:post_date>2024-03-06 13:00:00</wp:post_date>
+        <wp:post_type>post</wp:post_type>
+        <wp:status>publish</wp:status>
+        <wp:post_name>web-technologies</wp:post_name>
+        <category domain="category" nicename="technology"><![CDATA[Technology]]></category>
+        <category domain="post_tag" nicename="web-development"><![CDATA[Web Development]]></category>
+        <content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>The web development landscape evolves rapidly. Staying current with modern technologies helps build better, faster applications.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Current Trends</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Focus on technologies that solve real problems and improve developer experience without unnecessary complexity.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul class="wp-block-list">
+<li>Component-based frameworks</li>
+<li>Static site generators</li>
+<li>Serverless architecture</li>
+<li>Progressive web apps</li>
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Choose tools based on project requirements rather than hype. The best technology is one that fits your specific needs.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+        <excerpt:encoded><![CDATA[Overview of modern web technologies and when to use them.]]></excerpt:encoded>
+    </item>
+
+</channel>
+</rss>

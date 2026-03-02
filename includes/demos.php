@@ -11,16 +11,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Get available demos with theme configurations
+ * Get available demos with configurations
  */
 function versana_companion_get_available_demos() {
     $demos = array(
         'blog' => array(
             'name'        => __( 'Personal Blog', 'versana-companion' ),
-            'description' => __( 'Clean and minimal blog layout perfect for writers and content creators. Focus on readability with warm color scheme.', 'versana-companion' ),
+            'description' => __( 'Clean and minimal blog layout perfect for writers and content creators.', 'versana-companion' ),
             'preview_url' => 'https://demos.codoplex.com/versana/blog/',
-            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/demos/blog.jpg',
-            'xml_file'    => VERSANA_COMPANION_PATH . 'demos/blog-content.xml',
+            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/blog.jpg',
+            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'blog',
             'tags'        => array( 'blog', 'minimal', 'writer' ),
             'theme_config' => array(
@@ -34,10 +34,10 @@ function versana_companion_get_available_demos() {
         ),
         'business' => array(
             'name'        => __( 'Business Website', 'versana-companion' ),
-            'description' => __( 'Professional business website with services and portfolio sections. Perfect for corporate sites with blue corporate colors.', 'versana-companion' ),
+            'description' => __( 'Professional business website perfect for corporate sites and agencies.', 'versana-companion' ),
             'preview_url' => 'https://demos.codoplex.com/versana/business/',
-            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/demos/business.jpg',
-            'xml_file'    => VERSANA_COMPANION_PATH . 'demos/business-content.xml',
+            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/business.jpg',
+            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'business',
             'tags'        => array( 'business', 'corporate', 'professional' ),
             'theme_config' => array(
@@ -51,10 +51,10 @@ function versana_companion_get_available_demos() {
         ),
         'portfolio' => array(
             'name'        => __( 'Creative Portfolio', 'versana-companion' ),
-            'description' => __( 'Showcase your work with a beautiful portfolio layout. Ideal for designers and creative professionals with bold purple theme.', 'versana-companion' ),
+            'description' => __( 'Showcase your work with a beautiful portfolio layout for creatives.', 'versana-companion' ),
             'preview_url' => 'https://demos.codoplex.com/versana/portfolio/',
-            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/demos/portfolio.jpg',
-            'xml_file'    => VERSANA_COMPANION_PATH . 'demos/portfolio-content.xml',
+            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/portfolio.jpg',
+            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'portfolio',
             'tags'        => array( 'portfolio', 'creative', 'showcase' ),
             'theme_config' => array(
@@ -250,9 +250,24 @@ function versana_companion_enqueue_demo_library_assets( $hook ) {
 add_action( 'admin_enqueue_scripts', 'versana_companion_enqueue_demo_library_assets' );
 
 /**
- * Parse demo XML file
+ * Parse demo XML and replace placeholders with demo-specific content
  */
-function versana_companion_parse_demo_xml( $xml_content ) {
+function versana_companion_parse_demo_xml( $xml_content, $demo_key ) {
+    // Get page content configurations
+    $page_configs = versana_companion_get_demo_page_configs();
+    $demo_config = isset( $page_configs[ $demo_key ] ) ? $page_configs[ $demo_key ] : array();
+    
+    // Replace content placeholders
+    $replacements = array(
+        '{HOME_CONTENT}'     => isset( $demo_config['home'] ) ? $demo_config['home'] : '',
+        '{SERVICES_CONTENT}' => isset( $demo_config['services'] ) ? $demo_config['services'] : '',
+        '{ABOUT_CONTENT}'    => isset( $demo_config['about'] ) ? $demo_config['about'] : '',
+    );
+    
+    foreach ( $replacements as $placeholder => $content ) {
+        $xml_content = str_replace( $placeholder, $content, $xml_content );
+    }
+    
     libxml_use_internal_errors( true );
     
     $xml = simplexml_load_string( $xml_content );
@@ -359,7 +374,7 @@ function versana_companion_import_content( $parsed_data, $demo_key ) {
             );
             continue;
         }
-        
+
         $post_args = array(
             'post_title'   => $post_data['title'],
             'post_content' => $post_data['content'],
@@ -381,7 +396,6 @@ function versana_companion_import_content( $parsed_data, $demo_key ) {
         } else {
             $results['posts'][] = $post_id;
             
-            // Assign categories
             if ( ! empty( $post_data['categories'] ) ) {
                 $category_ids = array();
                 foreach ( $post_data['categories'] as $cat_name ) {
@@ -395,7 +409,6 @@ function versana_companion_import_content( $parsed_data, $demo_key ) {
                 }
             }
             
-            // Assign tags
             if ( ! empty( $post_data['tags'] ) ) {
                 wp_set_post_tags( $post_id, $post_data['tags'] );
             }
@@ -443,7 +456,6 @@ function versana_companion_import_content( $parsed_data, $demo_key ) {
             if ( ! empty( $page_data['page_template'] )){
                 update_post_meta( $page_id, '_wp_page_template', $page_data['page_template'] );
             }
-            // Mark front page
             if ( ! empty( $page_data['page_template'] ) && $page_data['page_template'] === 'full-width' ) {
                 $results['front_page_id'] = $page_id;
             }
@@ -515,7 +527,7 @@ function versana_companion_post_exists( $title, $post_type = 'post' ) {
  * Create navigation menu for demo
  */
 function versana_companion_create_demo_menu( $page_ids, $demo_key ) {
-    $menu_name = ucfirst( $demo_key ) . ' Menu';
+    $menu_name = 'Main Menu';
     $menu_id = wp_create_nav_menu( $menu_name );
     
     if ( is_wp_error( $menu_id ) ) {
@@ -525,32 +537,36 @@ function versana_companion_create_demo_menu( $page_ids, $demo_key ) {
     $home_page_id = get_option( 'page_on_front' );
     $menu_order = 1;
     
+    // Define menu structure
+    $menu_pages = array( 'Home', 'Services', 'About', 'Contact' );
+    
     foreach ( $page_ids as $page_id ) {
         if ( $page_id == $home_page_id ) {
             continue;
         }
         
-        wp_update_nav_menu_item( $menu_id, 0, array(
-            'menu-item-object-id' => $page_id,
-            'menu-item-object'    => 'page',
-            'menu-item-type'      => 'post_type',
-            'menu-item-status'    => 'publish',
-            'menu-item-position'  => $menu_order++,
-        ) );
-    }
-    
-    // Add Blog link for non-blog demos
-    if ( $demo_key !== 'blog' ) {
-        $blog_page = get_option( 'page_for_posts' );
-        if ( $blog_page ) {
+        $page = get_post( $page_id );
+        if ( $page && in_array( $page->post_title, $menu_pages ) ) {
             wp_update_nav_menu_item( $menu_id, 0, array(
-                'menu-item-object-id' => $blog_page,
+                'menu-item-object-id' => $page_id,
                 'menu-item-object'    => 'page',
                 'menu-item-type'      => 'post_type',
                 'menu-item-status'    => 'publish',
                 'menu-item-position'  => $menu_order++,
             ) );
         }
+    }
+    
+    // Add Blog link
+    $blog_page = get_option( 'page_for_posts' );
+    if ( $blog_page ) {
+        wp_update_nav_menu_item( $menu_id, 0, array(
+            'menu-item-object-id' => $blog_page,
+            'menu-item-object'    => 'page',
+            'menu-item-type'      => 'post_type',
+            'menu-item-status'    => 'publish',
+            'menu-item-position'  => $menu_order++,
+        ) );
     }
     
     // Assign to primary location
@@ -569,7 +585,7 @@ function versana_companion_set_reading_settings( $page_ids, $demo_key, $front_pa
         return false;
     }
     
-    // Blog demo shows posts on front
+    // For blog demo, show posts on front
     if ( $demo_key === 'blog' ) {
         update_option( 'show_on_front', 'posts' );
         delete_option( 'page_on_front' );
@@ -577,7 +593,7 @@ function versana_companion_set_reading_settings( $page_ids, $demo_key, $front_pa
         return true;
     }
     
-    // Portfolio and business use custom home pages
+    // For portfolio and business, use custom home pages
     if ( $front_page_id ) {
         update_option( 'show_on_front', 'page' );
         update_option( 'page_on_front', $front_page_id );
@@ -669,6 +685,124 @@ function versana_companion_apply_demo_config( $demo_key ) {
 }
 
 /**
+ * Get demo page content configurations
+ */
+function versana_companion_get_demo_page_configs() {
+    return array(
+        'blog' => array(
+            'home' => '<!-- wp:cover {"overlayColor":"secondary","gradient":"warm-gradient","minHeight":85,"minHeightUnit":"vh","contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-cover alignfull" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;min-height:85vh">
+    <span aria-hidden="true" class="wp-block-cover__background has-secondary-background-color has-background-dim-100 has-background-dim has-background-gradient has-warm-gradient-gradient-background"></span>
+    <div class="wp-block-cover__inner-container">
+        <div class="wp-block-group" style="padding:var(--wp--preset--spacing--2-xl) var(--wp--preset--spacing--md)">
+            <h1 class="wp-block-heading has-text-align-center has-neutral-100-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--md);font-size:clamp(2.5rem, 8vw, 5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1">Welcome to My Blog</h1>
+            <p class="has-text-align-center has-neutral-100-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--lg);font-size:clamp(1.125rem, 2.5vw, 1.5rem);line-height:1.6">Sharing stories, insights, and inspiration</p>
+            <div class="wp-block-buttons" style="margin-top:0;display:flex;justify-content:center">
+                <div class="wp-block-button"><a class="wp-block-button__link has-secondary-color has-neutral-100-background-color has-text-color has-background wp-element-button" style="border-radius:50px;padding:var(--wp--preset--spacing--sm) var(--wp--preset--spacing--xl);font-size:1.125rem;font-weight:600">Start Reading</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /wp:cover -->
+
+<!-- wp:pattern {"slug":"versana/latest-articles"} /-->
+
+<!-- wp:pattern {"slug":"versana/why-choose-us"} /-->',
+            'services' => '<!-- wp:pattern {"slug":"versana/our-services"} /-->',
+            'about' => '<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|2xl","bottom":"var:preset|spacing|2xl"}}},"layout":{"type":"constrained","contentSize":"800px"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--2-xl);padding-bottom:var(--wp--preset--spacing--2-xl)">
+    <h1 class="wp-block-heading has-text-align-center has-4-xl-font-size">About Me</h1>
+    <p class="has-text-align-center has-lg-font-size">Writer, creator, and storyteller</p>
+    <hr class="wp-block-separator has-alpha-channel-opacity" style="margin-top:var(--wp--preset--spacing--xl);margin-bottom:var(--wp--preset--spacing--xl)"/>
+    <p class="has-md-font-size">Welcome to my corner of the internet. I share thoughts, experiences, and insights on topics I\'m passionate about.</p>
+    <h2 class="wp-block-heading">What I Write About</h2>
+    <ul class="wp-block-list">
+        <li>Personal growth and development</li>
+        <li>Creative writing and storytelling</li>
+        <li>Technology and innovation</li>
+        <li>Life experiences and lessons learned</li>
+    </ul>
+    <p>Thanks for stopping by. I hope you find something that resonates with you.</p>
+</div>
+<!-- /wp:group -->',
+        ),
+        'business' => array(
+            'home' => '<!-- wp:pattern {"slug":"versana/hero-banner"} /-->
+
+<!-- wp:pattern {"slug":"versana/our-services"} /-->
+
+<!-- wp:pattern {"slug":"versana/latest-articles"} /-->
+
+<!-- wp:pattern {"slug":"versana/call-to-action"} /-->',
+            'services' => '<!-- wp:pattern {"slug":"versana/it-services"} /-->',
+            'about' => '<!-- wp:cover {"overlayColor":"primary","minHeight":400,"contentPosition":"center center","isDark":true,"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}}} -->
+<div class="wp-block-cover alignfull is-light" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);min-height:400px">
+    <span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-100 has-background-dim"></span>
+    <div class="wp-block-cover__inner-container">
+        <h1 class="wp-block-heading has-text-align-center has-neutral-100-color has-text-color has-4-xl-font-size">About Our Company</h1>
+        <p class="has-text-align-center has-neutral-100-color has-text-color has-md-font-size">Building the future of digital business</p>
+    </div>
+</div>
+<!-- /wp:cover -->
+
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|2xl","bottom":"var:preset|spacing|2xl"}}},"layout":{"type":"constrained","contentSize":"800px"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--2-xl);padding-bottom:var(--wp--preset--spacing--2-xl)">
+    <h2 class="wp-block-heading">Our Story</h2>
+    <p class="has-md-font-size">We help businesses navigate digital transformation with innovative solutions and strategic expertise.</p>
+    <h2 class="wp-block-heading">Our Mission</h2>
+    <p class="has-md-font-size">To empower businesses with technology solutions that drive growth and create competitive advantages.</p>
+    <h2 class="wp-block-heading">Our Values</h2>
+    <ul class="wp-block-list">
+        <li><strong>Excellence:</strong> We deliver exceptional results</li>
+        <li><strong>Innovation:</strong> We embrace new technologies</li>
+        <li><strong>Integrity:</strong> We build trust through transparency</li>
+        <li><strong>Collaboration:</strong> We work as partners</li>
+    </ul>
+</div>
+<!-- /wp:group -->',
+        ),
+        'portfolio' => array(
+            'home' => '<!-- wp:cover {"overlayColor":"tertiary","minHeight":85,"minHeightUnit":"vh","contentPosition":"center center","isDark":true,"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-cover alignfull is-light" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;min-height:85vh">
+    <span aria-hidden="true" class="wp-block-cover__background has-tertiary-background-color has-background-dim-100 has-background-dim"></span>
+    <div class="wp-block-cover__inner-container">
+        <div class="wp-block-group" style="padding:var(--wp--preset--spacing--2-xl) var(--wp--preset--spacing--md)">
+            <h1 class="wp-block-heading has-text-align-center has-neutral-100-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--md);font-size:clamp(2.5rem, 8vw, 5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1">Creative Designer</h1>
+            <p class="has-text-align-center has-neutral-100-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--lg);font-size:clamp(1.125rem, 2.5vw, 1.5rem);line-height:1.6">Crafting visual experiences that inspire</p>
+            <div class="wp-block-buttons" style="margin-top:0;display:flex;justify-content:center">
+                <div class="wp-block-button"><a class="wp-block-button__link has-tertiary-color has-neutral-100-background-color has-text-color has-background wp-element-button" style="border-radius:50px;padding:var(--wp--preset--spacing--sm) var(--wp--preset--spacing--xl);font-size:1.125rem;font-weight:600">View Portfolio</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /wp:cover -->
+
+<!-- wp:pattern {"slug":"versana/latest-articles"} /-->
+
+<!-- wp:pattern {"slug":"versana/why-choose-us"} /-->',
+            'services' => '<!-- wp:pattern {"slug":"versana/our-services"} /-->',
+            'about' => '<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|2xl","bottom":"var:preset|spacing|2xl"}}},"layout":{"type":"constrained","contentSize":"800px"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--2-xl);padding-bottom:var(--wp--preset--spacing--2-xl)">
+    <h1 class="wp-block-heading has-text-align-center has-4-xl-font-size">About Me</h1>
+    <p class="has-text-align-center has-lg-font-size">Designer. Creator. Problem Solver.</p>
+    <hr class="wp-block-separator has-alpha-channel-opacity" style="margin-top:var(--wp--preset--spacing--xl);margin-bottom:var(--wp--preset--spacing--xl)"/>
+    <p class="has-md-font-size">I\'m a multidisciplinary designer passionate about creating work that resonates. With years of experience, I help brands tell their stories through design.</p>
+    <h2 class="wp-block-heading">What I Believe</h2>
+    <p>Great design solves problems and creates meaningful connections. I approach every project with curiosity and dedication.</p>
+    <h2 class="wp-block-heading">Expertise</h2>
+    <ul class="wp-block-list">
+        <li>Brand identity and visual systems</li>
+        <li>Web and mobile interface design</li>
+        <li>User experience and research</li>
+        <li>Creative direction</li>
+    </ul>
+</div>
+<!-- /wp:group -->',
+        ),
+    );
+}
+
+/**
  * Save import data
  */
 function versana_companion_save_import_data( $demo_key, $import_results ) {
@@ -738,7 +872,7 @@ function versana_companion_ajax_import_demo() {
         wp_send_json_error( array( 'message' => 'Could not read demo file' ) );
     }
     
-    $parsed_data = versana_companion_parse_demo_xml( $xml_content );
+    $parsed_data = versana_companion_parse_demo_xml( $xml_content, $demo_key );
     
     if ( $parsed_data === false ) {
         wp_send_json_error( array( 'message' => 'Could not parse XML file' ) );
@@ -760,7 +894,7 @@ function versana_companion_ajax_import_demo() {
     $front_page_id = isset( $import_results['front_page_id'] ) ? $import_results['front_page_id'] : null;
     versana_companion_set_reading_settings( $import_results['pages'], $demo_key, $front_page_id );
     
-    $blog_page = get_page_by_title( 'Blog' );
+    $blog_page = get_page_by_path( 'blog' );
     if ( $blog_page ) {
         $import_results['blog_page_id'] = $blog_page->ID;
     }
