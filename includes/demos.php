@@ -690,114 +690,31 @@ function versana_companion_apply_demo_config( $demo_key ) {
 function versana_companion_get_demo_page_configs() {
     return array(
         'blog' => array(
-            'home' => '<!-- wp:cover {"overlayColor":"secondary","gradient":"warm-gradient","minHeight":85,"minHeightUnit":"vh","contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
-<div class="wp-block-cover alignfull" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;min-height:85vh">
-    <span aria-hidden="true" class="wp-block-cover__background has-secondary-background-color has-background-dim-100 has-background-dim has-background-gradient has-warm-gradient-gradient-background"></span>
-    <div class="wp-block-cover__inner-container">
-        <div class="wp-block-group" style="padding:var(--wp--preset--spacing--2-xl) var(--wp--preset--spacing--md)">
-            <h1 class="wp-block-heading has-text-align-center has-neutral-100-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--md);font-size:clamp(2.5rem, 8vw, 5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1">Welcome to My Blog</h1>
-            <p class="has-text-align-center has-neutral-100-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--lg);font-size:clamp(1.125rem, 2.5vw, 1.5rem);line-height:1.6">Sharing stories, insights, and inspiration</p>
-            <div class="wp-block-buttons" style="margin-top:0;display:flex;justify-content:center">
-                <div class="wp-block-button"><a class="wp-block-button__link has-secondary-color has-neutral-100-background-color has-text-color has-background wp-element-button" style="border-radius:50px;padding:var(--wp--preset--spacing--sm) var(--wp--preset--spacing--xl);font-size:1.125rem;font-weight:600">Start Reading</a></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /wp:cover -->
-
-<!-- wp:pattern {"slug":"versana/latest-articles"} /-->
-
-<!-- wp:pattern {"slug":"versana/why-choose-us"} /-->',
+            'home' => '<!-- wp:pattern {"slug":"versana/blog-hero"} /-->
+                    <!-- wp:pattern {"slug":"versana/latest-articles"} /-->
+                    <!-- wp:pattern {"slug":"versana/why-choose-us"} /-->
+                    <!-- wp:pattern {"slug":"versana/call-to-action"} /-->',
             'services' => '<!-- wp:pattern {"slug":"versana/our-services"} /-->',
-            'about' => '<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|2xl","bottom":"var:preset|spacing|2xl"}}},"layout":{"type":"constrained","contentSize":"800px"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--2-xl);padding-bottom:var(--wp--preset--spacing--2-xl)">
-    <h1 class="wp-block-heading has-text-align-center has-4-xl-font-size">About Me</h1>
-    <p class="has-text-align-center has-lg-font-size">Writer, creator, and storyteller</p>
-    <hr class="wp-block-separator has-alpha-channel-opacity" style="margin-top:var(--wp--preset--spacing--xl);margin-bottom:var(--wp--preset--spacing--xl)"/>
-    <p class="has-md-font-size">Welcome to my corner of the internet. I share thoughts, experiences, and insights on topics I\'m passionate about.</p>
-    <h2 class="wp-block-heading">What I Write About</h2>
-    <ul class="wp-block-list">
-        <li>Personal growth and development</li>
-        <li>Creative writing and storytelling</li>
-        <li>Technology and innovation</li>
-        <li>Life experiences and lessons learned</li>
-    </ul>
-    <p>Thanks for stopping by. I hope you find something that resonates with you.</p>
-</div>
-<!-- /wp:group -->',
+            'about' => '<!-- wp:pattern {"slug":"versana/about"} /-->',
+            'contact' => '<!-- wp:pattern {"slug":"versana/contact"} /-->',
         ),
         'business' => array(
             'home' => '<!-- wp:pattern {"slug":"versana/hero-banner"} /-->
-
-<!-- wp:pattern {"slug":"versana/our-services"} /-->
-
-<!-- wp:pattern {"slug":"versana/latest-articles"} /-->
-
-<!-- wp:pattern {"slug":"versana/call-to-action"} /-->',
-            'services' => '<!-- wp:pattern {"slug":"versana/it-services"} /-->',
-            'about' => '<!-- wp:cover {"overlayColor":"primary","minHeight":400,"contentPosition":"center center","isDark":true,"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}}} -->
-<div class="wp-block-cover alignfull is-light" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);min-height:400px">
-    <span aria-hidden="true" class="wp-block-cover__background has-primary-background-color has-background-dim-100 has-background-dim"></span>
-    <div class="wp-block-cover__inner-container">
-        <h1 class="wp-block-heading has-text-align-center has-neutral-100-color has-text-color has-4-xl-font-size">About Our Company</h1>
-        <p class="has-text-align-center has-neutral-100-color has-text-color has-md-font-size">Building the future of digital business</p>
-    </div>
-</div>
-<!-- /wp:cover -->
-
-<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|2xl","bottom":"var:preset|spacing|2xl"}}},"layout":{"type":"constrained","contentSize":"800px"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--2-xl);padding-bottom:var(--wp--preset--spacing--2-xl)">
-    <h2 class="wp-block-heading">Our Story</h2>
-    <p class="has-md-font-size">We help businesses navigate digital transformation with innovative solutions and strategic expertise.</p>
-    <h2 class="wp-block-heading">Our Mission</h2>
-    <p class="has-md-font-size">To empower businesses with technology solutions that drive growth and create competitive advantages.</p>
-    <h2 class="wp-block-heading">Our Values</h2>
-    <ul class="wp-block-list">
-        <li><strong>Excellence:</strong> We deliver exceptional results</li>
-        <li><strong>Innovation:</strong> We embrace new technologies</li>
-        <li><strong>Integrity:</strong> We build trust through transparency</li>
-        <li><strong>Collaboration:</strong> We work as partners</li>
-    </ul>
-</div>
-<!-- /wp:group -->',
+                    <!-- wp:pattern {"slug":"versana/our-services"} /-->
+                    <!-- wp:pattern {"slug":"versana/latest-articles"} /-->
+                    <!-- wp:pattern {"slug":"versana/call-to-action"} /-->',
+            'services' => '<!-- wp:pattern {"slug":"versana/business-services"} /-->',
+            'about' => '<!-- wp:pattern {"slug":"versana/business-about"} /-->',
+            'contact' => '<!-- wp:pattern {"slug":"versana/contact"} /-->',
         ),
         'portfolio' => array(
-            'home' => '<!-- wp:cover {"overlayColor":"tertiary","minHeight":85,"minHeightUnit":"vh","contentPosition":"center center","isDark":true,"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
-<div class="wp-block-cover alignfull is-light" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;min-height:85vh">
-    <span aria-hidden="true" class="wp-block-cover__background has-tertiary-background-color has-background-dim-100 has-background-dim"></span>
-    <div class="wp-block-cover__inner-container">
-        <div class="wp-block-group" style="padding:var(--wp--preset--spacing--2-xl) var(--wp--preset--spacing--md)">
-            <h1 class="wp-block-heading has-text-align-center has-neutral-100-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--md);font-size:clamp(2.5rem, 8vw, 5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1">Creative Designer</h1>
-            <p class="has-text-align-center has-neutral-100-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--lg);font-size:clamp(1.125rem, 2.5vw, 1.5rem);line-height:1.6">Crafting visual experiences that inspire</p>
-            <div class="wp-block-buttons" style="margin-top:0;display:flex;justify-content:center">
-                <div class="wp-block-button"><a class="wp-block-button__link has-tertiary-color has-neutral-100-background-color has-text-color has-background wp-element-button" style="border-radius:50px;padding:var(--wp--preset--spacing--sm) var(--wp--preset--spacing--xl);font-size:1.125rem;font-weight:600">View Portfolio</a></div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /wp:cover -->
-
-<!-- wp:pattern {"slug":"versana/latest-articles"} /-->
-
-<!-- wp:pattern {"slug":"versana/why-choose-us"} /-->',
+            'home' => '<!-- wp:pattern {"slug":"versana/portfolio-hero"} /-->
+                    <!-- wp:pattern {"slug":"versana/latest-articles"} /-->
+                    <!-- wp:pattern {"slug":"versana/why-choose-us"} /-->
+                    <!-- wp:pattern {"slug":"versana/call-to-action"} /-->',
             'services' => '<!-- wp:pattern {"slug":"versana/our-services"} /-->',
-            'about' => '<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|2xl","bottom":"var:preset|spacing|2xl"}}},"layout":{"type":"constrained","contentSize":"800px"}} -->
-<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--2-xl);padding-bottom:var(--wp--preset--spacing--2-xl)">
-    <h1 class="wp-block-heading has-text-align-center has-4-xl-font-size">About Me</h1>
-    <p class="has-text-align-center has-lg-font-size">Designer. Creator. Problem Solver.</p>
-    <hr class="wp-block-separator has-alpha-channel-opacity" style="margin-top:var(--wp--preset--spacing--xl);margin-bottom:var(--wp--preset--spacing--xl)"/>
-    <p class="has-md-font-size">I\'m a multidisciplinary designer passionate about creating work that resonates. With years of experience, I help brands tell their stories through design.</p>
-    <h2 class="wp-block-heading">What I Believe</h2>
-    <p>Great design solves problems and creates meaningful connections. I approach every project with curiosity and dedication.</p>
-    <h2 class="wp-block-heading">Expertise</h2>
-    <ul class="wp-block-list">
-        <li>Brand identity and visual systems</li>
-        <li>Web and mobile interface design</li>
-        <li>User experience and research</li>
-        <li>Creative direction</li>
-    </ul>
-</div>
-<!-- /wp:group -->',
+            'about' => '<!-- wp:pattern {"slug":"versana/portfolio-about"} /-->',
+            'contact' => '<!-- wp:pattern {"slug":"versana/contact"} /-->',
         ),
     );
 }

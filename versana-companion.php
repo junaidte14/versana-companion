@@ -68,6 +68,8 @@ function versana_companion_init() {
         require_once VERSANA_COMPANION_PATH . '/includes/demos.php';
     }
 
+    require_once VERSANA_COMPANION_PATH . '/includes/patterns.php';
+
 }
 add_action( 'plugins_loaded', 'versana_companion_init' );
 
