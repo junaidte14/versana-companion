@@ -23,14 +23,6 @@ function versana_companion_get_available_demos() {
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'blog',
             'tags'        => array( 'blog', 'minimal', 'writer' ),
-            'theme_config' => array(
-                'colors' => array(
-                    'primary'   => '#E91E63',
-                    'secondary' => '#FF9800',
-                    'tertiary'  => '#9C27B0',
-                ),
-                'gradient' => 'warm-gradient',
-            ),
         ),
         'business' => array(
             'name'        => __( 'Business Website', 'versana-companion' ),
@@ -40,14 +32,6 @@ function versana_companion_get_available_demos() {
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'business',
             'tags'        => array( 'business', 'corporate', 'professional' ),
-            'theme_config' => array(
-                'colors' => array(
-                    'primary'   => '#1A73E8',
-                    'secondary' => '#2196F3',
-                    'tertiary'  => '#0D47A1',
-                ),
-                'gradient' => 'primary-gradient',
-            ),
         ),
         'portfolio' => array(
             'name'        => __( 'Creative Portfolio', 'versana-companion' ),
@@ -57,14 +41,6 @@ function versana_companion_get_available_demos() {
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'portfolio',
             'tags'        => array( 'portfolio', 'creative', 'showcase' ),
-            'theme_config' => array(
-                'colors' => array(
-                    'primary'   => '#9C27B0',
-                    'secondary' => '#E91E63',
-                    'tertiary'  => '#673AB7',
-                ),
-                'gradient' => 'primary-gradient',
-            ),
         ),
     );
     
@@ -523,58 +499,99 @@ function versana_companion_post_exists( $title, $post_type = 'post' ) {
     return ! empty( $result );
 }
 
-/**
- * Create navigation menu for demo
- */
 function versana_companion_create_demo_menu( $page_ids, $demo_key ) {
-    $menu_name = 'Main Menu';
-    $menu_id = wp_create_nav_menu( $menu_name );
-    
-    if ( is_wp_error( $menu_id ) ) {
-        return false;
-    }
+    $menu_title = 'Versana Menu';
+    $existing = get_posts( array(
+        'post_type'   => 'wp_navigation',
+        'title'       => $menu_title,
+        'numberposts' => 1,
+    ) );
+
+    $inner_blocks = '';
     
     $home_page_id = get_option( 'page_on_front' );
-    $menu_order = 1;
-    
-    // Define menu structure
-    $menu_pages = array( 'Home', 'Services', 'About', 'Contact' );
-    
+    if (
+        ! empty( $home_page_id ) &&
+        get_post_status( $home_page_id ) === 'publish'
+    ) {
+        $inner_blocks .= sprintf(
+            '<!-- wp:navigation-link {"label":"Home","type":"page","id":%d,"url":"%s"} /-->' . "\n",
+            intval( $home_page_id ),
+            esc_url( get_permalink( $home_page_id ) )
+        );
+    }
+
+    $allowed_pages = array( 'Services', 'About', 'Contact' );
     foreach ( $page_ids as $page_id ) {
-        if ( $page_id == $home_page_id ) {
-            continue;
-        }
-        
         $page = get_post( $page_id );
-        if ( $page && in_array( $page->post_title, $menu_pages ) ) {
-            wp_update_nav_menu_item( $menu_id, 0, array(
-                'menu-item-object-id' => $page_id,
-                'menu-item-object'    => 'page',
-                'menu-item-type'      => 'post_type',
-                'menu-item-status'    => 'publish',
-                'menu-item-position'  => $menu_order++,
-            ) );
+        if (
+            $page &&
+            'publish' === $page->post_status &&
+            in_array( $page->post_title, $allowed_pages, true )
+        ) {
+            $inner_blocks .= sprintf(
+                '<!-- wp:navigation-link {"label":"%s","type":"page","id":%d,"url":"%s"} /-->' . "\n",
+                esc_html( $page->post_title ),
+                intval( $page_id ),
+                esc_url( get_permalink( $page_id ) )
+            );
         }
     }
-    
-    // Add Blog link
-    $blog_page = get_option( 'page_for_posts' );
-    if ( $blog_page ) {
-        wp_update_nav_menu_item( $menu_id, 0, array(
-            'menu-item-object-id' => $blog_page,
-            'menu-item-object'    => 'page',
-            'menu-item-type'      => 'post_type',
-            'menu-item-status'    => 'publish',
-            'menu-item-position'  => $menu_order++,
+    /**
+     * ---- Add Blog (from Reading Settings)
+     */
+    $blog_page_id = get_option( 'page_for_posts' );
+    if ( 
+        ! empty( $blog_page_id ) &&
+        get_post_status( $blog_page_id ) === 'publish'
+    ) {
+        $inner_blocks .= sprintf(
+            '<!-- wp:navigation-link {"label":"%s","type":"page","id":%d,"url":"%s"} /-->' . "\n",
+            esc_html( get_the_title( $blog_page_id ) ),
+            intval( $blog_page_id ),
+            esc_url( get_permalink( $blog_page_id ) )
+        );
+    }
+    $post_content = $inner_blocks;
+
+    if ( ! empty( $existing ) ) {
+        $nav_id = $existing[0]->ID;
+        wp_update_post( array(
+            'ID'           => $nav_id,
+            'post_content' => $post_content,
+        ) );
+    } else {
+        $nav_id = wp_insert_post( array(
+            'post_title'   => $menu_title,
+            'post_status'  => 'publish',
+            'post_type'    => 'wp_navigation',
+            'post_content' => $post_content,
         ) );
     }
-    
-    // Assign to primary location
-    $locations = get_theme_mod( 'nav_menu_locations', array() );
-    $locations['primary'] = $menu_id;
-    set_theme_mod( 'nav_menu_locations', $locations );
-    
-    return $menu_id;
+
+    if ( is_wp_error( $nav_id ) ) {
+        return false;
+    }
+
+    $header = get_posts( array(
+        'post_type'   => 'wp_template_part',
+        'name'        => 'header',
+        'numberposts' => 1,
+    ) );
+
+    if ( ! empty( $header ) ) {
+        $content = str_replace(
+            '"ref":0',
+            '"ref":' . intval( $nav_id ),
+            $header[0]->post_content
+        );
+        wp_update_post( array(
+            'ID'           => $header[0]->ID,
+            'post_content' => $content,
+        ) );
+    }
+
+    return $nav_id;
 }
 
 /**
@@ -586,12 +603,12 @@ function versana_companion_set_reading_settings( $page_ids, $demo_key, $front_pa
     }
     
     // For blog demo, show posts on front
-    if ( $demo_key === 'blog' ) {
+    /* if ( $demo_key === 'blog' ) {
         update_option( 'show_on_front', 'posts' );
         delete_option( 'page_on_front' );
         delete_option( 'page_for_posts' );
         return true;
-    }
+    } */
     
     // For portfolio and business, use custom home pages
     if ( $front_page_id ) {
@@ -637,84 +654,66 @@ function versana_companion_create_blog_page() {
 }
 
 /**
- * Set block theme style variation properly
- */
-function versana_set_style_variation( $variation ) {
-
-    $theme = wp_get_theme();
-    if ( ! $theme->exists() ) {
-        return false;
-    }
-
-    // Get available style variations
-    $variations = WP_Theme_JSON_Resolver::get_style_variations();
-
-    if ( empty( $variations ) || ! isset( $variations[ $variation ] ) ) {
-        return false;
-    }
-
-    /**
-     * Get current theme mods
-     */
-    $theme_mods = get_option( 'theme_mods_' . get_stylesheet(), array() );
-
-    // Set style variation
-    $theme_mods['wp_theme_style'] = $variation;
-
-    // Update theme mods properly
-    update_option( 'theme_mods_' . get_stylesheet(), $theme_mods );
-
-    return true;
-}
-
-/**
- * Apply demo theme configuration
- */
-function versana_companion_apply_demo_config( $demo_key ) {
-    $demos = versana_companion_get_available_demos();
-    if ( ! isset( $demos[ $demo_key ] ) ) {
-        return false;
-    }
-    $demo = $demos[ $demo_key ];
-    // Apply style variation
-    versana_set_style_variation( $demo_key );
-    WP_Theme_JSON_Resolver::clean_cached_data();
-    // Store active demo
-    update_option( 'versana_active_demo', $demo_key );
-    return true;
-}
-
-/**
  * Get demo page content configurations
  */
 function versana_companion_get_demo_page_configs() {
     return array(
         'blog' => array(
             'home' => '<!-- wp:pattern {"slug":"versana/blog-hero"} /-->
-                    <!-- wp:pattern {"slug":"versana/latest-articles"} /-->
-                    <!-- wp:pattern {"slug":"versana/why-choose-us"} /-->
-                    <!-- wp:pattern {"slug":"versana/call-to-action"} /-->',
+                      <!-- wp:pattern {"slug":"versana/blog-grid-3-column"} /-->
+                      <!-- wp:pattern {"slug":"versana/features-3-column-icons"} /-->
+                      <!-- wp:pattern {"slug":"versana/testimonials-2-column"} /-->
+                      <!-- wp:pattern {"slug":"versana/newsletter-centered"} /-->
+                      <!-- wp:pattern {"slug":"versana/cta-split"} /-->
+                      <!-- wp:pattern {"slug":"versana/about"} /-->
+                      <!-- wp:pattern {"slug":"versana/stats-4-column"} /-->
+                      <!-- wp:pattern {"slug":"versana/team-3-column"} /-->
+                      <!-- wp:pattern {"slug":"versana/contact-split-section"} /-->',
             'services' => '<!-- wp:pattern {"slug":"versana/our-services"} /-->',
-            'about' => '<!-- wp:pattern {"slug":"versana/about"} /-->',
-            'contact' => '<!-- wp:pattern {"slug":"versana/contact"} /-->',
+            'about' => '<!-- wp:pattern {"slug":"versana/about"} /-->
+                       <!-- wp:pattern {"slug":"versana/stats-4-column"} /-->
+                       <!-- wp:pattern {"slug":"versana/team-3-column"} /-->',
+            'contact' => '<!-- wp:pattern {"slug":"versana/contact-split-section"} /-->',
         ),
         'business' => array(
-            'home' => '<!-- wp:pattern {"slug":"versana/hero-banner"} /-->
-                    <!-- wp:pattern {"slug":"versana/our-services"} /-->
-                    <!-- wp:pattern {"slug":"versana/latest-articles"} /-->
-                    <!-- wp:pattern {"slug":"versana/call-to-action"} /-->',
-            'services' => '<!-- wp:pattern {"slug":"versana/business-services"} /-->',
-            'about' => '<!-- wp:pattern {"slug":"versana/business-about"} /-->',
-            'contact' => '<!-- wp:pattern {"slug":"versana/contact"} /-->',
+            'home' => '<!-- wp:pattern {"slug":"versana/hero-business-gradient"} /-->
+                      <!-- wp:pattern {"slug":"versana/features-3-column-icons"} /-->
+                      <!-- wp:pattern {"slug":"versana/stats-4-column"} /-->
+                      <!-- wp:pattern {"slug":"versana/business-services"} /-->
+                      <!-- wp:pattern {"slug":"versana/process-timeline-4-step"} /-->
+                      <!-- wp:pattern {"slug":"versana/client-logos-grid"} /-->
+                      <!-- wp:pattern {"slug":"versana/testimonials-2-column"} /-->
+                      <!-- wp:pattern {"slug":"versana/pricing-3-column"} /-->
+                      <!-- wp:pattern {"slug":"versana/team-3-column"} /-->
+                      <!-- wp:pattern {"slug":"versana/faq-section"} /-->
+                      <!-- wp:pattern {"slug":"versana/cta-split"} /-->
+                      <!-- wp:pattern {"slug":"versana/business-about"} /-->
+                      <!-- wp:pattern {"slug":"versana/contact-split-section"} /-->',
+            'services' => '<!-- wp:pattern {"slug":"versana/business-services"} /-->
+                          <!-- wp:pattern {"slug":"versana/process-timeline-4-step"} /-->
+                          <!-- wp:pattern {"slug":"versana/testimonials-2-column"} /-->',
+            'about' => '<!-- wp:pattern {"slug":"versana/business-about"} /-->
+                       <!-- wp:pattern {"slug":"versana/team-3-column"} /-->
+                       <!-- wp:pattern {"slug":"versana/stats-4-column"} /-->
+                       <!-- wp:pattern {"slug":"versana/client-logos-grid"} /-->',
+            'contact' => '<!-- wp:pattern {"slug":"versana/contact-split-section"} /-->',
         ),
         'portfolio' => array(
             'home' => '<!-- wp:pattern {"slug":"versana/portfolio-hero"} /-->
-                    <!-- wp:pattern {"slug":"versana/latest-articles"} /-->
-                    <!-- wp:pattern {"slug":"versana/why-choose-us"} /-->
-                    <!-- wp:pattern {"slug":"versana/call-to-action"} /-->',
+                      <!-- wp:pattern {"slug":"versana/portfolio-gallery-grid"} /-->
+                      <!-- wp:pattern {"slug":"versana/features-3-column-icons"} /-->
+                      <!-- wp:pattern {"slug":"versana/testimonials-2-column"} /-->
+                      <!-- wp:pattern {"slug":"versana/stats-4-column"} /-->
+                      <!-- wp:pattern {"slug":"versana/portfolio-about"} /-->
+                      <!-- wp:pattern {"slug":"versana/cta-split"} /-->
+                      <!-- wp:pattern {"slug":"versana/case-study-detail"} /-->
+                      <!-- wp:pattern {"slug":"versana/team-3-column"} /-->
+                      <!-- wp:pattern {"slug":"versana/contact-split-section"} /-->',
             'services' => '<!-- wp:pattern {"slug":"versana/our-services"} /-->',
-            'about' => '<!-- wp:pattern {"slug":"versana/portfolio-about"} /-->',
-            'contact' => '<!-- wp:pattern {"slug":"versana/contact"} /-->',
+            'about' => '<!-- wp:pattern {"slug":"versana/portfolio-about"} /-->
+                       <!-- wp:pattern {"slug":"versana/case-study-detail"} /-->
+                       <!-- wp:pattern {"slug":"versana/team-3-column"} /-->',
+            'contact' => '<!-- wp:pattern {"slug":"versana/contact-split-section"} /-->',
         ),
     );
 }
@@ -801,26 +800,25 @@ function versana_companion_ajax_import_demo() {
         wp_send_json_error( array( 'message' => 'Import completed with errors' ) );
     }
     
-    // Create menu
-    if ( ! empty( $import_results['pages'] ) ) {
-        $menu_id = versana_companion_create_demo_menu( $import_results['pages'], $demo_key );
-        $import_results['menu_id'] = $menu_id;
-    }
-    
     // Set reading settings
     $front_page_id = isset( $import_results['front_page_id'] ) ? $import_results['front_page_id'] : null;
     versana_companion_set_reading_settings( $import_results['pages'], $demo_key, $front_page_id );
+
+    // Create menu
+    if ( ! empty( $import_results['pages'] ) ) {
+        $menu_id = versana_companion_create_demo_menu( $import_results['pages'], $demo_key);
+        $import_results['menu_id'] = $menu_id;
+    }
     
     $blog_page = get_page_by_path( 'blog' );
     if ( $blog_page ) {
         $import_results['blog_page_id'] = $blog_page->ID;
     }
     
-    // Apply demo config
-    versana_companion_apply_demo_config( $demo_key );
-    
     // Save import data
     versana_companion_save_import_data( $demo_key, $import_results );
+
+    update_option( 'versana_active_demo', $demo_key );
     
     $message = sprintf(
         'Demo imported successfully! Created %d posts, %d pages, and navigation menu.',
@@ -838,6 +836,42 @@ function versana_companion_ajax_import_demo() {
     ) );
 }
 add_action( 'wp_ajax_versana_import_demo', 'versana_companion_ajax_import_demo' );
+
+/**
+ * Professionals use the 'wp_theme_json_data_theme' filter to inject styles 
+ * because it is more stable than database-level post updates.
+ */
+function versana_apply_demo_variation_filter( $theme_json ) {
+    // 1. Get the currently active demo variation slug
+    $active_variation = get_option( 'versana_active_demo' );
+
+    // 2. If no demo is active, return the default theme.json data
+    if ( ! $active_variation ) {
+        return $theme_json;
+    }
+
+    // 3. Locate the variation file manually to avoid resolver cache issues
+    // Using get_template_directory() ensures we look in the parent theme's /styles folder
+    $file_path = get_template_directory() . '/styles/' . $active_variation . '.json';
+
+    if ( file_exists( $file_path ) ) {
+        $content = file_get_contents( $file_path );
+        $decoded = json_decode( $content, true );
+
+        if ( is_array( $decoded ) ) {
+            /**
+             * The 'update_with' method is the official WP way to merge 
+             * a partial JSON array (like your blog.json) into a 
+             * WP_Theme_JSON_Data object.
+             */
+            $theme_json->update_with( $decoded );
+        }
+    }
+
+    return $theme_json;
+}
+// Use priority 20 to ensure your demo overrides the theme's base theme.json
+add_filter( 'wp_theme_json_data_theme', 'versana_apply_demo_variation_filter', 20 );
 
 /**
  * AJAX: Remove demo
@@ -899,7 +933,10 @@ function versana_companion_ajax_remove_demo() {
     
     // Delete menu
     if ( ! empty( $import_data['menu_id'] ) ) {
-        wp_delete_nav_menu( $import_data['menu_id'] );
+        $menu_id = intval( $import_data['menu_id'] );
+        if ( get_post_type( $menu_id ) === 'wp_navigation' ) {
+            wp_delete_post( $menu_id, true ); // true = force delete
+        }
     }
     
     // Reset reading settings
@@ -907,7 +944,6 @@ function versana_companion_ajax_remove_demo() {
     delete_option( 'page_on_front' );
     delete_option( 'page_for_posts' );
     
-    remove_theme_mod( 'wp_theme_style' );
     delete_option( 'versana_active_demo' );
 
     // Delete import data

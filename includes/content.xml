@@ -12,7 +12,7 @@
 
 <channel>
     <title>Versana Demo</title>
-    <link>https://demos.codoplex.com/versana/</link>
+    <link>https://wpdemo.codoplex.com/versana/</link>
     <description>Universal demo content for Versana theme</description>
     <pubDate>Mon, 01 Mar 2024 10:00:00 +0000</pubDate>
     <language>en-US</language>
@@ -25,7 +25,7 @@
     <!-- Home Page -->
     <item>
         <title>Home</title>
-        <link>https://demos.codoplex.com/versana/</link>
+        <link>https://wpdemo.codoplex.com/versana/</link>
         <pubDate>Mon, 01 Mar 2024 10:00:00 +0000</pubDate>
         <dc:creator><![CDATA[admin]]></dc:creator>
         <wp:post_id>1</wp:post_id>
@@ -41,7 +41,7 @@
     <!-- Services Page -->
     <item>
         <title>Services</title>
-        <link>https://demos.codoplex.com/versana/services</link>
+        <link>https://wpdemo.codoplex.com/versana/services</link>
         <pubDate>Mon, 01 Mar 2024 10:00:00 +0000</pubDate>
         <dc:creator><![CDATA[admin]]></dc:creator>
         <wp:post_id>2</wp:post_id>
@@ -56,7 +56,7 @@
     <!-- About Page -->
     <item>
         <title>About</title>
-        <link>https://demos.codoplex.com/versana/about</link>
+        <link>https://wpdemo.codoplex.com/versana/about</link>
         <pubDate>Mon, 01 Mar 2024 10:00:00 +0000</pubDate>
         <dc:creator><![CDATA[admin]]></dc:creator>
         <wp:post_id>3</wp:post_id>
@@ -71,7 +71,7 @@
     <!-- Contact Page -->
     <item>
         <title>Contact</title>
-        <link>https://demos.codoplex.com/versana/contact</link>
+        <link>https://wpdemo.codoplex.com/versana/contact</link>
         <pubDate>Mon, 01 Mar 2024 10:00:00 +0000</pubDate>
         <dc:creator><![CDATA[admin]]></dc:creator>
         <wp:post_id>4</wp:post_id>
@@ -79,7 +79,7 @@
         <wp:post_type>page</wp:post_type>
         <wp:status>publish</wp:status>
         <wp:post_name>contact</wp:post_name>
-        <content:encoded><![CDATA[<!-- wp:pattern {"slug":"versana/contact-1"} /-->]]></content:encoded>
+        <content:encoded><![CDATA[<!-- wp:pattern {"slug":"versana/contact-split-section"} /-->]]></content:encoded>
         <excerpt:encoded><![CDATA[]]></excerpt:encoded>
     </item>
 
@@ -89,7 +89,7 @@
     
     <item>
         <title>Getting Started with Web Development</title>
-        <link>https://demos.codoplex.com/versana/getting-started</link>
+        <link>https://wpdemo.codoplex.com/versana/getting-started</link>
         <pubDate>Thu, 15 Feb 2024 09:00:00 +0000</pubDate>
         <dc:creator><![CDATA[admin]]></dc:creator>
         <wp:post_id>10</wp:post_id>
@@ -128,7 +128,7 @@
 
     <item>
         <title>Design Principles That Matter</title>
-        <link>https://demos.codoplex.com/versana/design-principles</link>
+        <link>https://wpdemo.codoplex.com/versana/design-principles</link>
         <pubDate>Mon, 19 Feb 2024 10:30:00 +0000</pubDate>
         <dc:creator><![CDATA[admin]]></dc:creator>
         <wp:post_id>11</wp:post_id>
@@ -171,7 +171,7 @@
 
     <item>
         <title>Building Better User Experiences</title>
-        <link>https://demos.codoplex.com/versana/user-experiences</link>
+        <link>https://wpdemo.codoplex.com/versana/user-experiences</link>
         <pubDate>Fri, 23 Feb 2024 14:00:00 +0000</pubDate>
         <dc:creator><![CDATA[admin]]></dc:creator>
         <wp:post_id>12</wp:post_id>
@@ -210,7 +210,7 @@
 
     <item>
         <title>Content Strategy Essentials</title>
-        <link>https://demos.codoplex.com/versana/content-strategy</link>
+        <link>https://wpdemo.codoplex.com/versana/content-strategy</link>
         <pubDate>Tue, 27 Feb 2024 11:15:00 +0000</pubDate>
         <dc:creator><![CDATA[admin]]></dc:creator>
         <wp:post_id>13</wp:post_id>
@@ -253,7 +253,7 @@
 
     <item>
         <title>Productivity Tips for Professionals</title>
-        <link>https://demos.codoplex.com/versana/productivity-tips</link>
+        <link>https://wpdemo.codoplex.com/versana/productivity-tips</link>
         <pubDate>Sat, 02 Mar 2024 15:45:00 +0000</pubDate>
         <dc:creator><![CDATA[admin]]></dc:creator>
         <wp:post_id>14</wp:post_id>
@@ -292,7 +292,7 @@
 
     <item>
         <title>Modern Web Technologies</title>
-        <link>https://demos.codoplex.com/versana/web-technologies</link>
+        <link>https://wpdemo.codoplex.com/versana/web-technologies</link>
         <pubDate>Wed, 06 Mar 2024 13:00:00 +0000</pubDate>
         <dc:creator><![CDATA[admin]]></dc:creator>
         <wp:post_id>15</wp:post_id>

@@ -63,15 +63,18 @@ function versana_companion_init() {
         return;
     }
     
-    // Theme is correct - continue initialization
-    if ( is_admin() ) {
-        require_once VERSANA_COMPANION_PATH . '/includes/demos.php';
-    }
-
+    require_once VERSANA_COMPANION_PATH . '/includes/demos.php';
     require_once VERSANA_COMPANION_PATH . '/includes/patterns.php';
+    require_once VERSANA_COMPANION_PATH . '/includes/layout.php';
+    require_once VERSANA_COMPANION_PATH . '/includes/optimizations.php';
 
 }
 add_action( 'plugins_loaded', 'versana_companion_init' );
+
+// Ensure this is in your plugin's main constructor or root
+add_action( 'init', function() {
+    add_filter( 'wp_theme_json_data_theme', 'versana_apply_demo_variation_filter', 20 );
+});
 
 /**
  * Error notice for wrong theme
