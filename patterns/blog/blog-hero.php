@@ -7,11 +7,11 @@
  * Description: A simple hero banner for blogs.
  */
 ?>
-<!-- wp:cover {"overlayColor":"secondary","isUserOverlayColor":true,"minHeight":85,"minHeightUnit":"vh","gradient":"warm-gradient","contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
+<!-- wp:cover {"overlayColor":"primary","isUserOverlayColor":true,"gradient":"primary-gradient","contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
 <div class="wp-block-cover alignfull"
-    style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;min-height:85vh">
+    style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;">
     <span aria-hidden="true"
-        class="wp-block-cover__background has-secondary-background-color has-background-dim-100 has-background-dim has-background-gradient has-warm-gradient-gradient-background"></span>
+        class="wp-block-cover__background has-primary-background-color has-background-dim-100 has-background-dim has-background-gradient has-primary-gradient-gradient-background"></span>
     <div class="wp-block-cover__inner-container">
         <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|2xl","bottom":"var:preset|spacing|2xl","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}},"layout":{"type":"constrained"}} -->
         <div class="wp-block-group"
@@ -32,9 +32,9 @@
 
             <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
             <div class="wp-block-buttons">
-                <!-- wp:button {"backgroundColor":"neutral-100","textColor":"secondary","style":{"border":{"radius":"50px"},"spacing":{"padding":{"top":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|xl","right":"var:preset|spacing|xl"}},"typography":{"fontSize":"1.125rem","fontWeight":"600"}}} -->
+                <!-- wp:button {"backgroundColor":"neutral-100","textColor":"primary","style":{"border":{"radius":"50px"},"spacing":{"padding":{"top":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|xl","right":"var:preset|spacing|xl"}},"typography":{"fontSize":"1.125rem","fontWeight":"600"}}} -->
                 <div class="wp-block-button"><a
-                        class="wp-block-button__link has-secondary-color has-neutral-100-background-color has-text-color has-background has-custom-font-size wp-element-button"
+                        class="wp-block-button__link has-primary-color has-neutral-100-background-color has-text-color has-background has-custom-font-size wp-element-button"
                         style="border-radius:50px;padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--xl);font-size:1.125rem;font-weight:600">
                         Start Reading
                     </a></div>

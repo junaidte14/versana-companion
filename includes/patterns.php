@@ -18,10 +18,19 @@ function versana_companion_register_pattern_categories() {
 }
 add_action( 'init', 'versana_companion_register_pattern_categories' );
 
-function versana_plugin_bulk_register_patterns() {
+/**
+ * Register block patterns from a specific directory
+ *
+ * @param string $directory Full path to the directory containing pattern files
+ * @return void
+ */
+function versana_register_patterns_from_directory( $directory ) {
+    
+    if ( ! is_dir( $directory ) ) {
+        return;
+    }
 
-    $dir   = VERSANA_COMPANION_PATH . '/patterns/';
-    $files = glob( $dir . '*.php' );
+    $files = glob( $directory . '*.php' );
 
     if ( ! $files ) {
         return;
@@ -59,4 +68,56 @@ function versana_plugin_bulk_register_patterns() {
         );
     }
 }
+
+/**
+ * Bulk register patterns from common folder and active demo folder
+ *
+ * @return void
+ */
+function versana_plugin_bulk_register_patterns() {
+
+    $base_dir = VERSANA_COMPANION_PATH . '/patterns/';
+
+    // Register common patterns from root patterns folder
+    versana_register_patterns_from_directory( $base_dir );
+
+    // Get active demo
+    $active_demo = get_option( 'versana_active_demo' );
+
+    // If there's an active demo, register demo-specific patterns
+    if ( ! empty( $active_demo ) ) {
+        $demo_dir = $base_dir . trailingslashit( sanitize_file_name( $active_demo ) );
+        versana_register_patterns_from_directory( $demo_dir );
+    }
+}
 add_action( 'init', 'versana_plugin_bulk_register_patterns' );
+
+/**
+ * Get available demo pattern folders
+ *
+ * @return array List of available demo folders
+ */
+function versana_get_available_demo_patterns() {
+    $base_dir = VERSANA_COMPANION_PATH . '/patterns/';
+    $demos    = array();
+
+    if ( ! is_dir( $base_dir ) ) {
+        return $demos;
+    }
+
+    $items = scandir( $base_dir );
+
+    foreach ( $items as $item ) {
+        if ( $item === '.' || $item === '..' ) {
+            continue;
+        }
+
+        $full_path = $base_dir . $item;
+        
+        if ( is_dir( $full_path ) ) {
+            $demos[] = $item;
+        }
+    }
+
+    return $demos;
+}

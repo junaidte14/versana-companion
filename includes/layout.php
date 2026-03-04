@@ -112,7 +112,7 @@ function versana_companion_hide_page_titles_css() {
         <style id="versana-hide-page-titles">
             /* Hide page titles on pages */
             body.page .entry-header,
-            body.page .wp-block-post-title,
+            body.page h1.wp-block-post-title,
             body.page .entry-title,
             body.page h1.entry-title,
             body.page header.entry-header,
@@ -121,7 +121,7 @@ function versana_companion_hide_page_titles_css() {
             body.single-page .entry-title,
             
             /* Block editor specific */
-            body.page .wp-block-post-title,
+            body.page h1.wp-block-post-title,
             body.page .entry-content > h1:first-child,
             
             /* Common theme patterns */

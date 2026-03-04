@@ -686,8 +686,8 @@ function versana_companion_get_demo_page_configs() {
                       <!-- wp:pattern {"slug":"versana/pricing-3-column"} /-->
                       <!-- wp:pattern {"slug":"versana/team-3-column"} /-->
                       <!-- wp:pattern {"slug":"versana/faq-section"} /-->
-                      <!-- wp:pattern {"slug":"versana/cta-split"} /-->
                       <!-- wp:pattern {"slug":"versana/business-about"} /-->
+                      <!-- wp:pattern {"slug":"versana/cta-split"} /-->
                       <!-- wp:pattern {"slug":"versana/contact-split-section"} /-->',
             'services' => '<!-- wp:pattern {"slug":"versana/business-services"} /-->
                           <!-- wp:pattern {"slug":"versana/process-timeline-4-step"} /-->
@@ -871,7 +871,7 @@ function versana_apply_demo_variation_filter( $theme_json ) {
     return $theme_json;
 }
 // Use priority 20 to ensure your demo overrides the theme's base theme.json
-add_filter( 'wp_theme_json_data_theme', 'versana_apply_demo_variation_filter', 20 );
+//add_filter( 'wp_theme_json_data_theme', 'versana_apply_demo_variation_filter', 20 );
 
 /**
  * AJAX: Remove demo
