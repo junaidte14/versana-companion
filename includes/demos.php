@@ -97,6 +97,10 @@ function versana_companion_render_demo_import_tab() {
         
         <p class="description">
             <?php esc_html_e( 'Choose a demo to import. This will add sample posts, pages, create navigation menus, and apply theme styling.', 'versana-companion' ); ?>
+            <?php esc_html_e( 'Make sure to have latest version of the Versana Companion plugin.', 'versana-companion' ); ?>
+            <button type="button" class="button versana-check-updates">
+                <?php esc_html_e( 'Chech for Updates.', 'versana-companion' ); ?>
+            </button>
         </p>
         
         <?php if ( $imported_demo ) : ?>
