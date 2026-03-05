@@ -147,6 +147,21 @@ function versana_companion_render_demo_import_tab() {
                         <h3 class="demo-name"><?php echo esc_html( $demo['name'] ); ?></h3>
                         <p class="demo-description"><?php echo esc_html( $demo['description'] ); ?></p>
                     </div>
+
+                    <div class="demo-import-options">
+                        <label class="demo-checkbox">
+                            <input type="checkbox" class="import-posts" checked>
+                            <?php esc_html_e( 'Posts', 'versana-companion' ); ?>
+                        </label>
+                        <label class="demo-checkbox">
+                            <input type="checkbox" class="import-pages" checked>
+                            <?php esc_html_e( 'Pages', 'versana-companion' ); ?>
+                        </label>
+                        <label class="demo-checkbox">
+                            <input type="checkbox" class="import-menu" checked>
+                            <?php esc_html_e( 'Menu', 'versana-companion' ); ?>
+                        </label>
+                    </div>
                     
                     <div class="demo-actions">
                         <?php if ( ! empty( $demo['preview_url'] ) ) : ?>
@@ -317,7 +332,7 @@ function versana_companion_parse_demo_xml( $xml_content, $demo_key ) {
 /**
  * Import content from parsed data
  */
-function versana_companion_import_content( $parsed_data, $demo_key ) {
+function versana_companion_import_content( $parsed_data, $demo_key, $import_posts = true, $import_pages = true ) {
     $results = array(
         'success'        => true,
         'posts'          => array(),
@@ -329,115 +344,121 @@ function versana_companion_import_content( $parsed_data, $demo_key ) {
         'front_page_id'  => null,
     );
     
-    // Create categories
-    foreach ( $parsed_data['categories'] as $category_name ) {
-        $cat_id = versana_companion_create_category( $category_name );
-        if ( $cat_id ) {
-            $results['categories'][] = $cat_id;
+    // Create categories only if importing posts
+    if ( $import_posts ) {
+        // Create categories
+        foreach ( $parsed_data['categories'] as $category_name ) {
+            $cat_id = versana_companion_create_category( $category_name );
+            if ( $cat_id ) {
+                $results['categories'][] = $cat_id;
+            }
         }
-    }
-    
-    // Create tags
-    foreach ( $parsed_data['tags'] as $tag_name ) {
-        $tag_id = versana_companion_create_tag( $tag_name );
-        if ( $tag_id ) {
-            $results['tags'][] = $tag_id;
+        
+        // Create tags
+        foreach ( $parsed_data['tags'] as $tag_name ) {
+            $tag_id = versana_companion_create_tag( $tag_name );
+            if ( $tag_id ) {
+                $results['tags'][] = $tag_id;
+            }
         }
-    }
-    
-    // Import posts
-    foreach ( $parsed_data['posts'] as $post_data ) {
-        if ( versana_companion_post_exists( $post_data['title'], 'post' ) ) {
-            $results['skipped'][] = array(
-                'title' => $post_data['title'],
-                'type'  => 'post',
-            );
-            continue;
-        }
+        
+        // Import posts
+        foreach ( $parsed_data['posts'] as $post_data ) {
+            if ( versana_companion_post_exists( $post_data['title'], 'post' ) ) {
+                $results['skipped'][] = array(
+                    'title' => $post_data['title'],
+                    'type'  => 'post',
+                );
+                continue;
+            }
 
-        $post_args = array(
-            'post_title'   => $post_data['title'],
-            'post_content' => $post_data['content'],
-            'post_excerpt' => $post_data['excerpt'],
-            'post_status'  => $post_data['status'],
-            'post_type'    => 'post',
-            'post_name'    => $post_data['post_name'],
-            'post_author'  => get_current_user_id(),
-        );
-        
-        $post_id = wp_insert_post( $post_args, true );
-        
-        if ( is_wp_error( $post_id ) ) {
-            $results['errors'][] = array(
-                'title' => $post_data['title'],
-                'error' => $post_id->get_error_message(),
+            $post_args = array(
+                'post_title'   => $post_data['title'],
+                'post_content' => $post_data['content'],
+                'post_excerpt' => $post_data['excerpt'],
+                'post_status'  => $post_data['status'],
+                'post_type'    => 'post',
+                'post_name'    => $post_data['post_name'],
+                'post_author'  => get_current_user_id(),
             );
-            $results['success'] = false;
-        } else {
-            $results['posts'][] = $post_id;
             
-            if ( ! empty( $post_data['categories'] ) ) {
-                $category_ids = array();
-                foreach ( $post_data['categories'] as $cat_name ) {
-                    $term = get_term_by( 'name', $cat_name, 'category' );
-                    if ( $term ) {
-                        $category_ids[] = $term->term_id;
+            $post_id = wp_insert_post( $post_args, true );
+            
+            if ( is_wp_error( $post_id ) ) {
+                $results['errors'][] = array(
+                    'title' => $post_data['title'],
+                    'error' => $post_id->get_error_message(),
+                );
+                $results['success'] = false;
+            } else {
+                $results['posts'][] = $post_id;
+                
+                if ( ! empty( $post_data['categories'] ) ) {
+                    $category_ids = array();
+                    foreach ( $post_data['categories'] as $cat_name ) {
+                        $term = get_term_by( 'name', $cat_name, 'category' );
+                        if ( $term ) {
+                            $category_ids[] = $term->term_id;
+                        }
+                    }
+                    if ( ! empty( $category_ids ) ) {
+                        wp_set_post_categories( $post_id, $category_ids );
                     }
                 }
-                if ( ! empty( $category_ids ) ) {
-                    wp_set_post_categories( $post_id, $category_ids );
+                
+                if ( ! empty( $post_data['tags'] ) ) {
+                    wp_set_post_tags( $post_id, $post_data['tags'] );
                 }
-            }
-            
-            if ( ! empty( $post_data['tags'] ) ) {
-                wp_set_post_tags( $post_id, $post_data['tags'] );
             }
         }
     }
     
-    // Import pages
-    foreach ( $parsed_data['pages'] as $page_data ) {
-        $page_slug = $page_data['post_name'];
-        $page_title = $page_data['title'];
-        
-        // Handle home page slug conflicts
-        if ( $page_slug === 'home' && versana_companion_post_exists( 'Home', 'page' ) ) {
-            $page_slug = $demo_key . '-home';
-            $page_title = ucfirst( $demo_key ) . ' Home';
-        }
-        
-        if ( versana_companion_post_exists( $page_title, 'page' ) ) {
-            $results['skipped'][] = array(
-                'title' => $page_title,
-                'type'  => 'page',
-            );
-            continue;
-        }
-        
-        $page_args = array(
-            'post_title'   => $page_title,
-            'post_content' => $page_data['content'],
-            'post_status'  => $page_data['status'],
-            'post_type'    => 'page',
-            'post_name'    => $page_slug,
-            'post_author'  => get_current_user_id(),
-        );
-        
-        $page_id = wp_insert_post( $page_args, true );
-        
-        if ( is_wp_error( $page_id ) ) {
-            $results['errors'][] = array(
-                'title' => $page_title,
-                'error' => $page_id->get_error_message(),
-            );
-            $results['success'] = false;
-        } else {
-            $results['pages'][] = $page_id;
-            if ( ! empty( $page_data['page_template'] )){
-                update_post_meta( $page_id, '_wp_page_template', $page_data['page_template'] );
+    // Import pages only if requested
+    if ( $import_pages ) {
+        // Import pages
+        foreach ( $parsed_data['pages'] as $page_data ) {
+            $page_slug = $page_data['post_name'];
+            $page_title = $page_data['title'];
+            
+            // Handle home page slug conflicts
+            if ( $page_slug === 'home' && versana_companion_post_exists( 'Home', 'page' ) ) {
+                $page_slug = $demo_key . '-home';
+                $page_title = ucfirst( $demo_key ) . ' Home';
             }
-            if ( ! empty( $page_data['page_template'] ) && $page_data['page_template'] === 'full-width' ) {
-                $results['front_page_id'] = $page_id;
+            
+            if ( versana_companion_post_exists( $page_title, 'page' ) ) {
+                $results['skipped'][] = array(
+                    'title' => $page_title,
+                    'type'  => 'page',
+                );
+                continue;
+            }
+            
+            $page_args = array(
+                'post_title'   => $page_title,
+                'post_content' => $page_data['content'],
+                'post_status'  => $page_data['status'],
+                'post_type'    => 'page',
+                'post_name'    => $page_slug,
+                'post_author'  => get_current_user_id(),
+            );
+            
+            $page_id = wp_insert_post( $page_args, true );
+            
+            if ( is_wp_error( $page_id ) ) {
+                $results['errors'][] = array(
+                    'title' => $page_title,
+                    'error' => $page_id->get_error_message(),
+                );
+                $results['success'] = false;
+            } else {
+                $results['pages'][] = $page_id;
+                if ( ! empty( $page_data['page_template'] )){
+                    update_post_meta( $page_id, '_wp_page_template', $page_data['page_template'] );
+                }
+                if ( ! empty( $page_data['page_template'] ) && $page_data['page_template'] === 'full-width' ) {
+                    $results['front_page_id'] = $page_id;
+                }
             }
         }
     }
@@ -768,6 +789,9 @@ function versana_companion_ajax_import_demo() {
     }
     
     $demo_key = isset( $_POST['demo_key'] ) ? sanitize_key( $_POST['demo_key'] ) : '';
+    $import_posts = isset( $_POST['import_posts'] ) && $_POST['import_posts'] === 'true';
+    $import_pages = isset( $_POST['import_pages'] ) && $_POST['import_pages'] === 'true';
+    $import_menu = isset( $_POST['import_menu'] ) && $_POST['import_menu'] === 'true';
     
     if ( empty( $demo_key ) ) {
         wp_send_json_error( array( 'message' => 'Invalid demo selected' ) );
@@ -798,18 +822,20 @@ function versana_companion_ajax_import_demo() {
         wp_send_json_error( array( 'message' => 'Could not parse XML file' ) );
     }
     
-    $import_results = versana_companion_import_content( $parsed_data, $demo_key );
+    $import_results = versana_companion_import_content( $parsed_data, $demo_key, $import_posts, $import_pages );
     
     if ( ! $import_results['success'] ) {
         wp_send_json_error( array( 'message' => 'Import completed with errors' ) );
     }
     
-    // Set reading settings
-    $front_page_id = isset( $import_results['front_page_id'] ) ? $import_results['front_page_id'] : null;
-    versana_companion_set_reading_settings( $import_results['pages'], $demo_key, $front_page_id );
+    // Set reading settings only if pages were imported
+    if ( $import_pages ) {
+        $front_page_id = isset( $import_results['front_page_id'] ) ? $import_results['front_page_id'] : null;
+        versana_companion_set_reading_settings( $import_results['pages'], $demo_key, $front_page_id );
+    }
 
-    // Create menu
-    if ( ! empty( $import_results['pages'] ) ) {
+    // Create menu only if requested
+    if ( $import_menu && ! empty( $import_results['pages'] ) ) {
         $menu_id = versana_companion_create_demo_menu( $import_results['pages'], $demo_key);
         $import_results['menu_id'] = $menu_id;
     }
@@ -824,11 +850,12 @@ function versana_companion_ajax_import_demo() {
 
     update_option( 'versana_active_demo', $demo_key );
     
-    $message = sprintf(
-        'Demo imported successfully! Created %d posts, %d pages, and navigation menu.',
-        count( $import_results['posts'] ),
-        count( $import_results['pages'] )
-    );
+    $imported_items = array();
+    if ( $import_posts ) $imported_items[] = count( $import_results['posts'] ) . ' posts';
+    if ( $import_pages ) $imported_items[] = count( $import_results['pages'] ) . ' pages';
+    if ( $import_menu ) $imported_items[] = 'navigation menu';
+    
+    $message = 'Demo imported successfully! Created ' . implode( ', ', $imported_items ) . '.';
     
     if ( ! empty( $import_results['skipped'] ) ) {
         $message .= sprintf( ' Skipped %d existing items.', count( $import_results['skipped'] ) );
@@ -887,6 +914,10 @@ function versana_companion_ajax_remove_demo() {
         wp_send_json_error( array( 'message' => 'Insufficient permissions' ) );
     }
     
+    $remove_posts = isset( $_POST['remove_posts'] ) && $_POST['remove_posts'] === 'true';
+    $remove_pages = isset( $_POST['remove_pages'] ) && $_POST['remove_pages'] === 'true';
+    $remove_menu = isset( $_POST['remove_menu'] ) && $_POST['remove_menu'] === 'true';
+    
     $import_data = versana_companion_get_import_data();
     
     if ( ! $import_data ) {
@@ -900,66 +931,67 @@ function versana_companion_ajax_remove_demo() {
         'tags'       => 0,
     );
     
-    // Delete posts
-    foreach ( $import_data['posts'] as $post_id ) {
-        if ( wp_delete_post( $post_id, true ) ) {
-            $deleted_counts['posts']++;
+    // Delete posts if requested
+    if ( $remove_posts ) {
+        foreach ( $import_data['posts'] as $post_id ) {
+            if ( wp_delete_post( $post_id, true ) ) {
+                $deleted_counts['posts']++;
+            }
+        }
+        
+        // Delete categories
+        foreach ( $import_data['categories'] as $cat_id ) {
+            if ( get_term( $cat_id, 'category' ) ) {
+                wp_delete_term( $cat_id, 'category' );
+                $deleted_counts['categories']++;
+            }
+        }
+        
+        // Delete tags
+        foreach ( $import_data['tags'] as $tag_id ) {
+            if ( get_term( $tag_id, 'post_tag' ) ) {
+                wp_delete_term( $tag_id, 'post_tag' );
+                $deleted_counts['tags']++;
+            }
         }
     }
     
-    // Delete pages
-    foreach ( $import_data['pages'] as $page_id ) {
-        if ( wp_delete_post( $page_id, true ) ) {
-            $deleted_counts['pages']++;
+    // Delete pages if requested
+    if ( $remove_pages ) {
+        foreach ( $import_data['pages'] as $page_id ) {
+            if ( wp_delete_post( $page_id, true ) ) {
+                $deleted_counts['pages']++;
+            }
         }
-    }
-    
-    // Delete blog page
-    if ( ! empty( $import_data['blog_page_id'] ) ) {
-        wp_delete_post( $import_data['blog_page_id'], true );
-    }
-    
-    // Delete categories
-    foreach ( $import_data['categories'] as $cat_id ) {
-        if ( get_term( $cat_id, 'category' ) ) {
-            wp_delete_term( $cat_id, 'category' );
-            $deleted_counts['categories']++;
+        
+        // Delete blog page
+        if ( ! empty( $import_data['blog_page_id'] ) ) {
+            wp_delete_post( $import_data['blog_page_id'], true );
         }
+        
+        // Reset reading settings
+        update_option( 'show_on_front', 'posts' );
+        delete_option( 'page_on_front' );
+        delete_option( 'page_for_posts' );
     }
     
-    // Delete tags
-    foreach ( $import_data['tags'] as $tag_id ) {
-        if ( get_term( $tag_id, 'post_tag' ) ) {
-            wp_delete_term( $tag_id, 'post_tag' );
-            $deleted_counts['tags']++;
-        }
-    }
-    
-    // Delete menu
-    if ( ! empty( $import_data['menu_id'] ) ) {
+    // Delete menu if requested
+    if ( $remove_menu && ! empty( $import_data['menu_id'] ) ) {
         $menu_id = intval( $import_data['menu_id'] );
         if ( get_post_type( $menu_id ) === 'wp_navigation' ) {
-            wp_delete_post( $menu_id, true ); // true = force delete
+            wp_delete_post( $menu_id, true );
         }
     }
     
-    // Reset reading settings
-    update_option( 'show_on_front', 'posts' );
-    delete_option( 'page_on_front' );
-    delete_option( 'page_for_posts' );
-    
     delete_option( 'versana_active_demo' );
-
-    // Delete import data
     delete_option( 'versana_imported_demo_data' );
     
-    $message = sprintf(
-        'Demo removed! Deleted %d posts, %d pages, %d categories, and %d tags.',
-        $deleted_counts['posts'],
-        $deleted_counts['pages'],
-        $deleted_counts['categories'],
-        $deleted_counts['tags']
-    );
+    $removed_items = array();
+    if ( $remove_posts ) $removed_items[] = $deleted_counts['posts'] . ' posts';
+    if ( $remove_pages ) $removed_items[] = $deleted_counts['pages'] . ' pages';
+    if ( $remove_menu ) $removed_items[] = 'menu';
+    
+    $message = 'Demo content removed! Deleted ' . implode( ', ', $removed_items ) . '.';
     
     wp_send_json_success( array( 'message' => $message ) );
 }

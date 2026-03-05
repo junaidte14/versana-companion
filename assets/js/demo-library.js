@@ -22,6 +22,11 @@
             const demoKey = $button.data('demo');
             const $demoItem = $button.closest('.versana-demo-item');
             
+            // Get checkbox states
+            const importPosts = $demoItem.find('.import-posts').is(':checked');
+            const importPages = $demoItem.find('.import-pages').is(':checked');
+            const importMenu = $demoItem.find('.import-menu').is(':checked');
+            
             if (!confirm(versanaCompanion.strings.confirmImport)) {
                 return;
             }
@@ -35,6 +40,9 @@
                 data: {
                     action: 'versana_import_demo',
                     demo_key: demoKey,
+                    import_posts: importPosts,
+                    import_pages: importPages,
+                    import_menu: importMenu,
                     nonce: versanaCompanion.nonce
                 },
                 success: (response) => {
@@ -42,8 +50,6 @@
                     
                     if (response.success) {
                         this.showNotice('success', response.data.message);
-                        
-                        // Reload page after 1 second to show imported state
                         setTimeout(() => {
                             window.location.reload();
                         }, 1000);
@@ -66,6 +72,11 @@
             const $button = $(e.currentTarget);
             const $demoItem = $button.closest('.versana-demo-item');
             
+            // Get checkbox states
+            const removePosts = $demoItem.find('.import-posts').is(':checked');
+            const removePages = $demoItem.find('.import-pages').is(':checked');
+            const removeMenu = $demoItem.find('.import-menu').is(':checked');
+            
             if (!confirm(versanaCompanion.strings.confirmRemove)) {
                 return;
             }
@@ -78,6 +89,9 @@
                 type: 'POST',
                 data: {
                     action: 'versana_remove_demo',
+                    remove_posts: removePosts,
+                    remove_pages: removePages,
+                    remove_menu: removeMenu,
                     nonce: versanaCompanion.nonce
                 },
                 success: (response) => {
@@ -85,8 +99,6 @@
                     
                     if (response.success) {
                         this.showNotice('success', response.data.message);
-                        
-                        // Reload page after 1 second to show removed state
                         setTimeout(() => {
                             window.location.reload();
                         }, 1000);
