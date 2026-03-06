@@ -18,7 +18,7 @@ function versana_companion_get_available_demos() {
         'blog' => array(
             'name'        => __( 'Personal Blog', 'versana-companion' ),
             'description' => __( 'Clean and minimal blog layout perfect for writers and content creators.', 'versana-companion' ),
-            'preview_url' => 'https://demos.codoplex.com/versana/blog/',
+            'preview_url' => 'https://versana.codoplex.com/versana-blog/',
             'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/blog.jpg',
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'blog',
@@ -27,7 +27,7 @@ function versana_companion_get_available_demos() {
         'business' => array(
             'name'        => __( 'Business Website', 'versana-companion' ),
             'description' => __( 'Professional business website perfect for corporate sites and agencies.', 'versana-companion' ),
-            'preview_url' => 'https://demos.codoplex.com/versana/business/',
+            'preview_url' => 'https://versana.codoplex.com/versana-business/',
             'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/business.jpg',
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'business',
@@ -36,11 +36,33 @@ function versana_companion_get_available_demos() {
         'portfolio' => array(
             'name'        => __( 'Creative Portfolio', 'versana-companion' ),
             'description' => __( 'Showcase your work with a beautiful portfolio layout for creatives.', 'versana-companion' ),
-            'preview_url' => 'https://demos.codoplex.com/versana/portfolio/',
+            'preview_url' => 'https://versana.codoplex.com/versana-portfolio/',
             'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/portfolio.jpg',
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'portfolio',
             'tags'        => array( 'portfolio', 'creative', 'showcase' ),
+        ),
+        'restaurant' => array(
+            'name'        => __( 'Restaurant & Cafe', 'versana-companion' ),
+            'description' => __( 'Warm, inviting design perfect for restaurants, cafes, and food businesses. Features menu showcases, reservation CTAs, and food-focused layouts.', 'versana-companion' ),
+            'preview_url' => 'https://versana.codoplex.com/restaurant/',
+            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/restaurant.webp',
+            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
+            'category'    => 'business',
+            'tags'        => array( 'restaurant', 'food', 'cafe', 'dining', 'culinary' ),
+            'required_plugins' => array(),
+            'recommended_plugins' => array(
+                'contact-form-7' => array(
+                    'name' => 'Contact Form 7',
+                    'desc' => 'For reservation and contact forms',
+                    'url'  => 'https://wordpress.org/plugins/contact-form-7/',
+                ),
+                'instagram-feed' => array(
+                    'name' => 'Smash Balloon Instagram Feed',
+                    'desc' => 'Display your restaurant\'s Instagram photos',
+                    'url'  => 'https://wordpress.org/plugins/instagram-feed/',
+                ),
+            ),
         ),
     );
     
@@ -257,6 +279,7 @@ function versana_companion_parse_demo_xml( $xml_content, $demo_key ) {
         '{HOME_CONTENT}'     => isset( $demo_config['home'] ) ? $demo_config['home'] : '',
         '{SERVICES_CONTENT}' => isset( $demo_config['services'] ) ? $demo_config['services'] : '',
         '{ABOUT_CONTENT}'    => isset( $demo_config['about'] ) ? $demo_config['about'] : '',
+        '{CONTACT_CONTENT}'    => isset( $demo_config['contact'] ) ? $demo_config['contact'] : '',
     );
     
     foreach ( $replacements as $placeholder => $content ) {
@@ -627,14 +650,6 @@ function versana_companion_set_reading_settings( $page_ids, $demo_key, $front_pa
         return false;
     }
     
-    // For blog demo, show posts on front
-    /* if ( $demo_key === 'blog' ) {
-        update_option( 'show_on_front', 'posts' );
-        delete_option( 'page_on_front' );
-        delete_option( 'page_for_posts' );
-        return true;
-    } */
-    
     // For portfolio and business, use custom home pages
     if ( $front_page_id ) {
         update_option( 'show_on_front', 'page' );
@@ -739,6 +754,27 @@ function versana_companion_get_demo_page_configs() {
                        <!-- wp:pattern {"slug":"versana/case-study-detail"} /-->
                        <!-- wp:pattern {"slug":"versana/team-3-column"} /-->',
             'contact' => '<!-- wp:pattern {"slug":"versana/contact-split-section"} /-->',
+        ),
+        'restaurant' => array(
+            'home' => '<!-- wp:pattern {"slug":"versana/restaurant-hero"} /-->
+              <!-- wp:pattern {"slug":"versana/restaurant-about"} /-->
+              <!-- wp:pattern {"slug":"versana/menu-showcase"} /-->
+              <!-- wp:pattern {"slug":"versana/chef-profile"} /-->
+              <!-- wp:pattern {"slug":"versana/special-events"} /-->
+              <!-- wp:pattern {"slug":"versana/restaurant-testimonials"} /-->
+              <!-- wp:pattern {"slug":"versana/food-gallery"} /-->
+              <!-- wp:pattern {"slug":"versana/reservation-cta"} /-->
+              <!-- wp:pattern {"slug":"versana/hours-location"} /-->
+              <!-- wp:pattern {"slug":"versana/instagram-feed"} /-->',
+            'services' => '<!-- wp:pattern {"slug":"versana/menu-showcase"} /-->
+                <!-- wp:pattern {"slug":"versana/special-events"} /-->
+                <!-- wp:pattern {"slug":"versana/reservation-cta"} /-->',
+            'about' => '<!-- wp:pattern {"slug":"versana/restaurant-about"} /-->
+                <!-- wp:pattern {"slug":"versana/chef-profile"} /-->
+                <!-- wp:pattern {"slug":"versana/restaurant-testimonials"} /-->
+                <!-- wp:pattern {"slug":"versana/food-gallery"} /-->',
+            'contact' => '<!-- wp:pattern {"slug":"versana/hours-location"} /-->
+                <!-- wp:pattern {"slug":"versana/contact-split-section"} /-->',
         ),
     );
 }
