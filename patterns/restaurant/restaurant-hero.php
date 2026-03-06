@@ -7,9 +7,9 @@
  * Description: Full-screen hero with restaurant imagery and reservation call-to-action
  */
 ?>
-<!-- wp:cover {"url":"","dimRatio":40,"overlayColor":"tertiary","isUserOverlayColor":true,"minHeight":90,"minHeightUnit":"vh","contentPosition":"center center","metadata":{"categories":["versana-companion"],"patternName":"versana/restaurant-hero","name":"Restaurant Hero"},"align":"full","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
+<!-- wp:cover {"url":"","dimRatio":40,"overlayColor":"tertiary","isUserOverlayColor":true,"contentPosition":"center center","metadata":{"categories":["versana-companion"],"patternName":"versana/restaurant-hero","name":"Restaurant Hero"},"align":"full","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
 <div class="wp-block-cover alignfull"
-    style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;min-height:90vh">
+    style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;">
     <span aria-hidden="true"
         class="wp-block-cover__background has-tertiary-background-color has-background-dim-40 has-background-dim"></span>
     <div class="wp-block-cover__inner-container">
