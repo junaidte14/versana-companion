@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Versana Companion
  * Description: Adds demo import and advanced features to Versana theme
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: Junaid Hassan
  * Author URI: https://codoplex.com
  * License: GPL v2 or later
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Plugin constants
  */
-define( 'VERSANA_COMPANION_VERSION', '1.1.0' );
+define( 'VERSANA_COMPANION_VERSION', '1.2.0' );
 define( 'VERSANA_COMPANION_PATH', plugin_dir_path( __FILE__ ) );
 define( 'VERSANA_COMPANION_URL', plugin_dir_url( __FILE__ ) );
 
