@@ -38,6 +38,10 @@ function versana_companion_register_pattern_categories() {
         'versana-fitness',
         array( 'label' => __( 'Versana Fitness Patterns', 'versana-companion' ) )
     );
+    register_block_pattern_category(
+        'versana-real-estate',
+        array( 'label' => __( 'Versana Real Estate Patterns', 'versana-companion' ) )
+    );
 }
 add_action( 'init', 'versana_companion_register_pattern_categories' );
 

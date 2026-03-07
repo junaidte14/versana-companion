@@ -91,6 +91,28 @@ function versana_companion_get_available_demos() {
                 ),
             ),
         ),
+        'real-estate' => array(
+            'name'        => __( 'Real Estate & Property', 'versana-companion' ),
+            'description' => __( 'Professional design for real estate agencies, property listings, and broker websites. Features property search, agent profiles, and neighborhood showcases.', 'versana-companion' ),
+            'preview_url' => 'https://versana.codoplex.com/real-estate/',
+            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/restaurant.webp',
+            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
+            'category'    => 'business',
+            'tags'        => array( 'real estate', 'property', 'listings', 'broker', 'agency', 'homes' ),
+            'required_plugins' => array(),
+            'recommended_plugins' => array(
+                'contact-form-7' => array(
+                    'name' => 'Contact Form 7',
+                    'desc' => 'For property inquiry and contact forms',
+                    'url'  => 'https://wordpress.org/plugins/contact-form-7/',
+                ),
+                'estatik' => array(
+                    'name' => 'Estatik Real Estate',
+                    'desc' => 'Advanced property listings and search functionality',
+                    'url'  => 'https://wordpress.org/plugins/estatik/',
+                ),
+            ),
+        ),
     );
     
     return apply_filters( 'versana_companion_available_demos', $demos );
@@ -827,6 +849,25 @@ function versana_companion_get_demo_page_configs() {
             'contact' => '<!-- wp:pattern {"slug":"versana/pricing-plans"} /-->
                         <!-- wp:pattern {"slug":"versana/benefits-section"} /-->
                         <!-- wp:pattern {"slug":"versana/fitness-cta"} /-->',
+        ),
+        // Add to page configuration array
+        'real-estate' => array(
+            'home' => '<!-- wp:pattern {"slug":"versana/property-hero"} /-->
+                    <!-- wp:pattern {"slug":"versana/featured-properties"} /-->
+                    <!-- wp:pattern {"slug":"versana/property-benefits"} /-->
+                    <!-- wp:pattern {"slug":"versana/neighborhoods"} /-->
+                    <!-- wp:pattern {"slug":"versana/client-testimonials"} /-->
+                    <!-- wp:pattern {"slug":"versana/agent-team"} /-->
+                    <!-- wp:pattern {"slug":"versana/property-cta"} /-->',
+            'services' => '<!-- wp:pattern {"slug":"versana/featured-properties"} /-->
+                        <!-- wp:pattern {"slug":"versana/neighborhoods"} /-->
+                        <!-- wp:pattern {"slug":"versana/property-cta"} /-->',
+            'about' => '<!-- wp:pattern {"slug":"versana/agent-team"} /-->
+                    <!-- wp:pattern {"slug":"versana/property-benefits"} /-->
+                    <!-- wp:pattern {"slug":"versana/client-testimonials"} /-->
+                    <!-- wp:pattern {"slug":"versana/property-cta"} /-->',
+            'contact' => '<!-- wp:pattern {"slug":"versana/property-cta"} /-->
+                        <!-- wp:pattern {"slug":"versana/agent-team"} /-->',
         ),
     );
 }
