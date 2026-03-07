@@ -95,10 +95,16 @@ function versana_companion_get_available_demos() {
             'name'        => __( 'Real Estate & Property', 'versana-companion' ),
             'description' => __( 'Professional design for real estate agencies, property listings, and broker websites. Features property search, agent profiles, and neighborhood showcases.', 'versana-companion' ),
             'preview_url' => 'https://versana.codoplex.com/real-estate/',
-            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/restaurant.webp',
+            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/real-estate.webp',
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'business',
             'tags'        => array( 'real estate', 'property', 'listings', 'broker', 'agency', 'homes' ),
+            'features' => array(
+                '✓ Advanced property search & filter layouts',
+                '✓ Featured listings with property detail layouts',
+                '✓ Agent profiles & client testimonial sections',
+                '✓ 90+ Performance Score'
+            ),
             'required_plugins' => array(),
             'recommended_plugins' => array(
                 'contact-form-7' => array(
