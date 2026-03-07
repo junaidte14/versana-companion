@@ -23,6 +23,7 @@ function versana_companion_get_available_demos() {
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'blog',
             'tags'        => array( 'blog', 'minimal', 'writer' ),
+            'features'        => array( '✓ Magazine-quality layouts', '✓ Optimized for readability', '✓ Styled Block patterns', '✓ 90+ Performance Score'),
         ),
         'business' => array(
             'name'        => __( 'Business Website', 'versana-companion' ),
@@ -32,6 +33,7 @@ function versana_companion_get_available_demos() {
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'business',
             'tags'        => array( 'business', 'corporate', 'professional' ),
+            'features'        => array( '✓ Conversion-focused design', '✓ Professional credibility', '✓ Modern SaaS aesthetic', '✓ 90+ Performance Score'),
         ),
         'portfolio' => array(
             'name'        => __( 'Creative Portfolio', 'versana-companion' ),
@@ -41,6 +43,7 @@ function versana_companion_get_available_demos() {
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'portfolio',
             'tags'        => array( 'portfolio', 'creative', 'showcase' ),
+            'features'        => array( '✓ Stunning visual galleries', '✓ Project case study layouts', '✓ Client testimonial sections', '✓ 90+ Performance Score'),
         ),
         'restaurant' => array(
             'name'        => __( 'Restaurant & Cafe', 'versana-companion' ),
@@ -50,6 +53,7 @@ function versana_companion_get_available_demos() {
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'business',
             'tags'        => array( 'restaurant', 'food', 'cafe', 'dining', 'culinary' ),
+            'features'        => array( '✓ Mobile-first reservation flow', '✓ Menu showcase layouts', '✓ Food photography optimized', '✓ 90+ Performance Score'),
             'required_plugins' => array(),
             'recommended_plugins' => array(
                 'contact-form-7' => array(
@@ -68,10 +72,11 @@ function versana_companion_get_available_demos() {
             'name'        => __( 'Fitness & Wellness', 'versana-companion' ),
             'description' => __( 'Energetic design perfect for gyms, fitness studios, yoga centers, and wellness businesses. Features class schedules, trainer profiles, and transformation stories.', 'versana-companion' ),
             'preview_url' => 'https://versana.codoplex.com/fitness/',
-            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/portfolio.webp',
+            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/fitness.webp',
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'business',
             'tags'        => array( 'fitness', 'gym', 'wellness', 'yoga', 'health', 'sports' ),
+            'features'        => array( '✓ Class schedule & booking layouts', '✓ Member transformation stories layout', '✓ Flexible pricing with free trial layout', '✓ 90+ Performance Score'),
             'required_plugins' => array(),
             'recommended_plugins' => array(
                 'contact-form-7' => array(
@@ -190,6 +195,13 @@ function versana_companion_render_demo_import_tab() {
                     <div class="demo-info">
                         <h3 class="demo-name"><?php echo esc_html( $demo['name'] ); ?></h3>
                         <p class="demo-description"><?php echo esc_html( $demo['description'] ); ?></p>
+                        <?php if ( ! empty( $demo['features'] ) && is_array( $demo['features'] ) ) : ?>
+                            <ul>
+                                <?php foreach ( $demo['features'] as $feature ) : ?>
+                                    <li><?php echo esc_html( $feature ); ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
                     </div>
 
                     <div class="demo-import-options">

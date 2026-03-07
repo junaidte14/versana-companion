@@ -7,8 +7,8 @@
  * Description: Full-screen hero with workout imagery and strong CTA
  */
 ?>
-<!-- wp:cover {"url":"","dimRatio":50,"overlayColor":"tertiary","isUserOverlayColor":true,"minHeight":95,"minHeightUnit":"vh","contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|4xl","bottom":"var:preset|spacing|4xl","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
-<div class="wp-block-cover alignfull" style="padding-top:var(--wp--preset--spacing--4-xl);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--4-xl);padding-left:var(--wp--preset--spacing--md);min-height:95vh">
+<!-- wp:cover {"url":"","dimRatio":50,"overlayColor":"tertiary","isUserOverlayColor":true,"contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|4xl","bottom":"var:preset|spacing|4xl","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}}} -->
+<div class="wp-block-cover alignfull" style="padding-top:var(--wp--preset--spacing--4-xl);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--4-xl);padding-left:var(--wp--preset--spacing--md);">
     <span aria-hidden="true" class="wp-block-cover__background has-tertiary-background-color has-background-dim"></span>
     <div class="wp-block-cover__inner-container">
         
