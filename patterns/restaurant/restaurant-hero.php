@@ -2,7 +2,7 @@
 /**
  * Title: Restaurant Hero
  * Slug: versana/restaurant-hero
- * Categories: versana-companion
+ * Categories: versana-restaurant
  * Keywords: hero, restaurant, banner, reservation, booking
  * Description: Full-screen hero with restaurant imagery and reservation call-to-action
  */

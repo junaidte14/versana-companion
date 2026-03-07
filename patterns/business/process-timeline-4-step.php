@@ -2,7 +2,7 @@
 /**
  * Title: Process Timeline Four Steps
  * Slug: versana/process-timeline-4-step
- * Categories: versana-companion
+ * Categories: versana-business
  * Keywords: process, timeline, steps, workflow, how it works
  * Block Types: core/group
  * Description: Four-step process timeline showing workflow or methodology.

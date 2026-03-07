@@ -2,7 +2,7 @@
 /**
  * Title: Food Gallery
  * Slug: versana/food-gallery
- * Categories: versana-companion
+ * Categories: versana-restaurant
  * Keywords: gallery, food, dishes, photos, instagram
  * Description: Visual food gallery showcasing dishes
  */

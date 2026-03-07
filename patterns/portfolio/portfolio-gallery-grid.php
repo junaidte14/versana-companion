@@ -2,7 +2,7 @@
 /**
  * Title: Portfolio Gallery Grid
  * Slug: versana/portfolio-gallery-grid
- * Categories: versana-companion
+ * Categories: versana-portfolio
  * Keywords: portfolio, gallery, projects, work, showcase
  * Block Types: core/gallery
  * Description: Professional portfolio gallery grid for showcasing creative work.

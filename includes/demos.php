@@ -64,6 +64,28 @@ function versana_companion_get_available_demos() {
                 ),
             ),
         ),
+        'fitness' => array(
+            'name'        => __( 'Fitness & Wellness', 'versana-companion' ),
+            'description' => __( 'Energetic design perfect for gyms, fitness studios, yoga centers, and wellness businesses. Features class schedules, trainer profiles, and transformation stories.', 'versana-companion' ),
+            'preview_url' => 'https://versana.codoplex.com/fitness/',
+            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/portfolio.webp',
+            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
+            'category'    => 'business',
+            'tags'        => array( 'fitness', 'gym', 'wellness', 'yoga', 'health', 'sports' ),
+            'required_plugins' => array(),
+            'recommended_plugins' => array(
+                'contact-form-7' => array(
+                    'name' => 'Contact Form 7',
+                    'desc' => 'For class booking and contact forms',
+                    'url'  => 'https://wordpress.org/plugins/contact-form-7/',
+                ),
+                'the-events-calendar' => array(
+                    'name' => 'The Events Calendar',
+                    'desc' => 'Manage class schedules and events',
+                    'url'  => 'https://wordpress.org/plugins/the-events-calendar/',
+                ),
+            ),
+        ),
     );
     
     return apply_filters( 'versana_companion_available_demos', $demos );
@@ -775,6 +797,24 @@ function versana_companion_get_demo_page_configs() {
                 <!-- wp:pattern {"slug":"versana/food-gallery"} /-->',
             'contact' => '<!-- wp:pattern {"slug":"versana/hours-location"} /-->
                 <!-- wp:pattern {"slug":"versana/contact-split-section"} /-->',
+        ),
+        'fitness' => array(
+            'home' => '<!-- wp:pattern {"slug":"versana/fitness-hero"} /-->
+                    <!-- wp:pattern {"slug":"versana/benefits-section"} /-->
+                    <!-- wp:pattern {"slug":"versana/class-schedule"} /-->
+                    <!-- wp:pattern {"slug":"versana/transformation-stories"} /-->
+                    <!-- wp:pattern {"slug":"versana/pricing-plans"} /-->
+                    <!-- wp:pattern {"slug":"versana/trainers-team"} /-->
+                    <!-- wp:pattern {"slug":"versana/fitness-cta"} /-->',
+            'services' => '<!-- wp:pattern {"slug":"versana/class-schedule"} /-->
+                        <!-- wp:pattern {"slug":"versana/benefits-section"} /-->
+                        <!-- wp:pattern {"slug":"versana/fitness-cta"} /-->',
+            'about' => '<!-- wp:pattern {"slug":"versana/trainers-team"} /-->
+                    <!-- wp:pattern {"slug":"versana/transformation-stories"} /-->
+                    <!-- wp:pattern {"slug":"versana/benefits-section"} /-->',
+            'contact' => '<!-- wp:pattern {"slug":"versana/pricing-plans"} /-->
+                        <!-- wp:pattern {"slug":"versana/benefits-section"} /-->
+                        <!-- wp:pattern {"slug":"versana/fitness-cta"} /-->',
         ),
     );
 }

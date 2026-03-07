@@ -2,7 +2,7 @@
 /**
  * Title: Business About
  * Slug: versana/business-about
- * Categories: versana-companion
+ * Categories: versana-business
  * Keywords: about, simple about
  * Block Types: core/group
  * Description: A simple way to show about us information.

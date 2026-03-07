@@ -2,7 +2,7 @@
 /**
  * Title: Portfolio Hero
  * Slug: versana/portfolio-hero
- * Categories: versana-companion
+ * Categories: versana-portfolio
  * Keywords: hero, banner
  * Block Types: core/cover
  * Description: A simple hero banner for portfolio.

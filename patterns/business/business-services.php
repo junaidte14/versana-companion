@@ -2,7 +2,7 @@
 /**
  * Title: Business Services
  * Slug: versana/business-services
- * Categories: versana-companion
+ * Categories: versana-business
  * Keywords: services, 2 columns, features
  * Block Types: core/group
  * Description: A large section to showcase top business services.

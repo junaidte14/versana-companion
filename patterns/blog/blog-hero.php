@@ -2,7 +2,7 @@
 /**
  * Title: Blog Hero
  * Slug: versana/blog-hero
- * Categories: versana-companion
+ * Categories: versana-blog
  * Keywords: hero, banner
  * Description: A simple hero banner for blogs.
  */

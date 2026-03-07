@@ -2,7 +2,7 @@
 /**
  * Title: Reservation Call to Action
  * Slug: versana/reservation-cta
- * Categories: versana-companion
+ * Categories: versana-restaurant
  * Keywords: reservation, booking, cta, call to action
  * Description: Bold call-to-action section for table reservations
  */

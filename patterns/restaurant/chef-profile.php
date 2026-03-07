@@ -2,7 +2,7 @@
 /**
  * Title: Chef Profile
  * Slug: versana/chef-profile
- * Categories: versana-companion
+ * Categories: versana-restaurant
  * Keywords: chef, team, staff, about
  * Description: Meet the chef section with bio and credentials
  */

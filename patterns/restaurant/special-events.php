@@ -2,7 +2,7 @@
 /**
  * Title: Special Events
  * Slug: versana/special-events
- * Categories: versana-companion
+ * Categories: versana-restaurant
  * Keywords: events, specials, promotions, occasions
  * Description: Upcoming events and special dining occasions
  */

@@ -2,7 +2,7 @@
 /**
  * Title: Menu Showcase
  * Slug: versana/menu-showcase
- * Categories: versana-companion
+ * Categories: versana-restaurant
  * Keywords: menu, food, dishes, specialties
  * Description: Featured menu items grid with prices and descriptions
  */

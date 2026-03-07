@@ -2,7 +2,7 @@
 /**
  * Title: Blog Grid Three Columns
  * Slug: versana/blog-grid-3-column
- * Categories: versana-companion
+ * Categories: versana-blog
  * Keywords: blog, posts, articles, grid, latest
  * Block Types: core/query
  * Description: Three column grid layout for displaying latest blog posts.

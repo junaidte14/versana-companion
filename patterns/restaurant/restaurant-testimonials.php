@@ -2,7 +2,7 @@
 /**
  * Title: Restaurant Testimonials
  * Slug: versana/restaurant-testimonials
- * Categories: versana-companion
+ * Categories: versana-restaurant
  * Keywords: testimonials, reviews, customers, feedback
  * Description: Customer testimonials with ratings and photos
  */

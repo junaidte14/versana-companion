@@ -2,7 +2,7 @@
 /**
  * Title: Restaurant About Story
  * Slug: versana/restaurant-about
- * Categories: versana-companion
+ * Categories: versana-restaurant
  * Keywords: about, story, restaurant, history
  * Description: Restaurant story section with split layout - text and imagery
  */

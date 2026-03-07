@@ -2,7 +2,7 @@
 /**
  * Title: Hero Business Gradient
  * Slug: versana/hero-business-gradient
- * Categories: versana-companion
+ * Categories: versana-business
  * Keywords: hero, banner, business, professional
  * Block Types: core/group
  * Description: Professional split-layout hero with content on left and visual on right.

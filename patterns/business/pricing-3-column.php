@@ -2,7 +2,7 @@
 /**
  * Title: Pricing Three Columns
  * Slug: versana/pricing-3-column
- * Categories: versana-companion
+ * Categories: versana-business
  * Keywords: pricing, plans, subscription, packages
  * Block Types: core/group
  * Description: Three column pricing table with popular plan highlighted.

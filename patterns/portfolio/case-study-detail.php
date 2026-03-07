@@ -2,7 +2,7 @@
 /**
  * Title: Case Study Detail
  * Slug: versana/case-study-detail
- * Categories: versana-companion
+ * Categories: versana-portfolio
  * Keywords: case study, project, portfolio, work, showcase
  * Block Types: core/group
  * Description: Detailed case study layout for showcasing project details and results.

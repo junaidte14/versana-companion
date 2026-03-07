@@ -2,7 +2,7 @@
 /**
  * Title: Hours and Location
  * Slug: versana/hours-location
- * Categories: versana-companion
+ * Categories: versana-restaurant
  * Keywords: hours, location, address, contact, map
  * Description: Restaurant hours and location information in split layout
  */

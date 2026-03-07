@@ -2,7 +2,7 @@
 /**
  * Title: Client Logos Grid
  * Slug: versana/client-logos-grid
- * Categories: versana-companion
+ * Categories: versana-business
  * Keywords: clients, logos, partners, companies, brands
  * Block Types: core/group
  * Description: Grid of client logos showing trusted partners and customers.

@@ -2,7 +2,7 @@
 /**
  * Title: Instagram Feed
  * Slug: versana/instagram-feed
- * Categories: versana-companion
+ * Categories: versana-restaurant
  * Keywords: instagram, social, feed, photos
  * Description: Instagram feed section with plugin placeholder
  */

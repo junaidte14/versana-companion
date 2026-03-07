@@ -2,7 +2,7 @@
 /**
  * Title: Portfolio About
  * Slug: versana/portfolio-about
- * Categories: versana-companion
+ * Categories: versana-portfolio
  * Keywords: about, simple about
  * Block Types: core/group
  * Description: A simple way to show about us information for portfolio.
