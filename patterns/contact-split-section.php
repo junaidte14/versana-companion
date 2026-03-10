@@ -2,7 +2,7 @@
 /**
  * Title: Contact Split Section
  * Slug: versana/contact-split-section
- * Categories: versana-companion
+ * Categories: versana-patterns
  * Keywords: contact, form, get in touch, email, phone
  * Block Types: core/group
  * Description: Two-column contact section with info and form placeholder.

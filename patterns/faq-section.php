@@ -2,7 +2,7 @@
 /**
  * Title: FAQ Section
  * Slug: versana/faq-section
- * Categories: versana-companion
+ * Categories: versana-patterns
  * Keywords: faq, questions, answers, help, support
  * Block Types: core/group
  * Description: Frequently asked questions section using details/summary blocks.

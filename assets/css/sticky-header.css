@@ -1,0 +1,64 @@
+/**
+ * Sticky Header Styles
+ *
+ * @package Versana
+ * @since 1.0.0
+ */
+
+ /* ==========================================================================
+   Sticky Header
+   ========================================================================== */
+
+/* Scroll progress indicator */
+.site-header::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--wp--preset--color--primary);
+    width: var(--scroll-progress, 0%);
+    transition: width 0.1s ease;
+}
+
+/* Sticky header when stuck */
+.has-sticky-header.header-is-stuck .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: var(--wp--preset--color--base, #ffffff);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.3s ease;
+    z-index: 99999;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Prevent content jump when header becomes fixed */
+.has-sticky-header.header-is-stuck {
+    padding-top: var(--header-height, 80px);
+}
+
+/* ==========================================================================
+   Admin Bar Adjustment (for logged-in users)
+   ========================================================================== */
+
+/* When WordPress admin bar is present */
+.admin-bar.has-sticky-header.header-is-stuck .site-header {
+    top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar.has-sticky-header.header-is-stuck .site-header {
+        top: 0;
+    }
+}

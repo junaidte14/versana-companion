@@ -2,7 +2,7 @@
 /**
  * Title: Contact
  * Slug: versana/contact
- * Categories: versana-companion
+ * Categories: versana-patterns
  * Keywords: contact, 2 columns, simple contact
  * Block Types: core/group
  * Description: A simple way to show contact information.

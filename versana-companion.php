@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Versana Companion
  * Description: Adds demo import and advanced features to Versana theme
- * Version: 1.4.1
+ * Version: 1.5.0
  * Author: Junaid Hassan
  * Author URI: https://codoplex.com
  * License: GPL v2 or later
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Plugin constants
  */
-define( 'VERSANA_COMPANION_VERSION', '1.4.1' );
+define( 'VERSANA_COMPANION_VERSION', '1.5.0' );
 define( 'VERSANA_COMPANION_PATH', plugin_dir_path( __FILE__ ) );
 define( 'VERSANA_COMPANION_URL', plugin_dir_url( __FILE__ ) );
 
@@ -63,10 +63,39 @@ function versana_companion_init() {
         return;
     }
     
+    /**
+     * Load theme options system
+     *
+     * Files are loaded in specific order for dependencies.
+     * Only admin page loads in admin area (conditional loading).
+     */
+    $theme_options_path = VERSANA_COMPANION_PATH . 'includes/theme-options/';
+    // Load in order of dependency
+    if ( file_exists( $theme_options_path . 'options-defaults.php' ) ) {
+        require_once $theme_options_path . 'options-defaults.php';
+    }
+    if ( file_exists( $theme_options_path . 'options-sanitize.php' ) ) {
+        require_once $theme_options_path . 'options-sanitize.php';
+    }
+    if ( file_exists( $theme_options_path . 'options-init.php' ) ) {
+        require_once $theme_options_path . 'options-init.php';
+    }
+    // Admin page (conditional - only in admin)
+    if ( is_admin() && file_exists( $theme_options_path . 'options-page.php' ) ) {
+        require_once $theme_options_path . 'options-page.php';
+    }
+    // Frontend output
+    if ( file_exists( $theme_options_path . 'options-output.php' ) ) {
+        require_once $theme_options_path . 'options-output.php';
+    }
+
+    require_once VERSANA_COMPANION_PATH . '/includes/customizer.php';
     require_once VERSANA_COMPANION_PATH . '/includes/demos.php';
     require_once VERSANA_COMPANION_PATH . '/includes/patterns.php';
     require_once VERSANA_COMPANION_PATH . '/includes/layout.php';
     require_once VERSANA_COMPANION_PATH . '/includes/optimizations.php';
+    // Include license verification
+    require_once VERSANA_COMPANION_PATH . 'includes/license.php';
 
 }
 add_action( 'plugins_loaded', 'versana_companion_init' );

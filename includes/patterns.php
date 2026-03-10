@@ -15,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function versana_companion_register_pattern_categories() {
     register_block_pattern_category(
-        'versana-companion',
-        array( 'label' => __( 'Versana Companion Patterns', 'versana-companion' ) )
+        'versana-patterns',
+        array( 'label' => __( 'Versana Patterns', 'versana-companion' ) )
     );
     register_block_pattern_category(
         'versana-blog',
@@ -29,18 +29,6 @@ function versana_companion_register_pattern_categories() {
     register_block_pattern_category(
         'versana-business',
         array( 'label' => __( 'Versana Business Patterns', 'versana-companion' ) )
-    );
-    register_block_pattern_category(
-        'versana-restaurant',
-        array( 'label' => __( 'Versana Restaurant Patterns', 'versana-companion' ) )
-    );
-    register_block_pattern_category(
-        'versana-fitness',
-        array( 'label' => __( 'Versana Fitness Patterns', 'versana-companion' ) )
-    );
-    register_block_pattern_category(
-        'versana-real-estate',
-        array( 'label' => __( 'Versana Real Estate Patterns', 'versana-companion' ) )
     );
 }
 add_action( 'init', 'versana_companion_register_pattern_categories' );

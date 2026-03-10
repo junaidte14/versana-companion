@@ -2,9 +2,8 @@
 /**
  * Title: About
  * Slug: versana/about
- * Categories: versana-companion
+ * Categories: versana-patterns
  * Keywords: about, simple about
- * Block Types: core/group
  * Description: A simple way to show about us information.
  */
 ?>

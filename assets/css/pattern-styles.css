@@ -1,0 +1,305 @@
+/**
+ * Versana Theme - Pattern Styles
+ * 
+ * Professional styling for block patterns
+ * 
+ * @package Versana
+ * @since 1.0.0
+ */
+
+/* ============================================
+   ICON CIRCLES
+   ============================================ */
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon-circle p {
+    margin: 0 !important;
+}
+
+/* ============================================
+   PROCESS TIMELINE - STEP NUMBERS
+   ============================================ */
+
+.step-number {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease;
+}
+
+.step-number:hover {
+    transform: scale(1.1);
+}
+
+.step-number p {
+    margin: 0 !important;
+}
+
+/* ============================================
+   LOGO CARDS
+   ============================================ */
+
+.logo-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.logo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo-card p {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.logo-card:hover p {
+    opacity: 1;
+}
+
+/* ============================================
+   PORTFOLIO GALLERY
+   ============================================ */
+
+.portfolio-item {
+    overflow: hidden;
+    position: relative;
+}
+
+.portfolio-item .wp-block-cover {
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover .wp-block-cover {
+    transform: scale(1.05);
+}
+
+.portfolio-item .wp-block-cover__inner-container {
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover .wp-block-cover__inner-container {
+    opacity: 1;
+}
+
+/* ============================================
+   DETAILS/SUMMARY (FAQ)
+   ============================================ */
+
+.wp-block-details {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.wp-block-details:hover {
+    border-color: #1A73E8;
+    box-shadow: 0 2px 8px rgba(26, 115, 232, 0.1);
+}
+
+.wp-block-details summary {
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    font-size: 1.125rem;
+}
+
+.wp-block-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.wp-block-details summary::before {
+    content: '+';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.75rem;
+    background-color: #1A73E8;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.wp-block-details[open] summary::before {
+    content: '−';
+    transform: rotate(180deg);
+}
+
+.wp-block-details summary:hover {
+    color: #1A73E8;
+}
+
+
+/* ============================================
+   CHECKMARK LIST (for pricing tables)
+   ============================================ */
+
+.is-style-checkmark-list {
+    list-style: none;
+}
+
+.is-style-checkmark-list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.is-style-checkmark-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+/* ============================================
+   PRICING TABLES
+   ============================================ */
+
+.wp-block-columns:has(.wp-block-button__width-100) .wp-block-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.wp-block-columns:has(.wp-block-button__width-100) .wp-block-buttons {
+    margin-top: auto;
+}
+
+/* Popular plan styling */
+.wp-block-column:has([style*="MOST POPULAR"]) {
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 782px) {
+    .wp-block-column:has([style*="MOST POPULAR"]) {
+        transform: scale(1.05);
+    }
+}
+
+/* ============================================
+   STATS SECTION
+   ============================================ */
+
+.wp-block-group:has(.has-4xl-font-size) .wp-block-columns {
+    text-align: center;
+}
+
+/* ============================================
+   TEAM SECTION
+   ============================================ */
+
+.wp-block-group:has(.team-member) img,
+.wp-block-group:has([style*="5rem"]) .wp-block-group {
+    transition: transform 0.3s ease;
+}
+
+.wp-block-group:has(.team-member):hover img,
+.wp-block-column:hover .wp-block-group:has([style*="5rem"]) .wp-block-group {
+    transform: scale(1.05);
+}
+
+/* ============================================
+   CASE STUDY GRADIENTS
+   ============================================ */
+
+.wp-block-column:has(.has-primary-gradient-gradient-background) {
+    transition: transform 0.3s ease;
+}
+
+.wp-block-column:has(.has-primary-gradient-gradient-background):hover {
+    transform: translateY(-4px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 781px) {
+    
+    /* Reduce spacing on mobile */
+    .icon-circle {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .icon-circle p {
+        font-size: 1.5rem !important;
+    }
+    
+    .step-number {
+        width: 100px;
+        height: 100px;
+    }
+    
+    /* Adjust pricing cards */
+    .wp-block-column:has([style*="MOST POPULAR"]) {
+        transform: none !important;
+    }
+    
+    /* Portfolio gallery - stack on mobile */
+    .portfolio-item .wp-block-cover {
+        min-height: 300px !important;
+    }
+    
+    /* Logo cards - smaller on mobile */
+    .logo-card p {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/* Focus states */
+.wp-block-button__link:focus,
+.wp-block-details summary:focus,
+.footer-links a:focus,
+.portfolio-item:focus-within {
+    outline: 2px solid #1A73E8;
+    outline-offset: 2px;
+}
+
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .logo-card,
+    .portfolio-item {
+        border: 2px solid currentColor;
+    }
+}
+
+/* ============================================
+   HERO BUSINESS SPLIT
+   ============================================ */
+
+.wp-block-group:has(.alignwide > .wp-block-columns > .wp-block-column[style*="55%"]) {
+    overflow: hidden;
+}
+
+/* Stats in hero */
+.wp-block-group .wp-block-group:has([style*="500+"]) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}

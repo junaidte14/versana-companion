@@ -2,7 +2,7 @@
 /**
  * Title: Stats Four Columns
  * Slug: versana/stats-4-column
- * Categories: versana-companion
+ * Categories: versana-patterns
  * Keywords: stats, numbers, metrics, counters, achievements
  * Block Types: core/group
  * Description: Four column statistics section showcasing key metrics and achievements.

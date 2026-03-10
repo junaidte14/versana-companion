@@ -2,7 +2,7 @@
 /**
  * Title: Testimonials Two Columns
  * Slug: versana/testimonials-2-column
- * Categories: versana-companion
+ * Categories: versana-patterns
  * Keywords: testimonials, reviews, clients, quotes
  * Block Types: core/group
  * Description: Two column testimonial layout with client quotes and details.

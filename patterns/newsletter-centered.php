@@ -2,7 +2,7 @@
 /**
  * Title: Newsletter Centered
  * Slug: versana/newsletter-centered
- * Categories: versana-companion
+ * Categories: versana-patterns
  * Keywords: newsletter, subscribe, email, signup
  * Block Types: core/group
  * Description: Centered newsletter signup section with description.

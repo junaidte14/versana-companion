@@ -2,7 +2,7 @@
 /**
  * Title: Call to Action Split
  * Slug: versana/cta-split
- * Categories: versana-companion
+ * Categories: versana-patterns
  * Keywords: cta, call to action, button, conversion
  * Block Types: core/group
  * Description: Split layout CTA with content on left and button on right.

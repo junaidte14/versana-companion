@@ -20,8 +20,10 @@ function versana_companion_get_available_demos() {
             'description' => __( 'Clean and minimal blog layout perfect for writers and content creators.', 'versana-companion' ),
             'preview_url' => 'https://versana.codoplex.com/versana-blog/',
             'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/blog.webp',
+            'thumbnail_path'   => VERSANA_COMPANION_PATH . 'assets/images/blog.webp',
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'blog',
+            'is_pro'      => false,
             'tags'        => array( 'blog', 'minimal', 'writer' ),
             'features'        => array( '✓ Magazine-quality layouts', '✓ Optimized for readability', '✓ Styled Block patterns', '✓ 90+ Performance Score'),
         ),
@@ -30,8 +32,10 @@ function versana_companion_get_available_demos() {
             'description' => __( 'Professional business website perfect for corporate sites and agencies.', 'versana-companion' ),
             'preview_url' => 'https://versana.codoplex.com/business/',
             'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/business.webp',
+            'thumbnail_path'   => VERSANA_COMPANION_PATH . 'assets/images/business.webp',
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'business',
+            'is_pro'      => false,
             'tags'        => array( 'business', 'corporate', 'professional' ),
             'features'        => array( '✓ Conversion-focused design', '✓ Professional credibility', '✓ Modern SaaS aesthetic', '✓ 90+ Performance Score'),
         ),
@@ -40,87 +44,36 @@ function versana_companion_get_available_demos() {
             'description' => __( 'Showcase your work with a beautiful portfolio layout for creatives.', 'versana-companion' ),
             'preview_url' => 'https://versana.codoplex.com/portfolio/',
             'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/portfolio.webp',
+            'thumbnail_path'   => VERSANA_COMPANION_PATH . 'assets/images/portfolio.webp',
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'portfolio',
+            'is_pro'      => false,
             'tags'        => array( 'portfolio', 'creative', 'showcase' ),
             'features'        => array( '✓ Stunning visual galleries', '✓ Project case study layouts', '✓ Client testimonial sections', '✓ 90+ Performance Score'),
         ),
-        'restaurant' => array(
-            'name'        => __( 'Restaurant & Cafe', 'versana-companion' ),
-            'description' => __( 'Warm, inviting design perfect for restaurants, cafes, and food businesses. Features menu showcases, reservation CTAs, and food-focused layouts.', 'versana-companion' ),
-            'preview_url' => 'https://versana.codoplex.com/restaurant/',
-            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/restaurant.webp',
-            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
-            'category'    => 'business',
-            'tags'        => array( 'restaurant', 'food', 'cafe', 'dining', 'culinary' ),
-            'features'        => array( '✓ Mobile-first reservation flow', '✓ Menu showcase layouts', '✓ Food photography optimized', '✓ 90+ Performance Score'),
-            'required_plugins' => array(),
-            'recommended_plugins' => array(
-                'contact-form-7' => array(
-                    'name' => 'Contact Form 7',
-                    'desc' => 'For reservation and contact forms',
-                    'url'  => 'https://wordpress.org/plugins/contact-form-7/',
-                ),
-                'instagram-feed' => array(
-                    'name' => 'Smash Balloon Instagram Feed',
-                    'desc' => 'Display your restaurant\'s Instagram photos',
-                    'url'  => 'https://wordpress.org/plugins/instagram-feed/',
-                ),
-            ),
-        ),
-        'fitness' => array(
-            'name'        => __( 'Fitness & Wellness', 'versana-companion' ),
-            'description' => __( 'Energetic design perfect for gyms, fitness studios, yoga centers, and wellness businesses. Features class schedules, trainer profiles, and transformation stories.', 'versana-companion' ),
-            'preview_url' => 'https://versana.codoplex.com/fitness/',
-            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/fitness.webp',
-            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
-            'category'    => 'business',
-            'tags'        => array( 'fitness', 'gym', 'wellness', 'yoga', 'health', 'sports' ),
-            'features'        => array( '✓ Class schedule & booking layouts', '✓ Member transformation stories layout', '✓ Flexible pricing with free trial layout', '✓ 90+ Performance Score'),
-            'required_plugins' => array(),
-            'recommended_plugins' => array(
-                'contact-form-7' => array(
-                    'name' => 'Contact Form 7',
-                    'desc' => 'For class booking and contact forms',
-                    'url'  => 'https://wordpress.org/plugins/contact-form-7/',
-                ),
-                'the-events-calendar' => array(
-                    'name' => 'The Events Calendar',
-                    'desc' => 'Manage class schedules and events',
-                    'url'  => 'https://wordpress.org/plugins/the-events-calendar/',
-                ),
-            ),
-        ),
-        'real-estate' => array(
-            'name'        => __( 'Real Estate & Property', 'versana-companion' ),
-            'description' => __( 'Professional design for real estate agencies, property listings, and broker websites. Features property search, agent profiles, and neighborhood showcases.', 'versana-companion' ),
-            'preview_url' => 'https://versana.codoplex.com/real-estate/',
-            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/real-estate.webp',
-            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
-            'category'    => 'business',
-            'tags'        => array( 'real estate', 'property', 'listings', 'broker', 'agency', 'homes' ),
-            'features' => array(
-                '✓ Advanced property search & filter layouts',
-                '✓ Featured listings with property detail layouts',
-                '✓ Agent profiles & client testimonial sections',
-                '✓ 90+ Performance Score'
-            ),
-            'required_plugins' => array(),
-            'recommended_plugins' => array(
-                'contact-form-7' => array(
-                    'name' => 'Contact Form 7',
-                    'desc' => 'For property inquiry and contact forms',
-                    'url'  => 'https://wordpress.org/plugins/contact-form-7/',
-                ),
-                'estatik' => array(
-                    'name' => 'Estatik Real Estate',
-                    'desc' => 'Advanced property listings and search functionality',
-                    'url'  => 'https://wordpress.org/plugins/estatik/',
-                ),
-            ),
-        ),
     );
+
+    // Add locked status for PRO demos if license is not active
+    $is_pro_active = versana_companion_is_pro_active();
+    if ( ! $is_pro_active ) {
+        foreach ( $demos as $key => $demo ) {
+            if ( ! empty( $demo['is_pro'] ) ) {
+                $demos[ $key ]['locked'] = true;
+                $demos[ $key ]['purchase_url'] = versana_companion_get_license_server_url() . 'purchase/';
+            }
+        }
+    }
     
+    /**
+     * Filter: versana_companion_available_demos
+     * 
+     * Allows other plugins (like Versana PRO) to add more demos
+     * 
+     * @param array $demos Existing demos array
+     * @return array Modified demos array
+     * 
+     * @since 1.0.0
+     */
     return apply_filters( 'versana_companion_available_demos', $demos );
 }
 
@@ -145,6 +98,7 @@ add_filter( 'versana_option_tabs', 'versana_companion_add_settings_tabs' );
 function versana_companion_render_demo_import_tab() {
     $imported_demo = versana_companion_get_import_data();
     $demos = versana_companion_get_available_demos();
+    $is_pro_active = versana_companion_is_pro_active();
     
     ?>
     <div class="versana-tab-content">
@@ -186,14 +140,65 @@ function versana_companion_render_demo_import_tab() {
                 <?php esc_html_e( 'You can import a different demo. Previous demo content will remain unless you remove it first.', 'versana-companion' ); ?>
             </p>
         <?php endif; ?>
+
+        <?php if ( ! $is_pro_active ) : ?>
+            <div class="versana-pro-notice">
+                <div class="versana-pro-notice-content">
+                    <h3>
+                        <span class="dashicons dashicons-lock"></span>
+                        <?php esc_html_e( 'Unlock PRO Demos', 'versana-companion' ); ?>
+                    </h3>
+                    <p>
+                        <?php esc_html_e( 'Get access to premium demos and advanced features with Versana PRO.', 'versana-companion' ); ?>
+                    </p>
+                    <a href="<?php echo esc_url( admin_url( 'admin.php?page=versana-options&tab=license' ) ); ?>" 
+                       class="button button-primary">
+                        <?php esc_html_e( 'Activate License', 'versana-companion' ); ?>
+                    </a>
+                    <a href="<?php echo esc_url( versana_companion_get_license_server_url() . 'purchase/' ); ?>" 
+                       class="button" 
+                       target="_blank">
+                        <?php esc_html_e( 'Purchase License', 'versana-companion' ); ?>
+                    </a>
+                </div>
+            </div>
+        <?php endif; ?>
         
         <div class="versana-demo-library">
             <?php foreach ( $demos as $demo_key => $demo ) : ?>
-                <div class="versana-demo-item <?php echo $imported_demo && $imported_demo['demo_key'] === $demo_key ? 'demo-imported' : ''; ?>" data-demo="<?php echo esc_attr( $demo_key ); ?>">
+                <?php
+                    $is_locked = ! empty( $demo['locked'] );
+                    $is_pro = ! empty( $demo['is_pro'] );
+                ?>
+                <div class="versana-demo-item <?php echo $imported_demo && $imported_demo['demo_key'] === $demo_key ? 'demo-imported' : ''; ?>" 
+                data-demo="<?php echo esc_attr( $demo_key ); ?>"
+                <?php 
+                /**
+                 * Action: versana_companion_demo_attributes
+                * 
+                * Output custom HTML attributes for demo items
+                * Allows PRO plugin to add data-premium="true" etc.
+                * 
+                * @param array $demo Demo configuration
+                * @param string $demo_key Demo identifier
+                */
+                do_action( 'versana_companion_demo_attributes', $demo, $demo_key ); 
+                ?>>    
                     <div class="demo-thumbnail">
-                        <?php if ( ! empty( $demo['thumbnail'] ) && file_exists( str_replace( VERSANA_COMPANION_URL, VERSANA_COMPANION_PATH, $demo['thumbnail'] ) ) ) : ?>
+                        <?php if ( ! empty( $demo['thumbnail'] ) && file_exists( $demo['thumbnail_path'] ) ) : ?>
                             <img src="<?php echo esc_url( $demo['thumbnail'] ); ?>" 
                                  alt="<?php echo esc_attr( $demo['name'] ); ?>">
+                            <?php if ( $is_locked ) : ?>
+                                <div class="versana-demo-overlay">
+                                    <span class="dashicons dashicons-lock"></span>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <?php if ( $is_pro ) : ?>
+                                <span class="versana-pro-badge">
+                                    <?php esc_html_e( 'PRO', 'versana-companion' ); ?>
+                                </span>
+                            <?php endif; ?>
                         <?php else : ?>
                             <div class="demo-thumbnail-placeholder">
                                 <svg width="100%" height="100%" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
@@ -249,29 +254,30 @@ function versana_companion_render_demo_import_tab() {
                     
                     <div class="demo-actions">
                         <?php if ( ! empty( $demo['preview_url'] ) ) : ?>
-                            <a href="<?php echo esc_url( $demo['preview_url'] ); ?>" 
-                               class="button" 
-                               target="_blank">
+                            <a href="<?php echo esc_url( $demo['preview_url'] ); ?>"  class="button" target="_blank">
                                 <span class="dashicons dashicons-visibility"></span>
                                 <?php esc_html_e( 'Preview', 'versana-companion' ); ?>
                             </a>
                         <?php endif; ?>
                         
                         <?php if ( $imported_demo && $imported_demo['demo_key'] === $demo_key ) : ?>
-                            <button type="button"
-                                    class="button button-secondary versana-remove-demo"
-                                    data-demo="<?php echo esc_attr( $demo_key ); ?>">
+                            <button type="button" class="button button-secondary versana-remove-demo" data-demo="<?php echo esc_attr( $demo_key ); ?>">
                                 <span class="dashicons dashicons-trash"></span>
                                 <?php esc_html_e( 'Remove', 'versana-companion' ); ?>
                             </button>
                         <?php else : ?>
                             <?php if ( file_exists( $demo['xml_file'] ) ) : ?>
-                                <button type="button"
-                                        class="button button-primary versana-import-demo"
-                                        data-demo="<?php echo esc_attr( $demo_key ); ?>">
+                                <?php if ( $is_locked ) : ?>
+                                <a type="button" class="button versana-unlock-demo"  href="https://versana.codoplex.com/purchase" target="_blank">
+                                    <span class="dashicons dashicons-lock"></span>
+                                    <?php esc_html_e( 'Unlock PRO', 'versana-companion' ); ?>
+                                </a>
+                                <?php else : ?>
+                                <button type="button" class="button button-primary versana-import-demo" data-demo="<?php echo esc_attr( $demo_key ); ?>">
                                     <span class="dashicons dashicons-download"></span>
                                     <?php esc_html_e( 'Import', 'versana-companion' ); ?>
                                 </button>
+                                <?php endif; ?>
                             <?php else : ?>
                                 <button type="button" class="button" disabled>
                                     <?php esc_html_e( 'File Missing', 'versana-companion' ); ?>
@@ -333,7 +339,8 @@ add_action( 'admin_enqueue_scripts', 'versana_companion_enqueue_demo_library_ass
  */
 function versana_companion_parse_demo_xml( $xml_content, $demo_key ) {
     // Get page content configurations
-    $page_configs = versana_companion_get_demo_page_configs();
+    //$page_configs = versana_companion_get_demo_page_configs();
+    $page_configs = versana_companion_get_demo_page_configs_filtered();
     $demo_config = isset( $page_configs[ $demo_key ] ) ? $page_configs[ $demo_key ] : array();
     
     // Replace content placeholders
@@ -817,65 +824,27 @@ function versana_companion_get_demo_page_configs() {
                        <!-- wp:pattern {"slug":"versana/team-3-column"} /-->',
             'contact' => '<!-- wp:pattern {"slug":"versana/contact-split-section"} /-->',
         ),
-        'restaurant' => array(
-            'home' => '<!-- wp:pattern {"slug":"versana/restaurant-hero"} /-->
-              <!-- wp:pattern {"slug":"versana/restaurant-about"} /-->
-              <!-- wp:pattern {"slug":"versana/menu-showcase"} /-->
-              <!-- wp:pattern {"slug":"versana/chef-profile"} /-->
-              <!-- wp:pattern {"slug":"versana/special-events"} /-->
-              <!-- wp:pattern {"slug":"versana/restaurant-testimonials"} /-->
-              <!-- wp:pattern {"slug":"versana/food-gallery"} /-->
-              <!-- wp:pattern {"slug":"versana/reservation-cta"} /-->
-              <!-- wp:pattern {"slug":"versana/hours-location"} /-->
-              <!-- wp:pattern {"slug":"versana/instagram-feed"} /-->',
-            'services' => '<!-- wp:pattern {"slug":"versana/menu-showcase"} /-->
-                <!-- wp:pattern {"slug":"versana/special-events"} /-->
-                <!-- wp:pattern {"slug":"versana/reservation-cta"} /-->',
-            'about' => '<!-- wp:pattern {"slug":"versana/restaurant-about"} /-->
-                <!-- wp:pattern {"slug":"versana/chef-profile"} /-->
-                <!-- wp:pattern {"slug":"versana/restaurant-testimonials"} /-->
-                <!-- wp:pattern {"slug":"versana/food-gallery"} /-->',
-            'contact' => '<!-- wp:pattern {"slug":"versana/hours-location"} /-->
-                <!-- wp:pattern {"slug":"versana/contact-split-section"} /-->',
-        ),
-        'fitness' => array(
-            'home' => '<!-- wp:pattern {"slug":"versana/fitness-hero"} /-->
-                    <!-- wp:pattern {"slug":"versana/benefits-section"} /-->
-                    <!-- wp:pattern {"slug":"versana/class-schedule"} /-->
-                    <!-- wp:pattern {"slug":"versana/transformation-stories"} /-->
-                    <!-- wp:pattern {"slug":"versana/pricing-plans"} /-->
-                    <!-- wp:pattern {"slug":"versana/trainers-team"} /-->
-                    <!-- wp:pattern {"slug":"versana/fitness-cta"} /-->',
-            'services' => '<!-- wp:pattern {"slug":"versana/class-schedule"} /-->
-                        <!-- wp:pattern {"slug":"versana/benefits-section"} /-->
-                        <!-- wp:pattern {"slug":"versana/fitness-cta"} /-->',
-            'about' => '<!-- wp:pattern {"slug":"versana/trainers-team"} /-->
-                    <!-- wp:pattern {"slug":"versana/transformation-stories"} /-->
-                    <!-- wp:pattern {"slug":"versana/benefits-section"} /-->',
-            'contact' => '<!-- wp:pattern {"slug":"versana/pricing-plans"} /-->
-                        <!-- wp:pattern {"slug":"versana/benefits-section"} /-->
-                        <!-- wp:pattern {"slug":"versana/fitness-cta"} /-->',
-        ),
-        // Add to page configuration array
-        'real-estate' => array(
-            'home' => '<!-- wp:pattern {"slug":"versana/property-hero"} /-->
-                    <!-- wp:pattern {"slug":"versana/featured-properties"} /-->
-                    <!-- wp:pattern {"slug":"versana/property-benefits"} /-->
-                    <!-- wp:pattern {"slug":"versana/neighborhoods"} /-->
-                    <!-- wp:pattern {"slug":"versana/client-testimonials"} /-->
-                    <!-- wp:pattern {"slug":"versana/agent-team"} /-->
-                    <!-- wp:pattern {"slug":"versana/property-cta"} /-->',
-            'services' => '<!-- wp:pattern {"slug":"versana/featured-properties"} /-->
-                        <!-- wp:pattern {"slug":"versana/neighborhoods"} /-->
-                        <!-- wp:pattern {"slug":"versana/property-cta"} /-->',
-            'about' => '<!-- wp:pattern {"slug":"versana/agent-team"} /-->
-                    <!-- wp:pattern {"slug":"versana/property-benefits"} /-->
-                    <!-- wp:pattern {"slug":"versana/client-testimonials"} /-->
-                    <!-- wp:pattern {"slug":"versana/property-cta"} /-->',
-            'contact' => '<!-- wp:pattern {"slug":"versana/property-cta"} /-->
-                        <!-- wp:pattern {"slug":"versana/agent-team"} /-->',
-        ),
     );
+}
+
+/**
+ * Get demo page content configurations (with filter for extensibility)
+ * 
+ * @since 1.5.0
+ * @return array Page configurations
+ */
+function versana_companion_get_demo_page_configs_filtered() {
+    $configs = versana_companion_get_demo_page_configs();
+    
+    /**
+     * Filter: versana_companion_page_configs
+     * 
+     * Allows PRO plugin to add page configs for premium demos
+     * 
+     * @param array $configs Existing page configurations
+     * @return array Modified configurations
+     */
+    return apply_filters( 'versana_companion_page_configs', $configs );
 }
 
 /**
@@ -940,6 +909,11 @@ function versana_companion_ajax_import_demo() {
     }
     
     $demo = versana_companion_get_demo( $demo_key );
+
+    // Check if demo is PRO and license is active
+    if ( ! empty( $demo['is_pro'] ) && ! versana_companion_is_pro_active() ) {
+        wp_send_json_error( array( 'key' => 'pro_license_required', 'message' => 'This is a PRO demo. Please activate your license to import PRO demos.', 'purchase_url' => $demo['purchase_url'] ) );
+    }
     
     if ( ! $demo || ! file_exists( $demo['xml_file'] ) ) {
         wp_send_json_error( array( 'message' => 'Demo file not found' ) );
@@ -996,6 +970,18 @@ function versana_companion_ajax_import_demo() {
         $message .= sprintf( ' Skipped %d existing items.', count( $import_results['skipped'] ) );
     }
     
+    /**
+     * Action: versana_companion_demo_imported
+     * 
+     * Fires after a demo has been successfully imported
+     * 
+     * @param string $demo_key Demo identifier
+     * @param array $import_results Import results
+     * 
+     * @since 1.4.0
+     */
+    do_action( 'versana_companion_demo_imported', $demo_key, $import_results );
+
     wp_send_json_success( array( 
         'message' => $message,
         'demo_key' => $demo_key 
@@ -1018,7 +1004,7 @@ function versana_apply_demo_variation_filter( $theme_json ) {
 
     // 3. Locate the variation file manually to avoid resolver cache issues
     // Using get_template_directory() ensures we look in the parent theme's /styles folder
-    $file_path = get_template_directory() . '/styles/' . $active_variation . '.json';
+    $file_path = VERSANA_COMPANION_PATH . '/styles/' . $active_variation . '.json';
 
     if ( file_exists( $file_path ) ) {
         $content = file_get_contents( $file_path );
@@ -1036,8 +1022,6 @@ function versana_apply_demo_variation_filter( $theme_json ) {
 
     return $theme_json;
 }
-// Use priority 20 to ensure your demo overrides the theme's base theme.json
-//add_filter( 'wp_theme_json_data_theme', 'versana_apply_demo_variation_filter', 20 );
 
 /**
  * AJAX: Remove demo

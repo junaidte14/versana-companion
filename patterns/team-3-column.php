@@ -2,7 +2,7 @@
 /**
  * Title: Team Three Columns
  * Slug: versana/team-3-column
- * Categories: versana-companion
+ * Categories: versana-patterns
  * Keywords: team, members, staff, people, about
  * Block Types: core/group
  * Description: Three column team member section with photos, names, and roles.

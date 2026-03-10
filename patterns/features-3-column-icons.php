@@ -2,7 +2,7 @@
 /**
  * Title: Features Three Columns
  * Slug: versana/features-3-column-icons
- * Categories: versana-companion
+ * Categories: versana-patterns
  * Keywords: features, services, benefits, 3 columns
  * Block Types: core/group
  * Description: Three column feature section with icons, perfect for showcasing key benefits.

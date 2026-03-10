@@ -227,6 +227,189 @@
     color: #333;
 }
 
+/* PRO Notice */
+.versana-pro-notice {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.versana-pro-notice-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.versana-pro-notice h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.versana-pro-notice h3 .dashicons {
+    font-size: 28px;
+    width: 28px;
+    height: 28px;
+}
+
+.versana-pro-notice p {
+    margin: 0 0 20px;
+    font-size: 16px;
+    opacity: 0.95;
+}
+
+.versana-pro-notice .button {
+    margin: 0 5px;
+}
+
+.versana-pro-notice .button-primary {
+    background: #fff;
+    color: #667eea;
+    border: none;
+    font-weight: 600;
+    padding: 10px 25px;
+    height: auto;
+}
+
+.versana-pro-notice .button-primary:hover {
+    background: #f0f0f0;
+    color: #5568d3;
+}
+
+.versana-pro-notice .button:not(.button-primary) {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+    padding: 10px 25px;
+    height: auto;
+}
+
+.versana-pro-notice .button:not(.button-primary):hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Demo Overlay (for locked demos) */
+.versana-demo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+}
+
+.versana-demo-overlay .dashicons {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    opacity: 0.9;
+}
+
+/* PRO Badge */
+.versana-pro-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+/* Active Badge */
+.versana-active-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #00a32a;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.versana-active-badge .dashicons {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+}
+
+/* Unlock button special styling */
+.versana-unlock-demo {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.versana-unlock-demo:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #653a8d 100%);
+    color: #fff;
+}
+
+/* License Page Styles */
+.versana-license-info,
+.versana-license-activation {
+    max-width: 700px;
+}
+
+.versana-status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.versana-status-active {
+    background: #d4edda;
+    color: #155724;
+}
+
+.versana-status-inactive {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Responsive */
+@media (max-width: 782px) {   
+    .versana-pro-notice {
+        padding: 20px;
+    }
+    
+    .versana-pro-notice h3 {
+        font-size: 20px;
+    }
+}
+
 /* Responsive */
 @media screen and (max-width: 782px) {
     .versana-demo-library {
