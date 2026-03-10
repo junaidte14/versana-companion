@@ -201,7 +201,7 @@ function versana_customize_body_classes( $classes ) {
     $classes[] = 'header-layout-' . sanitize_html_class( $header_layout );
 
     // Blog/Archive Pages: Sidebar position
-    if ( is_home() || is_archive() || is_search() || is_singular() || is_404() ) {
+    if ( is_home() || is_archive() || is_search() || is_singular() ) {
         $sidebar_position = versana_get_theme_mod( 'blog_sidebar_position', 'right' );
         $valid_positions  = array( 'left', 'right', 'none' );
 
@@ -289,7 +289,7 @@ function versana_enqueue_customizer_dynamic_assets() {
      * Blog-specific assets
      * Load on: blog index, archives, search, single posts
      */
-    if ( is_home() || is_archive() || is_search() || is_singular() || is_404()) {
+    if ( is_home() || is_archive() || is_search() || is_singular() ) {
         wp_enqueue_style(
             'versana-blog-layouts',
             VERSANA_COMPANION_URL . '/assets/css/blog-layouts.css',

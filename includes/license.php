@@ -1,6 +1,6 @@
 <?php
 /**
- * License verification for Versana Companion - FIXED VERSION
+ * License verification for Versana Companion - UPDATED FOR NEW LICENSE MANAGER
  * Integrated with Versana Theme Options
  * 
  * @package Versana Companion
@@ -97,8 +97,8 @@ function versana_companion_add_license_tab( $tabs ) {
  * Get license server URL
  */
 function versana_companion_get_license_server_url() {
-    // Production URL
-    $server_url = 'https://versana.codoplex.com';
+    // Production URL - UPDATE THIS TO YOUR LICENSE SERVER
+    $server_url = 'https://care.codoplex.com';
     
     // Allow override via constant for development
     if ( defined( 'VERSANA_LICENSE_SERVER_URL' ) ) {
@@ -116,6 +116,7 @@ function versana_companion_add_license_defaults( $defaults ) {
     $defaults['license_status']     = 'inactive';
     $defaults['license_data']       = array();
     $defaults['license_last_check'] = 0;
+    $defaults['activation_token']   = '';
     
     return $defaults;
 }
@@ -146,6 +147,10 @@ function versana_companion_sanitize_license_options( $sanitized, $input ) {
         $sanitized['license_last_check'] = $existing_options['license_last_check'];
     }
     
+    if ( isset( $existing_options['activation_token'] ) ) {
+        $sanitized['activation_token'] = $existing_options['activation_token'];
+    }
+    
     return $sanitized;
 }
 add_filter( 'versana_sanitize_options', 'versana_companion_sanitize_license_options', 10, 2 );
@@ -160,7 +165,6 @@ function versana_companion_render_license_tab() {
     
     // Get current options using our safe helper function
     $options = versana_companion_get_all_options();
-    
     $license_key    = isset( $options['license_key'] ) ? $options['license_key'] : '';
     $license_status = isset( $options['license_status'] ) ? $options['license_status'] : 'inactive';
     $license_data   = isset( $options['license_data'] ) ? $options['license_data'] : array();
@@ -205,19 +209,26 @@ function versana_companion_render_license_tab() {
                             <td><?php echo esc_html( ucfirst( $license_data['license_type'] ) ); ?></td>
                         </tr>
                     <?php endif; ?>
+                    <?php if ( ! empty( $license_data['max_activations'] ) ) : ?>
+                        <tr>
+                            <th scope="row"><?php esc_html_e( 'Max Activations', 'versana-companion' ); ?></th>
+                            <td>
+                                <?php 
+                                echo esc_html( $license_data['activation_count'] ) . ' / ' . esc_html( $license_data['max_activations'] );
+                                ?>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
                     <?php if ( ! empty( $license_data['expires_at'] ) ) : ?>
                         <tr>
                             <th scope="row"><?php esc_html_e( 'Expires', 'versana-companion' ); ?></th>
                             <td><?php echo esc_html( date( 'F j, Y', strtotime( $license_data['expires_at'] ) ) ); ?></td>
                         </tr>
                     <?php endif; ?>
-                    <?php if ( ! empty( $license_data['customer']['name'] ) ) : ?>
+                    <?php if ( ! empty( $license_data['product_name'] ) ) : ?>
                         <tr>
-                            <th scope="row"><?php esc_html_e( 'Registered To', 'versana-companion' ); ?></th>
-                            <td>
-                                <?php echo esc_html( $license_data['customer']['name'] ); ?>
-                                (<?php echo esc_html( $license_data['customer']['email'] ); ?>)
-                            </td>
+                            <th scope="row"><?php esc_html_e( 'Product', 'versana-companion' ); ?></th>
+                            <td><?php echo esc_html( $license_data['product_name'] ); ?></td>
                         </tr>
                     <?php endif; ?>
                     <tr>
@@ -273,52 +284,21 @@ function versana_companion_render_license_tab() {
                                 name="versana_theme_options[license_key]" 
                                 value="<?php echo esc_attr( $license_key ); ?>"
                                 class="regular-text"
-                                placeholder="VRS-XXXX-XXXX-XXXX-XXXX"
-                                <?php echo $is_valid ? 'readonly' : ''; ?> 
+                                placeholder="XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX"
+                                style="font-family: monospace; letter-spacing: 1px;"
                             />
-                            <?php if ( $is_valid ) : ?>
-                                <p class="description">
-                                    <span class="dashicons dashicons-yes" style="color: #46b450;"></span>
-                                    <?php esc_html_e( 'License is active and validated.', 'versana-pro' ); ?>
-                                </p>
-                            <?php else : ?>
-                                <p class="description">
-                                    <?php esc_html_e( 'Enter your Versana PRO license key to unlock premium features.', 'versana-pro' ); ?>
-                                </p>
-                            <?php endif; ?>
+                            <p class="description">
+                                <?php esc_html_e( 'Enter your Versana PRO license key to unlock premium features.', 'versana-companion' ); ?>
+                            </p>
                         </td>
                     </tr>
-                    <?php if ( $is_valid && ! empty( $license_data['plan_name'] ) ) : ?>
-                    <tr>
-                        <th scope="row"><?php esc_html_e( 'Plan', 'versana-pro' ); ?></th>
-                        <td>
-                            <strong><?php echo esc_html( $license_data['plan_name'] ); ?></strong>
-                        </td>
-                    </tr>
-                    <?php endif; ?>
-                    
-                    <?php if ( $is_valid && ! empty( $license_data['expires_at'] ) ) : ?>
-                    <tr>
-                        <th scope="row"><?php esc_html_e( 'Expires', 'versana-pro' ); ?></th>
-                        <td>
-                            <?php 
-                            $expires = strtotime( $license_data['expires_at'] );
-                            if ( $expires > time() ) {
-                                echo esc_html( date_i18n( get_option( 'date_format' ), $expires ) );
-                            } else {
-                                echo '<span style="color: #dc3232;">' . esc_html__( 'Expired', 'versana-pro' ) . '</span>';
-                            }
-                            ?>
-                        </td>
-                    </tr>
-                    <?php endif; ?>
                     
                     <tr>
-                        <th scope="row"><?php esc_html_e( 'Site URL', 'versana-pro' ); ?></th>
+                        <th scope="row"><?php esc_html_e( 'Site URL', 'versana-companion' ); ?></th>
                         <td>
                             <code><?php echo esc_html( home_url() ); ?></code>
                             <p class="description">
-                                <?php esc_html_e( 'This URL must be activated on your license.', 'versana-pro' ); ?>
+                                <?php esc_html_e( 'This URL will be activated on your license.', 'versana-companion' ); ?>
                             </p>
                         </td>
                     </tr>
@@ -434,7 +414,6 @@ function versana_companion_render_license_tab() {
                 success: function(response) {
                     if (response.success) {
                         $('#versana-license-messages').html('<div class="notice notice-success"><p><strong>' + response.data.message + '</strong></p></div>');
-                        // Wait a bit longer to ensure DB write completes
                         setTimeout(function() {
                             location.reload();
                         }, 2000);
@@ -445,8 +424,9 @@ function versana_companion_render_license_tab() {
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.error('AJAX Error:', textStatus, errorThrown);
+                    console.error('Response:', jqXHR.responseText);
                     $('#versana-license-messages').html(
-                        '<div class="notice notice-error"><p><strong><?php esc_html_e( 'An error occurred. Please try again.', 'versana-companion' ); ?></strong></p></div>'
+                        '<div class="notice notice-error"><p><strong><?php esc_html_e( 'Connection error. Please check your license server URL.', 'versana-companion' ); ?></strong></p></div>'
                     );
                     $button.prop('disabled', false).text(originalText);
                 }
@@ -548,11 +528,13 @@ function versana_companion_render_license_tab() {
 }
 
 /**
- * Make API request to license server
+ * Make API request to NEW license server
  */
 function versana_companion_license_api_request( $endpoint, $data = array() ) {
     $server_url = versana_companion_get_license_server_url();
-    $api_url = $server_url . 'wp-json/versana-license/v1/' . ltrim( $endpoint, '/' );
+    
+    // NEW API URL format
+    $api_url = $server_url . 'wp-json/versana-licenses/v1/' . ltrim( $endpoint, '/' );
     
     $site_url = home_url();
     
@@ -568,12 +550,30 @@ function versana_companion_license_api_request( $endpoint, $data = array() ) {
         )
     );
     
+    // Log the request for debugging
+    error_log( sprintf(
+        'Versana License API Request: %s with data: %s',
+        $api_url,
+        json_encode( $request_data )
+    ) );
+    
+    // LOCALHOST FIX: Detect if running on localhost
+    $is_localhost = ( 
+        strpos( home_url(), 'localhost' ) !== false || 
+        strpos( home_url(), '127.0.0.1' ) !== false ||
+        strpos( home_url(), '.local' ) !== false ||
+        strpos( home_url(), '.test' ) !== false
+    );
+    
     $response = wp_remote_post(
         $api_url,
         array(
-            'body'      => $request_data,
-            'timeout'   => 30,
-            'sslverify' => true,
+            'body'      => json_encode( $request_data ),
+            'headers'   => array(
+                'Content-Type' => 'application/json',
+            ),
+            'timeout'   => 45, // Increased timeout for localhost
+            'sslverify' => ! $is_localhost, // DISABLE SSL verification on localhost only
         )
     );
     
@@ -590,7 +590,7 @@ function versana_companion_license_api_request( $endpoint, $data = array() ) {
     $data = json_decode( $body, true );
     
     if ( ! $data ) {
-        error_log( 'Versana License: Invalid JSON response from server' );
+        error_log( 'Versana License: Invalid JSON response from server. Body: ' . $body );
         return array(
             'success' => false,
             'message' => 'Invalid response from license server.',
@@ -599,49 +599,60 @@ function versana_companion_license_api_request( $endpoint, $data = array() ) {
     
     // Log the response for debugging
     error_log( sprintf(
-        'Versana License API Response [%s]: Code %d, Success: %s, Message: %s',
+        'Versana License API Response [%s]: Code %d, Body: %s',
         $endpoint,
         $code,
-        isset( $data['success'] ) ? ( $data['success'] ? 'true' : 'false' ) : 'unknown',
-        isset( $data['message'] ) ? $data['message'] : 'No message'
+        $body
     ) );
     
     return $data;
 }
 
 /**
- * Activate license - IMPROVED VERSION
+ * Activate license - UPDATED FOR NEW API
  */
 function versana_companion_activate_license( $license_key ) {
-    // Validate license key format before making API call
-    if ( empty( $license_key ) || ! preg_match( '/^VRS-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/', $license_key ) ) {
+    // Validate license key format - NEW FORMAT (8-8-8-8)
+    if ( empty( $license_key ) || ! preg_match( '/^[A-F0-9]{8}-[A-F0-9]{8}-[A-F0-9]{8}-[A-F0-9]{8}$/i', $license_key ) ) {
         return array(
             'success' => false,
-            'message' => __( 'Invalid license key format.', 'versana-companion' ),
+            'message' => __( 'Invalid license key format. Expected format: XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX', 'versana-companion' ),
         );
     }
     
+    // Call NEW activate endpoint
     $result = versana_companion_license_api_request(
         'activate',
         array( 'license_key' => $license_key )
     );
     
     if ( $result['success'] ) {
-        // Update all license fields atomically
-        $update_data = array(
-            'license_key'        => sanitize_text_field( $license_key ),
-            'license_status'     => 'active',
-            'license_last_check' => time(),
-        );
-        
-        // Add license data if provided
-        if ( isset( $result['license'] ) ) {
-            $update_data['license_data'] = $result['license'];
+        // Store activation token
+        if ( isset( $result['data']['activation_token'] ) ) {
+            versana_companion_update_option( 'activation_token', $result['data']['activation_token'] );
         }
         
-        // Update all fields together to avoid race conditions
-        foreach ( $update_data as $key => $value ) {
-            versana_companion_update_option( $key, $value );
+        // Now verify to get full license details
+        $verify_result = versana_companion_license_api_request( 'validate', array( 'license_key' => $license_key ) );
+        
+        if ( $verify_result['success'] && isset( $verify_result['data'] ) ) {
+            // Update all license fields atomically
+            versana_companion_update_option( 'license_key', sanitize_text_field( $license_key ) );
+            versana_companion_update_option( 'license_status', 'active' );
+            versana_companion_update_option( 'license_last_check', time() );
+            
+            // Store license data
+            $license_data = array(
+                'license_type'      => isset( $verify_result['data']['license_type'] ) ? $verify_result['data']['license_type'] : '',
+                'status'            => isset( $verify_result['data']['status'] ) ? $verify_result['data']['status'] : '',
+                'max_activations'   => isset( $verify_result['data']['max_activations'] ) ? $verify_result['data']['max_activations'] : 0,
+                'activation_count'  => isset( $verify_result['data']['activation_count'] ) ? $verify_result['data']['activation_count'] : 0,
+                'expires_at'        => isset( $verify_result['data']['expires_at'] ) ? $verify_result['data']['expires_at'] : null,
+                'product_name'      => isset( $verify_result['data']['product']['name'] ) ? $verify_result['data']['product']['name'] : '',
+                'product_slug'      => isset( $verify_result['data']['product']['slug'] ) ? $verify_result['data']['product']['slug'] : '',
+            );
+            
+            versana_companion_update_option( 'license_data', $license_data );
         }
         
         // Clear cache
@@ -664,14 +675,16 @@ function versana_companion_activate_license( $license_key ) {
 }
 
 /**
- * Deactivate license
+ * Deactivate license - UPDATED FOR NEW API
  */
 function versana_companion_deactivate_license() {
+    // Call NEW deactivate endpoint
     $result = versana_companion_license_api_request( 'deactivate' );
     
     if ( $result['success'] ) {
         versana_companion_update_option( 'license_status', 'inactive' );
         versana_companion_update_option( 'license_data', array() );
+        versana_companion_update_option( 'activation_token', '' );
         
         // Clear cache
         delete_transient( 'versana_license_check' );
@@ -688,7 +701,7 @@ function versana_companion_deactivate_license() {
 }
 
 /**
- * Verify license status
+ * Verify license status - UPDATED FOR NEW API
  */
 function versana_companion_verify_license_status() {
     $options = versana_companion_get_all_options();
@@ -699,18 +712,24 @@ function versana_companion_verify_license_status() {
         return false;
     }
     
-    $result = versana_companion_license_api_request( 'verify' );
+    // Call NEW validate endpoint
+    $result = versana_companion_license_api_request( 'validate', array( 'license_key' => $license_key ) );
     
-    if ( isset( $result['valid'] ) && $result['valid'] ) {
+    if ( $result['success'] && isset( $result['data'] ) ) {
         versana_companion_update_option( 'license_status', 'active' );
         versana_companion_update_option( 'license_last_check', time() );
         
-        // Store license data
+        // Store license data from NEW API response format
         $license_data = array(
-            'license_type' => isset( $result['license_type'] ) ? $result['license_type'] : '',
-            'expires_at'   => isset( $result['expires_at'] ) ? $result['expires_at'] : null,
-            'customer'     => isset( $result['customer'] ) ? $result['customer'] : array(),
+            'license_type'      => isset( $result['data']['license_type'] ) ? $result['data']['license_type'] : '',
+            'status'            => isset( $result['data']['status'] ) ? $result['data']['status'] : '',
+            'max_activations'   => isset( $result['data']['max_activations'] ) ? $result['data']['max_activations'] : 0,
+            'activation_count'  => isset( $result['data']['activation_count'] ) ? $result['data']['activation_count'] : 0,
+            'expires_at'        => isset( $result['data']['expires_at'] ) ? $result['data']['expires_at'] : null,
+            'product_name'      => isset( $result['data']['product']['name'] ) ? $result['data']['product']['name'] : '',
+            'product_slug'      => isset( $result['data']['product']['slug'] ) ? $result['data']['product']['slug'] : '',
         );
+        
         versana_companion_update_option( 'license_data', $license_data );
         
         // Update cache
@@ -730,11 +749,6 @@ function versana_companion_verify_license_status() {
  * Check license cache
  */
 function versana_companion_check_license_cache() {
-    // During admin testing always verify license
-    if ( is_admin() && current_user_can( 'manage_options' ) ) {
-        versana_companion_verify_license_status();
-        return;
-    }
     $cached = get_transient( 'versana_license_check' );
     if ( false === $cached ) {
         // Cache expired, verify license
@@ -752,7 +766,7 @@ function versana_companion_is_pro_active() {
 }
 
 /**
- * AJAX: Activate license - IMPROVED VERSION
+ * AJAX: Activate license
  */
 function versana_companion_ajax_activate_license() {
     check_ajax_referer( 'versana_license_action', 'nonce' );
@@ -762,12 +776,17 @@ function versana_companion_ajax_activate_license() {
     }
     
     $license_key = isset( $_POST['license_key'] ) ? sanitize_text_field( $_POST['license_key'] ) : '';
-    versana_update_option('license_key', $license_key);
-    $license_key = versana_get_option('license_key', '');
+    
     if ( empty( $license_key ) ) {
         wp_send_json_error( array( 'message' => __( 'Please enter a license key.', 'versana-companion' ) ) );
     }
     
+    // Save license key FIRST
+    versana_companion_update_option( 'license_key', $license_key );
+
+    // Force refresh options cache so the validator can read it immediately
+    wp_cache_delete( 'versana_theme_options', 'options' );
+
     // Activate the license
     $result = versana_companion_activate_license( $license_key );
     
