@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'VERSANA_LICENSE_DISABLE_CACHE' ) ) {
-    define('VERSANA_LICENSE_DISABLE_CACHE', true);
+    define('VERSANA_LICENSE_DISABLE_CACHE', false);
 }
 
 /**
