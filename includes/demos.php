@@ -268,7 +268,7 @@ function versana_companion_render_demo_import_tab() {
                         <?php else : ?>
                             <?php if ( file_exists( $demo['xml_file'] ) ) : ?>
                                 <?php if ( $is_locked ) : ?>
-                                <a type="button" class="button versana-unlock-demo"  href="https://versana.codoplex.com/purchase" target="_blank">
+                                <a type="button" class="button versana-unlock-demo"  href="https://care.codoplex.com/purchase-versana-pro-license/" target="_blank">
                                     <span class="dashicons dashicons-lock"></span>
                                     <?php esc_html_e( 'Unlock PRO', 'versana-companion' ); ?>
                                 </a>

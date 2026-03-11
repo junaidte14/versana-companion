@@ -168,4 +168,4 @@ function versana_companion_load_textdomain() {
         dirname( plugin_basename( __FILE__ ) ) . '/languages'
     );
 }
-add_action( 'plugins_loaded', 'versana_companion_load_textdomain' );
+add_action( 'init', 'versana_companion_load_textdomain' );
