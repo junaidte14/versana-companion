@@ -305,11 +305,23 @@ function versana_companion_render_license_tab() {
                     <tr>
                         <th scope="row"><?php esc_html_e( 'Actions', 'versana-companion' ); ?></th>
                         <td>
-                            <button type="button" class="button button-primary" id="versana-activate-license-btn">
+                            <button 
+                                type="button" 
+                                class="button button-primary" 
+                                id="versana-activate-license-btn"
+                                <?php echo empty( $license_key ) ? 'disabled="disabled"' : ''; ?>
+                            >
                                 <?php esc_html_e( 'Activate License', 'versana-companion' ); ?>
                             </button>
+
                             <p class="description">
-                                <?php esc_html_e( 'Click to activate your license key with our server.', 'versana-companion' ); ?>
+                                <?php
+                                if ( empty( $license_key ) ) {
+                                    esc_html_e( 'Enter your license key and click "Save Changes" below before activating the license.', 'versana-companion' );
+                                } else {
+                                    esc_html_e( 'Click to activate your license key with our server.', 'versana-companion' );
+                                }
+                                ?>
                             </p>
                         </td>
                     </tr>
@@ -320,7 +332,7 @@ function versana_companion_render_license_tab() {
                 <h4><?php esc_html_e( 'Don\'t have a license?', 'versana-companion' ); ?></h4>
                 <p><?php esc_html_e( 'Purchase Versana PRO to unlock premium demos and features.', 'versana-companion' ); ?></p>
                 <p>
-                    <a href="<?php echo esc_url( versana_companion_get_license_server_url() . 'purchase/' ); ?>" 
+                    <a href="<?php echo esc_url( versana_companion_get_license_server_url() . 'purchase-versana-pro-license/' ); ?>" 
                        class="button button-primary" 
                        target="_blank">
                         <span class="dashicons dashicons-cart"></span>
@@ -780,12 +792,6 @@ function versana_companion_ajax_activate_license() {
     if ( empty( $license_key ) ) {
         wp_send_json_error( array( 'message' => __( 'Please enter a license key.', 'versana-companion' ) ) );
     }
-    
-    // Save license key FIRST
-    versana_companion_update_option( 'license_key', $license_key );
-
-    // Force refresh options cache so the validator can read it immediately
-    wp_cache_delete( 'versana_theme_options', 'options' );
 
     // Activate the license
     $result = versana_companion_activate_license( $license_key );
