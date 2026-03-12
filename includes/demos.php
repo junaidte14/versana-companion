@@ -154,26 +154,6 @@ function versana_companion_render_demo_import_tab() {
         
         <div id="versana-import-notices"></div>
         
-        <?php if ( $imported_demo ) : ?>
-            <div class="notice notice-info">
-                <p>
-                    <strong><?php esc_html_e( 'Demo Currently Imported:', 'versana-companion' ); ?></strong>
-                    <?php echo esc_html( ucfirst( $imported_demo['demo_key'] ) ); ?>
-                    <?php esc_html_e( 'demo imported on', 'versana-companion' ); ?>
-                    <?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $imported_demo['import_date'] ) ) ); ?>
-                </p>
-                <p>
-                    <?php
-                    printf(
-                        esc_html__( 'Includes %d posts, %d pages, and navigation menu.', 'versana-companion' ),
-                        count( $imported_demo['posts'] ),
-                        count( $imported_demo['pages'] )
-                    );
-                    ?>
-                </p>
-            </div>
-        <?php endif; ?>
-        
         <p class="description">
             <?php esc_html_e( 'Choose a demo to import. This will add sample posts, pages, create navigation menus, and apply theme styling.', 'versana-companion' ); ?>
             <?php esc_html_e( 'Make sure to have latest version of the Versana Companion plugin.', 'versana-companion' ); ?>

@@ -53,12 +53,17 @@ function versana_render_options_page() {
         <div class="versana-options-header">
             <div class="versana-header-info">
                 <p class="description">
-                    <?php esc_html_e( 'For design customization (colors, typography, spacing), use the Site Editor.', 'versana' ); ?>
+                    <?php esc_html_e( 'For header layouts, footer and blog layouts, use the Customizer settings. For design customization (colors, typography, spacing), use the Site Editor.', 'versana' ); ?>
                 </p>
                 
                 <div class="versana-quick-links">
+                    <a href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>" class="button button-primary">
+                        <span class="dashicons dashicons-admin-customizer"></span>
+                        <?php esc_html_e( 'Open Customizer', 'versana' ); ?>
+                    </a>
+
                     <a href="<?php echo esc_url( admin_url( 'site-editor.php' ) ); ?>" class="button button-primary">
-                        <span class="dashicons dashicons-welcome-write-blog"></span>
+                        <span class="dashicons dashicons-admin-appearance"></span>
                         <?php esc_html_e( 'Open Site Editor', 'versana' ); ?>
                     </a>
                     
