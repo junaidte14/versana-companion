@@ -51,6 +51,54 @@ function versana_companion_get_available_demos() {
             'tags'        => array( 'portfolio', 'creative', 'showcase' ),
             'features'        => array( '✓ Stunning visual galleries', '✓ Project case study layouts', '✓ Client testimonial sections', '✓ 90+ Performance Score'),
         ),
+        'restaurant' => array(
+            'name'        => __( 'Restaurant & Cafe', 'versana-pro' ) . ' 🔒',
+            'description' => __( 'Premium demo - License required.', 'versana-pro' ),
+            'preview_url' => 'https://versana.codoplex.com/restaurant/',
+            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/restaurant.webp',
+            'thumbnail_path'   => VERSANA_COMPANION_PATH . 'assets/images/restaurant.webp',
+            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
+            'category'    => 'business',
+            'features'    => array( 
+                '🔒 Requires Versana PRO License',
+                '✓ Mobile-first reservation flow', 
+                '✓ Menu showcase layouts', 
+                '✓ Food photography optimized'
+            ),
+            'is_pro'  => true,
+        ),
+        'fitness' => array(
+            'name'        => __( 'Fitness & Wellness', 'versana-pro' ) . ' 🔒',
+            'description' => __( 'Premium demo - License required.', 'versana-pro' ),
+            'preview_url' => 'https://versana.codoplex.com/fitness/',
+            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/fitness.webp',
+            'thumbnail_path'   => VERSANA_COMPANION_PATH . 'assets/images/fitness.webp',
+            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
+            'category'    => 'business',
+            'features'    => array( 
+                '🔒 Requires Versana PRO License',
+                '✓ Class schedule & booking layouts', 
+                '✓ Member transformation stories', 
+                '✓ Flexible pricing layouts'
+            ),
+            'is_pro'  => true,
+        ),
+        'real-estate' => array(
+            'name'        => __( 'Real Estate & Property', 'versana-pro' ) . ' 🔒',
+            'description' => __( 'Premium demo - License required.', 'versana-pro' ),
+            'preview_url' => 'https://versana.codoplex.com/real-estate/',
+            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/real-estate.webp',
+            'thumbnail_path'   => VERSANA_COMPANION_PATH . 'assets/images/real-estate.webp',
+            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
+            'category'    => 'business',
+            'features'    => array(
+                '🔒 Requires Versana PRO License',
+                '✓ Property search & filters',
+                '✓ Featured listings layouts',
+                '✓ Agent profile sections'
+            ),
+            'is_pro'  => true,
+        ),
     );
 
     // Add locked status for PRO demos if license is not active
@@ -339,7 +387,6 @@ add_action( 'admin_enqueue_scripts', 'versana_companion_enqueue_demo_library_ass
  */
 function versana_companion_parse_demo_xml( $xml_content, $demo_key ) {
     // Get page content configurations
-    //$page_configs = versana_companion_get_demo_page_configs();
     $page_configs = versana_companion_get_demo_page_configs_filtered();
     $demo_config = isset( $page_configs[ $demo_key ] ) ? $page_configs[ $demo_key ] : array();
     
