@@ -93,9 +93,10 @@ function versana_companion_init() {
     require_once VERSANA_COMPANION_PATH . '/includes/demos.php';
     require_once VERSANA_COMPANION_PATH . '/includes/patterns.php';
     require_once VERSANA_COMPANION_PATH . '/includes/layout.php';
-    require_once VERSANA_COMPANION_PATH . '/includes/optimizations.php';
     // Include license verification
     require_once VERSANA_COMPANION_PATH . 'includes/license.php';
+    // PRO Features
+    require_once VERSANA_COMPANION_PATH . 'includes/premium-features.php';
 
 }
 add_action( 'plugins_loaded', 'versana_companion_init' );
@@ -168,4 +169,4 @@ function versana_companion_load_textdomain() {
         dirname( plugin_basename( __FILE__ ) ) . '/languages'
     );
 }
-add_action( 'init', 'versana_companion_load_textdomain' );
+add_action( 'plugins_loaded', 'versana_companion_load_textdomain' );

@@ -97,6 +97,8 @@ function versana_render_options_page() {
             
             // CRITICAL: Add nonce field for security
             wp_nonce_field( 'versana_save_options', 'versana_options_nonce' );
+
+            echo '<input type="hidden" name="versana_theme_options[active_tab]" value="' . esc_attr( $active_tab ) . '">';
             
             // Render active tab
             if ( isset( $tabs[ $active_tab ]['callback'] ) && is_callable( $tabs[ $active_tab ]['callback'] ) ) {
@@ -242,6 +244,15 @@ function versana_render_integrations_tab() {
                     </td>
                 </tr>
                 <?php endif; ?>
+
+                <?php
+                    /**
+                     * Extensibility Hook: Add custom integration settings
+                     *
+                     * @since 1.0.0
+                     */
+                    do_action( 'versana_integrations_tab_settings' );
+                ?>
             </tbody>
         </table>
 
@@ -254,15 +265,6 @@ function versana_render_integrations_tab() {
                 <?php esc_html_e( 'Reset to Defaults', 'versana' ); ?>
             </button>
         </div>
-        
-        <?php
-        /**
-         * Extensibility Hook: Add custom integration settings
-         *
-         * @since 1.0.0
-         */
-        do_action( 'versana_integrations_tab_settings' );
-        ?>
     </div>
     <?php
 }

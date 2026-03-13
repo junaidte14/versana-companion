@@ -204,7 +204,7 @@ function versana_companion_render_license_tab() {
     $license_data = versana_companion_get_license_data();
     $is_valid = ( 'active' === $license_data['license_status'] );
     ?>
-    <div class="versana-settings-section">
+    <div class="versana-tab-content">
         <h3><?php esc_html_e( 'Versana PRO License', 'versana-companion' ); ?></h3>
         
         <div id="versana-license-messages"></div>
