@@ -290,6 +290,17 @@ function versana_companion_render_license_tab() {
                     </tr>
                 </tbody>
             </table>
+
+            <?php
+                /**
+                 * Extensibility Hook: Add custom optimization settings
+                 *
+                 * Allows other plugins to add more optimization options
+                 *
+                 * @since 1.0.0
+                 */
+                do_action( 'versana_pro_license_tab_after' );
+            ?>
             
         <?php else : ?>
             
@@ -359,6 +370,17 @@ function versana_companion_render_license_tab() {
                     </tr>
                 </tbody>
             </table>
+
+            <?php
+                /**
+                 * Extensibility Hook: Add custom optimization settings
+                 *
+                 * Allows other plugins to add more optimization options
+                 *
+                 * @since 1.0.0
+                 */
+                do_action( 'versana_pro_no_license_tab_after' );
+            ?>
             
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd;">
                 <h4><?php esc_html_e( 'Don\'t have a license?', 'versana-companion' ); ?></h4>
