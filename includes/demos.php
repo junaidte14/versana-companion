@@ -99,6 +99,22 @@ function versana_companion_get_available_demos() {
             ),
             'is_pro'  => true,
         ),
+        'premium-shop' => array(
+            'name'        => __( 'Premium Shop', 'versana-pro' ) . ' 🔒',
+            'description' => __( 'Professional e-commerce design for specialty retail businesses. Perfect for coffee equipment, gourmet products, or any premium retail store.', 'versana-pro' ),
+            'preview_url' => 'https://versana.codoplex.com/premium-shop/',
+            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/premium-shop.webp',
+            'thumbnail_path'   => VERSANA_COMPANION_PATH . 'assets/images/premium-shop.webp',
+            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
+            'category'    => 'e-commerce',
+            'features'    => array(
+                '🔒 Requires Versana PRO License',
+                '✓ E-commerce product grid layouts',
+                '✓ Heritage & trust building sections',
+                '✓ Warranty & service showcases',
+            ),
+            'is_pro'  => true,
+        ),
     );
 
     // Add locked status for PRO demos if license is not active
@@ -374,6 +390,7 @@ function versana_companion_parse_demo_xml( $xml_content, $demo_key ) {
     $replacements = array(
         '{HOME_CONTENT}'     => isset( $demo_config['home'] ) ? $demo_config['home'] : '',
         '{SERVICES_CONTENT}' => isset( $demo_config['services'] ) ? $demo_config['services'] : '',
+        '{PRODUCTS_CONTENT}' => isset( $demo_config['products'] ) ? $demo_config['products'] : '',
         '{ABOUT_CONTENT}'    => isset( $demo_config['about'] ) ? $demo_config['about'] : '',
         '{CONTACT_CONTENT}'    => isset( $demo_config['contact'] ) ? $demo_config['contact'] : '',
     );
@@ -665,7 +682,7 @@ function versana_companion_create_demo_menu( $page_ids, $demo_key ) {
         );
     }
 
-    $allowed_pages = array( 'Services', 'About', 'Contact' );
+    $allowed_pages = array( 'Services', 'Products', 'About', 'Contact' );
     foreach ( $page_ids as $page_id ) {
         $page = get_post( $page_id );
         if (

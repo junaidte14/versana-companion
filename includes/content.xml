@@ -53,6 +53,21 @@
         <excerpt:encoded><![CDATA[]]></excerpt:encoded>
     </item>
 
+    <!-- Products Page -->
+    <item>
+        <title>Products</title>
+        <link>https://versana.codoplex.com/products</link>
+        <pubDate>Wed, 04 Mar 2026 10:00:00 +0000</pubDate>
+        <dc:creator><![CDATA[admin]]></dc:creator>
+        <wp:post_id>21</wp:post_id>
+        <wp:post_date>2026-03-04 10:00:00</wp:post_date>
+        <wp:post_type>page</wp:post_type>
+        <wp:status>publish</wp:status>
+        <wp:post_name>products</wp:post_name>
+        <content:encoded><![CDATA[{PRODUCTS_CONTENT}]]></content:encoded>
+        <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+    </item>
+
     <!-- About Page -->
     <item>
         <title>About</title>
