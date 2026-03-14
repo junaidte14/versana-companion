@@ -11,6 +11,174 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Check if required plugins are installed and active
+ * 
+ * @param array $required_plugins Array of required plugin slugs
+ * @return array {
+ *     @type bool   $all_active    Whether all required plugins are active
+ *     @type array  $missing       Array of missing plugin names
+ *     @type array  $inactive      Array of inactive plugin names
+ * }
+ */
+function versana_companion_check_required_plugins( $required_plugins ) {
+    $result = array(
+        'all_active' => true,
+        'missing'    => array(),
+        'inactive'   => array(),
+    );
+    
+    if ( empty( $required_plugins ) ) {
+        return $result;
+    }
+    
+    // Map of plugin slugs to their names
+    $plugin_names = array(
+        'woocommerce' => 'WooCommerce',
+        'contact-form-7' => 'Contact Form 7',
+        // Add more as needed
+    );
+    
+    foreach ( $required_plugins as $plugin_slug ) {
+        $plugin_name = isset( $plugin_names[ $plugin_slug ] ) 
+            ? $plugin_names[ $plugin_slug ] 
+            : ucfirst( str_replace( '-', ' ', $plugin_slug ) );
+        
+        // Check if WooCommerce
+        if ( $plugin_slug === 'woocommerce' ) {
+            if ( ! class_exists( 'WooCommerce' ) ) {
+                $result['all_active'] = false;
+                
+                // Check if plugin file exists
+                if ( file_exists( WP_PLUGIN_DIR . '/woocommerce/woocommerce.php' ) ) {
+                    $result['inactive'][] = $plugin_name;
+                } else {
+                    $result['missing'][] = $plugin_name;
+                }
+            }
+        } else {
+            // Generic plugin check
+            $plugin_file = $plugin_slug . '/' . $plugin_slug . '.php';
+            
+            if ( ! is_plugin_active( $plugin_file ) ) {
+                $result['all_active'] = false;
+                
+                if ( file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) ) {
+                    $result['inactive'][] = $plugin_name;
+                } else {
+                    $result['missing'][] = $plugin_name;
+                }
+            }
+        }
+    }
+    
+    return $result;
+}
+ 
+/**
+ * Get install/activate URLs for plugins
+ * 
+ * @param string $plugin_slug Plugin slug
+ * @return array {
+ *     @type string $install_url   URL to install plugin
+ *     @type string $activate_url  URL to activate plugin
+ * }
+ */
+function versana_companion_get_plugin_urls( $plugin_slug ) {
+    $urls = array(
+        'install_url'  => '',
+        'activate_url' => '',
+    );
+    
+    if ( $plugin_slug === 'woocommerce' ) {
+        $plugin_file = 'woocommerce/woocommerce.php';
+    } else {
+        $plugin_file = $plugin_slug . '/' . $plugin_slug . '.php';
+    }
+    
+    // Install URL
+    $urls['install_url'] = wp_nonce_url(
+        add_query_arg(
+            array(
+                'action' => 'install-plugin',
+                'plugin' => $plugin_slug,
+            ),
+            admin_url( 'update.php' )
+        ),
+        'install-plugin_' . $plugin_slug
+    );
+    
+    // Activate URL
+    $urls['activate_url'] = wp_nonce_url(
+        add_query_arg(
+            array(
+                'action' => 'activate',
+                'plugin' => $plugin_file,
+            ),
+            admin_url( 'plugins.php' )
+        ),
+        'activate-plugin_' . $plugin_file
+    );
+    
+    return $urls;
+}
+ 
+/**
+ * AJAX handler: Check demo dependencies before import
+ */
+add_action( 'wp_ajax_versana_check_demo_dependencies', 'versana_companion_ajax_check_demo_dependencies' );
+function versana_companion_ajax_check_demo_dependencies() {
+    check_ajax_referer( 'versana_demo_import', 'nonce' );
+    
+    if ( ! current_user_can( 'manage_options' ) ) {
+        wp_send_json_error( array( 'message' => 'Unauthorized.' ) );
+    }
+    
+    $demo_id = isset( $_POST['demo_id'] ) ? sanitize_text_field( $_POST['demo_id'] ) : '';
+    
+    if ( empty( $demo_id ) ) {
+        wp_send_json_error( array( 'message' => 'Demo ID is required.' ) );
+    }
+    
+    // Get demo configuration
+    $demos = versana_companion_get_demos();
+    
+    if ( ! isset( $demos[ $demo_id ] ) ) {
+        wp_send_json_error( array( 'message' => 'Demo not found.' ) );
+    }
+    
+    $demo = $demos[ $demo_id ];
+    
+    // Check if demo has required plugins
+    if ( empty( $demo['dependencies'] ) ) {
+        wp_send_json_success( array( 'can_proceed' => true ) );
+        return;
+    }
+    
+    // Check required plugins
+    $check = versana_companion_check_required_plugins( $demo['dependencies'] );
+    
+    if ( $check['all_active'] ) {
+        wp_send_json_success( array( 'can_proceed' => true ) );
+        return;
+    }
+    
+    // Build response with missing/inactive plugins
+    $response = array(
+        'can_proceed' => false,
+        'missing'     => $check['missing'],
+        'inactive'    => $check['inactive'],
+        'plugin_urls' => array(),
+    );
+    
+    // Get URLs for each required plugin
+    foreach ( $demo['dependencies'] as $plugin_slug ) {
+        $response['plugin_urls'][ $plugin_slug ] = versana_companion_get_plugin_urls( $plugin_slug );
+    }
+    
+    wp_send_json_error( $response );
+}
+
+/**
  * Get available demos with configurations
  */
 function versana_companion_get_available_demos() {
@@ -98,6 +266,23 @@ function versana_companion_get_available_demos() {
                 '✓ Agent profile sections'
             ),
             'is_pro'  => true,
+        ),
+        'woocommerce-store' => array(
+            'name'        => __( 'WooCommerce Store', 'versana-pro' ) . ' 🔒',
+            'description' => __( 'Professional e-commerce store design for specialty retail businesses. Perfect for coffee equipment, gourmet products, or any premium retail store.', 'versana-pro' ),
+            'preview_url' => 'https://versana.codoplex.com/woocommerce-store/',
+            'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/woocommerce-store.webp',
+            'thumbnail_path'   => VERSANA_COMPANION_PATH . 'assets/images/woocommerce-store.webp',
+            'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
+            'category'    => 'e-commerce',
+            'features'    => array(
+                '🔒 Requires Versana PRO License',
+                '✓ WooCommerce product showcase layouts',
+                '✓ Professional e-commerce design',
+                '✓ Warranty & trust building sections',
+            ),
+            'is_pro'  => true,
+            'dependencies' => array( 'woocommerce' ),
         ),
         'premium-shop' => array(
             'name'        => __( 'Premium Shop', 'versana-pro' ) . ' 🔒',
@@ -391,6 +576,7 @@ function versana_companion_parse_demo_xml( $xml_content, $demo_key ) {
         '{HOME_CONTENT}'     => isset( $demo_config['home'] ) ? $demo_config['home'] : '',
         '{SERVICES_CONTENT}' => isset( $demo_config['services'] ) ? $demo_config['services'] : '',
         '{PRODUCTS_CONTENT}' => isset( $demo_config['products'] ) ? $demo_config['products'] : '',
+        '{SHOP_CONTENT}' => isset( $demo_config['shop'] ) ? $demo_config['shop'] : '',
         '{ABOUT_CONTENT}'    => isset( $demo_config['about'] ) ? $demo_config['about'] : '',
         '{CONTACT_CONTENT}'    => isset( $demo_config['contact'] ) ? $demo_config['contact'] : '',
     );
@@ -953,6 +1139,18 @@ function versana_companion_ajax_import_demo() {
     }
     
     $demo = versana_companion_get_demo( $demo_key );
+
+    // Check dependencies
+    if ( ! empty( $demo['dependencies'] ) ) {
+        $check = versana_companion_check_required_plugins( $demo['dependencies'] );
+        
+        if ( ! $check['all_active'] ) {
+            $message = __( 'Required plugins are not active: ', 'versana-companion' );
+            $missing = array_merge( $check['missing'], $check['inactive'] );
+            $message .= implode( ', ', $missing );
+            wp_send_json_error( array( 'message' => $message ) );
+        }
+    }
 
     // Check if demo is PRO and license is active
     if ( ! empty( $demo['is_pro'] ) && ! versana_companion_is_pro_active() ) {
