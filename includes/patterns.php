@@ -15,10 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function versana_companion_register_pattern_categories() {
     register_block_pattern_category(
-        'versana-patterns',
-        array( 'label' => __( 'Versana Patterns', 'versana-companion' ) )
-    );
-    register_block_pattern_category(
         'versana-blog',
         array( 'label' => __( 'Versana Blog Patterns', 'versana-companion' ) )
     );

@@ -1246,7 +1246,7 @@ function versana_apply_demo_variation_filter( $theme_json ) {
 
     // 3. Locate the variation file manually to avoid resolver cache issues
     // Using get_template_directory() ensures we look in the parent theme's /styles folder
-    $file_path = VERSANA_COMPANION_PATH . '/styles/' . $active_variation . '.json';
+    $file_path = get_template_directory() . '/styles/' . $active_variation . '.json';
 
     if ( file_exists( $file_path ) ) {
         $content = file_get_contents( $file_path );
