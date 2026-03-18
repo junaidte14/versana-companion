@@ -39,6 +39,14 @@ Yes, this plugin is designed to work only with Versana theme.
 
 Yes, completely free!
 
+== Screenshots ==
+
+1. **One-Click Demo Import:** Effortlessly transform your site with high-performance starter templates designed for Full Site Editing.
+2. **Advanced Content & Layout:** Granular control over your block theme’s structural elements without touching a single line of code.
+3. **Performance Optimizations:** A dedicated suite of tools to help you achieve 100/100 PageSpeed scores by eliminating bloat.
+4. **Global Integrations:** Securely manage your Google Analytics, Meta Pixel, and custom header/footer scripts in one localized dashboard.
+5. **License Management:** Seamlessly activate your Versana Pro license to unlock premium patterns, priority support, and advanced features.
+
 == Changelog ==
 
 = 1.0.0 =

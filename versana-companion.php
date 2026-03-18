@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Versana Companion
- * Description: Adds demo import and advanced features to the Versana theme
+ * Description: Extends the Versana theme with seamless demo imports, exclusive starter templates, and advanced block patterns.
  * Version: 1.0.0
  * Author: Junaid Hassan
  * Author URI: https://codoplex.com
