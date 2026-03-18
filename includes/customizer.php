@@ -23,7 +23,7 @@ function versana_customize_register( $wp_customize ) {
      * ================================================================
      */
     $wp_customize->add_section( 'versana_header_settings', array(
-        'title'    => __( 'Header Settings', 'versana' ),
+        'title'    => __( 'Header Settings', 'versana-companion' ),
         'priority' => 30,
     ) );
     
@@ -35,12 +35,12 @@ function versana_customize_register( $wp_customize ) {
     ) );
     
     $wp_customize->add_control( 'header_layout', array(
-        'label'   => __( 'Header Layout', 'versana' ),
+        'label'   => __( 'Header Layout', 'versana-companion' ),
         'section' => 'versana_header_settings',
         'type'    => 'select',
         'choices' => array(
-            'default'  => __( 'Default (Logo Left, Menu Right)', 'versana' ),
-            'centered' => __( 'Centered (Logo & Menu Centered)', 'versana' ),
+            'default'  => __( 'Default (Logo Left, Menu Right)', 'versana-companion' ),
+            'centered' => __( 'Centered (Logo & Menu Centered)', 'versana-companion' ),
         ),
     ) );
     
@@ -52,8 +52,8 @@ function versana_customize_register( $wp_customize ) {
     ) );
     
     $wp_customize->add_control( 'enable_sticky_header', array(
-        'label'       => __( 'Enable Sticky Header', 'versana' ),
-        'description' => __( 'Make header stick to top on scroll', 'versana' ),
+        'label'       => __( 'Enable Sticky Header', 'versana-companion' ),
+        'description' => __( 'Make header stick to top on scroll', 'versana-companion' ),
         'section'     => 'versana_header_settings',
         'type'        => 'checkbox',
     ) );
@@ -64,7 +64,7 @@ function versana_customize_register( $wp_customize ) {
      * ================================================================
      */
     $wp_customize->add_section( 'versana_footer_settings', array(
-        'title'    => __( 'Footer Settings', 'versana' ),
+        'title'    => __( 'Footer Settings', 'versana-companion' ),
         'priority' => 40,
     ) );
     
@@ -76,9 +76,33 @@ function versana_customize_register( $wp_customize ) {
     ) );
     
     $wp_customize->add_control( 'enable_back_to_top', array(
-        'label'       => __( 'Enable Back to Top Button', 'versana' ),
-        'description' => __( 'Show a button to scroll back to top', 'versana' ),
+        'label'       => __( 'Enable Back to Top Button', 'versana-companion' ),
+        'description' => __( 'Show a button to scroll back to top', 'versana-companion' ),
         'section'     => 'versana_footer_settings',
+        'type'        => 'checkbox',
+    ) );
+
+    /**
+     * ================================================================
+     * Content SETTINGS SECTION
+     * ================================================================
+     */
+    $wp_customize->add_section( 'versana_content_settings', array(
+        'title'    => __( 'Content Settings', 'versana-companion' ),
+        'priority' => 50,
+    ) );
+
+    // Enable Back to Top
+    $wp_customize->add_setting( 'hide_page_titles', array(
+        'default'           => true,
+        'sanitize_callback' => 'versana_sanitize_checkbox',
+        'transport'         => 'refresh',
+    ) );
+    
+    $wp_customize->add_control( 'hide_page_titles', array(
+        'label'       => __( 'Hide Page Titles', 'versana-companion' ),
+        'description' => __( 'Check to hide titles site-wide (useful when adding custom titles in page content).', 'versana-companion' ),
+        'section'     => 'versana_content_settings',
         'type'        => 'checkbox',
     ) );
     
@@ -88,8 +112,8 @@ function versana_customize_register( $wp_customize ) {
      * ================================================================
      */
     $wp_customize->add_section( 'versana_blog_settings', array(
-        'title'    => __( 'Blog Settings', 'versana' ),
-        'priority' => 50,
+        'title'    => __( 'Blog Settings', 'versana-companion' ),
+        'priority' => 60,
     ) );
     
     // Blog Layout
@@ -100,13 +124,13 @@ function versana_customize_register( $wp_customize ) {
     ) );
     
     $wp_customize->add_control( 'blog_layout', array(
-        'label'   => __( 'Blog Layout Style', 'versana' ),
+        'label'   => __( 'Blog Layout Style', 'versana-companion' ),
         'section' => 'versana_blog_settings',
         'type'    => 'select',
         'choices' => array(
-            'list' => __( 'List View', 'versana' ),
-            '2col' => __( '2 Columns Grid', 'versana' ),
-            '3col' => __( '3 Columns Grid', 'versana' ),
+            'list' => __( 'List View', 'versana-companion' ),
+            '2col' => __( '2 Columns Grid', 'versana-companion' ),
+            '3col' => __( '3 Columns Grid', 'versana-companion' ),
         ),
     ) );
     
@@ -118,13 +142,13 @@ function versana_customize_register( $wp_customize ) {
     ) );
     
     $wp_customize->add_control( 'blog_sidebar_position', array(
-        'label'   => __( 'Blog Sidebar Position', 'versana' ),
+        'label'   => __( 'Blog Sidebar Position', 'versana-companion' ),
         'section' => 'versana_blog_settings',
         'type'    => 'select',
         'choices' => array(
-            'right' => __( 'Right Sidebar', 'versana' ),
-            'left'  => __( 'Left Sidebar', 'versana' ),
-            'none'  => __( 'No Sidebar (Full Width)', 'versana' ),
+            'right' => __( 'Right Sidebar', 'versana-companion' ),
+            'left'  => __( 'Left Sidebar', 'versana-companion' ),
+            'none'  => __( 'No Sidebar (Full Width)', 'versana-companion' ),
         ),
     ) );
     
@@ -136,13 +160,13 @@ function versana_customize_register( $wp_customize ) {
     ) );
     
     $wp_customize->add_control( 'archive_layout', array(
-        'label'   => __( 'Archive Layout Style', 'versana' ),
+        'label'   => __( 'Archive Layout Style', 'versana-companion' ),
         'section' => 'versana_blog_settings',
         'type'    => 'select',
         'choices' => array(
-            'list' => __( 'List View', 'versana' ),
-            '2col' => __( '2 Columns Grid', 'versana' ),
-            '3col' => __( '3 Columns Grid', 'versana' ),
+            'list' => __( 'List View', 'versana-companion' ),
+            '2col' => __( '2 Columns Grid', 'versana-companion' ),
+            '3col' => __( '3 Columns Grid', 'versana-companion' ),
         ),
     ) );
     
@@ -219,6 +243,13 @@ function versana_customize_body_classes( $classes ) {
         if ( in_array( $sidebar_position, array( 'none' ), true ) ) {
             $classes[] = 'sidebar-none';
         }
+    }
+
+    // Content Layout
+
+    // Hide page titles
+    if ( versana_get_theme_mod( 'hide_page_titles', true ) ) {
+        $classes[] = 'versana-hide-page-title';
     }
 
     // Blog Layout (on blog/home page)
@@ -335,7 +366,7 @@ function versana_render_back_to_top() {
         return;
     }
     ?>
-    <button class="back-to-top" aria-label="<?php esc_attr_e( 'Back to top', 'versana' ); ?>">
+    <button class="back-to-top" aria-label="<?php esc_attr_e( 'Back to top', 'versana-companion' ); ?>">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 4l-8 8h5v8h6v-8h5z"/>
         </svg>

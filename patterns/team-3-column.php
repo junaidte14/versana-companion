@@ -7,6 +7,9 @@
  * Block Types: core/group
  * Description: Three column team member section with photos, names, and roles.
  */
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 ?>
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|4xl","bottom":"var:preset|spacing|4xl"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--4-xl);padding-bottom:var(--wp--preset--spacing--4-xl)">
@@ -14,11 +17,11 @@
     <!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|2xl"}}},"layout":{"type":"constrained","contentSize":"700px"}} -->
     <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--2-xl)">
         <!-- wp:heading {"textAlign":"center","fontSize":"4-xl"} -->
-        <h2 class="wp-block-heading has-text-align-center has-4-xl-font-size">Meet Our Team</h2>
+        <h2 class="wp-block-heading has-text-align-center has-4-xl-font-size"><?php echo esc_html__( 'Meet Our Team', 'versana-companion' ); ?></h2>
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"fontSize":"lg"} -->
-        <p class="has-text-align-center has-lg-font-size" style="margin-top:var(--wp--preset--spacing--sm)">The talented people behind our success</p>
+        <p class="has-text-align-center has-lg-font-size" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'The talented people behind our success', 'versana-companion' ); ?></p>
         <!-- /wp:paragraph -->
     </div>
     <!-- /wp:group -->
@@ -39,15 +42,15 @@
                 <!-- /wp:group -->
 
                 <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"xl"} -->
-                <h3 class="wp-block-heading has-text-align-center has-xl-font-size">Emily Rodriguez</h3>
+                <h3 class="wp-block-heading has-text-align-center has-xl-font-size"><?php echo esc_html__( 'Emily Rodriguez', 'versana-companion' ); ?></h3>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph {"align":"center","textColor":"primary"} -->
-                <p class="has-text-align-center has-primary-color has-text-color">Founder &amp; CEO</p>
+                <p class="has-text-align-center has-primary-color has-text-color"><?php echo esc_html__( 'Founder &amp; CEO', 'versana-companion' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"textColor":"neutral-700"} -->
-                <p class="has-text-align-center has-neutral-700-color has-text-color" style="margin-top:var(--wp--preset--spacing--sm)">15+ years of industry experience. Passionate about innovation and building great teams.</p>
+                <p class="has-text-align-center has-neutral-700-color has-text-color" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( '15+ years of industry experience. Passionate about innovation and building great teams.', 'versana-companion' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
@@ -68,15 +71,15 @@
                 <!-- /wp:group -->
 
                 <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"xl"} -->
-                <h3 class="wp-block-heading has-text-align-center has-xl-font-size">James Mitchell</h3>
+                <h3 class="wp-block-heading has-text-align-center has-xl-font-size"><?php echo esc_html__( 'James Mitchell', 'versana-companion' ); ?></h3>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph {"align":"center","textColor":"primary"} -->
-                <p class="has-text-align-center has-primary-color has-text-color">Head of Design</p>
+                <p class="has-text-align-center has-primary-color has-text-color"><?php echo esc_html__( 'Head of Design', 'versana-companion' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"textColor":"neutral-700"} -->
-                <p class="has-text-align-center has-neutral-700-color has-text-color" style="margin-top:var(--wp--preset--spacing--sm)">Award-winning designer with expertise in creating beautiful, user-centered experiences.</p>
+                <p class="has-text-align-center has-neutral-700-color has-text-color" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'Award-winning designer with expertise in creating beautiful, user-centered experiences.', 'versana-companion' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->
@@ -97,15 +100,15 @@
                 <!-- /wp:group -->
 
                 <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"xl"} -->
-                <h3 class="wp-block-heading has-text-align-center has-xl-font-size">Sophia Chen</h3>
+                <h3 class="wp-block-heading has-text-align-center has-xl-font-size"><?php echo esc_html__( 'Sophia Chen', 'versana-companion' ); ?></h3>
                 <!-- /wp:heading -->
 
                 <!-- wp:paragraph {"align":"center","textColor":"primary"} -->
-                <p class="has-text-align-center has-primary-color has-text-color">Lead Developer</p>
+                <p class="has-text-align-center has-primary-color has-text-color"><?php echo esc_html__( 'Lead Developer', 'versana-companion' ); ?></p>
                 <!-- /wp:paragraph -->
 
                 <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"textColor":"neutral-700"} -->
-                <p class="has-text-align-center has-neutral-700-color has-text-color" style="margin-top:var(--wp--preset--spacing--sm)">Full-stack expert specializing in performance optimization and scalable architecture.</p>
+                <p class="has-text-align-center has-neutral-700-color has-text-color" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'Full-stack expert specializing in performance optimization and scalable architecture.', 'versana-companion' ); ?></p>
                 <!-- /wp:paragraph -->
             </div>
             <!-- /wp:group -->

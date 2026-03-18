@@ -6,6 +6,9 @@
  * Keywords: cta, call to action, highlight
  * Description: A large section to showcase call to action section.
  */
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|2xl","bottom":"var:preset|spacing|2xl","left":"var:preset|spacing|md","right":"var:preset|spacing|md"}}},"gradient":"warm-gradient","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull has-warm-gradient-gradient-background has-background"
@@ -15,13 +18,12 @@
         <!-- wp:heading {"textAlign":"center","style":{"typography":{"fontSize":"clamp(2rem, 5vw, 3.5rem)","fontWeight":"800","lineHeight":"1.2"},"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|md"}}},"textColor":"neutral-100"} -->
         <h2 class="wp-block-heading has-text-align-center has-neutral-100-color has-text-color"
             style="margin-top:0;margin-bottom:var(--wp--preset--spacing--md);font-size:clamp(2rem, 5vw, 3.5rem);font-weight:800;line-height:1.2">
-            Start Your Reading Journey Today</h2>
+            <?php echo esc_html__( 'Start Your Reading Journey Today', 'versana-companion' ); ?></h2>
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|lg"}}},"textColor":"neutral-100","fontSize":"md"} -->
         <p class="has-text-align-center has-neutral-100-color has-text-color has-md-font-size"
-            style="margin-top:0;margin-bottom:var(--wp--preset--spacing--lg)">Subscribe to our newsletter and never
-            miss an update. Get exclusive content delivered to your inbox.</p>
+            style="margin-top:0;margin-bottom:var(--wp--preset--spacing--lg)"><?php echo esc_html__( 'Subscribe to our newsletter and never miss an update. Get exclusive content delivered to your inbox.', 'versana-companion' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"0"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
@@ -29,8 +31,7 @@
             <!-- wp:button {"backgroundColor":"neutral-100","textColor":"primary","style":{"border":{"radius":"8px"},"spacing":{"padding":{"left":"var:preset|spacing|xl","right":"var:preset|spacing|xl","top":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm"}},"typography":{"fontSize":"1.125rem","fontWeight":"600"}}} -->
             <div class="wp-block-button"><a
                     class="wp-block-button__link has-primary-color has-neutral-100-background-color has-text-color has-background has-custom-font-size wp-element-button"
-                    style="border-radius:8px;padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--xl);font-size:1.125rem;font-weight:600">Subscribe
-                    Now</a></div>
+                    style="border-radius:8px;padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--xl);font-size:1.125rem;font-weight:600"><?php echo esc_html__( 'Subscribe Now', 'versana-companion' ); ?></a></div>
             <!-- /wp:button -->
         </div>
         <!-- /wp:buttons -->

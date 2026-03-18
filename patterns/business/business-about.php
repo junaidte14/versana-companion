@@ -2,11 +2,14 @@
 /**
  * Title: Business About
  * Slug: versana/business-about
- * Categories: versana-business
+ * Categories: versana-patterns
  * Keywords: about, simple about
  * Block Types: core/group
  * Description: A simple way to show about us information.
  */
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 ?>
 <!-- wp:cover {
     "overlayColor":"primary",
@@ -30,13 +33,13 @@
 
         <!-- wp:heading {"textAlign":"center","level":1,"textColor":"neutral-100","fontSize":"4-xl"} -->
         <h1 class="wp-block-heading has-text-align-center has-neutral-100-color has-text-color has-4-xl-font-size">
-            About Our Company
+            <?php echo esc_html__( 'About Our Company', 'versana-companion' ); ?>
         </h1>
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","textColor":"neutral-100","fontSize":"md"} -->
         <p class="has-text-align-center has-neutral-100-color has-text-color has-md-font-size">
-            Building the future of digital business
+            <?php echo esc_html__( 'Building the future of digital business', 'versana-companion' ); ?>
         </p>
         <!-- /wp:paragraph -->
 
@@ -63,35 +66,35 @@
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--2-xl);padding-bottom:var(--wp--preset--spacing--2-xl)">
 
     <!-- wp:heading {"level":2} -->
-    <h2 class="wp-block-heading">Our Story</h2>
+    <h2 class="wp-block-heading"><?php echo esc_html__( 'Our Story', 'versana-companion' ); ?></h2>
     <!-- /wp:heading -->
 
     <!-- wp:paragraph {"fontSize":"md"} -->
     <p class="has-md-font-size">
-        We help businesses navigate digital transformation with innovative solutions and strategic expertise.
+        <?php echo esc_html__( 'We help businesses navigate digital transformation with innovative solutions and strategic expertise.', 'versana-companion' ); ?>
     </p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"level":2} -->
-    <h2 class="wp-block-heading">Our Mission</h2>
+    <h2 class="wp-block-heading"><?php echo esc_html__( 'Our Mission', 'versana-companion' ); ?></h2>
     <!-- /wp:heading -->
 
     <!-- wp:paragraph {"fontSize":"md"} -->
     <p class="has-md-font-size">
-        To empower businesses with technology solutions that drive growth and create competitive advantages.
+        <?php echo esc_html__( 'To empower businesses with technology solutions that drive growth and create competitive advantages.', 'versana-companion' ); ?>
     </p>
     <!-- /wp:paragraph -->
 
     <!-- wp:heading {"level":2} -->
-    <h2 class="wp-block-heading">Our Values</h2>
+    <h2 class="wp-block-heading"><?php echo esc_html__( 'Our Values', 'versana-companion' ); ?></h2>
     <!-- /wp:heading -->
 
     <!-- wp:list -->
     <ul class="wp-block-list">
-        <li><strong>Excellence:</strong> We deliver exceptional results</li>
-        <li><strong>Innovation:</strong> We embrace new technologies</li>
-        <li><strong>Integrity:</strong> We build trust through transparency</li>
-        <li><strong>Collaboration:</strong> We work as partners</li>
+        <li><strong><?php echo esc_html__( 'Excellence:', 'versana-companion' ); ?></strong> <?php echo esc_html__( 'We deliver exceptional results', 'versana-companion' ); ?></li>
+        <li><strong><?php echo esc_html__( 'Innovation:', 'versana-companion' ); ?></strong> <?php echo esc_html__( 'We embrace new technologies', 'versana-companion' ); ?></li>
+        <li><strong><?php echo esc_html__( 'Integrity:', 'versana-companion' ); ?></strong> <?php echo esc_html__( 'We build trust through transparency', 'versana-companion' ); ?></li>
+        <li><strong><?php echo esc_html__( 'Collaboration:', 'versana-companion' ); ?></strong> <?php echo esc_html__( 'We work as partners', 'versana-companion' ); ?></li>
     </ul>
     <!-- /wp:list -->
 

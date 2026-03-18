@@ -204,6 +204,78 @@ textarea.code {
     margin-top: 4px;
 }
 
+/* Custom Tabs*/
+
+/* PRO Features*/
+.versana-feature-locked {
+    opacity: 0.5;
+    pointer-events: none;
+    position: relative;
+}
+.versana-feature-locked::after {
+    content: '🔒 PRO';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ff9800;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* License Status Styles*/
+
+.versana-status-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.versana-status-active {
+    background: #d4edda;
+    color: #155724;
+}
+
+.versana-status-inactive {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.versana-license-key-display {
+    background: #f5f5f5;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+.form-table th[scope="row"] button,
+.form-table td button {
+    margin-right: 10px;
+}
+
+.form-table button .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+#versana-license-messages {
+    margin: 15px 0;
+}
+
+#versana-license-messages .notice {
+    margin: 0 0 15px;
+}
+
 /* Responsive */
 @media screen and (max-width: 782px) {
     .versana-options-header {

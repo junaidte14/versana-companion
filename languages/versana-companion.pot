@@ -1,0 +1,1827 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Versana Companion 1.0.0\n"
+"Report-Msgid-Bugs-To: https://codoplex.com/contact\n"
+"POT-Creation-Date: 2026-03-18 18:00+0100\n"
+"PO-Revision-Date: 2026-03-18 18:00+0100\n"
+"Last-Translator: Versana Team <admin@codoplex.com>\n"
+"Language-Team: Versana Team <admin@codoplex.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.8\n"
+"X-Domain: versana-companion\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: includes/customizer.php:26
+msgid "Header Settings"
+msgstr ""
+
+#: includes/customizer.php:38
+msgid "Header Layout"
+msgstr ""
+
+#: includes/customizer.php:42
+msgid "Default (Logo Left, Menu Right)"
+msgstr ""
+
+#: includes/customizer.php:43
+msgid "Centered (Logo & Menu Centered)"
+msgstr ""
+
+#: includes/customizer.php:55
+msgid "Enable Sticky Header"
+msgstr ""
+
+#: includes/customizer.php:56
+msgid "Make header stick to top on scroll"
+msgstr ""
+
+#: includes/customizer.php:67
+msgid "Footer Settings"
+msgstr ""
+
+#: includes/customizer.php:79
+msgid "Enable Back to Top Button"
+msgstr ""
+
+#: includes/customizer.php:80
+msgid "Show a button to scroll back to top"
+msgstr ""
+
+#: includes/customizer.php:91
+msgid "Content Settings"
+msgstr ""
+
+#: includes/customizer.php:103
+msgid "Hide Page Titles"
+msgstr ""
+
+#: includes/customizer.php:104
+msgid ""
+"Check to hide titles site-wide (useful when adding custom titles in page "
+"content)."
+msgstr ""
+
+#: includes/customizer.php:115
+msgid "Blog Settings"
+msgstr ""
+
+#: includes/customizer.php:127
+msgid "Blog Layout Style"
+msgstr ""
+
+#: includes/customizer.php:131 includes/customizer.php:167
+msgid "List View"
+msgstr ""
+
+#: includes/customizer.php:132 includes/customizer.php:168
+msgid "2 Columns Grid"
+msgstr ""
+
+#: includes/customizer.php:133 includes/customizer.php:169
+msgid "3 Columns Grid"
+msgstr ""
+
+#: includes/customizer.php:145
+msgid "Blog Sidebar Position"
+msgstr ""
+
+#: includes/customizer.php:149
+msgid "Right Sidebar"
+msgstr ""
+
+#: includes/customizer.php:150
+msgid "Left Sidebar"
+msgstr ""
+
+#: includes/customizer.php:151
+msgid "No Sidebar (Full Width)"
+msgstr ""
+
+#: includes/customizer.php:163
+msgid "Archive Layout Style"
+msgstr ""
+
+#: includes/customizer.php:369
+msgid "Back to top"
+msgstr ""
+
+#: includes/demos.php:187
+msgid "Personal Blog"
+msgstr ""
+
+#: includes/demos.php:188
+msgid "Clean and minimal blog layout perfect for writers and content creators."
+msgstr ""
+
+#: includes/demos.php:197
+msgid "✓ Magazine-quality layouts"
+msgstr ""
+
+#: includes/demos.php:198
+msgid "✓ Optimized for readability"
+msgstr ""
+
+#: includes/demos.php:199
+msgid "✓ Styled Block patterns"
+msgstr ""
+
+#: includes/demos.php:202 includes/demos.php:223 includes/demos.php:244
+#, php-format
+msgid "✓ %s+ Performance Score"
+msgstr ""
+
+#: includes/demos.php:208
+msgid "Business Website"
+msgstr ""
+
+#: includes/demos.php:209
+msgid "Professional business website perfect for corporate sites and agencies."
+msgstr ""
+
+#: includes/demos.php:218
+msgid "✓ Conversion-focused design"
+msgstr ""
+
+#: includes/demos.php:219
+msgid "✓ Professional credibility"
+msgstr ""
+
+#: includes/demos.php:220
+msgid "✓ Modern SaaS aesthetic"
+msgstr ""
+
+#: includes/demos.php:229
+msgid "Creative Portfolio"
+msgstr ""
+
+#: includes/demos.php:230
+msgid "Showcase your work with a beautiful portfolio layout for creatives."
+msgstr ""
+
+#: includes/demos.php:239
+msgid "✓ Stunning visual galleries"
+msgstr ""
+
+#: includes/demos.php:240
+msgid "✓ Project case study layouts"
+msgstr ""
+
+#: includes/demos.php:241
+msgid "✓ Client testimonial sections"
+msgstr ""
+
+#: includes/demos.php:250
+msgid "Restaurant & Cafe"
+msgstr ""
+
+#: includes/demos.php:251 includes/demos.php:267 includes/demos.php:283
+msgid "Premium demo - License required."
+msgstr ""
+
+#: includes/demos.php:258 includes/demos.php:274 includes/demos.php:290
+#: includes/demos.php:306 includes/demos.php:323
+msgid "🔒 Requires Versana PRO License"
+msgstr ""
+
+#: includes/demos.php:259
+msgid "✓ Mobile-first reservation flow"
+msgstr ""
+
+#: includes/demos.php:260
+msgid "✓ Menu showcase layouts"
+msgstr ""
+
+#: includes/demos.php:261
+msgid "✓ Food photography optimized"
+msgstr ""
+
+#: includes/demos.php:266
+msgid "Fitness & Wellness"
+msgstr ""
+
+#: includes/demos.php:275
+msgid "✓ Class schedule & booking layouts"
+msgstr ""
+
+#: includes/demos.php:276
+msgid "✓ Member transformation stories"
+msgstr ""
+
+#: includes/demos.php:277
+msgid "✓ Flexible pricing layouts"
+msgstr ""
+
+#: includes/demos.php:282
+msgid "Real Estate & Property"
+msgstr ""
+
+#: includes/demos.php:291
+msgid "✓ Property search & filters"
+msgstr ""
+
+#: includes/demos.php:292
+msgid "✓ Featured listings layouts"
+msgstr ""
+
+#: includes/demos.php:293
+msgid "✓ Agent profile sections"
+msgstr ""
+
+#: includes/demos.php:298
+msgid "WooCommerce Store"
+msgstr ""
+
+#: includes/demos.php:299
+msgid ""
+"Professional e-commerce store design for specialty retail businesses. "
+"Perfect for coffee equipment, gourmet products, or any premium retail store."
+msgstr ""
+
+#: includes/demos.php:307
+msgid "✓ WooCommerce product showcase layouts"
+msgstr ""
+
+#: includes/demos.php:308
+msgid "✓ Professional e-commerce design"
+msgstr ""
+
+#: includes/demos.php:309
+msgid "✓ Warranty & trust building sections"
+msgstr ""
+
+#: includes/demos.php:315
+msgid "Premium Shop"
+msgstr ""
+
+#: includes/demos.php:316
+msgid ""
+"Professional e-commerce design for specialty retail businesses. Perfect for "
+"coffee equipment, gourmet products, or any premium retail store."
+msgstr ""
+
+#: includes/demos.php:324
+msgid "✓ E-commerce product grid layouts"
+msgstr ""
+
+#: includes/demos.php:325
+msgid "✓ Heritage & trust building sections"
+msgstr ""
+
+#: includes/demos.php:326
+msgid "✓ Warranty & service showcases"
+msgstr ""
+
+#: includes/demos.php:361
+msgid "Demo Import"
+msgstr ""
+
+#: includes/demos.php:381
+msgid "Import Demo Content"
+msgstr ""
+
+#: includes/demos.php:386
+msgid ""
+"Choose a demo to import. This will add sample posts, pages, create "
+"navigation menus, and apply theme styling."
+msgstr ""
+
+#: includes/demos.php:387
+msgid "Make sure to have latest version of the Versana Companion plugin."
+msgstr ""
+
+#: includes/demos.php:389
+msgid "Chech for Updates."
+msgstr ""
+
+#: includes/demos.php:395
+msgid "Note:"
+msgstr ""
+
+#: includes/demos.php:396
+msgid ""
+"You can import a different demo. Previous demo content will remain unless "
+"you remove it first."
+msgstr ""
+
+#: includes/demos.php:405
+msgid "Unlock PRO Demos"
+msgstr ""
+
+#: includes/demos.php:408
+msgid "Get access to premium demos and advanced features with Versana PRO."
+msgstr ""
+
+#: includes/demos.php:412 includes/license.php:361
+#: includes/premium-features.php:60 includes/premium-features.php:170
+msgid "Activate License"
+msgstr ""
+
+#: includes/demos.php:417
+msgid "Purchase License"
+msgstr ""
+
+#: includes/demos.php:455
+msgid "PRO"
+msgstr ""
+
+#: includes/demos.php:472
+msgid "Imported"
+msgstr ""
+
+#: includes/demos.php:499
+msgid "Posts"
+msgstr ""
+
+#: includes/demos.php:503
+msgid "Pages"
+msgstr ""
+
+#: includes/demos.php:507
+msgid "Menu"
+msgstr ""
+
+#: includes/demos.php:515
+msgid "Preview"
+msgstr ""
+
+#: includes/demos.php:522
+msgid "Remove"
+msgstr ""
+
+#: includes/demos.php:529
+msgid "Unlock PRO"
+msgstr ""
+
+#: includes/demos.php:534
+msgid "Import"
+msgstr ""
+
+#: includes/demos.php:539
+msgid "File Missing"
+msgstr ""
+
+#: includes/demos.php:581
+msgid "Importing demo..."
+msgstr ""
+
+#: includes/demos.php:582
+msgid "Removing demo..."
+msgstr ""
+
+#: includes/demos.php:583
+msgid "This will import demo content and apply theme styling. Continue?"
+msgstr ""
+
+#: includes/demos.php:584
+msgid "This will permanently delete all imported demo content. Are you sure?"
+msgstr ""
+
+#: includes/demos.php:585
+msgid "Success!"
+msgstr ""
+
+#: includes/demos.php:586
+msgid "Error"
+msgstr ""
+
+#: includes/demos.php:1172
+msgid "Required plugins are not active: "
+msgstr ""
+
+#: includes/layout.php:24
+msgid "Content & Layout"
+msgstr ""
+
+#: includes/layout.php:40
+msgid "Content/Layout Options"
+msgstr ""
+
+#: includes/license.php:130
+msgid "License"
+msgstr ""
+
+#: includes/license.php:208
+msgid "Versana PRO License"
+msgstr ""
+
+#: includes/license.php:217
+msgid "Your license is active!"
+msgstr ""
+
+#: includes/license.php:218
+msgid "You have access to all PRO features and demos."
+msgstr ""
+
+#: includes/license.php:225 includes/license.php:324
+msgid "License Key"
+msgstr ""
+
+#: includes/license.php:231
+msgid "Status"
+msgstr ""
+
+#: includes/license.php:234
+msgid "Active"
+msgstr ""
+
+#: includes/license.php:240
+msgid "License Type"
+msgstr ""
+
+#: includes/license.php:246
+msgid "Max Activations"
+msgstr ""
+
+#: includes/license.php:256
+msgid "Expires"
+msgstr ""
+
+#: includes/license.php:266
+msgid "Product"
+msgstr ""
+
+#: includes/license.php:271
+msgid "Last Verified"
+msgstr ""
+
+#: includes/license.php:277
+msgid "Never"
+msgstr ""
+
+#: includes/license.php:283 includes/license.php:353
+msgid "Actions"
+msgstr ""
+
+#: includes/license.php:287
+msgid "Check License Now"
+msgstr ""
+
+#: includes/license.php:291
+msgid "Deactivate License"
+msgstr ""
+
+#: includes/license.php:314
+msgid "No active license found."
+msgstr ""
+
+#: includes/license.php:315
+msgid "Activate your license to access PRO features and demos."
+msgstr ""
+
+#: includes/license.php:338
+msgid "Enter your Versana PRO license key to unlock premium features."
+msgstr ""
+
+#: includes/license.php:344
+msgid "Site URL"
+msgstr ""
+
+#: includes/license.php:348
+msgid "This URL will be activated on your license."
+msgstr ""
+
+#: includes/license.php:367
+msgid ""
+"Enter your license key and click \"Save Changes\" below before activating "
+"the license."
+msgstr ""
+
+#: includes/license.php:369
+msgid "Click to activate your license key with our server."
+msgstr ""
+
+#: includes/license.php:390
+msgid "Don't have a license?"
+msgstr ""
+
+#: includes/license.php:391
+msgid "Purchase Versana PRO to unlock premium demos and features."
+msgstr ""
+
+#: includes/license.php:397
+msgid "Purchase Versana PRO"
+msgstr ""
+
+#: includes/license.php:455
+#, php-format
+msgid "Connection error: %s"
+msgstr ""
+
+#: includes/license.php:469
+msgid "Empty response from license server."
+msgstr ""
+
+#: includes/license.php:481
+msgid "Invalid response format from license server."
+msgstr ""
+
+#: includes/license.php:492
+#, php-format
+msgid "Server error (Code: %d)"
+msgstr ""
+
+#: includes/license.php:510
+msgid ""
+"Invalid license key format. Expected: XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX"
+msgstr ""
+
+#: includes/license.php:568
+msgid "License activated successfully!"
+msgstr ""
+
+#: includes/license.php:574
+msgid "License activated but verification failed. Please check license status."
+msgstr ""
+
+#: includes/license.php:673 includes/license.php:698 includes/license.php:717
+msgid "Permission denied."
+msgstr ""
+
+#: includes/license.php:679 includes/theme-options/options-init.php:105
+msgid "Please enter a license key."
+msgstr ""
+
+#: includes/license.php:687
+msgid "Activation failed."
+msgstr ""
+
+#: includes/license.php:704
+msgid "License deactivated successfully."
+msgstr ""
+
+#: includes/license.php:706
+msgid "Deactivation failed."
+msgstr ""
+
+#: includes/license.php:723
+msgid "License is valid and active!"
+msgstr ""
+
+#: includes/license.php:725
+msgid "License verification failed. Please check your license key."
+msgstr ""
+
+#: includes/premium-features.php:24
+msgid "Optimizations"
+msgstr ""
+
+#: includes/premium-features.php:40
+msgid "Performance Optimizations"
+msgstr ""
+
+#: includes/premium-features.php:42
+msgid ""
+"Configure performance optimization settings to improve your site speed and "
+"user experience."
+msgstr ""
+
+#: includes/premium-features.php:54
+msgid "PRO Performance Features"
+msgstr ""
+
+#: includes/premium-features.php:58 includes/premium-features.php:168
+msgid "These features require an active PRO license."
+msgstr ""
+
+#: includes/premium-features.php:69
+msgid "Advanced Lazy Loading"
+msgstr ""
+
+#: includes/premium-features.php:70
+msgid ""
+"Enhanced lazy loading with fade-in effects, blur-up technique, and "
+"placeholder images for better UX."
+msgstr ""
+
+#: includes/premium-features.php:164
+msgid "PRO Layout Features"
+msgstr ""
+
+#: includes/premium-features.php:179
+msgid "Advanced Breadcrumbs"
+msgstr ""
+
+#: includes/premium-features.php:180
+msgid ""
+"Automatic breadcrumb navigation with schema markup for blog posts. Improves "
+"navigation and SEO."
+msgstr ""
+
+#: includes/premium-features.php:186
+msgid "Reading Progress Bar"
+msgstr ""
+
+#: includes/premium-features.php:187
+msgid ""
+"Show reading progress indicator at top of page. Provides visual feedback for "
+"long articles."
+msgstr ""
+
+#: includes/premium-features.php:193
+msgid "Related Posts"
+msgstr ""
+
+#: includes/premium-features.php:194
+msgid ""
+"Automatically show related posts by category/tags at the end of articles. "
+"Increases engagement and page views."
+msgstr ""
+
+#: includes/premium-features.php:227
+msgid "Enable this feature"
+msgstr ""
+
+#: includes/theme-options/options-init.php:103
+msgid "Are you sure you want to reset all options?"
+msgstr ""
+
+#: includes/theme-options/options-init.php:104
+msgid ""
+"Please enter a valid Google Analytics ID (format: G-XXXXXXXXXX or UA-XXXXXX-"
+"X)"
+msgstr ""
+
+#: includes/theme-options/options-init.php:106
+msgid "Activating..."
+msgstr ""
+
+#: includes/theme-options/options-init.php:107
+msgid "Connection error. Please check your license server URL."
+msgstr ""
+
+#: includes/theme-options/options-init.php:108
+msgid "Are you sure you want to deactivate your license?"
+msgstr ""
+
+#: includes/theme-options/options-init.php:109
+msgid "Deactivating..."
+msgstr ""
+
+#: includes/theme-options/options-init.php:110
+msgid "Error:"
+msgstr ""
+
+#: includes/theme-options/options-init.php:111
+msgid "An error occurred. Please try again."
+msgstr ""
+
+#: includes/theme-options/options-init.php:112
+msgid "Checking..."
+msgstr ""
+
+#: includes/theme-options/options-init.php:128
+msgid "Integrations"
+msgstr ""
+
+#: includes/theme-options/options-page.php:18
+msgid "Versana Theme Options"
+msgstr ""
+
+#: includes/theme-options/options-page.php:19
+msgid "Versana Options"
+msgstr ""
+
+#: includes/theme-options/options-page.php:34
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: includes/theme-options/options-page.php:53
+msgid "Security check failed. Please refresh the page."
+msgstr ""
+
+#: includes/theme-options/options-page.php:69
+msgid ""
+"For header layouts, footer and blog layouts, use the Customizer settings. "
+"For design customization (colors, typography, spacing), use the Site Editor."
+msgstr ""
+
+#: includes/theme-options/options-page.php:75
+msgid "Open Customizer"
+msgstr ""
+
+#: includes/theme-options/options-page.php:80
+msgid "Open Site Editor"
+msgstr ""
+
+#: includes/theme-options/options-page.php:85
+msgid "Manage Patterns"
+msgstr ""
+
+#: includes/theme-options/options-page.php:140
+msgid "Tab callback not found."
+msgstr ""
+
+#: includes/theme-options/options-page.php:156
+msgid "Third-Party Integrations"
+msgstr ""
+
+#: includes/theme-options/options-page.php:158
+msgid "Connect your site with third-party services by adding their scripts."
+msgstr ""
+
+#: includes/theme-options/options-page.php:168
+msgid "Header Scripts"
+msgstr ""
+
+#: includes/theme-options/options-page.php:177
+msgid ""
+"Scripts added here will be inserted into the <head> section. Include "
+"<script> tags."
+msgstr ""
+
+#: includes/theme-options/options-page.php:185
+msgid "Footer Scripts"
+msgstr ""
+
+#: includes/theme-options/options-page.php:194
+msgid ""
+"Scripts added here will be inserted before </body>. Include <script> tags."
+msgstr ""
+
+#: includes/theme-options/options-page.php:201
+msgid "Custom Scripts"
+msgstr ""
+
+#: includes/theme-options/options-page.php:205
+msgid ""
+"Custom script fields are only available to administrators for security "
+"reasons."
+msgstr ""
+
+#: includes/theme-options/options-page.php:223
+msgid "Reset Options"
+msgstr ""
+
+#: includes/theme-options/options-page.php:225
+msgid ""
+"Reset all theme options to their default values. This action cannot be "
+"undone."
+msgstr ""
+
+#: includes/theme-options/options-page.php:228
+msgid "Reset to Defaults"
+msgstr ""
+
+#: includes/theme-options/options-sanitize.php:34
+msgid "Security verification failed. Please try again."
+msgstr ""
+
+#: includes/theme-options/options-sanitize.php:45
+msgid "Theme options have been reset to defaults."
+msgstr ""
+
+#: patterns/blog/blog-grid-3-column.php:20
+msgid "Latest Articles"
+msgstr ""
+
+#: patterns/blog/blog-grid-3-column.php:24
+msgid "Insights, tutorials, and stories from our team"
+msgstr ""
+
+#: patterns/blog/blog-grid-3-column.php:60
+msgid "View All Posts →"
+msgstr ""
+
+#: patterns/blog/blog-hero.php:25
+msgid "Welcome to My Blog"
+msgstr ""
+
+#: patterns/blog/blog-hero.php:32
+msgid "Sharing stories, insights, and inspiration "
+msgstr ""
+
+#: patterns/blog/blog-hero.php:42
+msgid "Start Reading"
+msgstr ""
+
+#: patterns/business/business-about.php:36
+msgid "About Our Company"
+msgstr ""
+
+#: patterns/business/business-about.php:42
+msgid "Building the future of digital business"
+msgstr ""
+
+#: patterns/business/business-about.php:69
+msgid "Our Story"
+msgstr ""
+
+#: patterns/business/business-about.php:74
+msgid ""
+"We help businesses navigate digital transformation with innovative solutions "
+"and strategic expertise."
+msgstr ""
+
+#: patterns/business/business-about.php:79
+msgid "Our Mission"
+msgstr ""
+
+#: patterns/business/business-about.php:84
+msgid ""
+"To empower businesses with technology solutions that drive growth and create "
+"competitive advantages."
+msgstr ""
+
+#: patterns/business/business-about.php:89
+msgid "Our Values"
+msgstr ""
+
+#: patterns/business/business-about.php:94
+msgid "Excellence:"
+msgstr ""
+
+#: patterns/business/business-about.php:94
+msgid "We deliver exceptional results"
+msgstr ""
+
+#: patterns/business/business-about.php:95
+msgid "Innovation:"
+msgstr ""
+
+#: patterns/business/business-about.php:95
+msgid "We embrace new technologies"
+msgstr ""
+
+#: patterns/business/business-about.php:96
+msgid "Integrity:"
+msgstr ""
+
+#: patterns/business/business-about.php:96
+msgid "We build trust through transparency"
+msgstr ""
+
+#: patterns/business/business-about.php:97
+msgid "Collaboration:"
+msgstr ""
+
+#: patterns/business/business-about.php:97
+msgid "We work as partners"
+msgstr ""
+
+#: patterns/business/business-services.php:17
+msgid "Our Services"
+msgstr ""
+
+#: patterns/business/business-services.php:21
+msgid "Comprehensive solutions for modern businesses"
+msgstr ""
+
+#: patterns/business/business-services.php:31
+msgid "Web Development"
+msgstr ""
+
+#: patterns/business/business-services.php:35
+msgid ""
+"Custom websites and web applications built with modern technologies. From "
+"simple landing pages to complex platforms."
+msgstr ""
+
+#: patterns/business/business-services.php:42
+msgid "Digital Marketing"
+msgstr ""
+
+#: patterns/business/business-services.php:46
+msgid ""
+"Strategic campaigns across channels to reach your audience and drive "
+"conversions. SEO, social media, content marketing."
+msgstr ""
+
+#: patterns/business/business-services.php:56
+msgid "Business Consulting"
+msgstr ""
+
+#: patterns/business/business-services.php:60
+msgid ""
+"Expert guidance on strategy, operations, and growth. We help you make "
+"informed decisions and achieve your goals."
+msgstr ""
+
+#: patterns/business/business-services.php:67
+#: patterns/portfolio/portfolio-gallery-grid.php:46
+msgid "Brand Design"
+msgstr ""
+
+#: patterns/business/business-services.php:71
+msgid ""
+"Visual identity and brand strategy that makes your business stand out. "
+"Logos, guidelines, and marketing materials."
+msgstr ""
+
+#: patterns/business/client-logos-grid.php:20
+msgid "Trusted By Industry Leaders"
+msgstr ""
+
+#: patterns/business/client-logos-grid.php:24
+msgid "Companies That Trust Us"
+msgstr ""
+
+#: patterns/business/client-logos-grid.php:38
+msgid "Company A"
+msgstr ""
+
+#: patterns/business/client-logos-grid.php:50
+msgid "Company B"
+msgstr ""
+
+#: patterns/business/client-logos-grid.php:62
+msgid "Company C"
+msgstr ""
+
+#: patterns/business/client-logos-grid.php:74
+msgid "Company D"
+msgstr ""
+
+#: patterns/business/client-logos-grid.php:90
+msgid "Company E"
+msgstr ""
+
+#: patterns/business/client-logos-grid.php:102
+msgid "Company F"
+msgstr ""
+
+#: patterns/business/client-logos-grid.php:114
+msgid "Company G"
+msgstr ""
+
+#: patterns/business/client-logos-grid.php:126
+msgid "Company H"
+msgstr ""
+
+#: patterns/business/client-logos-grid.php:138
+msgid "Replace with actual client logo images using the Image block"
+msgstr ""
+
+#: patterns/business/hero-business-gradient.php:24
+#: patterns/business/hero-business-split.php:23
+msgid "Welcome to Excellence"
+msgstr ""
+
+#: patterns/business/hero-business-gradient.php:30
+#: patterns/business/hero-business-split.php:27
+msgid "Transform Your Business With Digital Innovation"
+msgstr ""
+
+#: patterns/business/hero-business-gradient.php:34
+#: patterns/business/hero-business-split.php:31
+msgid ""
+"We help forward-thinking companies accelerate growth through cutting-edge "
+"digital solutions and strategic partnerships."
+msgstr ""
+
+#: patterns/business/hero-business-gradient.php:42
+#: patterns/business/hero-business-split.php:37
+#: patterns/business/pricing-3-column.php:106
+#: patterns/business/pricing-3-column.php:184
+msgid "Get Started"
+msgstr ""
+
+#: patterns/business/hero-business-gradient.php:48
+#: patterns/business/hero-business-split.php:41
+msgid "Learn More"
+msgstr ""
+
+#: patterns/business/hero-business-gradient.php:62
+#: patterns/business/hero-business-gradient.php:107
+#: patterns/business/hero-business-split.php:55
+#: patterns/business/hero-business-split.php:103
+#, php-format
+msgid "%s+"
+msgstr ""
+
+#: patterns/business/hero-business-gradient.php:70
+#: patterns/business/hero-business-split.php:63
+msgid "Projects"
+msgstr ""
+
+#: patterns/business/hero-business-gradient.php:85
+#: patterns/business/hero-business-split.php:79
+#, php-format
+msgid "%s%%"
+msgstr ""
+
+#: patterns/business/hero-business-gradient.php:92
+#: patterns/business/hero-business-split.php:87
+msgid "Satisfaction"
+msgstr ""
+
+#: patterns/business/hero-business-gradient.php:114
+#: patterns/business/hero-business-split.php:111
+msgid "Years"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:20
+msgid "Simple, Transparent Pricing"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:24
+msgid "Choose the plan that's right for you"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:35
+msgid "Starter"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:39
+msgid "Perfect for individuals"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:49
+#: patterns/business/pricing-3-column.php:135
+#: patterns/business/pricing-3-column.php:210
+#, php-format
+msgid "$%s"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:63
+#: patterns/business/pricing-3-column.php:149
+#: patterns/business/pricing-3-column.php:222
+#, php-format
+msgid "/%s"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:64
+#: patterns/business/pricing-3-column.php:150
+#: patterns/business/pricing-3-column.php:223
+msgid "month"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:83
+#, php-format
+msgid "%s Project"
+msgid_plural "%s Projects"
+msgstr[0] ""
+msgstr[1] ""
+
+#: patterns/business/pricing-3-column.php:92
+#: patterns/business/pricing-3-column.php:169
+#: patterns/business/pricing-3-column.php:242
+#, php-format
+msgid "%s Storage"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:97
+msgid "Email Support"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:98
+msgid "Basic Analytics"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:99
+msgid "SSL Certificate"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:117
+msgid "MOST POPULAR"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:121
+msgid "Professional"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:125
+msgid "For growing businesses"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:164
+msgid "Unlimited Projects"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:174
+msgid "Priority Support"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:175
+msgid "Advanced Analytics"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:176
+msgid "Custom Domain"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:177
+msgid "API Access"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:195
+msgid "Enterprise"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:199
+msgid "For large organizations"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:237
+msgid "Unlimited Everything"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:251
+#, php-format
+msgid "%s Phone Support"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:256
+msgid "Custom Analytics"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:257
+msgid "White Label"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:258
+msgid "Dedicated Manager"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:259
+msgid "SLA Guarantee"
+msgstr ""
+
+#: patterns/business/pricing-3-column.php:266
+msgid "Contact Sales"
+msgstr ""
+
+#: patterns/business/process-timeline-4-step.php:20
+msgid "How It Works"
+msgstr ""
+
+#: patterns/business/process-timeline-4-step.php:24
+msgid "Our proven process delivers results in four simple steps"
+msgstr ""
+
+#: patterns/business/process-timeline-4-step.php:42
+#: patterns/business/process-timeline-4-step.php:74
+#: patterns/business/process-timeline-4-step.php:106
+#: patterns/business/process-timeline-4-step.php:138
+#, php-format
+msgid "Step %d"
+msgstr ""
+
+#: patterns/business/process-timeline-4-step.php:52
+msgid "Discovery"
+msgstr ""
+
+#: patterns/business/process-timeline-4-step.php:56
+msgid "We learn about your business goals, challenges, and vision for success."
+msgstr ""
+
+#: patterns/business/process-timeline-4-step.php:84
+msgid "Strategy"
+msgstr ""
+
+#: patterns/business/process-timeline-4-step.php:88
+msgid ""
+"We develop a customized plan tailored to your specific needs and objectives."
+msgstr ""
+
+#: patterns/business/process-timeline-4-step.php:116
+msgid "Execution"
+msgstr ""
+
+#: patterns/business/process-timeline-4-step.php:120
+msgid ""
+"Our team implements the solution with precision and attention to detail."
+msgstr ""
+
+#: patterns/business/process-timeline-4-step.php:148
+msgid "Growth"
+msgstr ""
+
+#: patterns/business/process-timeline-4-step.php:152
+msgid ""
+"We monitor, optimize, and scale to ensure continuous improvement and results."
+msgstr ""
+
+#: patterns/call-to-action.php:21
+msgid "Start Your Reading Journey Today"
+msgstr ""
+
+#: patterns/call-to-action.php:26
+msgid ""
+"Subscribe to our newsletter and never miss an update. Get exclusive content "
+"delivered to your inbox."
+msgstr ""
+
+#: patterns/call-to-action.php:34
+msgid "Subscribe Now"
+msgstr ""
+
+#: patterns/contact-split-section.php:22
+msgid "Let's Talk About Your Project"
+msgstr ""
+
+#: patterns/contact-split-section.php:26
+msgid ""
+"Ready to take the next step? Reach out and let's discuss how we can help you "
+"achieve your goals."
+msgstr ""
+
+#: patterns/contact-split-section.php:44
+msgid "Email Us"
+msgstr ""
+
+#: patterns/contact-split-section.php:68
+msgid "Call Us"
+msgstr ""
+
+#: patterns/contact-split-section.php:92
+msgid "Visit Us"
+msgstr ""
+
+#: patterns/contact-split-section.php:110
+msgid "Office Hours"
+msgstr ""
+
+#: patterns/contact-split-section.php:118
+#: patterns/contact-split-section.php:127
+#, php-format
+msgid "%1$s: %2$s - %3$s"
+msgstr ""
+
+#: patterns/contact-split-section.php:119
+msgid "Monday - Friday"
+msgstr ""
+
+#: patterns/contact-split-section.php:128
+msgid "Saturday"
+msgstr ""
+
+#: patterns/contact-split-section.php:133
+msgid "Sunday: Closed"
+msgstr ""
+
+#: patterns/contact-split-section.php:145
+msgid "Send Us a Message"
+msgstr ""
+
+#: patterns/contact-split-section.php:149
+msgid "Fill out the form below and we'll get back to you within 24 hours."
+msgstr ""
+
+#: patterns/contact-split-section.php:153
+msgid "Contact Form Placeholder"
+msgstr ""
+
+#: patterns/contact-split-section.php:157
+msgid "Install a contact form plugin like:"
+msgstr ""
+
+#: patterns/contact-split-section.php:157
+msgid "Contact Form 7"
+msgstr ""
+
+#: patterns/contact-split-section.php:157
+msgid "(Free)"
+msgstr ""
+
+#: patterns/contact-split-section.php:157
+msgid "WPForms"
+msgstr ""
+
+#: patterns/contact-split-section.php:157
+msgid "(Freemium)"
+msgstr ""
+
+#: patterns/contact-split-section.php:157
+msgid "Ninja Forms"
+msgstr ""
+
+#: patterns/contact-split-section.php:157
+msgid "Gravity Forms"
+msgstr ""
+
+#: patterns/contact-split-section.php:157
+msgid "(Premium)"
+msgstr ""
+
+#: patterns/contact-split-section.php:161
+msgid "Then replace this placeholder with your contact form shortcode."
+msgstr ""
+
+#: patterns/cta-split.php:22
+msgid "Ready to Get Started?"
+msgstr ""
+
+#: patterns/cta-split.php:26
+msgid ""
+"Join thousands of satisfied customers and transform your business today. No "
+"credit card required."
+msgstr ""
+
+#: patterns/cta-split.php:36
+msgid "Start Free Trial"
+msgstr ""
+
+#: patterns/cta-split.php:42
+msgid "No credit card required"
+msgstr ""
+
+#: patterns/features-3-column-icons.php:20
+msgid "Why Choose Us"
+msgstr ""
+
+#: patterns/features-3-column-icons.php:24
+msgid "Everything you need to succeed, all in one place"
+msgstr ""
+
+#: patterns/features-3-column-icons.php:44
+msgid "Lightning Fast"
+msgstr ""
+
+#: patterns/features-3-column-icons.php:48
+msgid ""
+"Optimized for speed and performance. Your site loads in milliseconds, not "
+"seconds."
+msgstr ""
+
+#: patterns/features-3-column-icons.php:66
+msgid "Beautiful Design"
+msgstr ""
+
+#: patterns/features-3-column-icons.php:70
+msgid ""
+"Pixel-perfect layouts that look stunning on every device. Professional from "
+"the start."
+msgstr ""
+
+#: patterns/features-3-column-icons.php:88
+msgid "Secure & Reliable"
+msgstr ""
+
+#: patterns/features-3-column-icons.php:92
+msgid ""
+"Built with security best practices. Regular updates and proven stability you "
+"can trust."
+msgstr ""
+
+#: patterns/newsletter-centered.php:18
+msgid "Stay Updated"
+msgstr ""
+
+#: patterns/newsletter-centered.php:22
+msgid ""
+"Subscribe to our newsletter for the latest updates, tips, and exclusive "
+"content delivered to your inbox."
+msgstr ""
+
+#: patterns/newsletter-centered.php:35
+#, php-format
+msgid "Join %s subscribers"
+msgstr ""
+
+#: patterns/newsletter-centered.php:44
+msgid ""
+"Add a newsletter plugin or form here. Popular options include Newsletter, "
+"Mailchimp for WordPress, or ConvertKit."
+msgstr ""
+
+#: patterns/newsletter-centered.php:54
+msgid "Subscribe"
+msgstr ""
+
+#: patterns/newsletter-centered.php:60
+msgid "We respect your privacy. Unsubscribe at any time."
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:20
+msgid "Case Study"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:24
+msgid "E-Commerce Platform Redesign"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:33
+#, php-format
+msgid ""
+"How we helped a retail giant increase online sales by %s through strategic "
+"redesign and UX optimization."
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:50
+msgid "Client"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:54
+msgid "RetailCo Inc."
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:62
+msgid "Industry"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:66
+msgid "E-Commerce Retail"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:74
+msgid "Duration"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:83
+#, php-format
+msgid "%s Month"
+msgid_plural "%s Months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: patterns/portfolio/case-study-detail.php:95
+msgid "Services"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:99
+msgid "UX Design, Development"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:113
+msgid "Project Screenshot"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:117
+msgid "Replace with actual project images"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:124
+msgid "The Challenge"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:133
+#, php-format
+msgid ""
+"Our client was experiencing declining online sales despite having a strong "
+"brand presence. Their e-commerce platform was outdated, mobile experience "
+"was poor, and the checkout process had a %s abandonment rate."
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:142
+msgid "Key challenges included:"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:148
+msgid "Outdated user interface that didn't reflect brand values"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:154
+#, php-format
+msgid "Poor mobile experience (only %s of traffic converted)"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:163
+#, php-format
+msgid "Complicated checkout process with %s steps"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:172
+#, php-format
+msgid "Slow page load times (average %s)"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:185
+msgid "Our Approach"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:189
+msgid ""
+"We took a data-driven approach, combining user research, competitive "
+"analysis, and industry best practices to create a solution that would drive "
+"measurable results."
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:201
+msgid "Research"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:205
+msgid "User interviews, analytics review, competitor analysis"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:217
+msgid "Design"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:221
+msgid "Wireframes, prototypes, user testing iterations"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:233
+msgid "Launch"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:237
+msgid "Phased rollout, monitoring, optimization"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:249
+msgid "The Results"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:253
+msgid ""
+"The redesign exceeded all expectations, delivering significant improvements "
+"across all key metrics within the first quarter."
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:265
+#, php-format
+msgid "+%s"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:273
+msgid "Increase in Online Sales"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:285
+#, php-format
+msgid "-%s"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:293
+msgid "Cart Abandonment Rate"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:305
+#, php-format
+msgid "%ss"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:313
+msgid "Average Page Load Time"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:327
+msgid ""
+"The new platform has completely transformed our business. The team's "
+"expertise and attention to detail made all the difference."
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:337
+#: patterns/testimonials-2-column.php:59
+msgid "Sarah Johnson"
+msgstr ""
+
+#: patterns/portfolio/case-study-detail.php:341
+msgid "CEO, RetailCo Inc."
+msgstr ""
+
+#: patterns/portfolio/portfolio-about.php:33
+msgid "About Me"
+msgstr ""
+
+#: patterns/portfolio/portfolio-about.php:39
+msgid "Designer. Creator. Problem Solver."
+msgstr ""
+
+#: patterns/portfolio/portfolio-about.php:59
+msgid ""
+"I'm a multidisciplinary designer passionate about creating work that "
+"resonates. With years of experience, I help brands tell their stories "
+"through design."
+msgstr ""
+
+#: patterns/portfolio/portfolio-about.php:64
+msgid "What I Believe"
+msgstr ""
+
+#: patterns/portfolio/portfolio-about.php:69
+msgid ""
+"Great design solves problems and creates meaningful connections. I approach "
+"every project with curiosity and dedication."
+msgstr ""
+
+#: patterns/portfolio/portfolio-about.php:74
+msgid "Expertise"
+msgstr ""
+
+#: patterns/portfolio/portfolio-about.php:79
+msgid "Brand identity and visual systems"
+msgstr ""
+
+#: patterns/portfolio/portfolio-about.php:80
+msgid "Web and mobile interface design"
+msgstr ""
+
+#: patterns/portfolio/portfolio-about.php:81
+msgid "User experience and research"
+msgstr ""
+
+#: patterns/portfolio/portfolio-about.php:82
+msgid "Creative direction"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:20
+msgid "Featured Work"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:24
+msgid "A selection of recent projects showcasing our creative approach"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:51
+msgid "E-Commerce Redesign"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:55
+msgid "Complete brand refresh for a leading retail company"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:79
+msgid "Web Design"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:83
+msgid "Tech Startup"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:87
+msgid "Modern website for SaaS platform"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:118
+msgid "Mobile App"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:122
+msgid "Fitness App"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:126
+msgid "iOS &amp; Android design"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:150
+msgid "Marketing"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:154
+msgid "Campaign Design"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:158
+msgid "Product launch materials"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:182
+msgid "UX/UI"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:186
+msgid "Dashboard UI"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:190
+msgid "Analytics platform interface"
+msgstr ""
+
+#: patterns/portfolio/portfolio-gallery-grid.php:207
+msgid "View All Projects"
+msgstr ""
+
+#: patterns/portfolio/portfolio-hero.php:26
+msgid "Creative Designer"
+msgstr ""
+
+#: patterns/portfolio/portfolio-hero.php:33
+msgid "Crafting visual experiences that inspire"
+msgstr ""
+
+#: patterns/portfolio/portfolio-hero.php:42
+msgid "View Portfolio"
+msgstr ""
+
+#: patterns/stats-4-column.php:24
+msgid "10K+"
+msgstr ""
+
+#: patterns/stats-4-column.php:28
+msgid "Active Users"
+msgstr ""
+
+#: patterns/stats-4-column.php:40
+msgid "500+"
+msgstr ""
+
+#: patterns/stats-4-column.php:44
+msgid "Projects Completed"
+msgstr ""
+
+#: patterns/stats-4-column.php:56
+msgid "98%"
+msgstr ""
+
+#: patterns/stats-4-column.php:60
+msgid "Client Satisfaction"
+msgstr ""
+
+#: patterns/stats-4-column.php:72
+msgid "15+"
+msgstr ""
+
+#: patterns/stats-4-column.php:76
+msgid "Years Experience"
+msgstr ""
+
+#: patterns/team-3-column.php:20
+msgid "Meet Our Team"
+msgstr ""
+
+#: patterns/team-3-column.php:24
+msgid "The talented people behind our success"
+msgstr ""
+
+#: patterns/team-3-column.php:45
+msgid "Emily Rodriguez"
+msgstr ""
+
+#: patterns/team-3-column.php:49
+msgid "Founder &amp; CEO"
+msgstr ""
+
+#: patterns/team-3-column.php:53
+msgid ""
+"15+ years of industry experience. Passionate about innovation and building "
+"great teams."
+msgstr ""
+
+#: patterns/team-3-column.php:74
+msgid "James Mitchell"
+msgstr ""
+
+#: patterns/team-3-column.php:78
+msgid "Head of Design"
+msgstr ""
+
+#: patterns/team-3-column.php:82
+msgid ""
+"Award-winning designer with expertise in creating beautiful, user-centered "
+"experiences."
+msgstr ""
+
+#: patterns/team-3-column.php:103
+msgid "Sophia Chen"
+msgstr ""
+
+#: patterns/team-3-column.php:107
+msgid "Lead Developer"
+msgstr ""
+
+#: patterns/team-3-column.php:111
+msgid ""
+"Full-stack expert specializing in performance optimization and scalable "
+"architecture."
+msgstr ""
+
+#: patterns/testimonials-2-column.php:20
+msgid "What Our Clients Say"
+msgstr ""
+
+#: patterns/testimonials-2-column.php:24
+msgid "Don't just take our word for it"
+msgstr ""
+
+#: patterns/testimonials-2-column.php:39
+msgid ""
+"Working with this team transformed our online presence. The results exceeded "
+"our expectations and our traffic has doubled in just three months."
+msgstr ""
+
+#: patterns/testimonials-2-column.php:63
+msgid "CEO, Tech Startup"
+msgstr ""
+
+#: patterns/testimonials-2-column.php:80
+msgid ""
+"The attention to detail and professional approach made all the difference. "
+"They delivered exactly what we needed, on time and within budget."
+msgstr ""
+
+#: patterns/testimonials-2-column.php:100
+msgid "Michael Chen"
+msgstr ""
+
+#: patterns/testimonials-2-column.php:104
+msgid "Founder, Design Agency"
+msgstr ""
+
+#: versana-companion.php:118
+msgid "⚠️ Versana Companion Error:"
+msgstr ""
+
+#: versana-companion.php:119
+msgid "This plugin requires the Versana theme."
+msgstr ""
+
+#: versana-companion.php:123
+#, php-format
+msgid "You currently have %s active."
+msgstr ""
+
+#: versana-companion.php:130
+msgid "Go to Themes"
+msgstr ""
+
+#: versana-companion.php:133
+msgid "Get Versana Theme"
+msgstr ""

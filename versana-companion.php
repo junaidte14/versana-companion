@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Versana Companion
- * Description: Adds demo import and advanced features to Versana theme
- * Version: 1.9.1
+ * Description: Adds demo import and advanced features to the Versana theme
+ * Version: 1.0.0
  * Author: Junaid Hassan
  * Author URI: https://codoplex.com
  * License: GPL v2 or later
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Plugin constants
  */
-define( 'VERSANA_COMPANION_VERSION', '1.9.1' );
+define( 'VERSANA_COMPANION_VERSION', '1.0.0' );
 define( 'VERSANA_COMPANION_PATH', plugin_dir_path( __FILE__ ) );
 define( 'VERSANA_COMPANION_URL', plugin_dir_url( __FILE__ ) );
 
@@ -110,22 +110,27 @@ add_action( 'init', function() {
  * Error notice for wrong theme
  */
 function versana_companion_theme_error_notice() {
-    // Get current theme name
     $theme = wp_get_theme();
-    $current_theme = $theme->get('Name');
+    $current_theme = $theme->get( 'Name' );
     ?>
     <div class="notice notice-error is-dismissible">
         <p>
-            <strong>⚠️ Versana Companion Error:</strong>
-            This plugin requires the Versana theme. 
-            You currently have <strong><?php echo esc_html( $current_theme ); ?></strong> active.
+            <strong><?php esc_html_e( '⚠️ Versana Companion Error:', 'versana-companion' ); ?></strong>
+            <?php esc_html_e( 'This plugin requires the Versana theme.', 'versana-companion' ); ?>
+            <?php
+            printf(
+                /* translators: %s: The name of the currently active theme */
+                esc_html__( 'You currently have %s active.', 'versana-companion' ),
+                '<strong>' . esc_html( $current_theme ) . '</strong>'
+            );
+            ?>
         </p>
         <p>
-            <a href="<?php echo admin_url('themes.php'); ?>" class="button button-primary">
-                Go to Themes
+            <a href="<?php echo esc_url( admin_url( 'themes.php' ) ); ?>" class="button button-primary">
+                <?php esc_html_e( 'Go to Themes', 'versana-companion' ); ?>
             </a>
-            <a href="https://wordpress.org/themes/versana/" class="button" target="_blank">
-                Get Versana Theme
+            <a href="<?php echo esc_url( 'https://wordpress.org/themes/versana/' ); ?>" class="button" target="_blank">
+                <?php esc_html_e( 'Get Versana Theme', 'versana-companion' ); ?>
             </a>
         </p>
     </div>
@@ -135,19 +140,11 @@ function versana_companion_theme_error_notice() {
 /**
  * Plugin activation
  * 
- * Creates database table for demo storage
  */
 function versana_companion_activate() {
     // Save plugin version
     add_option( 'versana_companion_version', VERSANA_COMPANION_VERSION );
     add_option( 'versana_companion_activated', current_time( 'mysql' ) );
-    
-    // Set default options
-    $default_options = array(
-        'enable_demo_import' => 1,
-        'default_demo'       => 'blog',
-    );
-    add_option( 'versana_companion_settings', $default_options );
 }
 register_activation_hook( __FILE__, 'versana_companion_activate' );
 
@@ -158,15 +155,3 @@ function versana_companion_deactivate() {
     // Cleanup if needed
 }
 register_deactivation_hook( __FILE__, 'versana_companion_deactivate' );
-
-/**
- * Load text domain for translations
- */
-function versana_companion_load_textdomain() {
-    load_plugin_textdomain(
-        'versana-companion',
-        false,
-        dirname( plugin_basename( __FILE__ ) ) . '/languages'
-    );
-}
-add_action( 'plugins_loaded', 'versana_companion_load_textdomain' );

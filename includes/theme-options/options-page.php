@@ -2,8 +2,6 @@
 /**
  * Versana Theme Options Admin Page
  *
- * V1.0.0 Simplified - Core Features Only
- *
  * @package Versana
  * @since 1.0.0
  */
@@ -17,8 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function versana_add_theme_options_page() {
     add_theme_page(
-        __( 'Versana Theme Options', 'versana' ),
-        __( 'Versana Options', 'versana' ),
+        __( 'Versana Theme Options', 'versana-companion' ),
+        __( 'Versana Options', 'versana-companion' ),
         'edit_theme_options',
         'versana-options',
         'versana_render_options_page',
@@ -32,14 +30,29 @@ add_action( 'admin_menu', 'versana_add_theme_options_page' );
  */
 function versana_render_options_page() {
     if ( ! current_user_can( 'edit_theme_options' ) ) {
-        wp_die( __( 'You do not have sufficient permissions to access this page.', 'versana' ) );
+        wp_die( 
+            esc_html__( 'You do not have sufficient permissions to access this page.', 'versana-companion' ) 
+        );
     }
     
     // Get registered tabs
     $tabs = versana_get_option_tabs();
     
-    // Get active tab
-    $active_tab = isset( $_GET['tab'] ) ? sanitize_text_field( $_GET['tab'] ) : '';
+    // 1. Define a default tab
+    $active_tab = 'demo_import';
+    // 2. Check if a tab is requested and verify the nonce
+    if ( isset( $_GET['tab'] ) ) {
+        // 1. Get the nonce, unslash it, and sanitize it explicitly
+        $nonce = isset( $_GET['_wpnonce'] ) ? sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ) : '';
+
+        // 2. Verify the sanitized nonce
+        if ( ! empty( $nonce ) && wp_verify_nonce( $nonce, 'versana_tab_switch' ) ) {
+            $active_tab = sanitize_text_field( wp_unslash( $_GET['tab'] ) );
+        } else {
+            // If nonce fails, show an error
+            wp_die( esc_html__( 'Security check failed. Please refresh the page.', 'versana-companion' ) );
+        }
+    }
     
     // Default to first tab if invalid
     if ( ! isset( $tabs[ $active_tab ] ) ) {
@@ -53,23 +66,23 @@ function versana_render_options_page() {
         <div class="versana-options-header">
             <div class="versana-header-info">
                 <p class="description">
-                    <?php esc_html_e( 'For header layouts, footer and blog layouts, use the Customizer settings. For design customization (colors, typography, spacing), use the Site Editor.', 'versana' ); ?>
+                    <?php esc_html_e( 'For header layouts, footer and blog layouts, use the Customizer settings. For design customization (colors, typography, spacing), use the Site Editor.', 'versana-companion' ); ?>
                 </p>
                 
                 <div class="versana-quick-links">
                     <a href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>" class="button button-primary">
                         <span class="dashicons dashicons-admin-customizer"></span>
-                        <?php esc_html_e( 'Open Customizer', 'versana' ); ?>
+                        <?php esc_html_e( 'Open Customizer', 'versana-companion' ); ?>
                     </a>
 
                     <a href="<?php echo esc_url( admin_url( 'site-editor.php' ) ); ?>" class="button button-primary">
                         <span class="dashicons dashicons-admin-appearance"></span>
-                        <?php esc_html_e( 'Open Site Editor', 'versana' ); ?>
+                        <?php esc_html_e( 'Open Site Editor', 'versana-companion' ); ?>
                     </a>
                     
                     <a href="<?php echo esc_url( admin_url( 'site-editor.php?path=/patterns' ) ); ?>" class="button">
                         <span class="dashicons dashicons-screenoptions"></span>
-                        <?php esc_html_e( 'Manage Patterns', 'versana' ); ?>
+                        <?php esc_html_e( 'Manage Patterns', 'versana-companion' ); ?>
                     </a>
                 </div>
             </div>
@@ -79,8 +92,14 @@ function versana_render_options_page() {
         
         <!-- Dynamic Tab Navigation -->
         <h2 class="nav-tab-wrapper">
-            <?php foreach ( $tabs as $tab_key => $tab_config ) : ?>
-                <a href="?page=versana-options&tab=<?php echo esc_attr( $tab_key ); ?>" 
+            <?php foreach ( $tabs as $tab_key => $tab_config ) : 
+                // Generate a secure URL for each tab to satisfy security requirements
+                $tab_url = wp_nonce_url( 
+                    admin_url( 'themes.php?page=versana-options&tab=' . $tab_key ), 
+                    'versana_tab_switch' 
+                );
+                ?>
+                <a href="<?php echo esc_url( $tab_url ); ?>" 
                    class="nav-tab <?php echo $active_tab === $tab_key ? 'nav-tab-active' : ''; ?>">
                     <?php if ( ! empty( $tab_config['icon'] ) ) : ?>
                         <span class="dashicons <?php echo esc_attr( $tab_config['icon'] ); ?>"></span>
@@ -118,7 +137,7 @@ function versana_render_options_page() {
                  */
                 do_action( 'versana_after_tab_content', $active_tab );
             } else {
-                echo '<div class="notice notice-error"><p>' . esc_html__( 'Tab callback not found.', 'versana' ) . '</p></div>';
+                echo '<div class="notice notice-error"><p>' . esc_html__( 'Tab callback not found.', 'versana-companion' ) . '</p></div>';
             }
             
             submit_button();
@@ -134,75 +153,19 @@ function versana_render_options_page() {
 function versana_render_integrations_tab() {
     ?>
     <div class="versana-tab-content">
-        <h2><?php esc_html_e( 'Third-Party Integrations', 'versana' ); ?></h2>
+        <h2><?php esc_html_e( 'Third-Party Integrations', 'versana-companion' ); ?></h2>
         <p class="description">
-            <?php esc_html_e( 'Connect your site with third-party services.', 'versana' ); ?>
+            <?php esc_html_e( 'Connect your site with third-party services by adding their scripts.', 'versana-companion' ); ?>
         </p>
         
         <table class="form-table" role="presentation">
             <tbody>
-                <tr>
-                    <th scope="row">
-                        <label for="google_analytics_id">
-                            <?php esc_html_e( 'Google Analytics', 'versana' ); ?>
-                        </label>
-                    </th>
-                    <td>
-                        <input type="text" 
-                               id="google_analytics_id" 
-                               name="versana_theme_options[google_analytics_id]" 
-                               value="<?php echo esc_attr( versana_get_option( 'google_analytics_id' ) ); ?>" 
-                               class="regular-text" 
-                               placeholder="<?php esc_attr_e( 'G-XXXXXXXXXX or UA-XXXXXX-X', 'versana' ); ?>" />
-                        <p class="description">
-                            <?php esc_html_e( 'Enter your Google Analytics Measurement ID or Tracking ID.', 'versana' ); ?>
-                        </p>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <th scope="row">
-                        <label for="google_tag_manager_id">
-                            <?php esc_html_e( 'Google Tag Manager', 'versana' ); ?>
-                        </label>
-                    </th>
-                    <td>
-                        <input type="text" 
-                               id="google_tag_manager_id" 
-                               name="versana_theme_options[google_tag_manager_id]" 
-                               value="<?php echo esc_attr( versana_get_option( 'google_tag_manager_id' ) ); ?>" 
-                               class="regular-text" 
-                               placeholder="<?php esc_attr_e( 'GTM-XXXXXX', 'versana' ); ?>" />
-                        <p class="description">
-                            <?php esc_html_e( 'Enter your Google Tag Manager container ID.', 'versana' ); ?>
-                        </p>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <th scope="row">
-                        <label for="facebook_pixel_id">
-                            <?php esc_html_e( 'Facebook Pixel', 'versana' ); ?>
-                        </label>
-                    </th>
-                    <td>
-                        <input type="text" 
-                               id="facebook_pixel_id" 
-                               name="versana_theme_options[facebook_pixel_id]" 
-                               value="<?php echo esc_attr( versana_get_option( 'facebook_pixel_id' ) ); ?>" 
-                               class="regular-text" 
-                               placeholder="<?php esc_attr_e( 'XXXXXXXXXXXXXXXX', 'versana' ); ?>" />
-                        <p class="description">
-                            <?php esc_html_e( 'Enter your Facebook Pixel ID for conversion tracking.', 'versana' ); ?>
-                        </p>
-                    </td>
-                </tr>
                 
                 <?php if ( current_user_can( 'unfiltered_html' ) ) : ?>
                 <tr>
                     <th scope="row">
                         <label for="header_scripts">
-                            <?php esc_html_e( 'Header Scripts', 'versana' ); ?>
+                            <?php esc_html_e( 'Header Scripts', 'versana-companion' ); ?>
                         </label>
                     </th>
                     <td>
@@ -211,7 +174,7 @@ function versana_render_integrations_tab() {
                                   rows="5" 
                                   class="large-text code"><?php echo esc_textarea( versana_get_option( 'header_scripts' ) ); ?></textarea>
                         <p class="description">
-                            <?php esc_html_e( 'Scripts added here will be inserted into the <head> section. Include <script> tags.', 'versana' ); ?>
+                            <?php esc_html_e( 'Scripts added here will be inserted into the <head> section. Include <script> tags.', 'versana-companion' ); ?>
                         </p>
                     </td>
                 </tr>
@@ -219,7 +182,7 @@ function versana_render_integrations_tab() {
                 <tr>
                     <th scope="row">
                         <label for="footer_scripts">
-                            <?php esc_html_e( 'Footer Scripts', 'versana' ); ?>
+                            <?php esc_html_e( 'Footer Scripts', 'versana-companion' ); ?>
                         </label>
                     </th>
                     <td>
@@ -228,18 +191,18 @@ function versana_render_integrations_tab() {
                                   rows="5" 
                                   class="large-text code"><?php echo esc_textarea( versana_get_option( 'footer_scripts' ) ); ?></textarea>
                         <p class="description">
-                            <?php esc_html_e( 'Scripts added here will be inserted before </body>. Include <script> tags.', 'versana' ); ?>
+                            <?php esc_html_e( 'Scripts added here will be inserted before </body>. Include <script> tags.', 'versana-companion' ); ?>
                         </p>
                     </td>
                 </tr>
                 <?php else : ?>
                 <tr>
                     <th scope="row">
-                        <?php esc_html_e( 'Custom Scripts', 'versana' ); ?>
+                        <?php esc_html_e( 'Custom Scripts', 'versana-companion' ); ?>
                     </th>
                     <td>
                         <p class="description">
-                            <?php esc_html_e( 'Custom script fields are only available to administrators for security reasons.', 'versana' ); ?>
+                            <?php esc_html_e( 'Custom script fields are only available to administrators for security reasons.', 'versana-companion' ); ?>
                         </p>
                     </td>
                 </tr>
@@ -257,12 +220,12 @@ function versana_render_integrations_tab() {
         </table>
 
         <div class="versana-reset-section">
-            <h3><?php esc_html_e( 'Reset Options', 'versana' ); ?></h3>
+            <h3><?php esc_html_e( 'Reset Options', 'versana-companion' ); ?></h3>
             <p class="description">
-                <?php esc_html_e( 'Reset all theme options to their default values. This action cannot be undone.', 'versana' ); ?>
+                <?php esc_html_e( 'Reset all theme options to their default values. This action cannot be undone.', 'versana-companion' ); ?>
             </p>
             <button type="button" class="button button-secondary versana-reset-options">
-                <?php esc_html_e( 'Reset to Defaults', 'versana' ); ?>
+                <?php esc_html_e( 'Reset to Defaults', 'versana-companion' ); ?>
             </button>
         </div>
     </div>

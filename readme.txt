@@ -2,13 +2,13 @@
 Contributors: junaidte14
 Tags: demo import, starter templates, versana
 Requires at least: 6.0
-Tested up to: 6.5
+Tested up to: 6.9
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Extends Versana theme with demo import and advanced features.
+Extends the Versana theme with seamless demo imports, exclusive starter templates, and advanced block patterns.
 
 == Description ==
 
@@ -17,6 +17,8 @@ Versana Companion is a plugin designed specifically for the Versana WordPress th
 * One-click demo import
 * Starter site templates  
 * Additional block patterns
+* Additional style variations
+* Header, footer and blog layout variations
 * Advanced theme features
 
 This plugin requires the Versana theme to be installed and activated.

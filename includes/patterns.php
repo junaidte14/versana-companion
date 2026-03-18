@@ -11,25 +11,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Register pattern categories for each demo
- */
-function versana_companion_register_pattern_categories() {
-    register_block_pattern_category(
-        'versana-blog',
-        array( 'label' => __( 'Versana Blog Patterns', 'versana-companion' ) )
-    );
-    register_block_pattern_category(
-        'versana-portfolio',
-        array( 'label' => __( 'Versana Portfolio Patterns', 'versana-companion' ) )
-    );
-    register_block_pattern_category(
-        'versana-business',
-        array( 'label' => __( 'Versana Business Patterns', 'versana-companion' ) )
-    );
-}
-add_action( 'init', 'versana_companion_register_pattern_categories' );
-
-/**
  * Register block patterns from a specific directory
  *
  * @param string $directory Full path to the directory containing pattern files

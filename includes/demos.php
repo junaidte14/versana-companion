@@ -133,8 +133,8 @@ function versana_companion_ajax_check_demo_dependencies() {
         wp_send_json_error( array( 'message' => 'Unauthorized.' ) );
     }
     
-    $demo_id = isset( $_POST['demo_id'] ) ? sanitize_text_field( $_POST['demo_id'] ) : '';
-    
+    $demo_id = isset( $_POST['demo_id'] ) ? sanitize_text_field( wp_unslash( $_POST['demo_id'] ) ) : '';
+
     if ( empty( $demo_id ) ) {
         wp_send_json_error( array( 'message' => 'Demo ID is required.' ) );
     }
@@ -193,7 +193,16 @@ function versana_companion_get_available_demos() {
             'category'    => 'blog',
             'is_pro'      => false,
             'tags'        => array( 'blog', 'minimal', 'writer' ),
-            'features'        => array( '✓ Magazine-quality layouts', '✓ Optimized for readability', '✓ Styled Block patterns', '✓ 90+ Performance Score'),
+            'features'        => array(
+                __( '✓ Magazine-quality layouts', 'versana-companion' ),
+                __( '✓ Optimized for readability', 'versana-companion' ),
+                __( '✓ Styled Block patterns', 'versana-companion' ),
+                sprintf(
+                    /* translators: %s: Performance score value (e.g., 90) */
+                    __( '✓ %s+ Performance Score', 'versana-companion' ),
+                    '90'
+                ),
+            ),
         ),
         'business' => array(
             'name'        => __( 'Business Website', 'versana-companion' ),
@@ -205,7 +214,16 @@ function versana_companion_get_available_demos() {
             'category'    => 'business',
             'is_pro'      => false,
             'tags'        => array( 'business', 'corporate', 'professional' ),
-            'features'        => array( '✓ Conversion-focused design', '✓ Professional credibility', '✓ Modern SaaS aesthetic', '✓ 90+ Performance Score'),
+            'features'        => array(
+                __( '✓ Conversion-focused design', 'versana-companion' ),
+                __( '✓ Professional credibility', 'versana-companion' ),
+                __( '✓ Modern SaaS aesthetic', 'versana-companion' ),
+                sprintf(
+                    /* translators: %s: Performance score value (e.g., 90) */
+                    __( '✓ %s+ Performance Score', 'versana-companion' ),
+                    '90'
+                ),
+            ),
         ),
         'portfolio' => array(
             'name'        => __( 'Creative Portfolio', 'versana-companion' ),
@@ -217,86 +235,95 @@ function versana_companion_get_available_demos() {
             'category'    => 'portfolio',
             'is_pro'      => false,
             'tags'        => array( 'portfolio', 'creative', 'showcase' ),
-            'features'        => array( '✓ Stunning visual galleries', '✓ Project case study layouts', '✓ Client testimonial sections', '✓ 90+ Performance Score'),
+            'features'        => array(
+                __( '✓ Stunning visual galleries', 'versana-companion' ),
+                __( '✓ Project case study layouts', 'versana-companion' ),
+                __( '✓ Client testimonial sections', 'versana-companion' ),
+                sprintf(
+                    /* translators: %s: Performance score value (e.g., 90) */
+                    __( '✓ %s+ Performance Score', 'versana-companion' ),
+                    '90'
+                ),
+            ),
         ),
         'restaurant' => array(
-            'name'        => __( 'Restaurant & Cafe', 'versana-pro' ) . ' 🔒',
-            'description' => __( 'Premium demo - License required.', 'versana-pro' ),
+            'name'        => __( 'Restaurant & Cafe', 'versana-companion' ) . ' 🔒',
+            'description' => __( 'Premium demo - License required.', 'versana-companion' ),
             'preview_url' => 'https://versana.codoplex.com/restaurant/',
             'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/restaurant.webp',
             'thumbnail_path'   => VERSANA_COMPANION_PATH . 'assets/images/restaurant.webp',
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'business',
-            'features'    => array( 
-                '🔒 Requires Versana PRO License',
-                '✓ Mobile-first reservation flow', 
-                '✓ Menu showcase layouts', 
-                '✓ Food photography optimized'
+            'features'    => array(
+                __( '🔒 Requires Versana PRO License', 'versana-companion' ),
+                __( '✓ Mobile-first reservation flow', 'versana-companion' ),
+                __( '✓ Menu showcase layouts', 'versana-companion' ),
+                __( '✓ Food photography optimized', 'versana-companion' ),
             ),
             'is_pro'  => true,
         ),
         'fitness' => array(
-            'name'        => __( 'Fitness & Wellness', 'versana-pro' ) . ' 🔒',
-            'description' => __( 'Premium demo - License required.', 'versana-pro' ),
+            'name'        => __( 'Fitness & Wellness', 'versana-companion' ) . ' 🔒',
+            'description' => __( 'Premium demo - License required.', 'versana-companion' ),
             'preview_url' => 'https://versana.codoplex.com/fitness/',
             'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/fitness.webp',
             'thumbnail_path'   => VERSANA_COMPANION_PATH . 'assets/images/fitness.webp',
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'business',
             'features'    => array( 
-                '🔒 Requires Versana PRO License',
-                '✓ Class schedule & booking layouts', 
-                '✓ Member transformation stories', 
-                '✓ Flexible pricing layouts'
+                __( '🔒 Requires Versana PRO License', 'versana-companion' ),
+                __( '✓ Class schedule & booking layouts', 'versana-companion' ), 
+                __( '✓ Member transformation stories', 'versana-companion' ), 
+                __( '✓ Flexible pricing layouts', 'versana-companion' )
             ),
             'is_pro'  => true,
         ),
         'real-estate' => array(
-            'name'        => __( 'Real Estate & Property', 'versana-pro' ) . ' 🔒',
-            'description' => __( 'Premium demo - License required.', 'versana-pro' ),
+            'name'        => __( 'Real Estate & Property', 'versana-companion' ) . ' 🔒',
+            'description' => __( 'Premium demo - License required.', 'versana-companion' ),
             'preview_url' => 'https://versana.codoplex.com/real-estate/',
             'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/real-estate.webp',
             'thumbnail_path'   => VERSANA_COMPANION_PATH . 'assets/images/real-estate.webp',
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'business',
-            'features'    => array(
-                '🔒 Requires Versana PRO License',
-                '✓ Property search & filters',
-                '✓ Featured listings layouts',
-                '✓ Agent profile sections'
+            'features'    => array( 
+                __( '🔒 Requires Versana PRO License', 'versana-companion' ),
+                __( '✓ Property search & filters', 'versana-companion' ), 
+                __( '✓ Featured listings layouts', 'versana-companion' ), 
+                __( '✓ Agent profile sections', 'versana-companion' )
             ),
             'is_pro'  => true,
         ),
         'woocommerce-store' => array(
-            'name'        => __( 'WooCommerce Store', 'versana-pro' ) . ' 🔒',
-            'description' => __( 'Professional e-commerce store design for specialty retail businesses. Perfect for coffee equipment, gourmet products, or any premium retail store.', 'versana-pro' ),
+            'name'        => __( 'WooCommerce Store', 'versana-companion' ) . ' 🔒',
+            'description' => __( 'Professional e-commerce store design for specialty retail businesses. Perfect for coffee equipment, gourmet products, or any premium retail store.', 'versana-companion' ),
             'preview_url' => 'https://versana.codoplex.com/woocommerce-store/',
             'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/woocommerce-store.webp',
             'thumbnail_path'   => VERSANA_COMPANION_PATH . 'assets/images/woocommerce-store.webp',
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'e-commerce',
             'features'    => array(
-                '🔒 Requires Versana PRO License',
-                '✓ WooCommerce product showcase layouts',
-                '✓ Professional e-commerce design',
-                '✓ Warranty & trust building sections',
+                __( '🔒 Requires Versana PRO License', 'versana-companion' ),
+                __( '✓ WooCommerce product showcase layouts', 'versana-companion' ),
+                __( '✓ Professional e-commerce design', 'versana-companion' ),
+                __( '✓ Warranty & trust building sections', 'versana-companion' ),
             ),
             'is_pro'  => true,
             'dependencies' => array( 'woocommerce' ),
         ),
         'premium-shop' => array(
-            'name'        => __( 'Premium Shop', 'versana-pro' ) . ' 🔒',
-            'description' => __( 'Professional e-commerce design for specialty retail businesses. Perfect for coffee equipment, gourmet products, or any premium retail store.', 'versana-pro' ),
+            'name'        => __( 'Premium Shop', 'versana-companion' ) . ' 🔒',
+            'description' => __( 'Professional e-commerce design for specialty retail businesses. Perfect for coffee equipment, gourmet products, or any premium retail store.', 'versana-companion' ),
             'preview_url' => 'https://versana.codoplex.com/premium-shop/',
             'thumbnail'   => VERSANA_COMPANION_URL . 'assets/images/premium-shop.webp',
             'thumbnail_path'   => VERSANA_COMPANION_PATH . 'assets/images/premium-shop.webp',
             'xml_file'    => VERSANA_COMPANION_PATH . 'includes/content.xml',
             'category'    => 'e-commerce',
             'features'    => array(
-                '🔒 Requires Versana PRO License',
-                '✓ E-commerce product grid layouts',
-                '✓ Heritage & trust building sections',
-                '✓ Warranty & service showcases',
+                __( '🔒 Requires Versana PRO License', 'versana-companion' ),
+                __( '✓ E-commerce product grid layouts', 'versana-companion' ),
+                __( '✓ Heritage & trust building sections', 'versana-companion' ),
+                __( '✓ Warranty & service showcases', 'versana-companion' ),
             ),
             'is_pro'  => true,
         ),
@@ -308,7 +335,7 @@ function versana_companion_get_available_demos() {
         foreach ( $demos as $key => $demo ) {
             if ( ! empty( $demo['is_pro'] ) ) {
                 $demos[ $key ]['locked'] = true;
-                $demos[ $key ]['purchase_url'] = versana_companion_get_license_server_url() . 'purchase/';
+                $demos[ $key ]['purchase_url'] = versana_companion_get_license_server_url() . 'purchase-versana-pro-license/';
             }
         }
     }
@@ -576,7 +603,6 @@ function versana_companion_parse_demo_xml( $xml_content, $demo_key ) {
         '{HOME_CONTENT}'     => isset( $demo_config['home'] ) ? $demo_config['home'] : '',
         '{SERVICES_CONTENT}' => isset( $demo_config['services'] ) ? $demo_config['services'] : '',
         '{PRODUCTS_CONTENT}' => isset( $demo_config['products'] ) ? $demo_config['products'] : '',
-        '{SHOP_CONTENT}' => isset( $demo_config['shop'] ) ? $demo_config['shop'] : '',
         '{ABOUT_CONTENT}'    => isset( $demo_config['about'] ) ? $demo_config['about'] : '',
         '{CONTACT_CONTENT}'    => isset( $demo_config['contact'] ) ? $demo_config['contact'] : '',
     );
@@ -830,20 +856,18 @@ function versana_companion_create_tag( $tag_name ) {
  * Check if post exists by title
  */
 function versana_companion_post_exists( $title, $post_type = 'post' ) {
-    global $wpdb;
-    
-    $result = $wpdb->get_var(
-        $wpdb->prepare(
-            "SELECT ID FROM $wpdb->posts 
-            WHERE post_title = %s 
-            AND post_type = %s 
-            AND post_status != 'trash'",
-            $title,
-            $post_type
-        )
+    $args = array(
+        'title'                  => $title,
+        'post_type'              => $post_type,
+        'post_status'            => array( 'publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit' ), // Excludes 'trash'
+        'posts_per_page'         => 1,
+        'fields'                 => 'ids', // Performance: Only fetch the ID
+        'no_found_rows'          => true,  // Performance: Skip pagination counting
+        'update_post_term_cache' => false, // Performance: Skip unnecessary metadata
+        'update_post_meta_cache' => false, // Performance: Skip unnecessary metadata
     );
-    
-    return ! empty( $result );
+    $posts = get_posts( $args );
+    return ! empty( $posts );
 }
 
 function versana_companion_create_demo_menu( $page_ids, $demo_key ) {

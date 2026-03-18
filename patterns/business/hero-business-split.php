@@ -2,11 +2,14 @@
 /**
  * Title: Hero Business Split
  * Slug: versana/hero-business-split
- * Categories: versana-business
+ * Categories: versana-patterns
  * Keywords: hero, banner, business, professional
  * Block Types: core/group
  * Description: Professional split-layout hero with content on left and visual on right.
  */
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|4xl","bottom":"var:preset|spacing|4xl","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"neutral-100","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull has-neutral-100-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--4-xl);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--4-xl);padding-left:var(--wp--preset--spacing--md)">
@@ -17,25 +20,25 @@
         <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:55%">
             
             <!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","fontWeight":"600","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}},"textColor":"primary","fontSize":"sm"} -->
-            <p class="has-primary-color has-text-color has-sm-font-size" style="margin-bottom:var(--wp--preset--spacing--sm);font-weight:600;letter-spacing:0.1em;text-transform:uppercase">Welcome to Excellence</p>
+            <p class="has-primary-color has-text-color has-sm-font-size" style="margin-bottom:var(--wp--preset--spacing--sm);font-weight:600;letter-spacing:0.1em;text-transform:uppercase"><?php echo esc_html__( 'Welcome to Excellence', 'versana-companion' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:heading {"level":1,"style":{"typography":{"fontSize":"clamp(2.5rem, 6vw, 4rem)","fontWeight":"700","lineHeight":"1.1","letterSpacing":"-0.02em"},"spacing":{"margin":{"bottom":"var:preset|spacing|lg"}}}} -->
-            <h1 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--lg);font-size:clamp(2.5rem, 6vw, 4rem);font-weight:700;letter-spacing:-0.02em;line-height:1.1">Transform Your Business With Digital Innovation</h1>
+            <h1 class="wp-block-heading" style="margin-bottom:var(--wp--preset--spacing--lg);font-size:clamp(2.5rem, 6vw, 4rem);font-weight:700;letter-spacing:-0.02em;line-height:1.1"><?php echo esc_html__( 'Transform Your Business With Digital Innovation', 'versana-companion' ); ?></h1>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|xl"}}},"fontSize":"lg"} -->
-            <p class="has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--xl)">We help forward-thinking companies accelerate growth through cutting-edge digital solutions and strategic partnerships.</p>
+            <p class="has-lg-font-size" style="margin-bottom:var(--wp--preset--spacing--xl)"><?php echo esc_html__( 'We help forward-thinking companies accelerate growth through cutting-edge digital solutions and strategic partnerships.', 'versana-companion' ); ?></p>
             <!-- /wp:paragraph -->
 
             <!-- wp:buttons {"style":{"spacing":{"blockGap":"var:preset|spacing|md"}}} -->
             <div class="wp-block-buttons">
                 <!-- wp:button {"style":{"border":{"radius":"6px"},"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|xl","right":"var:preset|spacing|xl"}}},"fontSize":"md"} -->
-                <div class="wp-block-button has-custom-font-size has-md-font-size"><a class="wp-block-button__link wp-element-button" style="border-radius:6px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--xl)">Get Started</a></div>
+                <div class="wp-block-button has-custom-font-size has-md-font-size"><a class="wp-block-button__link wp-element-button" style="border-radius:6px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--xl)"><?php echo esc_html__( 'Get Started', 'versana-companion' ); ?></a></div>
                 <!-- /wp:button -->
 
                 <!-- wp:button {"backgroundColor":"neutral-100","textColor":"primary","style":{"border":{"radius":"6px","width":"2px"},"spacing":{"padding":{"top":"var:preset|spacing|md","bottom":"var:preset|spacing|md","left":"var:preset|spacing|xl","right":"var:preset|spacing|xl"}}},"borderColor":"primary","className":"is-style-outline","fontSize":"md"} -->
-                <div class="wp-block-button has-custom-font-size is-style-outline has-md-font-size"><a class="wp-block-button__link has-primary-color has-neutral-100-background-color has-text-color has-background has-border-color has-primary-border-color wp-element-button" style="border-width:2px;border-radius:6px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--xl)">Learn More</a></div>
+                <div class="wp-block-button has-custom-font-size is-style-outline has-md-font-size"><a class="wp-block-button__link has-primary-color has-neutral-100-background-color has-text-color has-background has-border-color has-primary-border-color wp-element-button" style="border-width:2px;border-radius:6px;padding-top:var(--wp--preset--spacing--md);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--md);padding-left:var(--wp--preset--spacing--xl)"><?php echo esc_html__( 'Learn More', 'versana-companion' ); ?></a></div>
                 <!-- /wp:button -->
             </div>
             <!-- /wp:buttons -->
@@ -45,11 +48,19 @@
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group">
                     <!-- wp:paragraph {"style":{"typography":{"fontWeight":"700"}},"fontSize":"xl"} -->
-                    <p class="has-xl-font-size" style="font-weight:700">500+</p>
+                    <p class="has-xl-font-size" style="font-weight:700">
+                        <?php 
+                        echo esc_html( sprintf( 
+                            /* translators: %s: The number value (e.g., 500) */
+                            __( '%s+', 'versana-companion' ), 
+                            '500' 
+                        ) ); 
+                        ?>
+                    </p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:paragraph {"textColor":"neutral-700","fontSize":"sm"} -->
-                    <p class="has-neutral-700-color has-text-color has-sm-font-size">Projects</p>
+                    <p class="has-neutral-700-color has-text-color has-sm-font-size"><?php echo esc_html__( 'Projects', 'versana-companion' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -61,11 +72,19 @@
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group">
                     <!-- wp:paragraph {"style":{"typography":{"fontWeight":"700"}},"fontSize":"xl"} -->
-                    <p class="has-xl-font-size" style="font-weight:700">98%</p>
+                    <p class="has-xl-font-size" style="font-weight:700">
+                        <?php 
+                        echo esc_html( sprintf( 
+                            /* translators: %s: The percentage value (e.g., 98) */
+                            __( '%s%%', 'versana-companion' ), 
+                            '98' 
+                        ) ); 
+                        ?>
+                    </p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:paragraph {"textColor":"neutral-700","fontSize":"sm"} -->
-                    <p class="has-neutral-700-color has-text-color has-sm-font-size">Satisfaction</p>
+                    <p class="has-neutral-700-color has-text-color has-sm-font-size"><?php echo esc_html__( 'Satisfaction', 'versana-companion' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -77,11 +96,19 @@
                 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
                 <div class="wp-block-group">
                     <!-- wp:paragraph {"style":{"typography":{"fontWeight":"700"}},"fontSize":"xl"} -->
-                    <p class="has-xl-font-size" style="font-weight:700">15+</p>
+                    <p class="has-xl-font-size" style="font-weight:700">
+                        <?php 
+                        echo esc_html( sprintf( 
+                            /* translators: %s: The number value (e.g., 15) */
+                            __( '%s+', 'versana-companion' ), 
+                            '15' 
+                        ) ); 
+                        ?>
+                    </p>
                     <!-- /wp:paragraph -->
 
                     <!-- wp:paragraph {"textColor":"neutral-700","fontSize":"sm"} -->
-                    <p class="has-neutral-700-color has-text-color has-sm-font-size">Years</p>
+                    <p class="has-neutral-700-color has-text-color has-sm-font-size"><?php echo esc_html__( 'Years', 'versana-companion' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->

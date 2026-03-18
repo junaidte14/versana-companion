@@ -11,19 +11,12 @@
     $(document).ready(function() {
         
         /**
-         * Initialize WordPress Color Pickers
-         */
-        if (typeof $.fn.wpColorPicker !== 'undefined') {
-            $('.versana-color-picker').wpColorPicker();
-        }
-        
-        /**
          * Reset to Defaults
          */
         $('.versana-reset-options').on('click', function(e) {
             e.preventDefault();
             
-            if (!confirm('Are you sure you want to reset all options?')) {
+            if (!confirm(versanaOptionsL10n.resetConfirmation)) {
                 return;
             }
 
@@ -44,16 +37,6 @@
         });
         
         /**
-         * Validation for analytics IDs
-         */
-        $('#google_analytics_id').on('blur', function() {
-            var value = $(this).val().trim();
-            if (value && !value.match(/^(UA|G)-[0-9]+-[0-9]+$/) && !value.match(/^G-[A-Z0-9]+$/)) {
-                alert('Please enter a valid Google Analytics ID (format: G-XXXXXXXXXX or UA-XXXXXX-X)');
-            }
-        });
-        
-        /**
          * Tab switching with localStorage
          */
         $('.nav-tab').on('click', function() {
@@ -71,6 +54,143 @@
                 // Don't auto-navigate on first load
                 localStorage.removeItem('versana_active_tab');
             }
+        }
+
+        // License management script
+
+        // Activate license - NO LONGER DISABLED, saves automatically
+        $('#versana-activate-license-btn').on('click', function(e) {
+            e.preventDefault();
+            
+            var licenseKey = $('#versana_license_key').val().trim();
+            var $button = $(this);
+            var originalText = $button.text();
+            
+            if (!licenseKey) {
+                alert(versanaOptionsL10n.licenseKeyMessage);
+                return;
+            }
+            
+            $button.prop('disabled', true).text(versanaOptionsL10n.activatingMessage);
+            $('#versana-license-messages').empty();
+            
+            $.ajax({
+                url: versanaOptionsL10n.ajax_url,
+                type: 'POST',
+                data: {
+                    action: 'versana_activate_license',
+                    nonce: versanaOptionsL10n.nonce,
+                    license_key: licenseKey
+                },
+                success: function(response) {
+                    if (response.success) {
+                        $('#versana-license-messages').html('<div class="notice notice-success"><p><strong>' + response.data.message + '</strong></p></div>');
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
+                    } else {
+                        $('#versana-license-messages').html('<div class="notice notice-error"><p><strong>' + response.data.message + '</strong></p></div>');
+                        $button.prop('disabled', false).text(originalText);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('AJAX Error:', textStatus, errorThrown);
+                    console.error('Response:', jqXHR.responseText);
+                    $('#versana-license-messages').html(
+                        '<div class="notice notice-error"><p><strong>'+ versanaOptionsL10n.versanaLicenseAction +'</p></div>'
+                    );
+                    $button.prop('disabled', false).text(originalText);
+                }
+            });
+        });
+        
+        // Deactivate license
+        $('#versana-deactivate-license').on('click', function(e) {
+            e.preventDefault();
+            
+            if (!confirm(versanaOptionsL10n.deactivateConfirm)) {
+                return;
+            }
+            
+            var $button = $(this);
+            var originalHtml = $button.html();
+            
+            $button.prop('disabled', true).text(versanaOptionsL10n.deactivatingMessage);
+            
+            $.ajax({
+                url: versanaOptionsL10n.ajax_url,
+                type: 'POST',
+                data: {
+                    action: 'versana_deactivate_license',
+                    nonce: versanaOptionsL10n.nonce
+                },
+                success: function(response) {
+                    if (response.success) {
+                        $('#versana-license-messages').html(
+                            '<div class="notice notice-success"><p><strong>' + response.data.message + '</strong></p></div>'
+                        );
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1000);
+                    } else {
+                        alert(versanaOptionsL10n.errorMessage + ' ' + response.data.message);
+                        $button.prop('disabled', false).html(originalHtml);
+                    }
+                },
+                error: function() {
+                    alert(versanaOptionsL10n.deactivateErrorMessage);
+                    $button.prop('disabled', false).html(originalHtml);
+                }
+            });
+        });
+        
+        // Check license
+        $('#versana-check-license').on('click', function(e) {
+            e.preventDefault();
+            
+            var $button = $(this);
+            var originalHtml = $button.html();
+            
+            $button.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span>' + ' ' + versanaOptionsL10n.checkMessage);
+            $('#versana-license-messages').empty();
+            
+            $.ajax({
+                url: versanaOptionsL10n.ajax_url,
+                type: 'POST',
+                data: {
+                    action: 'versana_check_license',
+                    nonce: versanaOptionsL10n.nonce
+                },
+                success: function(response) {
+                    if (response.success) {
+                        $('#versana-license-messages').html(
+                            '<div class="notice notice-success"><p><strong>' + response.data.message + '</strong></p></div>'
+                        );
+                        setTimeout(function() {
+                            location.reload();
+                        }, 1500);
+                    } else {
+                        $('#versana-license-messages').html(
+                            '<div class="notice notice-error"><p><strong>' + response.data.message + '</strong></p></div>'
+                        );
+                    }
+                    $button.prop('disabled', false).html(originalHtml);
+                },
+                error: function() {
+                    $('#versana-license-messages').html(
+                        '<div class="notice notice-error"><p><strong>' + versanaOptionsL10n.deactivateErrorMessage + '</strong></p></div>'
+                    );
+                    $button.prop('disabled', false).html(originalHtml);
+                }
+            });
+        });
+        
+        // Add spin animation
+        if (!document.getElementById('versana-license-spin-style')) {
+            var style = document.createElement('style');
+            style.id = 'versana-license-spin-style';
+            style.textContent = '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } .spin { animation: spin 1s linear infinite; display: inline-block; }';
+            document.head.appendChild(style);
         }
         
     });

@@ -254,7 +254,11 @@ function versana_companion_render_license_tab() {
                     <?php if ( ! empty( $license_data['expires_at'] ) ) : ?>
                         <tr>
                             <th scope="row"><?php esc_html_e( 'Expires', 'versana-companion' ); ?></th>
-                            <td><?php echo esc_html( date( 'F j, Y', strtotime( $license_data['expires_at'] ) ) ); ?></td>
+                            <td>
+                                <?php 
+                                echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $license_data['expires_at'] ) ) ); 
+                                ?>
+                            </td>
                         </tr>
                     <?php endif; ?>
                     <?php if ( ! empty( $license_data['product_name'] ) ) : ?>
@@ -398,197 +402,6 @@ function versana_companion_render_license_tab() {
         <?php endif; ?>
         
     </div>
-    
-    <style>
-        .versana-status-badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 3px;
-            font-weight: 600;
-            font-size: 13px;
-        }
-        
-        .versana-status-active {
-            background: #d4edda;
-            color: #155724;
-        }
-        
-        .versana-status-inactive {
-            background: #f8d7da;
-            color: #721c24;
-        }
-        
-        .versana-license-key-display {
-            background: #f5f5f5;
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 14px;
-            font-family: 'Courier New', monospace;
-            letter-spacing: 1px;
-        }
-        
-        .form-table th[scope="row"] button,
-        .form-table td button {
-            margin-right: 10px;
-        }
-        
-        .form-table button .dashicons {
-            font-size: 16px;
-            width: 16px;
-            height: 16px;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
-        
-        #versana-license-messages {
-            margin: 15px 0;
-        }
-        
-        #versana-license-messages .notice {
-            margin: 0 0 15px;
-        }
-    </style>
-    
-    <script>
-    jQuery(document).ready(function($) {
-        
-        // Activate license - NO LONGER DISABLED, saves automatically
-        $('#versana-activate-license-btn').on('click', function(e) {
-            e.preventDefault();
-            
-            var licenseKey = $('#versana_license_key').val().trim();
-            var $button = $(this);
-            var originalText = $button.text();
-            
-            if (!licenseKey) {
-                alert('<?php esc_html_e( 'Please enter a license key.', 'versana-companion' ); ?>');
-                return;
-            }
-            
-            $button.prop('disabled', true).text('<?php esc_html_e( 'Activating...', 'versana-companion' ); ?>');
-            $('#versana-license-messages').empty();
-            
-            $.ajax({
-                url: ajaxurl,
-                type: 'POST',
-                data: {
-                    action: 'versana_activate_license',
-                    nonce: '<?php echo wp_create_nonce( 'versana_license_action' ); ?>',
-                    license_key: licenseKey
-                },
-                success: function(response) {
-                    if (response.success) {
-                        $('#versana-license-messages').html('<div class="notice notice-success"><p><strong>' + response.data.message + '</strong></p></div>');
-                        setTimeout(function() {
-                            location.reload();
-                        }, 2000);
-                    } else {
-                        $('#versana-license-messages').html('<div class="notice notice-error"><p><strong>' + response.data.message + '</strong></p></div>');
-                        $button.prop('disabled', false).text(originalText);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error('AJAX Error:', textStatus, errorThrown);
-                    console.error('Response:', jqXHR.responseText);
-                    $('#versana-license-messages').html(
-                        '<div class="notice notice-error"><p><strong><?php esc_html_e( 'Connection error. Please check your license server URL.', 'versana-companion' ); ?></strong></p></div>'
-                    );
-                    $button.prop('disabled', false).text(originalText);
-                }
-            });
-        });
-        
-        // Deactivate license
-        $('#versana-deactivate-license').on('click', function(e) {
-            e.preventDefault();
-            
-            if (!confirm('<?php esc_html_e( 'Are you sure you want to deactivate your license?', 'versana-companion' ); ?>')) {
-                return;
-            }
-            
-            var $button = $(this);
-            var originalHtml = $button.html();
-            
-            $button.prop('disabled', true).text('<?php esc_html_e( 'Deactivating...', 'versana-companion' ); ?>');
-            
-            $.ajax({
-                url: ajaxurl,
-                type: 'POST',
-                data: {
-                    action: 'versana_deactivate_license',
-                    nonce: '<?php echo wp_create_nonce( 'versana_license_action' ); ?>'
-                },
-                success: function(response) {
-                    if (response.success) {
-                        $('#versana-license-messages').html(
-                            '<div class="notice notice-success"><p><strong>' + response.data.message + '</strong></p></div>'
-                        );
-                        setTimeout(function() {
-                            location.reload();
-                        }, 1000);
-                    } else {
-                        alert('<?php esc_html_e( 'Error:', 'versana-companion' ); ?> ' + response.data.message);
-                        $button.prop('disabled', false).html(originalHtml);
-                    }
-                },
-                error: function() {
-                    alert('<?php esc_html_e( 'An error occurred. Please try again.', 'versana-companion' ); ?>');
-                    $button.prop('disabled', false).html(originalHtml);
-                }
-            });
-        });
-        
-        // Check license
-        $('#versana-check-license').on('click', function(e) {
-            e.preventDefault();
-            
-            var $button = $(this);
-            var originalHtml = $button.html();
-            
-            $button.prop('disabled', true).html('<span class="dashicons dashicons-update spin"></span> <?php esc_html_e( 'Checking...', 'versana-companion' ); ?>');
-            $('#versana-license-messages').empty();
-            
-            $.ajax({
-                url: ajaxurl,
-                type: 'POST',
-                data: {
-                    action: 'versana_check_license',
-                    nonce: '<?php echo wp_create_nonce( 'versana_license_action' ); ?>'
-                },
-                success: function(response) {
-                    if (response.success) {
-                        $('#versana-license-messages').html(
-                            '<div class="notice notice-success"><p><strong>' + response.data.message + '</strong></p></div>'
-                        );
-                        setTimeout(function() {
-                            location.reload();
-                        }, 1500);
-                    } else {
-                        $('#versana-license-messages').html(
-                            '<div class="notice notice-error"><p><strong>' + response.data.message + '</strong></p></div>'
-                        );
-                    }
-                    $button.prop('disabled', false).html(originalHtml);
-                },
-                error: function() {
-                    $('#versana-license-messages').html(
-                        '<div class="notice notice-error"><p><strong><?php esc_html_e( 'An error occurred. Please try again.', 'versana-companion' ); ?></strong></p></div>'
-                    );
-                    $button.prop('disabled', false).html(originalHtml);
-                }
-            });
-        });
-        
-        // Add spin animation
-        if (!document.getElementById('versana-license-spin-style')) {
-            var style = document.createElement('style');
-            style.id = 'versana-license-spin-style';
-            style.textContent = '@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } } .spin { animation: spin 1s linear infinite; display: inline-block; }';
-            document.head.appendChild(style);
-        }
-        
-    });
-    </script>
     <?php
 }
 
@@ -610,12 +423,6 @@ function versana_companion_license_api_request( $endpoint, $data = array() ) {
             'site_url'    => $site_url,
         )
     );
-    
-    error_log( sprintf(
-        '[Versana License] API Request: %s | Data: %s',
-        $api_url,
-        json_encode( $request_data )
-    ) );
     
     // Detect localhost
     $is_localhost = ( 
@@ -640,11 +447,14 @@ function versana_companion_license_api_request( $endpoint, $data = array() ) {
     // Handle WP_Error
     if ( is_wp_error( $response ) ) {
         $error_msg = $response->get_error_message();
-        error_log( '[Versana License] API Error: ' . $error_msg );
         return array(
             'success' => false,
             'error'   => 'connection_error',
-            'message' => sprintf( __( 'Connection error: %s', 'versana-companion' ), $error_msg ),
+            'message' => sprintf( 
+                /* translators: %s: The specific error message from the server */
+                __( 'Connection error: %s', 'versana-companion' ), 
+                $error_msg 
+            ),
         );
     }
     
@@ -653,7 +463,6 @@ function versana_companion_license_api_request( $endpoint, $data = array() ) {
     
     // Handle empty response
     if ( empty( $body ) ) {
-        error_log( '[Versana License] Empty response from server. Code: ' . $code );
         return array(
             'success' => false,
             'error'   => 'empty_response',
@@ -666,7 +475,6 @@ function versana_companion_license_api_request( $endpoint, $data = array() ) {
     
     // Handle invalid JSON
     if ( json_last_error() !== JSON_ERROR_NONE ) {
-        error_log( '[Versana License] Invalid JSON response. Body: ' . substr( $body, 0, 500 ) );
         return array(
             'success' => false,
             'error'   => 'invalid_json',
@@ -674,19 +482,16 @@ function versana_companion_license_api_request( $endpoint, $data = array() ) {
         );
     }
     
-    error_log( sprintf(
-        '[Versana License] API Response [%s]: Code %d | Data: %s',
-        $endpoint,
-        $code,
-        json_encode( $data )
-    ) );
-    
     // Handle non-2xx responses
     if ( $code < 200 || $code >= 300 ) {
         return array(
             'success' => false,
             'error'   => isset( $data['error'] ) ? $data['error'] : 'http_error',
-            'message' => isset( $data['message'] ) ? $data['message'] : sprintf( __( 'Server error (Code: %d)', 'versana-companion' ), $code ),
+            'message' => isset( $data['message'] ) ? $data['message'] : sprintf( 
+                /* translators: %d: The numeric error code (e.g., 404, 500) */
+                __( 'Server error (Code: %d)', 'versana-companion' ), 
+                (int) $code 
+            ),
         );
     }
     
@@ -709,8 +514,6 @@ function versana_companion_activate_license( $license_key ) {
     // CRITICAL: Save license key FIRST before activation attempt
     versana_companion_update_option( 'license_key', sanitize_text_field( $license_key ) );
     
-    error_log( '[Versana License] License key saved: ' . $license_key );
-    
     // Call activate endpoint
     $result = versana_companion_license_api_request(
         'activate',
@@ -718,7 +521,6 @@ function versana_companion_activate_license( $license_key ) {
     );
     
     if ( ! isset( $result['success'] ) || ! $result['success'] ) {
-        error_log( '[Versana License] Activation failed: ' . ( isset( $result['message'] ) ? $result['message'] : 'Unknown error' ) );
         return $result;
     }
     
@@ -761,15 +563,11 @@ function versana_companion_activate_license( $license_key ) {
             wp_cache_flush();
         }
         
-        error_log( '[Versana License] Activation successful: ' . $license_key );
-        
         return array(
             'success' => true,
             'message' => __( 'License activated successfully!', 'versana-companion' ),
         );
     }
-    
-    error_log( '[Versana License] Activation succeeded but verification failed' );
     
     return array(
         'success' => true,
@@ -793,8 +591,6 @@ function versana_companion_deactivate_license() {
         if ( function_exists( 'wp_cache_flush' ) ) {
             wp_cache_flush();
         }
-        
-        error_log( '[Versana License] Deactivation successful' );
     }
     
     return $result;
@@ -877,7 +673,7 @@ function versana_companion_ajax_activate_license() {
         wp_send_json_error( array( 'message' => __( 'Permission denied.', 'versana-companion' ) ) );
     }
     
-    $license_key = isset( $_POST['license_key'] ) ? sanitize_text_field( $_POST['license_key'] ) : '';
+    $license_key = isset( $_POST['license_key'] ) ? sanitize_text_field( wp_unslash( $_POST['license_key'] ) ) : '';
     
     if ( empty( $license_key ) ) {
         wp_send_json_error( array( 'message' => __( 'Please enter a license key.', 'versana-companion' ) ) );

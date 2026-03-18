@@ -2,10 +2,13 @@
 /**
  * Title: Blog Hero
  * Slug: versana/blog-hero
- * Categories: versana-blog
+ * Categories: versana-patterns
  * Keywords: hero, banner
  * Description: A simple hero banner for blogs.
  */
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 ?>
 <!-- wp:cover {"overlayColor":"primary","isUserOverlayColor":true,"gradient":"primary-gradient","contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"margin":{"top":"0","bottom":"0"}}}} -->
 <div class="wp-block-cover alignfull"
@@ -19,14 +22,14 @@
             <!-- wp:heading {"textAlign":"center","level":1,"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|md"}},"typography":{"fontSize":"clamp(2.5rem, 8vw, 5rem)","fontWeight":"800","letterSpacing":"-0.02em","lineHeight":"1.1"}},"textColor":"neutral-100"} -->
             <h1 class="wp-block-heading has-text-align-center has-neutral-100-color has-text-color"
                 style="margin-top:0;margin-bottom:var(--wp--preset--spacing--md);font-size:clamp(2.5rem, 8vw, 5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1">
-                Welcome to My Blog
+                <?php echo esc_html__( 'Welcome to My Blog', 'versana-companion' ); ?>
             </h1>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|lg"}},"typography":{"fontSize":"clamp(1.125rem, 2.5vw, 1.5rem)","lineHeight":"1.6"}},"textColor":"neutral-100"} -->
             <p class="has-text-align-center has-neutral-100-color has-text-color"
                 style="margin-top:0;margin-bottom:var(--wp--preset--spacing--lg);font-size:clamp(1.125rem,2.5vw,1.5rem);line-height:1.6">
-                Sharing stories, insights, and inspiration 
+                <?php echo esc_html__( 'Sharing stories, insights, and inspiration ', 'versana-companion' ); ?>
             </p>
             <!-- /wp:paragraph -->
 
@@ -36,7 +39,7 @@
                 <div class="wp-block-button"><a
                         class="wp-block-button__link has-primary-color has-neutral-100-background-color has-text-color has-background has-custom-font-size wp-element-button"
                         style="border-radius:50px;padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--xl);font-size:1.125rem;font-weight:600">
-                        Start Reading
+                        <?php echo esc_html__( 'Start Reading', 'versana-companion' ); ?>
                     </a></div>
                 <!-- /wp:button -->
             </div>

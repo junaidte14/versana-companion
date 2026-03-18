@@ -24,7 +24,7 @@ function versana_optimizations_add_tab( $tabs ) {
         'title'    => __( 'Optimizations', 'versana-companion' ),
         'icon'     => 'dashicons-performance',
         'callback' => 'versana_optimizations_render_tab',
-        'priority' => 50, // Between Blog (40) and Integrations (60)
+        'priority' => 50,
     );
     
     return $tabs;
@@ -233,35 +233,6 @@ function versana_premium_feature_toggle( $key, $label, $description, $is_unlocke
     </tr>
     <?php
 }
-
-/**
- * Add premium feature styles to all tabs
- */
-function versana_premium_features_styles() {
-    ?>
-    <style>
-        .versana-feature-locked {
-            opacity: 0.5;
-            pointer-events: none;
-            position: relative;
-        }
-        .versana-feature-locked::after {
-            content: '🔒 PRO';
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #ff9800;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 700;
-        }
-    </style>
-    <?php
-}
-add_action( 'admin_head', 'versana_premium_features_styles' );
 
 /**
  * Check if a premium feature is enabled

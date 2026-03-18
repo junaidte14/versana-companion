@@ -2,11 +2,14 @@
 /**
  * Title: Portfolio Hero
  * Slug: versana/portfolio-hero
- * Categories: versana-portfolio
+ * Categories: versana-patterns
  * Keywords: hero, banner
  * Block Types: core/cover
  * Description: A simple hero banner for portfolio.
  */
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 ?>
 <!-- wp:cover {"overlayColor":"tertiary","minHeight":85,"minHeightUnit":"vh","contentPosition":"center center","align":"full","style":{"spacing":{"padding":{"top":"0","right":"0","bottom":"0","left":"0"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-cover alignfull"
@@ -20,14 +23,14 @@
             <!-- wp:heading {"textAlign":"center","level":1,"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|md"}},"typography":{"fontSize":"clamp(2.5rem,8vw,5rem)","fontWeight":"800","letterSpacing":"-0.02em","lineHeight":"1.1"}},"textColor":"neutral-100"} -->
             <h1 class="wp-block-heading has-text-align-center has-neutral-100-color has-text-color"
                 style="margin-top:0;margin-bottom:var(--wp--preset--spacing--md);font-size:clamp(2.5rem,8vw,5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1">
-                Creative Designer
+                <?php echo esc_html__( 'Creative Designer', 'versana-companion' ); ?>
             </h1>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|lg"}},"typography":{"fontSize":"clamp(1.125rem,2.5vw,1.5rem)","lineHeight":"1.6"}},"textColor":"neutral-100"} -->
             <p class="has-text-align-center has-neutral-100-color has-text-color"
                 style="margin-top:0;margin-bottom:var(--wp--preset--spacing--lg);font-size:clamp(1.125rem,2.5vw,1.5rem);line-height:1.6">
-                Crafting visual experiences that inspire
+                <?php echo esc_html__( 'Crafting visual experiences that inspire', 'versana-companion' ); ?>
             </p>
             <!-- /wp:paragraph -->
 
@@ -36,8 +39,7 @@
                 <!-- wp:button {"backgroundColor":"neutral-100","textColor":"tertiary","style":{"border":{"radius":"50px"},"spacing":{"padding":{"top":"var:preset|spacing|sm","bottom":"var:preset|spacing|sm","left":"var:preset|spacing|xl","right":"var:preset|spacing|xl"}},"typography":{"fontSize":"1.125rem","fontWeight":"600"}}} -->
                 <div class="wp-block-button"><a
                         class="wp-block-button__link has-tertiary-color has-neutral-100-background-color has-text-color has-background has-custom-font-size wp-element-button"
-                        style="border-radius:50px;padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--xl);font-size:1.125rem;font-weight:600">View
-                        Portfolio</a></div>
+                        style="border-radius:50px;padding-top:var(--wp--preset--spacing--sm);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--sm);padding-left:var(--wp--preset--spacing--xl);font-size:1.125rem;font-weight:600"><?php echo esc_html__( 'View Portfolio', 'versana-companion' ); ?></a></div>
                 <!-- /wp:button -->
             </div>
             <!-- /wp:buttons -->

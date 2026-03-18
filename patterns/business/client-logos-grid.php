@@ -2,11 +2,14 @@
 /**
  * Title: Client Logos Grid
  * Slug: versana/client-logos-grid
- * Categories: versana-business
+ * Categories: versana-patterns
  * Keywords: clients, logos, partners, companies, brands
  * Block Types: core/group
  * Description: Grid of client logos showing trusted partners and customers.
  */
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|4xl","bottom":"var:preset|spacing|4xl","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"neutral-200","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull has-neutral-200-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--4-xl);padding-right:var(--wp--preset--spacing--md);padding-bottom:var(--wp--preset--spacing--4-xl);padding-left:var(--wp--preset--spacing--md)">
@@ -14,11 +17,11 @@
     <!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|2xl"}}},"layout":{"type":"constrained","contentSize":"700px"}} -->
     <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--2-xl)">
         <!-- wp:paragraph {"align":"center","style":{"typography":{"textTransform":"uppercase","fontWeight":"600","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|sm"}}},"textColor":"neutral-700","fontSize":"sm"} -->
-        <p class="has-text-align-center has-neutral-700-color has-text-color has-sm-font-size" style="margin-bottom:var(--wp--preset--spacing--sm);font-weight:600;letter-spacing:0.1em;text-transform:uppercase">Trusted By Industry Leaders</p>
+        <p class="has-text-align-center has-neutral-700-color has-text-color has-sm-font-size" style="margin-bottom:var(--wp--preset--spacing--sm);font-weight:600;letter-spacing:0.1em;text-transform:uppercase"><?php echo esc_html__( 'Trusted By Industry Leaders', 'versana-companion' ); ?></p>
         <!-- /wp:paragraph -->
 
         <!-- wp:heading {"textAlign":"center","fontSize":"3-xl"} -->
-        <h2 class="wp-block-heading has-text-align-center has-3-xl-font-size">Companies That Trust Us</h2>
+        <h2 class="wp-block-heading has-text-align-center has-3-xl-font-size"><?php echo esc_html__( 'Companies That Trust Us', 'versana-companion' ); ?></h2>
         <!-- /wp:heading -->
     </div>
     <!-- /wp:group -->
@@ -32,7 +35,7 @@
                 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","right":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|xl"}},"border":{"radius":"8px"}},"backgroundColor":"neutral-100","className":"has-shadow-sm logo-card","layout":{"type":"constrained"}} -->
                 <div class="wp-block-group logo-card has-shadow-sm has-neutral-100-background-color has-background" style="border-radius:8px;padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--xl)">
                     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"2.5rem","fontWeight":"700"}},"textColor":"neutral-700"} -->
-                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700">Company A</p>
+                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700"><?php echo esc_html__( 'Company A', 'versana-companion' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -44,7 +47,7 @@
                 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","right":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|xl"}},"border":{"radius":"8px"}},"backgroundColor":"neutral-100","className":"has-shadow-sm logo-card","layout":{"type":"constrained"}} -->
                 <div class="wp-block-group logo-card has-shadow-sm has-neutral-100-background-color has-background" style="border-radius:8px;padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--xl)">
                     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"2.5rem","fontWeight":"700"}},"textColor":"neutral-700"} -->
-                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700">Company B</p>
+                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700"><?php echo esc_html__( 'Company B', 'versana-companion' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -56,7 +59,7 @@
                 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","right":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|xl"}},"border":{"radius":"8px"}},"backgroundColor":"neutral-100","className":"has-shadow-sm logo-card","layout":{"type":"constrained"}} -->
                 <div class="wp-block-group logo-card has-shadow-sm has-neutral-100-background-color has-background" style="border-radius:8px;padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--xl)">
                     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"2.5rem","fontWeight":"700"}},"textColor":"neutral-700"} -->
-                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700">Company C</p>
+                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700"><?php echo esc_html__( 'Company C', 'versana-companion' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -68,7 +71,7 @@
                 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","right":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|xl"}},"border":{"radius":"8px"}},"backgroundColor":"neutral-100","className":"has-shadow-sm logo-card","layout":{"type":"constrained"}} -->
                 <div class="wp-block-group logo-card has-shadow-sm has-neutral-100-background-color has-background" style="border-radius:8px;padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--xl)">
                     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"2.5rem","fontWeight":"700"}},"textColor":"neutral-700"} -->
-                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700">Company D</p>
+                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700"><?php echo esc_html__( 'Company D', 'versana-companion' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -84,7 +87,7 @@
                 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","right":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|xl"}},"border":{"radius":"8px"}},"backgroundColor":"neutral-100","className":"has-shadow-sm logo-card","layout":{"type":"constrained"}} -->
                 <div class="wp-block-group logo-card has-shadow-sm has-neutral-100-background-color has-background" style="border-radius:8px;padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--xl)">
                     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"2.5rem","fontWeight":"700"}},"textColor":"neutral-700"} -->
-                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700">Company E</p>
+                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700"><?php echo esc_html__( 'Company E', 'versana-companion' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -96,7 +99,7 @@
                 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","right":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|xl"}},"border":{"radius":"8px"}},"backgroundColor":"neutral-100","className":"has-shadow-sm logo-card","layout":{"type":"constrained"}} -->
                 <div class="wp-block-group logo-card has-shadow-sm has-neutral-100-background-color has-background" style="border-radius:8px;padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--xl)">
                     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"2.5rem","fontWeight":"700"}},"textColor":"neutral-700"} -->
-                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700">Company F</p>
+                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700"><?php echo esc_html__( 'Company F', 'versana-companion' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -108,7 +111,7 @@
                 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","right":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|xl"}},"border":{"radius":"8px"}},"backgroundColor":"neutral-100","className":"has-shadow-sm logo-card","layout":{"type":"constrained"}} -->
                 <div class="wp-block-group logo-card has-shadow-sm has-neutral-100-background-color has-background" style="border-radius:8px;padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--xl)">
                     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"2.5rem","fontWeight":"700"}},"textColor":"neutral-700"} -->
-                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700">Company G</p>
+                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700"><?php echo esc_html__( 'Company G', 'versana-companion' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -120,7 +123,7 @@
                 <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","right":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl","left":"var:preset|spacing|xl"}},"border":{"radius":"8px"}},"backgroundColor":"neutral-100","className":"has-shadow-sm logo-card","layout":{"type":"constrained"}} -->
                 <div class="wp-block-group logo-card has-shadow-sm has-neutral-100-background-color has-background" style="border-radius:8px;padding-top:var(--wp--preset--spacing--xl);padding-right:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl);padding-left:var(--wp--preset--spacing--xl)">
                     <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"2.5rem","fontWeight":"700"}},"textColor":"neutral-700"} -->
-                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700">Company H</p>
+                    <p class="has-text-align-center has-neutral-700-color has-text-color" style="font-size:2.5rem;font-weight:700"><?php echo esc_html__( 'Company H', 'versana-companion' ); ?></p>
                     <!-- /wp:paragraph -->
                 </div>
                 <!-- /wp:group -->
@@ -132,7 +135,7 @@
     <!-- /wp:group -->
 
     <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|xl"}}},"textColor":"neutral-700"} -->
-    <p class="has-text-align-center has-neutral-700-color has-text-color" style="margin-top:var(--wp--preset--spacing--xl)"><em>Replace with actual client logo images using the Image block</em></p>
+    <p class="has-text-align-center has-neutral-700-color has-text-color" style="margin-top:var(--wp--preset--spacing--xl)"><em><?php echo esc_html__( 'Replace with actual client logo images using the Image block', 'versana-companion' ); ?></em></p>
     <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

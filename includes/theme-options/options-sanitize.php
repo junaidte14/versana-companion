@@ -25,12 +25,13 @@ function versana_sanitize_options( $input ) {
     $sanitized = $existing_options;
     
     // Verify nonce for security
-    if ( ! isset( $_POST['versana_options_nonce'] ) || 
-         ! wp_verify_nonce( $_POST['versana_options_nonce'], 'versana_save_options' ) ) {
+    $nonce = isset( $_POST['versana_options_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['versana_options_nonce'] ) ) : '';
+    // Verify the sanitized nonce
+    if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'versana_save_options' ) ) {
         add_settings_error(
             'versana_options',
             'versana_nonce_error',
-            __( 'Security verification failed. Please try again.', 'versana' ),
+            esc_html__( 'Security verification failed. Please try again.', 'versana-companion' ),
             'error'
         );
         return $existing_options; // Return unchanged if nonce fails
@@ -41,23 +42,10 @@ function versana_sanitize_options( $input ) {
         add_settings_error(
             'versana_options',
             'versana_reset_success',
-            __( 'Theme options have been reset to defaults.', 'versana' ),
+            __( 'Theme options have been reset to defaults.', 'versana-companion' ),
             'updated'
         );
         return versana_get_default_options();
-    }
-    
-    // Text fields
-    $text_fields = array(
-        'google_analytics_id',
-        'facebook_pixel_id',
-        'google_tag_manager_id',
-    );
-    
-    foreach ( $text_fields as $field ) {
-        if ( isset( $input[ $field ] ) ) {
-            $sanitized[ $field ] = sanitize_text_field( $input[ $field ] );
-        }
     }
     
     // Scripts (only for administrators with unfiltered_html capability)
@@ -81,22 +69,12 @@ function versana_sanitize_options( $input ) {
     $sanitized = apply_filters( 'versana_sanitize_options', $sanitized, $input );
     
     // Add success message
-    add_settings_error(
+    /* add_settings_error(
         'versana_options',
         'versana_save_success',
-        __( 'Settings saved successfully.', 'versana' ),
+        __( 'Settings saved successfully.', 'versana-companion' ),
         'updated'
-    );
+    ); */
     
     return $sanitized;
-}
-
-/**
- * Validate Google Analytics ID format
- *
- * @param string $id Analytics ID
- * @return bool True if valid
- */
-function versana_validate_analytics_id( $id ) {
-    return preg_match( '/^(UA|G)-[0-9]+-[0-9]+$/', $id ) || preg_match( '/^G-[A-Z0-9]+$/', $id );
 }

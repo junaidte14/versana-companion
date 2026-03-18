@@ -7,6 +7,9 @@
  * Block Types: core/group
  * Description: Three column feature section with icons, perfect for showcasing key benefits.
  */
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|4xl","bottom":"var:preset|spacing|4xl","left":"var:preset|spacing|md","right":"var:preset|spacing|md"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"neutral-200","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull has-neutral-200-background-color has-background"
@@ -14,12 +17,11 @@
     <!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|2xl"}}},"layout":{"type":"constrained","contentSize":"700px"}} -->
     <div class="wp-block-group alignwide" style="margin-bottom:var(--wp--preset--spacing--2-xl)">
         <!-- wp:heading {"textAlign":"center","fontSize":"4-xl"} -->
-        <h2 class="wp-block-heading has-text-align-center has-4-xl-font-size">Why Choose Us</h2>
+        <h2 class="wp-block-heading has-text-align-center has-4-xl-font-size"><?php echo esc_html__( 'Why Choose Us', 'versana-companion' ); ?></h2>
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"fontSize":"lg"} -->
-        <p class="has-text-align-center has-lg-font-size" style="margin-top:var(--wp--preset--spacing--sm)">Everything
-            you need to succeed, all in one place</p>
+        <p class="has-text-align-center has-lg-font-size" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'Everything you need to succeed, all in one place', 'versana-companion' ); ?></p>
         <!-- /wp:paragraph -->
     </div>
     <!-- /wp:group -->
@@ -39,12 +41,11 @@
             <!-- /wp:group -->
 
             <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"xl"} -->
-            <h3 class="wp-block-heading has-text-align-center has-xl-font-size">Lightning Fast</h3>
+            <h3 class="wp-block-heading has-text-align-center has-xl-font-size"><?php echo esc_html__( 'Lightning Fast', 'versana-companion' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
-            <p class="has-text-align-center" style="margin-top:var(--wp--preset--spacing--sm)">Optimized for speed and
-                performance. Your site loads in milliseconds, not seconds.</p>
+            <p class="has-text-align-center" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'Optimized for speed and performance. Your site loads in milliseconds, not seconds.', 'versana-companion' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -62,12 +63,11 @@
             <!-- /wp:group -->
 
             <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"xl"} -->
-            <h3 class="wp-block-heading has-text-align-center has-xl-font-size">Beautiful Design</h3>
+            <h3 class="wp-block-heading has-text-align-center has-xl-font-size"><?php echo esc_html__( 'Beautiful Design', 'versana-companion' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
-            <p class="has-text-align-center" style="margin-top:var(--wp--preset--spacing--sm)">Pixel-perfect layouts
-                that look stunning on every device. Professional from the start.</p>
+            <p class="has-text-align-center" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'Pixel-perfect layouts that look stunning on every device. Professional from the start.', 'versana-companion' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->
@@ -85,12 +85,11 @@
             <!-- /wp:group -->
 
             <!-- wp:heading {"textAlign":"center","level":3,"fontSize":"xl"} -->
-            <h3 class="wp-block-heading has-text-align-center has-xl-font-size">Secure &amp; Reliable</h3>
+            <h3 class="wp-block-heading has-text-align-center has-xl-font-size"><?php echo esc_html__( 'Secure & Reliable', 'versana-companion' ); ?></h3>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}}} -->
-            <p class="has-text-align-center" style="margin-top:var(--wp--preset--spacing--sm)">Built with security best
-                practices. Regular updates and proven stability you can trust.</p>
+            <p class="has-text-align-center" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'Built with security best practices. Regular updates and proven stability you can trust.', 'versana-companion' ); ?></p>
             <!-- /wp:paragraph -->
         </div>
         <!-- /wp:column -->

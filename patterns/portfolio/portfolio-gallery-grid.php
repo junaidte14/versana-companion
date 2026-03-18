@@ -2,11 +2,14 @@
 /**
  * Title: Portfolio Gallery Grid
  * Slug: versana/portfolio-gallery-grid
- * Categories: versana-portfolio
+ * Categories: versana-patterns
  * Keywords: portfolio, gallery, projects, work, showcase
  * Block Types: core/gallery
  * Description: Professional portfolio gallery grid for showcasing creative work.
  */
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 ?>
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|4xl","bottom":"var:preset|spacing|4xl"},"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignwide"
@@ -14,12 +17,11 @@
     <!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|2xl"}}},"layout":{"type":"constrained","contentSize":"700px"}} -->
     <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--2-xl)">
         <!-- wp:heading {"textAlign":"center","fontSize":"4-xl"} -->
-        <h2 class="wp-block-heading has-text-align-center has-4-xl-font-size">Featured Work</h2>
+        <h2 class="wp-block-heading has-text-align-center has-4-xl-font-size"><?php echo esc_html__( 'Featured Work', 'versana-companion' ); ?></h2>
         <!-- /wp:heading -->
 
         <!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|sm"}}},"fontSize":"lg"} -->
-        <p class="has-text-align-center has-lg-font-size" style="margin-top:var(--wp--preset--spacing--sm)">A selection
-            of recent projects showcasing our creative approach</p>
+        <p class="has-text-align-center has-lg-font-size" style="margin-top:var(--wp--preset--spacing--sm)"><?php echo esc_html__( 'A selection of recent projects showcasing our creative approach', 'versana-companion' ); ?></p>
         <!-- /wp:paragraph -->
     </div>
     <!-- /wp:group -->
@@ -41,17 +43,16 @@
                             <!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","fontWeight":"600","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|xs"}}},"textColor":"neutral-900","fontSize":"xs"} -->
                             <p class="has-neutral-900-color has-text-color has-xs-font-size"
                                 style="margin-bottom:var(--wp--preset--spacing--xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase">
-                                Brand Design</p>
+                                <?php echo esc_html__( 'Brand Design', 'versana-companion' ); ?></p>
                             <!-- /wp:paragraph -->
 
                             <!-- wp:heading {"level":3,"textColor":"neutral-900","fontSize":"2-xl"} -->
                             <h3 class="wp-block-heading has-neutral-900-color has-text-color has-2-xl-font-size">
-                                E-Commerce Redesign</h3>
+                                <?php echo esc_html__( 'E-Commerce Redesign', 'versana-companion' ); ?></h3>
                             <!-- /wp:heading -->
 
                             <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|neutral-900"}}}},"textColor":"neutral-900"} -->
-                            <p class="has-neutral-900-color has-text-color has-link-color">Complete brand refresh for a
-                                leading retail company</p>
+                            <p class="has-neutral-900-color has-text-color has-link-color"><?php echo esc_html__( 'Complete brand refresh for a leading retail company', 'versana-companion' ); ?></p>
                             <!-- /wp:paragraph -->
                         </div>
                     </div>
@@ -75,17 +76,15 @@
                             <!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","fontWeight":"600","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|xs"}}},"textColor":"neutral-900","fontSize":"xs"} -->
                             <p class="has-neutral-900-color has-text-color has-xs-font-size"
                                 style="margin-bottom:var(--wp--preset--spacing--xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase">
-                                Web Design</p>
+                                <?php echo esc_html__( 'Web Design', 'versana-companion' ); ?></p>
                             <!-- /wp:paragraph -->
 
                             <!-- wp:heading {"level":3,"textColor":"neutral-900","fontSize":"xl"} -->
-                            <h3 class="wp-block-heading has-neutral-900-color has-text-color has-xl-font-size">Tech
-                                Startup</h3>
+                            <h3 class="wp-block-heading has-neutral-900-color has-text-color has-xl-font-size"><?php echo esc_html__( 'Tech Startup', 'versana-companion' ); ?></h3>
                             <!-- /wp:heading -->
 
                             <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|neutral-900"}}}},"textColor":"neutral-900","fontSize":"sm"} -->
-                            <p class="has-neutral-900-color has-text-color has-link-color has-sm-font-size">Modern
-                                website for SaaS platform</p>
+                            <p class="has-neutral-900-color has-text-color has-link-color has-sm-font-size"><?php echo esc_html__( 'Modern website for SaaS platform', 'versana-companion' ); ?></p>
                             <!-- /wp:paragraph -->
                         </div>
                     </div>
@@ -116,17 +115,15 @@
                             <!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","fontWeight":"600","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|xs"}}},"textColor":"neutral-900","fontSize":"xs"} -->
                             <p class="has-neutral-900-color has-text-color has-xs-font-size"
                                 style="margin-bottom:var(--wp--preset--spacing--xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase">
-                                Mobile App</p>
+                                <?php echo esc_html__( 'Mobile App', 'versana-companion' ); ?></p>
                             <!-- /wp:paragraph -->
 
                             <!-- wp:heading {"level":3,"textColor":"neutral-900","fontSize":"xl"} -->
-                            <h3 class="wp-block-heading has-neutral-900-color has-text-color has-xl-font-size">Fitness
-                                App</h3>
+                            <h3 class="wp-block-heading has-neutral-900-color has-text-color has-xl-font-size"><?php echo esc_html__( 'Fitness App', 'versana-companion' ); ?></h3>
                             <!-- /wp:heading -->
 
                             <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|neutral-900"}}}},"textColor":"neutral-900","fontSize":"sm"} -->
-                            <p class="has-neutral-900-color has-text-color has-link-color has-sm-font-size">iOS &amp;
-                                Android design</p>
+                            <p class="has-neutral-900-color has-text-color has-link-color has-sm-font-size"><?php echo esc_html__( 'iOS &amp; Android design', 'versana-companion' ); ?></p>
                             <!-- /wp:paragraph -->
                         </div>
                     </div>
@@ -150,17 +147,15 @@
                             <!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","fontWeight":"600","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|xs"}}},"textColor":"neutral-900","fontSize":"xs"} -->
                             <p class="has-neutral-900-color has-text-color has-xs-font-size"
                                 style="margin-bottom:var(--wp--preset--spacing--xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase">
-                                Marketing</p>
+                                <?php echo esc_html__( 'Marketing', 'versana-companion' ); ?></p>
                             <!-- /wp:paragraph -->
 
                             <!-- wp:heading {"level":3,"textColor":"neutral-900","fontSize":"xl"} -->
-                            <h3 class="wp-block-heading has-neutral-900-color has-text-color has-xl-font-size">Campaign
-                                Design</h3>
+                            <h3 class="wp-block-heading has-neutral-900-color has-text-color has-xl-font-size"><?php echo esc_html__( 'Campaign Design', 'versana-companion' ); ?></h3>
                             <!-- /wp:heading -->
 
                             <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|neutral-900"}}}},"textColor":"neutral-900","fontSize":"sm"} -->
-                            <p class="has-neutral-900-color has-text-color has-link-color has-sm-font-size">Product
-                                launch materials</p>
+                            <p class="has-neutral-900-color has-text-color has-link-color has-sm-font-size"><?php echo esc_html__( 'Product launch materials', 'versana-companion' ); ?></p>
                             <!-- /wp:paragraph -->
                         </div>
                     </div>
@@ -184,17 +179,15 @@
                             <!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase","fontWeight":"600","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|xs"}}},"textColor":"neutral-900","fontSize":"xs"} -->
                             <p class="has-neutral-900-color has-text-color has-xs-font-size"
                                 style="margin-bottom:var(--wp--preset--spacing--xs);font-weight:600;letter-spacing:0.1em;text-transform:uppercase">
-                                UX/UI</p>
+                                <?php echo esc_html__( 'UX/UI', 'versana-companion' ); ?></p>
                             <!-- /wp:paragraph -->
 
                             <!-- wp:heading {"level":3,"textColor":"neutral-900","fontSize":"xl"} -->
-                            <h3 class="wp-block-heading has-neutral-900-color has-text-color has-xl-font-size">Dashboard
-                                UI</h3>
+                            <h3 class="wp-block-heading has-neutral-900-color has-text-color has-xl-font-size"><?php echo esc_html__( 'Dashboard UI', 'versana-companion' ); ?></h3>
                             <!-- /wp:heading -->
 
                             <!-- wp:paragraph {"style":{"elements":{"link":{"color":{"text":"var:preset|color|neutral-900"}}}},"textColor":"neutral-900","fontSize":"sm"} -->
-                            <p class="has-neutral-900-color has-text-color has-link-color has-sm-font-size">Analytics
-                                platform interface</p>
+                            <p class="has-neutral-900-color has-text-color has-link-color has-sm-font-size"><?php echo esc_html__( 'Analytics platform interface', 'versana-companion' ); ?></p>
                             <!-- /wp:paragraph -->
                         </div>
                     </div>
@@ -211,8 +204,7 @@
     <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|2xl"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
     <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--2-xl)">
         <!-- wp:button {"style":{"border":{"radius":"6px"}}} -->
-        <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" style="border-radius:6px">View
-                All Projects</a></div>
+        <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" style="border-radius:6px"><?php echo esc_html__( 'View All Projects', 'versana-companion' ); ?></a></div>
         <!-- /wp:button -->
     </div>
     <!-- /wp:buttons -->

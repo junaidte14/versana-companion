@@ -22,9 +22,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 function versana_get_default_options() {
     $defaults = array(        
         // Integrations Tab
-        'google_analytics_id'      => '',
-        'facebook_pixel_id'        => '',
-        'google_tag_manager_id'    => '',
         'header_scripts'           => '',
         'footer_scripts'           => '',
     );

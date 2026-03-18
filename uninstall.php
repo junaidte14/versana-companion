@@ -15,4 +15,3 @@ global $wpdb;
 // Delete options
 delete_option( 'versana_companion_version' );
 delete_option( 'versana_companion_activated' );
-delete_option( 'versana_companion_settings' );

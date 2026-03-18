@@ -95,6 +95,22 @@ function versana_enqueue_admin_assets( $hook ) {
         VERSANA_COMPANION_VERSION,
         true
     );
+
+    // Pass translated strings to the script
+    wp_localize_script( 'versana-theme-options', 'versanaOptionsL10n', array(
+        'ajax_url' => admin_url( 'admin-ajax.php' ),
+        'nonce'    => wp_create_nonce( 'versana_license_action' ),
+        'resetConfirmation'    => __( 'Are you sure you want to reset all options?', 'versana-companion' ),
+        'GAValidationMessage' => __( 'Please enter a valid Google Analytics ID (format: G-XXXXXXXXXX or UA-XXXXXX-X)', 'versana-companion' ),
+        'licenseKeyMessage'  => __( 'Please enter a license key.', 'versana-companion' ),
+        'activatingMessage'   => __( 'Activating...', 'versana-companion' ),
+        'versanaLicenseAction'     => __( 'Connection error. Please check your license server URL.', 'versana-companion' ),
+        'deactivateConfirm'     => __( 'Are you sure you want to deactivate your license?', 'versana-companion' ),
+        'deactivatingMessage'     => __( 'Deactivating...', 'versana-companion' ),
+        'errorMessage'     => __( 'Error:', 'versana-companion' ),
+        'deactivateErrorMessage'     => __( 'An error occurred. Please try again.', 'versana-companion' ),
+        'checkMessage'     => __( 'Checking...', 'versana-companion' ),
+    ) );
 }
 add_action( 'admin_enqueue_scripts', 'versana_enqueue_admin_assets' );
 
@@ -109,7 +125,7 @@ add_action( 'admin_enqueue_scripts', 'versana_enqueue_admin_assets' );
 function versana_get_option_tabs() {
     $tabs = array(
         'integrations' => array(
-            'title'    => __( 'Integrations', 'versana' ),
+            'title'    => __( 'Integrations', 'versana-companion' ),
             'icon'     => 'dashicons-admin-links',
             'callback' => 'versana_render_integrations_tab',
             'priority' => 60,
