@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Versana Companion
  * Description: Extends the Versana theme with seamless demo imports, exclusive starter templates, and advanced block patterns.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Junaid Hassan
  * Author URI: https://codoplex.com
  * License: GPL v2 or later
@@ -21,9 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Plugin constants
  */
-define( 'VERSANA_COMPANION_VERSION', '1.0.0' );
+define( 'VERSANA_COMPANION_VERSION', '1.0.1' );
 define( 'VERSANA_COMPANION_PATH', plugin_dir_path( __FILE__ ) );
 define( 'VERSANA_COMPANION_URL', plugin_dir_url( __FILE__ ) );
+define( 'VERSANA_PRO_PURCHASE_URL', 'https://versana.codoplex.com/get-versana-pro/' );
 
 /**
  * Check if Versana theme is active
@@ -93,17 +94,22 @@ function versana_companion_init() {
     require_once VERSANA_COMPANION_PATH . '/includes/demos.php';
     require_once VERSANA_COMPANION_PATH . '/includes/patterns.php';
     require_once VERSANA_COMPANION_PATH . '/includes/layout.php';
-    // Include license verification
+    require_once VERSANA_COMPANION_PATH . 'includes/features.php';
+    require_once VERSANA_COMPANION_PATH . 'includes/output-features.php';
     require_once VERSANA_COMPANION_PATH . 'includes/license.php';
-    // PRO Features
-    require_once VERSANA_COMPANION_PATH . 'includes/premium-features.php';
 
 }
 add_action( 'plugins_loaded', 'versana_companion_init' );
 
 // Ensure this is in your plugin's main constructor or root
 add_action( 'init', function() {
-    add_filter( 'wp_theme_json_data_theme', 'versana_apply_demo_variation_filter', 20 );
+    if ( function_exists( 'versana_apply_demo_variation_filter' ) ) {
+        add_filter(
+            'wp_theme_json_data_theme',
+            'versana_apply_demo_variation_filter',
+            20
+        );
+    }
 });
 
 /**

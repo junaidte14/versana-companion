@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Versana Companion 1.0.0\n"
 "Report-Msgid-Bugs-To: https://codoplex.com/contact\n"
-"POT-Creation-Date: 2026-03-18 18:00+0100\n"
-"PO-Revision-Date: 2026-03-18 18:00+0100\n"
-"Last-Translator: Versana Team <admin@codoplex.com>\n"
-"Language-Team: Versana Team <admin@codoplex.com>\n"
+"POT-Creation-Date: 2026-03-31 18:00+0100\n"
+"PO-Revision-Date: 2026-03-31 18:00+0100\n"
+"Last-Translator: Versana Team <info@codoplex.com>\n"
+"Language-Team: Versana Team <info@codoplex.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,619 +20,688 @@ msgid "Header Settings"
 msgstr ""
 
 #: includes/customizer.php:38
-msgid "Header Layout"
-msgstr ""
-
-#: includes/customizer.php:42
-msgid "Default (Logo Left, Menu Right)"
-msgstr ""
-
-#: includes/customizer.php:43
-msgid "Centered (Logo & Menu Centered)"
-msgstr ""
-
-#: includes/customizer.php:55
 msgid "Enable Sticky Header"
 msgstr ""
 
-#: includes/customizer.php:56
+#: includes/customizer.php:39
 msgid "Make header stick to top on scroll"
 msgstr ""
 
-#: includes/customizer.php:67
+#: includes/customizer.php:50
 msgid "Footer Settings"
 msgstr ""
 
-#: includes/customizer.php:79
+#: includes/customizer.php:62
 msgid "Enable Back to Top Button"
 msgstr ""
 
-#: includes/customizer.php:80
+#: includes/customizer.php:63
 msgid "Show a button to scroll back to top"
 msgstr ""
 
-#: includes/customizer.php:91
+#: includes/customizer.php:74
 msgid "Content Settings"
 msgstr ""
 
-#: includes/customizer.php:103
-msgid "Hide Page Titles"
+#: includes/customizer.php:86
+msgid "Show Page Titles"
 msgstr ""
 
-#: includes/customizer.php:104
+#: includes/customizer.php:87
 msgid ""
-"Check to hide titles site-wide (useful when adding custom titles in page "
-"content)."
+"Check to show page titles site-wide (useful when showing default page titles "
+"in page content)."
 msgstr ""
 
-#: includes/customizer.php:115
+#: includes/customizer.php:98
 msgid "Blog Settings"
 msgstr ""
 
-#: includes/customizer.php:127
+#: includes/customizer.php:110
 msgid "Blog Layout Style"
 msgstr ""
 
-#: includes/customizer.php:131 includes/customizer.php:167
+#: includes/customizer.php:114 includes/customizer.php:150
 msgid "List View"
 msgstr ""
 
-#: includes/customizer.php:132 includes/customizer.php:168
+#: includes/customizer.php:115 includes/customizer.php:151
 msgid "2 Columns Grid"
 msgstr ""
 
-#: includes/customizer.php:133 includes/customizer.php:169
+#: includes/customizer.php:116 includes/customizer.php:152
 msgid "3 Columns Grid"
 msgstr ""
 
-#: includes/customizer.php:145
+#: includes/customizer.php:128
 msgid "Blog Sidebar Position"
 msgstr ""
 
-#: includes/customizer.php:149
+#: includes/customizer.php:132
 msgid "Right Sidebar"
 msgstr ""
 
-#: includes/customizer.php:150
+#: includes/customizer.php:133
 msgid "Left Sidebar"
 msgstr ""
 
-#: includes/customizer.php:151
+#: includes/customizer.php:134
 msgid "No Sidebar (Full Width)"
 msgstr ""
 
-#: includes/customizer.php:163
+#: includes/customizer.php:146
 msgid "Archive Layout Style"
 msgstr ""
 
-#: includes/customizer.php:369
+#: includes/customizer.php:337
 msgid "Back to top"
 msgstr ""
 
-#: includes/demos.php:187
+#: includes/demos.php:122
 msgid "Personal Blog"
 msgstr ""
 
-#: includes/demos.php:188
+#: includes/demos.php:123
 msgid "Clean and minimal blog layout perfect for writers and content creators."
 msgstr ""
 
-#: includes/demos.php:197
+#: includes/demos.php:132
 msgid "✓ Magazine-quality layouts"
 msgstr ""
 
-#: includes/demos.php:198
+#: includes/demos.php:133
 msgid "✓ Optimized for readability"
 msgstr ""
 
-#: includes/demos.php:199
+#: includes/demos.php:134
 msgid "✓ Styled Block patterns"
 msgstr ""
 
-#: includes/demos.php:202 includes/demos.php:223 includes/demos.php:244
+#: includes/demos.php:137 includes/demos.php:158 includes/demos.php:179
+#: includes/demos.php:200
 #, php-format
 msgid "✓ %s+ Performance Score"
 msgstr ""
 
-#: includes/demos.php:208
+#: includes/demos.php:143
 msgid "Business Website"
 msgstr ""
 
-#: includes/demos.php:209
+#: includes/demos.php:144
 msgid "Professional business website perfect for corporate sites and agencies."
 msgstr ""
 
-#: includes/demos.php:218
+#: includes/demos.php:153
 msgid "✓ Conversion-focused design"
 msgstr ""
 
-#: includes/demos.php:219
+#: includes/demos.php:154
 msgid "✓ Professional credibility"
 msgstr ""
 
-#: includes/demos.php:220
+#: includes/demos.php:155
 msgid "✓ Modern SaaS aesthetic"
 msgstr ""
 
-#: includes/demos.php:229
+#: includes/demos.php:164
 msgid "Creative Portfolio"
 msgstr ""
 
-#: includes/demos.php:230
+#: includes/demos.php:165
 msgid "Showcase your work with a beautiful portfolio layout for creatives."
 msgstr ""
 
-#: includes/demos.php:239
+#: includes/demos.php:174
 msgid "✓ Stunning visual galleries"
 msgstr ""
 
-#: includes/demos.php:240
+#: includes/demos.php:175
 msgid "✓ Project case study layouts"
 msgstr ""
 
-#: includes/demos.php:241
+#: includes/demos.php:176
 msgid "✓ Client testimonial sections"
 msgstr ""
 
-#: includes/demos.php:250
+#: includes/demos.php:185
+msgid "Boutique"
+msgstr ""
+
+#: includes/demos.php:186
+msgid ""
+"Elegant boutique and e-commerce website with lookbook and product showcase."
+msgstr ""
+
+#: includes/demos.php:195
+msgid "✓ Product showcase"
+msgstr ""
+
+#: includes/demos.php:196
+msgid "✓ Editorial lookbook"
+msgstr ""
+
+#: includes/demos.php:197
+msgid "✓ Size guide"
+msgstr ""
+
+#: includes/demos.php:211
 msgid "Restaurant & Cafe"
 msgstr ""
 
-#: includes/demos.php:251 includes/demos.php:267 includes/demos.php:283
-msgid "Premium demo - License required."
+#: includes/demos.php:212
+msgid ""
+"Warm, food-focused design with reservation flow, menu showcases, and food "
+"photography layouts."
 msgstr ""
 
-#: includes/demos.php:258 includes/demos.php:274 includes/demos.php:290
-#: includes/demos.php:306 includes/demos.php:323
-msgid "🔒 Requires Versana PRO License"
-msgstr ""
-
-#: includes/demos.php:259
+#: includes/demos.php:220
 msgid "✓ Mobile-first reservation flow"
 msgstr ""
 
-#: includes/demos.php:260
+#: includes/demos.php:221
 msgid "✓ Menu showcase layouts"
 msgstr ""
 
-#: includes/demos.php:261
+#: includes/demos.php:222
 msgid "✓ Food photography optimized"
 msgstr ""
 
-#: includes/demos.php:266
+#: includes/demos.php:227
 msgid "Fitness & Wellness"
 msgstr ""
 
-#: includes/demos.php:275
+#: includes/demos.php:228
+msgid ""
+"Dynamic fitness site with class schedule layouts, member stories, and "
+"pricing sections."
+msgstr ""
+
+#: includes/demos.php:236
 msgid "✓ Class schedule & booking layouts"
 msgstr ""
 
-#: includes/demos.php:276
+#: includes/demos.php:237
 msgid "✓ Member transformation stories"
 msgstr ""
 
-#: includes/demos.php:277
+#: includes/demos.php:238
 msgid "✓ Flexible pricing layouts"
 msgstr ""
 
-#: includes/demos.php:282
+#: includes/demos.php:243
 msgid "Real Estate & Property"
 msgstr ""
 
-#: includes/demos.php:291
+#: includes/demos.php:244
+msgid ""
+"Property-focused design with listing layouts, search areas, and agent "
+"profile sections."
+msgstr ""
+
+#: includes/demos.php:252
 msgid "✓ Property search & filters"
 msgstr ""
 
-#: includes/demos.php:292
+#: includes/demos.php:253
 msgid "✓ Featured listings layouts"
 msgstr ""
 
-#: includes/demos.php:293
+#: includes/demos.php:254
 msgid "✓ Agent profile sections"
 msgstr ""
 
-#: includes/demos.php:298
+#: includes/demos.php:259
 msgid "WooCommerce Store"
 msgstr ""
 
-#: includes/demos.php:299
-msgid ""
-"Professional e-commerce store design for specialty retail businesses. "
-"Perfect for coffee equipment, gourmet products, or any premium retail store."
+#: includes/demos.php:260
+msgid "Professional e-commerce store design for specialty retail businesses."
 msgstr ""
 
-#: includes/demos.php:307
+#: includes/demos.php:268
 msgid "✓ WooCommerce product showcase layouts"
 msgstr ""
 
-#: includes/demos.php:308
+#: includes/demos.php:269
 msgid "✓ Professional e-commerce design"
 msgstr ""
 
-#: includes/demos.php:309
+#: includes/demos.php:270
 msgid "✓ Warranty & trust building sections"
 msgstr ""
 
-#: includes/demos.php:315
-msgid "Premium Shop"
+#: includes/demos.php:275
+msgid "Education Platform"
 msgstr ""
 
-#: includes/demos.php:316
+#: includes/demos.php:276
 msgid ""
-"Professional e-commerce design for specialty retail businesses. Perfect for "
-"coffee equipment, gourmet products, or any premium retail store."
+"Online learning platform with courses, instructors, and student outcomes."
 msgstr ""
 
-#: includes/demos.php:324
-msgid "✓ E-commerce product grid layouts"
+#: includes/demos.php:285
+msgid "✓ Course catalog"
 msgstr ""
 
-#: includes/demos.php:325
-msgid "✓ Heritage & trust building sections"
+#: includes/demos.php:286
+msgid "✓ Instructor profiles"
+msgstr ""
+
+#: includes/demos.php:287
+msgid "✓ Pricing plans"
+msgstr ""
+
+#: includes/demos.php:292
+msgid "SaaS Platform"
+msgstr ""
+
+#: includes/demos.php:293
+msgid "Modern SaaS and software company website with all essential features."
+msgstr ""
+
+#: includes/demos.php:302
+msgid "✓ Modern SaaS design"
+msgstr ""
+
+#: includes/demos.php:303
+msgid "✓ Pricing comparison tables"
+msgstr ""
+
+#: includes/demos.php:304
+msgid "✓ Integration showcase"
+msgstr ""
+
+#: includes/demos.php:309
+msgid "Healthcare Clinic"
+msgstr ""
+
+#: includes/demos.php:310
+msgid ""
+"Complete medical and healthcare clinic website with appointment booking."
+msgstr ""
+
+#: includes/demos.php:319
+msgid "✓ Appointment booking form"
+msgstr ""
+
+#: includes/demos.php:320
+msgid "✓ Doctor profiles"
+msgstr ""
+
+#: includes/demos.php:321
+msgid "✓ Service showcase"
 msgstr ""
 
 #: includes/demos.php:326
-msgid "✓ Warranty & service showcases"
+msgid "Law Firm"
 msgstr ""
 
-#: includes/demos.php:361
+#: includes/demos.php:327
+msgid ""
+"Professional law firm website with practice areas and attorney profiles."
+msgstr ""
+
+#: includes/demos.php:336
+msgid "✓ Practice area showcase"
+msgstr ""
+
+#: includes/demos.php:337
+msgid "✓ Attorney profiles"
+msgstr ""
+
+#: includes/demos.php:338
+msgid "✓ Case results"
+msgstr ""
+
+#: includes/demos.php:371
 msgid "Demo Import"
 msgstr ""
 
-#: includes/demos.php:381
+#: includes/demos.php:398
 msgid "Import Demo Content"
 msgstr ""
 
-#: includes/demos.php:386
+#: includes/demos.php:403
 msgid ""
-"Choose a demo to import. This will add sample posts, pages, create "
+"Choose a free demo to import. This will add sample posts, pages, create "
 "navigation menus, and apply theme styling."
 msgstr ""
 
-#: includes/demos.php:387
-msgid "Make sure to have latest version of the Versana Companion plugin."
-msgstr ""
-
-#: includes/demos.php:389
-msgid "Chech for Updates."
-msgstr ""
-
-#: includes/demos.php:395
+#: includes/demos.php:408
 msgid "Note:"
 msgstr ""
 
-#: includes/demos.php:396
+#: includes/demos.php:409
 msgid ""
 "You can import a different demo. Previous demo content will remain unless "
 "you remove it first."
 msgstr ""
 
-#: includes/demos.php:405
-msgid "Unlock PRO Demos"
-msgstr ""
-
-#: includes/demos.php:408
-msgid "Get access to premium demos and advanced features with Versana PRO."
-msgstr ""
-
-#: includes/demos.php:412 includes/license.php:361
-#: includes/premium-features.php:60 includes/premium-features.php:170
-msgid "Activate License"
-msgstr ""
-
-#: includes/demos.php:417
-msgid "Purchase License"
-msgstr ""
-
-#: includes/demos.php:455
+#: includes/demos.php:444
 msgid "PRO"
 msgstr ""
 
-#: includes/demos.php:472
+#: includes/demos.php:450
 msgid "Imported"
 msgstr ""
 
-#: includes/demos.php:499
+#: includes/demos.php:480
 msgid "Posts"
 msgstr ""
 
-#: includes/demos.php:503
+#: includes/demos.php:484
 msgid "Pages"
 msgstr ""
 
-#: includes/demos.php:507
+#: includes/demos.php:488
 msgid "Menu"
 msgstr ""
 
-#: includes/demos.php:515
+#: includes/demos.php:501
 msgid "Preview"
 msgstr ""
 
-#: includes/demos.php:522
+#: includes/demos.php:512 includes/demos.php:567 includes/license.php:93
+msgid "Get Versana PRO"
+msgstr ""
+
+#: includes/demos.php:520
 msgid "Remove"
 msgstr ""
 
-#: includes/demos.php:529
-msgid "Unlock PRO"
-msgstr ""
-
-#: includes/demos.php:534
+#: includes/demos.php:528
 msgid "Import"
 msgstr ""
 
-#: includes/demos.php:539
+#: includes/demos.php:533
 msgid "File Missing"
 msgstr ""
 
-#: includes/demos.php:581
-msgid "Importing demo..."
+#: includes/demos.php:558
+msgid "More Demos with Versana PRO"
 msgstr ""
 
-#: includes/demos.php:582
-msgid "Removing demo..."
+#: includes/demos.php:561
+msgid ""
+"Unlock Restaurant, Fitness, Real Estate, WooCommerce Store, and more premium "
+"starter templates with the Versana PRO plugin."
 msgstr ""
 
-#: includes/demos.php:583
+#: includes/demos.php:573 patterns/business/hero-business-gradient.php:48
+#: patterns/business/hero-business-split.php:41
+msgid "Learn More"
+msgstr ""
+
+#: includes/demos.php:616
+msgid "Importing demo…"
+msgstr ""
+
+#: includes/demos.php:617
+msgid "Removing demo…"
+msgstr ""
+
+#: includes/demos.php:618
 msgid "This will import demo content and apply theme styling. Continue?"
 msgstr ""
 
-#: includes/demos.php:584
+#: includes/demos.php:619
 msgid "This will permanently delete all imported demo content. Are you sure?"
 msgstr ""
 
-#: includes/demos.php:585
+#: includes/demos.php:620
 msgid "Success!"
 msgstr ""
 
-#: includes/demos.php:586
+#: includes/demos.php:621
 msgid "Error"
 msgstr ""
 
-#: includes/demos.php:1172
+#: includes/demos.php:1176 includes/demos.php:1306
+msgid "Insufficient permissions."
+msgstr ""
+
+#: includes/demos.php:1185
+msgid "Invalid demo selected."
+msgstr ""
+
+#: includes/demos.php:1191
+msgid "Demo not found."
+msgstr ""
+
+#: includes/demos.php:1197
+msgid "This is a PRO demo. Please install the Versana PRO plugin to import it."
+msgstr ""
+
+#: includes/demos.php:1203
+msgid "Demo file not found."
+msgstr ""
+
+#: includes/demos.php:1212
 msgid "Required plugins are not active: "
+msgstr ""
+
+#: includes/demos.php:1219
+msgid "Could not read demo file."
+msgstr ""
+
+#: includes/demos.php:1224
+msgid "Could not parse demo file."
+msgstr ""
+
+#: includes/demos.php:1230
+msgid "Import completed with errors."
+msgstr ""
+
+#: includes/demos.php:1257 includes/demos.php:1366
+#, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/demos.php:1261 includes/demos.php:1373
+#, php-format
+msgid "%d page"
+msgid_plural "%d pages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/demos.php:1264
+msgid "navigation menu"
+msgstr ""
+
+#: includes/demos.php:1269
+#, php-format
+msgid "Demo imported successfully! Created %s."
+msgstr ""
+
+#: includes/demos.php:1276
+#, php-format
+msgid "Skipped %d existing item."
+msgid_plural "Skipped %d existing items."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/demos.php:1315
+msgid "No imported demo found."
+msgstr ""
+
+#: includes/demos.php:1378
+msgid "menu"
+msgstr ""
+
+#: includes/demos.php:1384
+#, php-format
+msgid "Demo content removed! Deleted %s."
+msgstr ""
+
+#: includes/features.php:31
+msgid "Optimizations"
+msgstr ""
+
+#: includes/features.php:46
+msgid "Performance Optimizations"
+msgstr ""
+
+#: includes/features.php:48
+msgid ""
+"Configure performance optimization settings to improve your site speed and "
+"user experience."
+msgstr ""
+
+#: includes/features.php:56
+msgid "Advanced Lazy Loading"
+msgstr ""
+
+#: includes/features.php:57
+msgid "Enhanced advanced image lazy loading for better perceived performance."
+msgstr ""
+
+#: includes/features.php:75
+msgid ""
+"More performance features — including advanced caching controls, font "
+"optimization, and critical CSS — are available in Versana PRO."
+msgstr ""
+
+#: includes/features.php:93
+msgid "Layout Features"
+msgstr ""
+
+#: includes/features.php:100
+msgid "Advanced Breadcrumbs"
+msgstr ""
+
+#: includes/features.php:101
+msgid ""
+"Automatic breadcrumb navigation with schema markup for blog posts. Improves "
+"navigation and SEO."
+msgstr ""
+
+#: includes/features.php:106
+msgid "Reading Progress Bar"
+msgstr ""
+
+#: includes/features.php:107
+msgid ""
+"Show a reading progress indicator at the top of the page. Provides visual "
+"feedback for long articles."
+msgstr ""
+
+#: includes/features.php:112
+msgid "Related Posts"
+msgstr ""
+
+#: includes/features.php:113
+msgid ""
+"Automatically show related posts by category/tags at the end of articles to "
+"increase engagement."
+msgstr ""
+
+#: includes/features.php:118
+msgid ""
+"Additional layout features such as mega-menus, sticky sidebars, and custom "
+"post layouts are available in Versana PRO."
+msgstr ""
+
+#: includes/features.php:203
+msgid "Enable"
+msgstr ""
+
+#: includes/features.php:240
+msgid "Versana PRO:"
+msgstr ""
+
+#: includes/features.php:246
+msgid "Learn more →"
 msgstr ""
 
 #: includes/layout.php:24
 msgid "Content & Layout"
 msgstr ""
 
-#: includes/layout.php:40
-msgid "Content/Layout Options"
+#: includes/license.php:38
+msgid "Versana PRO"
 msgstr ""
 
-#: includes/license.php:130
-msgid "License"
+#: includes/license.php:55
+msgid "Upgrade to Versana PRO"
 msgstr ""
 
-#: includes/license.php:208
-msgid "Versana PRO License"
-msgstr ""
-
-#: includes/license.php:217
-msgid "Your license is active!"
-msgstr ""
-
-#: includes/license.php:218
-msgid "You have access to all PRO features and demos."
-msgstr ""
-
-#: includes/license.php:225 includes/license.php:324
-msgid "License Key"
-msgstr ""
-
-#: includes/license.php:231
-msgid "Status"
-msgstr ""
-
-#: includes/license.php:234
-msgid "Active"
-msgstr ""
-
-#: includes/license.php:240
-msgid "License Type"
-msgstr ""
-
-#: includes/license.php:246
-msgid "Max Activations"
-msgstr ""
-
-#: includes/license.php:256
-msgid "Expires"
-msgstr ""
-
-#: includes/license.php:266
-msgid "Product"
-msgstr ""
-
-#: includes/license.php:271
-msgid "Last Verified"
-msgstr ""
-
-#: includes/license.php:277
-msgid "Never"
-msgstr ""
-
-#: includes/license.php:283 includes/license.php:353
-msgid "Actions"
-msgstr ""
-
-#: includes/license.php:287
-msgid "Check License Now"
-msgstr ""
-
-#: includes/license.php:291
-msgid "Deactivate License"
-msgstr ""
-
-#: includes/license.php:314
-msgid "No active license found."
-msgstr ""
-
-#: includes/license.php:315
-msgid "Activate your license to access PRO features and demos."
-msgstr ""
-
-#: includes/license.php:338
-msgid "Enter your Versana PRO license key to unlock premium features."
-msgstr ""
-
-#: includes/license.php:344
-msgid "Site URL"
-msgstr ""
-
-#: includes/license.php:348
-msgid "This URL will be activated on your license."
-msgstr ""
-
-#: includes/license.php:367
+#: includes/license.php:56
 msgid ""
-"Enter your license key and click \"Save Changes\" below before activating "
-"the license."
+"Versana PRO is a separate plugin that extends this companion plugin with "
+"premium starter templates, advanced layout features, and priority support."
 msgstr ""
 
-#: includes/license.php:369
-msgid "Click to activate your license key with our server."
+#: includes/license.php:61
+msgid "Premium Demo Templates"
 msgstr ""
 
-#: includes/license.php:390
-msgid "Don't have a license?"
+#: includes/license.php:63
+msgid ""
+"Import Restaurant, Fitness, Real Estate, WooCommerce Store, and Premium Shop "
+"starter sites with one click."
 msgstr ""
 
-#: includes/license.php:391
-msgid "Purchase Versana PRO to unlock premium demos and features."
+#: includes/license.php:67
+msgid "Advanced Performance"
 msgstr ""
 
-#: includes/license.php:397
-msgid "Purchase Versana PRO"
+#: includes/license.php:69
+msgid "Font optimization, advanced image optimizations, and more."
 msgstr ""
 
-#: includes/license.php:455
+#: includes/license.php:73
+msgid "Advanced Layout"
+msgstr ""
+
+#: includes/license.php:75
+msgid ""
+"Mega-menus, advanced pricing tables, auto popup, and more premium blocks."
+msgstr ""
+
+#: includes/license.php:79 patterns/business/pricing-3-column.php:174
+msgid "Priority Support"
+msgstr ""
+
+#: includes/license.php:81
+msgid ""
+"Get faster responses and dedicated help from the Versana development team."
+msgstr ""
+
+#: includes/license.php:100
+msgid "View Demo Previews"
+msgstr ""
+
+#: includes/license.php:105
+msgid ""
+"Already purchased? Install and activate the Versana PRO plugin. Once "
+"activated, this tab will be replaced with the license management screen."
+msgstr ""
+
+#: includes/output-features.php:186
+msgid "Home"
+msgstr ""
+
+#: includes/output-features.php:217
 #, php-format
-msgid "Connection error: %s"
+msgid "Search Results for \"%s\""
 msgstr ""
 
-#: includes/license.php:469
-msgid "Empty response from license server."
+#: includes/output-features.php:219
+msgid "404 Not Found"
 msgstr ""
 
-#: includes/license.php:481
-msgid "Invalid response format from license server."
+#: includes/output-features.php:222
+msgid "Breadcrumb"
 msgstr ""
 
-#: includes/license.php:492
-#, php-format
-msgid "Server error (Code: %d)"
+#: includes/output-features.php:324
+msgid "Related Articles"
 msgstr ""
 
-#: includes/license.php:510
-msgid ""
-"Invalid license key format. Expected: XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX"
-msgstr ""
-
-#: includes/license.php:568
-msgid "License activated successfully!"
-msgstr ""
-
-#: includes/license.php:574
-msgid "License activated but verification failed. Please check license status."
-msgstr ""
-
-#: includes/license.php:673 includes/license.php:698 includes/license.php:717
-msgid "Permission denied."
-msgstr ""
-
-#: includes/license.php:679 includes/theme-options/options-init.php:105
-msgid "Please enter a license key."
-msgstr ""
-
-#: includes/license.php:687
-msgid "Activation failed."
-msgstr ""
-
-#: includes/license.php:704
-msgid "License deactivated successfully."
-msgstr ""
-
-#: includes/license.php:706
-msgid "Deactivation failed."
-msgstr ""
-
-#: includes/license.php:723
-msgid "License is valid and active!"
-msgstr ""
-
-#: includes/license.php:725
-msgid "License verification failed. Please check your license key."
-msgstr ""
-
-#: includes/premium-features.php:24
-msgid "Optimizations"
-msgstr ""
-
-#: includes/premium-features.php:40
-msgid "Performance Optimizations"
-msgstr ""
-
-#: includes/premium-features.php:42
-msgid ""
-"Configure performance optimization settings to improve your site speed and "
-"user experience."
-msgstr ""
-
-#: includes/premium-features.php:54
-msgid "PRO Performance Features"
-msgstr ""
-
-#: includes/premium-features.php:58 includes/premium-features.php:168
-msgid "These features require an active PRO license."
-msgstr ""
-
-#: includes/premium-features.php:69
-msgid "Advanced Lazy Loading"
-msgstr ""
-
-#: includes/premium-features.php:70
-msgid ""
-"Enhanced lazy loading with fade-in effects, blur-up technique, and "
-"placeholder images for better UX."
-msgstr ""
-
-#: includes/premium-features.php:164
-msgid "PRO Layout Features"
-msgstr ""
-
-#: includes/premium-features.php:179
-msgid "Advanced Breadcrumbs"
-msgstr ""
-
-#: includes/premium-features.php:180
-msgid ""
-"Automatic breadcrumb navigation with schema markup for blog posts. Improves "
-"navigation and SEO."
-msgstr ""
-
-#: includes/premium-features.php:186
-msgid "Reading Progress Bar"
-msgstr ""
-
-#: includes/premium-features.php:187
-msgid ""
-"Show reading progress indicator at top of page. Provides visual feedback for "
-"long articles."
-msgstr ""
-
-#: includes/premium-features.php:193
-msgid "Related Posts"
-msgstr ""
-
-#: includes/premium-features.php:194
-msgid ""
-"Automatically show related posts by category/tags at the end of articles. "
-"Increases engagement and page views."
-msgstr ""
-
-#: includes/premium-features.php:227
-msgid "Enable this feature"
+#: includes/output-features.php:361
+msgid "Read More →"
 msgstr ""
 
 #: includes/theme-options/options-init.php:103
@@ -643,6 +712,10 @@ msgstr ""
 msgid ""
 "Please enter a valid Google Analytics ID (format: G-XXXXXXXXXX or UA-XXXXXX-"
 "X)"
+msgstr ""
+
+#: includes/theme-options/options-init.php:105
+msgid "Please enter a license key."
 msgstr ""
 
 #: includes/theme-options/options-init.php:106
@@ -729,8 +802,8 @@ msgstr ""
 
 #: includes/theme-options/options-page.php:177
 msgid ""
-"Scripts added here will be inserted into the <head> section. Include "
-"<script> tags."
+"Code entered here will be output in the head section of every page. Useful "
+"for analytics tags and verification meta tags."
 msgstr ""
 
 #: includes/theme-options/options-page.php:185
@@ -739,7 +812,8 @@ msgstr ""
 
 #: includes/theme-options/options-page.php:194
 msgid ""
-"Scripts added here will be inserted before </body>. Include <script> tags."
+"Code entered here will be output at the bottom of every page, before the "
+"closing body tag. Useful for chat widgets and conversion pixels."
 msgstr ""
 
 #: includes/theme-options/options-page.php:201
@@ -796,6 +870,189 @@ msgstr ""
 
 #: patterns/blog/blog-hero.php:42
 msgid "Start Reading"
+msgstr ""
+
+#: patterns/boutique/boutique-hero-fullscreen.php:26
+msgid "Spring Collection 2026"
+msgstr ""
+
+#: patterns/boutique/boutique-hero-fullscreen.php:30
+msgid "Timeless Elegance"
+msgstr ""
+
+#: patterns/boutique/boutique-hero-fullscreen.php:34
+msgid "Discover curated pieces that define sophistication"
+msgstr ""
+
+#: patterns/boutique/boutique-hero-fullscreen.php:40
+msgid "SHOP COLLECTION"
+msgstr ""
+
+#: patterns/boutique/boutique-instagram-feed.php:19
+msgid "Follow Our Story"
+msgstr ""
+
+#: patterns/boutique/boutique-instagram-feed.php:23
+msgid "@fashionboutique"
+msgstr ""
+
+#: patterns/boutique/boutique-lookbook.php:34
+msgid "Lookbook — Spring 2026"
+msgstr ""
+
+#: patterns/boutique/boutique-lookbook.php:38
+msgid "Modern Minimalism"
+msgstr ""
+
+#: patterns/boutique/boutique-lookbook.php:42
+msgid ""
+"Clean lines meet effortless sophistication. Our Spring collection celebrates "
+"the beauty of simplicity with timeless pieces crafted from the finest "
+"materials."
+msgstr ""
+
+#: patterns/boutique/boutique-lookbook.php:46
+msgid ""
+"Each garment is thoughtfully designed to transcend seasons, offering "
+"versatility and enduring style for the modern wardrobe."
+msgstr ""
+
+#: patterns/boutique/boutique-lookbook.php:52
+msgid "EXPLORE COLLECTION"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:19
+msgid "New Arrivals"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:23
+msgid "Handpicked pieces for the modern wardrobe"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:47
+msgid "Silk Midi Dress"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:51
+msgid "Ivory"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:55
+msgid "$485"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:81
+msgid "Cashmere Sweater"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:85
+msgid "Camel"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:89
+msgid "$325"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:115
+msgid "Wide Leg Trousers"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:119
+msgid "Navy"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:123
+msgid "$265"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:149
+msgid "Wool Blazer"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:153
+msgid "Charcoal"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:157
+msgid "$595"
+msgstr ""
+
+#: patterns/boutique/boutique-product-grid.php:171
+msgid "VIEW ALL PRODUCTS"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:19
+msgid "Size Guide"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:23
+msgid "Find your perfect fit with our detailed measurements"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:32
+msgid "Size"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:32
+msgid "US"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:32
+msgid "EU"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:32
+msgid "Bust (in)"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:32
+msgid "Waist (in)"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:32
+msgid "Hip (in)"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:32
+msgid "XS"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:32
+msgid "S"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:32
+msgid "M"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:32
+msgid "L"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:32
+msgid "XL"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:40
+msgid "How to Measure"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:45
+msgid "<strong>Bust:</strong> Measure around the fullest part of your bust"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:46
+msgid "<strong>Waist:</strong> Measure around the narrowest part of your waist"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:47
+msgid "<strong>Hip:</strong> Measure around the fullest part of your hips"
+msgstr ""
+
+#: patterns/boutique/boutique-size-guide.php:52
+msgid ""
+"Need help finding your size? Contact our customer service team for "
+"personalized assistance."
 msgstr ""
 
 #: patterns/business/business-about.php:36
@@ -979,11 +1236,6 @@ msgstr ""
 msgid "Get Started"
 msgstr ""
 
-#: patterns/business/hero-business-gradient.php:48
-#: patterns/business/hero-business-split.php:41
-msgid "Learn More"
-msgstr ""
-
 #: patterns/business/hero-business-gradient.php:62
 #: patterns/business/hero-business-gradient.php:107
 #: patterns/business/hero-business-split.php:55
@@ -1089,10 +1341,6 @@ msgstr ""
 
 #: patterns/business/pricing-3-column.php:164
 msgid "Unlimited Projects"
-msgstr ""
-
-#: patterns/business/pricing-3-column.php:174
-msgid "Priority Support"
 msgstr ""
 
 #: patterns/business/pricing-3-column.php:175
@@ -1805,23 +2053,23 @@ msgstr ""
 msgid "Founder, Design Agency"
 msgstr ""
 
-#: versana-companion.php:118
+#: versana-companion.php:124
 msgid "⚠️ Versana Companion Error:"
 msgstr ""
 
-#: versana-companion.php:119
+#: versana-companion.php:125
 msgid "This plugin requires the Versana theme."
 msgstr ""
 
-#: versana-companion.php:123
+#: versana-companion.php:129
 #, php-format
 msgid "You currently have %s active."
 msgstr ""
 
-#: versana-companion.php:130
+#: versana-companion.php:136
 msgid "Go to Themes"
 msgstr ""
 
-#: versana-companion.php:133
+#: versana-companion.php:139
 msgid "Get Versana Theme"
 msgstr ""

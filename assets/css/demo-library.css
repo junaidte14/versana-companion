@@ -1,6 +1,13 @@
 /**
  * Demo Library Styles
+ *
+ * @package Versana Companion
+ * @since 1.0.0
  */
+
+/* ============================================================
+   Demo Library Grid
+   ============================================================ */
 
 .versana-demo-library {
     display: grid;
@@ -9,6 +16,10 @@
     margin-top: 30px;
 }
 
+/* ============================================================
+   Demo Item Card
+   ============================================================ */
+
 .versana-demo-item {
     background: #fff;
     border: 1px solid #ddd;
@@ -16,6 +27,8 @@
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .versana-demo-item:hover {
@@ -27,6 +40,31 @@
     opacity: 0.6;
     pointer-events: none;
 }
+
+/* Imported demo — green border */
+.versana-demo-item.demo-imported {
+    border-color: #4CAF50;
+    background: #f0f9f0;
+}
+
+/* ============================================================
+   PRO Teaser Card
+   Informational only — distinct visual treatment, fully interactive.
+   ============================================================ */
+
+.versana-demo-pro-teaser {
+    border-color: #c8a84b;
+    background: #fffdf5;
+}
+
+.versana-demo-pro-teaser:hover {
+    border-color: #b8942e;
+    box-shadow: 0 5px 15px rgba(200, 168, 75, 0.2);
+}
+
+/* ============================================================
+   Thumbnail
+   ============================================================ */
 
 .demo-thumbnail {
     position: relative;
@@ -65,56 +103,17 @@
     color: #ccc;
 }
 
-.demo-info {
-    padding: 20px;
-}
+/* ============================================================
+   Badges
+   ============================================================ */
 
-.demo-name {
-    margin: 0 0 10px;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.demo-description {
-    margin: 0;
-    color: #666;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.demo-actions {
-    padding: 0 20px 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.demo-actions .button {
-    flex: 1;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-}
-
-.demo-actions .button .dashicons {
-    font-size: 16px;
-    width: 16px;
-    height: 16px;
-}
-
-.demo-actions .button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-/* Imported Demo Badge */
+/* "Imported" badge */
 .demo-imported-badge {
     position: absolute;
     top: 10px;
     right: 10px;
     background: #4CAF50;
-    color: white;
+    color: #fff;
     padding: 5px 12px;
     border-radius: 4px;
     font-size: 12px;
@@ -131,12 +130,27 @@
     height: 16px;
 }
 
-.versana-demo-item.demo-imported {
-    border-color: #4CAF50;
-    background: #f0f9f0;
+/* "PRO" badge (top-right corner of thumbnail) */
+.versana-pro-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(135deg, #c8a84b 0%, #a07830 100%);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
 
-/* Progress Bar */
+/* ============================================================
+   Import Progress Bar
+   ============================================================ */
+
 .demo-progress {
     position: absolute;
     top: 0;
@@ -165,42 +179,59 @@
     background: #1A73E8;
     width: 0%;
     transition: width 0.3s ease;
-    animation: progress-animation 1.5s infinite;
+    animation: versana-progress-pulse 1.5s infinite;
 }
 
-@keyframes progress-animation {
-    0% {
-        width: 0%;
-    }
-    50% {
-        width: 70%;
-    }
-    100% {
-        width: 100%;
-    }
+@keyframes versana-progress-pulse {
+    0%   { width: 0%; }
+    50%  { width: 70%; }
+    100% { width: 100%; }
 }
 
 .demo-progress-text {
-    color: white;
+    color: #fff;
     font-size: 14px;
     font-weight: 500;
 }
 
-/* Notice Styles */
-#versana-import-notices {
-    margin-bottom: 20px;
+/* ============================================================
+   Demo Info
+   ============================================================ */
+
+.demo-info {
+    padding: 20px;
+    flex: 1;
 }
 
-#versana-import-notices .notice {
-    margin: 5px 0 15px;
-    padding: 12px;
+.demo-name {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 600;
 }
 
-#versana-import-notices .notice p {
-    margin: 0.5em 0;
+.demo-description {
+    margin: 0 0 10px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
-/* Import Options Checkboxes */
+.demo-features {
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.demo-features li {
+    font-size: 13px;
+    color: #555;
+    padding: 2px 0;
+}
+
+/* ============================================================
+   Import Options Checkboxes
+   ============================================================ */
+
 .demo-import-options {
     padding: 0 20px 10px;
     display: flex;
@@ -227,7 +258,56 @@
     color: #333;
 }
 
-/* PRO Notice */
+/* ============================================================
+   Actions Row
+   ============================================================ */
+
+.demo-actions {
+    padding: 0 20px 20px;
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.demo-actions .button {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.demo-actions .button .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.demo-actions .button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* "Get Versana PRO" button — warm gold, inviting */
+.versana-get-pro-btn {
+    background: linear-gradient(135deg, #c8a84b 0%, #a07830 100%) !important;
+    border-color: #a07830 !important;
+    color: #fff !important;
+    font-weight: 600;
+}
+
+.versana-get-pro-btn:hover,
+.versana-get-pro-btn:focus {
+    background: linear-gradient(135deg, #d4b558 0%, #b08840 100%) !important;
+    border-color: #b08840 !important;
+    color: #fff !important;
+}
+
+/* ============================================================
+   PRO Upsell Banner (above demo grid)
+   ============================================================ */
+
 .versana-pro-notice {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
@@ -298,128 +378,46 @@
     border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Demo Overlay (for locked demos) */
-.versana-demo-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(2px);
+/* ============================================================
+   Import Notices
+   ============================================================ */
+
+#versana-import-notices {
+    margin-bottom: 20px;
 }
 
-.versana-demo-overlay .dashicons {
-    font-size: 48px;
-    width: 48px;
-    height: 48px;
-    color: #fff;
-    opacity: 0.9;
+#versana-import-notices .notice {
+    margin: 5px 0 15px;
+    padding: 12px;
 }
 
-/* PRO Badge */
-.versana-pro-badge {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    padding: 5px 12px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    z-index: 10;
+#versana-import-notices .notice p {
+    margin: 0.5em 0;
 }
 
-/* Active Badge */
-.versana-active-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: #00a32a;
-    color: #fff;
-    padding: 5px 12px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-}
+/* ============================================================
+   Responsive
+   ============================================================ */
 
-.versana-active-badge .dashicons {
-    width: 14px;
-    height: 14px;
-    font-size: 14px;
-}
-
-/* Unlock button special styling */
-.versana-unlock-demo {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border: none;
-    color: #fff;
-    font-weight: 600;
-}
-
-.versana-unlock-demo:hover {
-    background: linear-gradient(135deg, #5568d3 0%, #653a8d 100%);
-    color: #fff;
-}
-
-/* License Page Styles */
-.versana-license-info,
-.versana-license-activation {
-    max-width: 700px;
-}
-
-.versana-status-badge {
-    display: inline-block;
-    padding: 5px 12px;
-    border-radius: 3px;
-    font-weight: 600;
-    font-size: 13px;
-}
-
-.versana-status-active {
-    background: #d4edda;
-    color: #155724;
-}
-
-.versana-status-inactive {
-    background: #f8d7da;
-    color: #721c24;
-}
-
-/* Responsive */
-@media (max-width: 782px) {   
+@media (max-width: 782px) {
     .versana-pro-notice {
         padding: 20px;
     }
-    
+
     .versana-pro-notice h3 {
         font-size: 20px;
     }
 }
 
-/* Responsive */
 @media screen and (max-width: 782px) {
     .versana-demo-library {
         grid-template-columns: 1fr;
     }
-    
+
     .demo-actions {
         flex-direction: column;
     }
-    
+
     .demo-actions .button {
         width: 100%;
     }

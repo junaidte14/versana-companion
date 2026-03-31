@@ -174,7 +174,7 @@ function versana_render_integrations_tab() {
                                   rows="5" 
                                   class="large-text code"><?php echo esc_textarea( versana_get_option( 'header_scripts' ) ); ?></textarea>
                         <p class="description">
-                            <?php esc_html_e( 'Scripts added here will be inserted into the <head> section. Include <script> tags.', 'versana-companion' ); ?>
+                            <?php esc_html_e( 'Code entered here will be output in the head section of every page. Useful for analytics tags and verification meta tags.', 'versana-companion' ); ?>
                         </p>
                     </td>
                 </tr>
@@ -191,7 +191,7 @@ function versana_render_integrations_tab() {
                                   rows="5" 
                                   class="large-text code"><?php echo esc_textarea( versana_get_option( 'footer_scripts' ) ); ?></textarea>
                         <p class="description">
-                            <?php esc_html_e( 'Scripts added here will be inserted before </body>. Include <script> tags.', 'versana-companion' ); ?>
+                            <?php esc_html_e( 'Code entered here will be output at the bottom of every page, before the closing body tag. Useful for chat widgets and conversion pixels.', 'versana-companion' ); ?>
                         </p>
                     </td>
                 </tr>
