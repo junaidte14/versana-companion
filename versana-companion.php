@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Versana Companion
  * Description: Extends the Versana theme with seamless demo imports, exclusive starter templates, and advanced block patterns.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Junaid Hassan
  * Author URI: https://codoplex.com
  * License: GPL v2 or later
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Plugin constants
  */
-define( 'VERSANA_COMPANION_VERSION', '1.0.1' );
+define( 'VERSANA_COMPANION_VERSION', '1.0.2' );
 define( 'VERSANA_COMPANION_PATH', plugin_dir_path( __FILE__ ) );
 define( 'VERSANA_COMPANION_URL', plugin_dir_url( __FILE__ ) );
 define( 'VERSANA_PRO_PURCHASE_URL', 'https://versana.codoplex.com/get-versana-pro/' );
@@ -84,10 +84,6 @@ function versana_companion_init() {
     // Admin page (conditional - only in admin)
     if ( is_admin() && file_exists( $theme_options_path . 'options-page.php' ) ) {
         require_once $theme_options_path . 'options-page.php';
-    }
-    // Frontend output
-    if ( file_exists( $theme_options_path . 'options-output.php' ) ) {
-        require_once $theme_options_path . 'options-output.php';
     }
 
     require_once VERSANA_COMPANION_PATH . '/includes/customizer.php';

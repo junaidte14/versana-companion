@@ -4,7 +4,7 @@ Tags: demo import, starter templates, versana
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,10 @@ The Demo Import tab displays preview buttons that open demo previews on versana.
 5. **Integrations:** Add analytics tags or other head/footer code in one place.
 
 == Changelog ==
+
+= 1.0.2 =
+* Removed the header and footer scripts to comply with WP Directory submission rules
+* Changed the theme options tab name from Integrations to Advanced
 
 = 1.0.1 =
 * Page title issue is fixed
