@@ -72,7 +72,7 @@ The Demo Import tab displays preview buttons that open demo previews on versana.
 2. **PRO Demo Previews:** See what is available in Versana PRO with teaser cards and direct preview links — no obligation.
 3. **Content & Layout Options:** Toggle breadcrumbs, reading progress, and related posts without touching any code.
 4. **Performance Optimizations:** Enable advanced lazy loading and other speed improvements from one settings screen.
-5. **Integrations:** Add analytics tags or other head/footer code in one place.
+5. **Customizer:** Configure the header, footer, and blog layout options via the WordPress Customizer
 
 == Changelog ==
 
