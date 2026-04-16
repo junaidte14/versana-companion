@@ -153,72 +153,10 @@ function versana_render_options_page() {
 function versana_render_integrations_tab() {
     ?>
     <div class="versana-tab-content">
-        <h2><?php esc_html_e( 'Third-Party Integrations', 'versana-companion' ); ?></h2>
-        <p class="description">
-            <?php esc_html_e( 'Connect your site with third-party services by adding their scripts.', 'versana-companion' ); ?>
-        </p>
-        
-        <table class="form-table" role="presentation">
-            <tbody>
-                
-                <?php if ( current_user_can( 'unfiltered_html' ) ) : ?>
-                <tr>
-                    <th scope="row">
-                        <label for="header_scripts">
-                            <?php esc_html_e( 'Header Scripts', 'versana-companion' ); ?>
-                        </label>
-                    </th>
-                    <td>
-                        <textarea id="header_scripts" 
-                                  name="versana_theme_options[header_scripts]" 
-                                  rows="5" 
-                                  class="large-text code"><?php echo esc_textarea( versana_get_option( 'header_scripts' ) ); ?></textarea>
-                        <p class="description">
-                            <?php esc_html_e( 'Scripts added here will be inserted into the <head> section. Include <script> tags.', 'versana-companion' ); ?>
-                        </p>
-                    </td>
-                </tr>
-                
-                <tr>
-                    <th scope="row">
-                        <label for="footer_scripts">
-                            <?php esc_html_e( 'Footer Scripts', 'versana-companion' ); ?>
-                        </label>
-                    </th>
-                    <td>
-                        <textarea id="footer_scripts" 
-                                  name="versana_theme_options[footer_scripts]" 
-                                  rows="5" 
-                                  class="large-text code"><?php echo esc_textarea( versana_get_option( 'footer_scripts' ) ); ?></textarea>
-                        <p class="description">
-                            <?php esc_html_e( 'Scripts added here will be inserted before </body>. Include <script> tags.', 'versana-companion' ); ?>
-                        </p>
-                    </td>
-                </tr>
-                <?php else : ?>
-                <tr>
-                    <th scope="row">
-                        <?php esc_html_e( 'Custom Scripts', 'versana-companion' ); ?>
-                    </th>
-                    <td>
-                        <p class="description">
-                            <?php esc_html_e( 'Custom script fields are only available to administrators for security reasons.', 'versana-companion' ); ?>
-                        </p>
-                    </td>
-                </tr>
-                <?php endif; ?>
-
-                <?php
-                    /**
-                     * Extensibility Hook: Add custom integration settings
-                     *
-                     * @since 1.0.0
-                     */
-                    do_action( 'versana_integrations_tab_settings' );
-                ?>
-            </tbody>
-        </table>
-
+        <h2><?php esc_html_e( 'Settings', 'versana-companion' ); ?></h2>
+ 
+        <?php do_action( 'versana_integrations_tab_settings' ); ?>
+ 
         <div class="versana-reset-section">
             <h3><?php esc_html_e( 'Reset Options', 'versana-companion' ); ?></h3>
             <p class="description">

@@ -27,23 +27,6 @@ function versana_customize_register( $wp_customize ) {
         'priority' => 30,
     ) );
     
-    // Header Layout
-    $wp_customize->add_setting( 'header_layout', array(
-        'default'           => 'default',
-        'sanitize_callback' => 'versana_sanitize_select',
-        'transport'         => 'refresh',
-    ) );
-    
-    $wp_customize->add_control( 'header_layout', array(
-        'label'   => __( 'Header Layout', 'versana-companion' ),
-        'section' => 'versana_header_settings',
-        'type'    => 'select',
-        'choices' => array(
-            'default'  => __( 'Default (Logo Left, Menu Right)', 'versana-companion' ),
-            'centered' => __( 'Centered (Logo & Menu Centered)', 'versana-companion' ),
-        ),
-    ) );
-    
     // Sticky Header
     $wp_customize->add_setting( 'enable_sticky_header', array(
         'default'           => false,
@@ -93,15 +76,15 @@ function versana_customize_register( $wp_customize ) {
     ) );
 
     // Enable Back to Top
-    $wp_customize->add_setting( 'hide_page_titles', array(
-        'default'           => true,
+    $wp_customize->add_setting( 'show_page_titles', array(
+        'default'           => false,
         'sanitize_callback' => 'versana_sanitize_checkbox',
         'transport'         => 'refresh',
     ) );
     
-    $wp_customize->add_control( 'hide_page_titles', array(
-        'label'       => __( 'Hide Page Titles', 'versana-companion' ),
-        'description' => __( 'Check to hide titles site-wide (useful when adding custom titles in page content).', 'versana-companion' ),
+    $wp_customize->add_control( 'show_page_titles', array(
+        'label'       => __( 'Show Page Titles', 'versana-companion' ),
+        'description' => __( 'Check to show page titles site-wide (useful when showing default page titles in page content).', 'versana-companion' ),
         'section'     => 'versana_content_settings',
         'type'        => 'checkbox',
     ) );
@@ -220,10 +203,6 @@ function versana_customize_body_classes( $classes ) {
         $classes[] = 'has-sticky-header';
     }
 
-    // Header Layout
-    $header_layout = versana_get_theme_mod( 'header_layout', 'default' );
-    $classes[] = 'header-layout-' . sanitize_html_class( $header_layout );
-
     // Blog/Archive Pages: Sidebar position
     if ( is_home() || is_archive() || is_search() || is_singular() ) {
         $sidebar_position = versana_get_theme_mod( 'blog_sidebar_position', 'right' );
@@ -247,9 +226,9 @@ function versana_customize_body_classes( $classes ) {
 
     // Content Layout
 
-    // Hide page titles
-    if ( versana_get_theme_mod( 'hide_page_titles', true ) ) {
-        $classes[] = 'versana-hide-page-title';
+    // Show page titles
+    if ( versana_get_theme_mod( 'show_page_titles', false ) ) {
+        $classes[] = 'versana-show-page-title';
     }
 
     // Blog Layout (on blog/home page)
@@ -287,17 +266,6 @@ function versana_enqueue_customizer_dynamic_assets() {
 
     // Check Customizer settings
     $sticky_enabled = versana_get_theme_mod( 'enable_sticky_header', false );
-    $header_layout  = versana_get_theme_mod( 'header_layout', 'default' );
-
-    // Load header CSS if non-default layout is active
-    if ( $header_layout !== 'default' ) {
-        wp_enqueue_style(
-            'versana-header-layouts',
-            VERSANA_COMPANION_URL . '/assets/css/header-layouts.css',
-            array(),
-            VERSANA_COMPANION_VERSION
-        );
-    }
 
     // Load assets if sticky header is enabled
     if ( $sticky_enabled ) {

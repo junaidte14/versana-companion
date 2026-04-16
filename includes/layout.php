@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * ============================================================================
- * LAYOUT TAB - Show/Hide Page Titles
+ * LAYOUT TAB
  * ============================================================================
  */
 
@@ -37,8 +37,6 @@ add_filter( 'versana_option_tabs', 'versana_companion_add_layout_tab' );
 function versana_companion_render_layout_tab() {
     ?>
     <div class="versana-tab-content">
-        <h3><?php esc_html_e( 'Content/Layout Options', 'versana-companion' ); ?></h3>
-        
         <table class="form-table" role="presentation">
             <tbody>
                 <?php

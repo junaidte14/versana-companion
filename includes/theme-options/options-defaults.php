@@ -20,11 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array Default options array
  */
 function versana_get_default_options() {
-    $defaults = array(        
-        // Integrations Tab
-        'header_scripts'           => '',
-        'footer_scripts'           => '',
-    );
+    $defaults = array();
     
     /**
      * Filter default theme options

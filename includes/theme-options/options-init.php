@@ -125,7 +125,7 @@ add_action( 'admin_enqueue_scripts', 'versana_enqueue_admin_assets' );
 function versana_get_option_tabs() {
     $tabs = array(
         'integrations' => array(
-            'title'    => __( 'Integrations', 'versana-companion' ),
+            'title'    => __( 'Advanced', 'versana-companion' ),
             'icon'     => 'dashicons-admin-links',
             'callback' => 'versana_render_integrations_tab',
             'priority' => 60,
